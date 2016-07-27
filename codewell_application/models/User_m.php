@@ -1,0 +1,158 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class User_m extends MY_Model{
+	
+	protected $_table_name = 'codewell_users';
+	protected $_order_by = 'idUSER';
+	protected $_primary_key = 'idUSER';
+
+	public $rules_user = array(
+		'emailUSER' => array(
+			'field' => 'emailUSER', 
+			'label' => 'emailUSER', 
+			'rules' => 'trim|required|valid_email'
+		),
+		'roleUSER' => array(
+			'field' => 'roleUSER', 
+			'label' => 'roleUSER', 
+			'rules' => 'trim|required'
+		),
+		'passwordUSER' => array(
+			'field' => 'passwordUSER', 
+			'label' => 'passwordUSER', 
+			'rules' => 'trim|required'
+		)	  
+	);
+
+	public $rules_login = array(
+		'emailUSER' => array(
+			'field' => 'emailUSER',
+			'label' => 'emailUSER',
+			'rules' => 'trim|required|valid_email'
+		),
+		'passwordUSER' => array(
+			'field' => 'passwordUSER',
+			'label' => 'passwordUSER',
+			'rules' => 'trim|required'
+		)
+	);
+
+	public $rules_changepassword = array(
+		'oldpasswordUSER' => array(
+			'field' => 'oldpasswordUSER',
+			'label' => 'oldpasswordUSER',
+			'rules' => 'trim|required'
+		),
+		'passwordUSER' => array(
+			'field' => 'passwordUSER',
+			'label' => 'passwordUSER',
+			'rules' => 'trim|required'
+		),
+		'repasswordUSER' => array(
+			'field' => 'repasswordUSER',
+			'label' => 'repasswordUSER',
+			'rules' => 'trim|required'
+		)
+	);
+
+	function __construct (){
+		parent::__construct();
+	}
+
+	public function get_new(){
+		$new = new stdClass();
+		$new->idUSER = '';
+		$new->emailUSER = '';
+		$new->roleUSER = '';
+		$new->passwordUSER = '';
+		$new->statusUSER = '';
+		return $new;
+	}
+
+	public function selectall_users($id=NULL){
+		$this->db->select('users.*');
+
+		$this->db->from('users');
+
+        if($id != NULL){
+            $this->db->where('users.idUSER',$id);
+		}
+		return $this->db->get();
+	}
+
+	public function hash ($string){
+		return hash('sha512', $string . config_item('encryption_key'));
+	}
+
+	public function login($email, $pass){
+    	
+    	$dat1 = array(
+    		'emailUSER' => $email,
+    		'passwordUSER' => $this->hash($pass),
+    		'roleUSER' => '22'
+    	);
+
+    	$dat2 = array(
+    		'emailCUSTOMER' => $email,
+    		'passwordCUSTOMER' => $this->hash($pass)
+    	);
+
+    	$dat3 = array(
+    		'emailUSER' => $email,
+    		'passwordUSER' => $this->hash($pass),
+    		'roleUSER' => '24'
+    	);
+
+    	$Administrator = $this->db->get_where('codewell_users',$dat1)->row();
+    	$Customer = $this->db->get_where('codewell_customers',$dat2)->row();
+    	$Karyawan = $this->db->get_where('codewell_users',$dat3)->row();
+
+    	if(count($Customer)){
+    		if($Customer->statusCUSTOMER == 1){
+	    		$datacustomer = array(
+	    			'Name' => $Customer->nameCUSTOMER,
+	    			'Email' => $Customer->emailCUSTOMER,
+	    			'idCUSTOMER' => $Customer->idCUSTOMER,
+	    			'logged_in' => TRUE,
+	    		);
+	    		$this->session->set_userdata($datacustomer);
+	    		return "CUSTOMER";
+    		}
+    	}
+
+    	if(count($Administrator)){
+    		$data = array(
+    			'Email' => $Administrator->emailUSER,
+    			'idUSER' => $Administrator->idUSER,
+    			'roleUSER' => 22,
+    			'logged_in' => TRUE,
+    		);
+    		$this->session->set_userdata($data);
+    		return "ADMIN";
+    	}
+
+    	if(count($Karyawan)){
+    		$data = array(
+    			'Email' => $Karyawan->emailUSER,
+    			'idUSER' => $Karyawan->idUSER,
+    			'roleUSER' => 24,
+    			'logged_in' => TRUE,
+    		);
+    		$this->session->set_userdata($data);
+    		return "KARYAWAN";
+    	}	
+    }
+
+	public function logout(){
+		$this->session->sess_destroy();
+	}
+
+	public function checkoldpassword($id){
+		$this->db->select('idUSER, passwordUSER');
+		$this->db->from('users');
+		$this->db->where('idUSER', $id);
+
+		return $this->db->get();
+	}
+}
