@@ -37,7 +37,7 @@
         </div>
     </div>
 </div>
-<h4 class="heading_a uk-margin-bottom">Individual column searching</h4>
+<h4 class="heading_a uk-margin-bottom">Daftar Order</h4>
 <div class="md-card uk-margin-medium-bottom">
     <div class="md-card-content">
         <table id="dt_individual_search" class="uk-table" cellspacing="0" width="100%">
@@ -72,7 +72,7 @@
                 <td><?php echo $order->kodeORDER;?></td>
                 <td><?php echo $order->createdateORDER;?></td>
                 <td><?php echo $order->status;?></td>
-                <td><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>/<?php echo $order->kodeORDER;?>">Lihat detail</a></td>
+                <td><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>">Lihat detail</a></td>
             </tr>
             <?php } ?>
             </tbody>
