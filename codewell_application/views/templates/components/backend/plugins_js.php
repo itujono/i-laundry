@@ -81,11 +81,10 @@ if($plugins == 'plugins_datatables'){
 ?>
 <?php echo $datatables;?>
 
-<!-- datatables tableTools-->
-<script src="<?php echo base_url(); ?>assets/backend/bower_components/datatables-tabletools/js/dataTables.tableTools.js"></script>
 <!-- page specific plugins -->
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+
 <!-- chartist (charts) -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/chartist/dist/chartist.min.js"></script>
 <!-- peity (small charts) -->
@@ -96,6 +95,12 @@ if($plugins == 'plugins_datatables'){
 <!-- countUp -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/countUp.js/countUp.js"></script>
 <script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/dashboard.min.js"></script>
+
+<?php
+}elseif($plugins == 'plugins_orderdetail'){
+?>
+<!-- jquery.idle -->
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
 <?php                   
 }else{}
@@ -137,7 +142,7 @@ var modal = UIkit.modal("#modal_idle", {
     }),
     session = {
         //Logout Settings
-        inactiveTimeout: 120000,      //(ms) The time until we display a warning message
+        inactiveTimeout: 300000,      //(ms) The time until we display a warning message
         warningTimeout: 30000,      //(ms) The time until we log them out
         minWarning: 5000,           //(ms) If they come back to page (on mobile), The minumum amount, before we just log them out
         warningStart: null,         //Date time the warning was started

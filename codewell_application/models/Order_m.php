@@ -11,24 +11,17 @@ class Order_m extends MY_Model{
 		parent::__construct();
 	}
 
-	// public function get_new(){
-	// 	$new = new stdClass();
-	// 	$new->idAROMA = '';
-	// 	$new->nameAROMA = '';
-	// 	$new->pricesAROMA = '';
-	// 	$new->statusAROMA = '';
-	// 	return $new;
-	// }
-
 	public function selectall_order($id=NULL, $status=NULL){
 		$this->db->select('orders.*');
-		$this->db->select('customers.nameCUSTOMER');
+		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER');
 		$this->db->select('aroma.nameAROMA');
 		$this->db->select('packages.namePACKAGE');
 		$this->db->select('services.nameSERVICES');
 		$this->db->select('jasa.nameJASA');
 		$this->db->select('payment.namePAYMENT,descriptionPAYMENT');
 		$this->db->select('area.nameAREA');
+		$this->db->select('regions.nameREGION');
+
 
 		$this->db->from('orders');
 		$this->db->join('customers','customers.idCUSTOMER = orders.idCUSTOMER');
@@ -38,13 +31,25 @@ class Order_m extends MY_Model{
 		$this->db->join('jasa','jasa.idJASA = orders.idJASA');
 		$this->db->join('payment','payment.idPAYMENT = orders.idPAYMENT');
 		$this->db->join('area','area.idAREA = orders.idAREA');
+		$this->db->join('regions','regions.idREGION = area.idREGION');
+
 
         if($id != NULL){
-            $this->db->where('orders.idAROMA',$id);
+            $this->db->where('orders.idORDER',$id);
 		}
 		if($status != NULL){
             $this->db->where('orders.statusORDER',$status);
 		}
 		return $this->db->get();
 	}
+
+	function counts($table=NULL,$filter=NULL){
+        $fil = '';
+        if($filter != ''){
+            $fil="WHERE $filter";
+        }
+        $query = $this->db->query("SELECT statusORDER FROM $table $fil");
+        return $query->num_rows();
+
+    }
 }
