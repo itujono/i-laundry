@@ -23,7 +23,7 @@ width: 100%;
 overflow-x: hidden;
 }
 body {
-font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Signika', sans-serif;
 margin: 0;
 padding: 0;
 color: #232323;
@@ -443,7 +443,7 @@ display:block;
 float:left;
 clear:both;
 text-align:left;
-border-bottom:1px #ddd solid;
+border-bottom:1px #eee solid;
 }
 
 .main-nav ul li.subnav{
@@ -701,14 +701,18 @@ letter-spacing:-1px;
 color:#333;
 line-height:85px;
 } 
-.slider-caption span.subtitle{
-width:100%;
-margin:0px 0 10px 0;
-font-size:22px;
-font-weight:700;
-color:#555;
-display:block;
-} 
+
+
+.slider-caption span.subtitle {
+    width: 100%;
+    margin: 0px 0 10px 0;
+    font-size: 22px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    color: #555;
+    display: block;
+}
+
 .slider-caption p{
 color:#555;
 font-size:16px;
@@ -779,7 +783,7 @@ a.swiper_read_more {
     margin: 10px 0 0 0;
     display: inline-block;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 100;
     border-radius: 100px;
     background-color: #2fa9e0;
 }
@@ -976,25 +980,29 @@ line-height:30px;
 /*===============================================*/
 /* 8. POPUPS */
 /*===============================================*/	
+
 .popup{
-background-color:#FFFFFF;
+  background-color:#8ad3db;
 }
+
 .popup h4{
-color:#222222;
+color:#fff;
 font-size:22px;
 font-weight:700;
 text-align:center;
 padding:0 0 20px 0;
 margin:0px;
 }
+
 .popup h5{
-color:#222222;
+color:#fff;
 font-size:14px;
 font-weight:300;
 text-align:center;
 padding:20px 0 10px 0;
 margin:0px;
 }
+
 .popup p{
 text-align:center;
 padding:0px 0 20px 0;
@@ -1888,29 +1896,35 @@ background:url(images/dropdown.png) no-repeat right;
 .loginform .form_select option{
 padding:3px;
 }
-.loginform input.form_submit{ 
-width:100%;
-padding:12px 0; 
-margin:10px 0 0 0; 
-text-align:center;
-cursor:pointer; 
-font-size:18px;
-font-weight:300;
-color:#222222;
-border: none;
-cursor:pointer;
--webkit-appearance: none;
- background-color:#c7ba99;
+
+.loginform input.form_submit {
+    width: 100%;
+    padding: 12px 0;
+    margin: 30px 0 0 0;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    background-color: #2fa9e0;
+    border-radius: 100px;
 }
+
 .forgot_pass{
 width:100%;
 text-align:right;
 font-size:12px;
 }
-.forgot_pass a{
-font-weight:700;
-color:#7cbe55;
+
+.forgot_pass a {
+    font-weight: 100;
+    color: #777;
+    font-size: 14px;
 }
+
 .signup_bottom{
 width:100%;
 text-align:center;
@@ -1921,14 +1935,15 @@ opacity: 1;
 padding:0px 0 10px 0;
 font-size:16px;
 }
+
 .signup_bottom a{
-background-color:#7cbe55;
 color:#fff;
 font-weight:300;
 font-size:16px;
 padding:5px 10px;
 border-radius:15px;
 }
+
 .signup_social{
 width:100%;
 text-align:center;

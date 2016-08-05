@@ -8,11 +8,11 @@
   <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-  <title>varius - mobile template</title>
+  <title>i-Laundry - Selamat datang!</title>
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body id="mobile_wrap">
 
@@ -183,25 +183,28 @@
 
 <!-- Login Popup -->
 <div class="popup popup-login">
-  <div class="content-block">
-    <h4>LOGIN</h4>
-    <div class="loginform">
-      <form id="LoginForm" method="post">
-        <input type="text" name="Username" value="" class="form_input required" placeholder="username" />
-        <input type="password" name="Password" value="" class="form_input required" placeholder="password" />
-        <div class="forgot_pass"><a href="#" data-popup=".popup-forgot" class="open-popup">Forgot Password?</a></div>
-        <input type="submit" name="submit" class="form_submit" id="submit" value="SIGN IN" />
-    </form>
-    <div class="signup_bottom">
-        <p>Don't have an account?</p>
-        <a href="#" data-popup=".popup-signup" class="open-popup">SIGN UP</a>
+    <div class="content-block">
+        <h4>Silakan login dulu</h4>
+        <div class="loginform">
+            <form id="LoginForm" method="post">
+                <input type="text" name="Username" value="" class="form_input required" placeholder="Email kamu" />
+                <input type="password" name="Password" value="" class="form_input required" placeholder="Ketik password kamu" />
+                <div class="forgot_pass">
+                    <a href="#" data-popup=".popup-forgot" class="open-popup">Lupa Password?</a>
+                </div>
+                <input type="submit" name="submit" class="form_submit" id="submit" value="SIGN IN" />
+            </form>
+            <div class="signup_bottom">
+                <p>Belum punya akun?<a href="#" data-popup=".popup-signup" class="open-popup">Silakan daftar</a></p>
+            </div>
+        </div>
+        <div class="close_popup_button">
+            <a href="#" class="close-popup">
+                <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu_close.png" alt="" title="" />
+            </a>
+        </div>
     </div>
-</div>
-<div class="close_popup_button">
-  <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" /></a>
-</div>
-</div>
-</div>
+</div> <!-- kelar Popup-login -->
 
 <!-- Register Popup -->
 <div class="popup popup-signup">
