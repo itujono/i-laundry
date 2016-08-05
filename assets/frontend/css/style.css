@@ -10,7 +10,7 @@ Template:	Varius - Mobile HTML Template
 /*===============================================*/
 /* 1. RESET		 						 */
 /*===============================================*/
-@import "css/reset.css";
+@import "reset.css";
 
 /*===============================================*/
 /* 2. GENERAL		 						 */
@@ -447,7 +447,7 @@ border-bottom:1px #e3dac5 solid;
 }
 
 .main-nav ul li.subnav{
-background:url(images/subnav.png) no-repeat right top;
+background:url(../images/subnav.png) no-repeat right top;
 }
 
 .main-nav.icons_31 ul li img{

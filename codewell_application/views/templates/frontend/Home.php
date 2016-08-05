@@ -9,8 +9,8 @@
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
   <title>varius - mobile template</title>
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css'">
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>style.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 </head>
@@ -110,7 +110,7 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-02.jpg);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-02.png);">
                             <div class="slider_trans">		  
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">OFFICE BUILDINGS</h2>
@@ -120,7 +120,7 @@
                                 </div>	
                             </div>	
                         </div>
-                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.jpg);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
                             <div class="slider_trans">		  
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">WORK WITH US</h2>
