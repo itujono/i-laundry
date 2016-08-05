@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-  <link href="images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
-  <link href="images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+  <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
+  <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
+  <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
   <title>varius - mobile template</title>
-  <link rel="stylesheet" href="css/framework7.css">
-  <link rel="stylesheet" href="style.css">
-  <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css'">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>style.css">
+  <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 </head>
 <body id="mobile_wrap">
@@ -27,25 +27,25 @@
              <div class="page-content">
                <nav class="main-nav icons_inline">
                  <ul>
-                   <li><a href="index.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>
-                   <li><a href="about.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/mobile.png" alt="" title="" /><span>About</span></a></li>
-                   <li><a href="features.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/features.png" alt="" title="" /><span>Features</span></a></li>
+                   <li><a href="index.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>
+                   <li><a href="about.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/mobile.png" alt="" title="" /><span>About</span></a></li>
+                   <li><a href="features.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/features.png" alt="" title="" /><span>Features</span></a></li>
 
-                   <li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="images/icons/white/lock.png" alt="" title="" /><span>Login</span></a></li>
-                   <li><a href="team.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/users.png" alt="" title="" /><span>Team</span></a></li>
-                   <li><a href="blog.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/blog.png" alt="" title="" /><span>Blog</span></a></li>		
+                   <li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/lock.png" alt="" title="" /><span>Login</span></a></li>
+                   <li><a href="team.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /><span>Team</span></a></li>
+                   <li><a href="blog.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /><span>Blog</span></a></li>		
 
-                   <li><a href="photos.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/photos.png" alt="" title="" /><span>Photos</span></a></li>
-                   <li><a href="videos.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/video.png" alt="" title="" /><span>Videos</span></a></li>
-                   <li><a href="music.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/music.png" alt="" title="" /><span>Music</span></a></li>
+                   <li><a href="photos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/photos.png" alt="" title="" /><span>Photos</span></a></li>
+                   <li><a href="videos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/video.png" alt="" title="" /><span>Videos</span></a></li>
+                   <li><a href="music.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/music.png" alt="" title="" /><span>Music</span></a></li>
 
-                   <li><a href="shop.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/shop.png" alt="" title="" /><span>Shop</span></a></li>
-                   <li class="subnav"><a href="categories.html"><img src="images/icons/white/categories.png" alt="" title="" /><span>Categories</span></a></li>
-                   <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/cart.png" alt="" title="" /><span>Cart</span></a></li>
+                   <li><a href="shop.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/shop.png" alt="" title="" /><span>Shop</span></a></li>
+                   <li class="subnav"><a href="categories.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/categories.png" alt="" title="" /><span>Categories</span></a></li>
+                   <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/cart.png" alt="" title="" /><span>Cart</span></a></li>
 
-                   <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/tables.png" alt="" title="" /><span>Tables</span></a></li>
-                   <li><a href="form.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/form.png" alt="" title="" /><span>Forms</span></a></li>
-                   <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
+                   <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/tables.png" alt="" title="" /><span>Tables</span></a></li>
+                   <li><a href="form.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/form.png" alt="" title="" /><span>Forms</span></a></li>
+                   <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
                </ul>
            </nav>
        </div>
@@ -58,20 +58,20 @@
     <div class="user_login_info">
 
         <div class="user_thumb">
-            <img src="images/page_photo.jpg" alt="" title="" />
+            <img src="<?php echo base_url().$this->data['asfront']; ?>images/page_photo.jpg" alt="" title="" />
             <div class="user_details">
                <p>Welcome, <span>John Doe</span></p>
             </div>  
-            <div class="user_avatar"><img src="images/avatar.jpg" alt="" title="" /></div>       
+            <div class="user_avatar"><img src="<?php echo base_url().$this->data['asfront']; ?>images/avatar.jpg" alt="" title="" /></div>       
         </div>
 
         <nav class="user-nav">
             <ul>
-                <li><a href="features.html" class="close-panel"><img src="images/icons/black/settings.png" alt="" title="" /><span>Account Settings</span></a></li>
-                <li><a href="features.html" class="close-panel"><img src="images/icons/black/briefcase.png" alt="" title="" /><span>My Account</span></a></li>
-                <li><a href="features.html" class="close-panel"><img src="images/icons/black/message.png" alt="" title="" /><span>Messages</span><strong>12</strong></a></li>
-                <li><a href="features.html" class="close-panel"><img src="images/icons/black/love.png" alt="" title="" /><span>Favorites</span><strong>5</strong></a></li>
-                <li><a href="index.html" class="close-panel"><img src="images/icons/black/lock.png" alt="" title="" /><span>Logout</span></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/settings.png" alt="" title="" /><span>Account Settings</span></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/briefcase.png" alt="" title="" /><span>My Account</span></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/message.png" alt="" title="" /><span>Messages</span><strong>12</strong></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/love.png" alt="" title="" /><span>Favorites</span><strong>5</strong></a></li>
+                <li><a href="index.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/lock.png" alt="" title="" /><span>Logout</span></a></li>
             </ul>
         </nav>
     </div>
@@ -80,9 +80,6 @@
 <div class="views">
 
   <div class="view view-main">
-
-
-
     <div class="pages">
 
         <div data-page="index" class="page homepage">
@@ -91,11 +88,11 @@
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">
-                            <a href="index.html"><img src="images/logo_image.png" alt="" title=""/>
+                            <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
                         </div>
                     </div>			
                     <a href="#" data-panel="left" class="open-panel">
-                        <div class="navbar_right"><img src="images/icons/white/menu.png" alt="" title="" /></div>
+                        <div class="navbar_right"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu.png" alt="" title="" /></div>
                     </a>					
                 </div>
 
@@ -103,7 +100,7 @@
                 <div class="swiper-container slidertoolbar swiper-init" data-effect="slide" data-parallax="true" data-pagination=".swiper-pagination" data-paginationClickable="true">
                     <div class="swiper-wrapper">
 
-                        <div class="swiper-slide" style="background-image:url(images/Logo-01.png);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-01.png);">
                             <div class="slider_trans">
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">ARCHITECTURE</h2>
@@ -113,7 +110,7 @@
                                 </div>
                             </div> 
                         </div>
-                        <div class="swiper-slide" style="background-image:url(images/Logo-02.jpg);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-02.jpg);">
                             <div class="slider_trans">		  
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">OFFICE BUILDINGS</h2>
@@ -123,7 +120,7 @@
                                 </div>	
                             </div>	
                         </div>
-                        <div class="swiper-slide" style="background-image:url(images/Logo2-02.jpg);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.jpg);">
                             <div class="slider_trans">		  
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">WORK WITH US</h2>
@@ -141,34 +138,34 @@
                     <div class="swiper-pagination-toolbar"></div>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/home.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/home.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/drink.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/users.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="blog.html" data-view=".view-main"><img src="images/icons/white/blog.png" alt="" title="" /></a>
+                            <a href="blog.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="tel:9007005600" class="external"><img src="images/icons/white/phone.png" alt="" title="" /></a>
+                            <a href="tel:9007005600" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/phone.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/love.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/love.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/map.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/map.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/blog.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="images/icons/white/settings.png" alt="" title="" /></a>
+                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/settings.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="contact.html" data-view=".view-main"><img src="images/icons/white/contact.png" alt="" title="" /></a>
+                            <a href="contact.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/contact.png" alt="" title="" /></a>
                         </div>
                     </div>
                 </div> <!-- kelar Swiper-container-toolbar -->
@@ -201,7 +198,7 @@
     </div>
 </div>
 <div class="close_popup_button">
-  <a href="#" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a>
+  <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" /></a>
 </div>
 </div>
 </div>
@@ -224,7 +221,7 @@
             </div>		
         </div>
         <div class="close_popup_button">
-            <a href="#" class="close-popup"><img src="images/icons/black/menu_close.png" alt="" title="" /></a>
+            <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" /></a>
         </div>
     </div>
 </div>
@@ -244,7 +241,7 @@
         </div>
         <div class="close_popup_button">
             <a href="#" class="close-popup">
-                <img src="images/icons/black/menu_close.png" alt="" title="" />
+                <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" />
             </a>
         </div>
     </div>
@@ -256,27 +253,27 @@
         <h4>Social Share</h4>
         <p>Share icons solution that allows you share and increase your social popularity.</p>
         <ul class="social_share">
-            <li><a href="http://twitter.com/" class="external"><img src="images/icons/white/twitter.png" alt="" title="" /><span>TWITTER</span></a></li>
-            <li><a href="http://www.facebook.com/" class="external"><img src="images/icons/white/facebook.png" alt="" title="" /><span>FACEBOOK</span></a></li>
-            <li><a href="http://plus.google.com" class="external"><img src="images/icons/white/gplus.png" alt="" title="" /><span>GOOGLE</span></a></li>
-            <li><a href="http://www.dribbble.com/" class="external"><img src="images/icons/white/dribbble.png" alt="" title="" /><span>DRIBBBLE</span></a></li>
-            <li><a href="http://www.linkedin.com/" class="external"><img src="images/icons/white/linkedin.png" alt="" title="" /><span>LINKEDIN</span></a></li>
-            <li><a href="http://www.pinterest.com/" class="external"><img src="images/icons/white/pinterest.png" alt="" title="" /><span>PINTEREST</span></a></li>
+            <li><a href="http://twitter.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/twitter.png" alt="" title="" /><span>TWITTER</span></a></li>
+            <li><a href="http://www.facebook.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/facebook.png" alt="" title="" /><span>FACEBOOK</span></a></li>
+            <li><a href="http://plus.google.com" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/gplus.png" alt="" title="" /><span>GOOGLE</span></a></li>
+            <li><a href="http://www.dribbble.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/dribbble.png" alt="" title="" /><span>DRIBBBLE</span></a></li>
+            <li><a href="http://www.linkedin.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/linkedin.png" alt="" title="" /><span>LINKEDIN</span></a></li>
+            <li><a href="http://www.pinterest.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/pinterest.png" alt="" title="" /><span>PINTEREST</span></a></li>
         </ul>
         <div class="close_popup_button">
-            <a href="#" class="close-popup"><img src="images/icons/white/menu_close.png" alt="" title="" /></a>
+            <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu_close.png" alt="" title="" /></a>
         </div>
     </div>
 </div>
 
-<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
-<script type="text/javascript" src="js/framework7.js"></script>
-<script type="text/javascript" src="js/jquery.swipebox.js"></script>
-<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="js/email.js"></script>
-<script type="text/javascript" src="js/circlemenu.js"></script>
-<script type="text/javascript" src="js/audio.min.js"></script>
-<script type="text/javascript" src="js/my-app.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.swipebox.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/email.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/circlemenu.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/audio.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
 </body>
 </html>
