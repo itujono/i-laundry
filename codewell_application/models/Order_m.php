@@ -16,8 +16,7 @@ class Order_m extends MY_Model{
 		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER');
 		$this->db->select('aroma.nameAROMA');
 		$this->db->select('packages.namePACKAGE');
-		$this->db->select('services.nameSERVICES');
-		$this->db->select('jasa.nameJASA');
+		$this->db->select('satuan.nameSATUAN');
 		$this->db->select('payment.namePAYMENT,descriptionPAYMENT');
 		$this->db->select('area.nameAREA');
 		$this->db->select('regions.nameREGION');
@@ -27,8 +26,7 @@ class Order_m extends MY_Model{
 		$this->db->join('customers','customers.idCUSTOMER = orders.idCUSTOMER');
 		$this->db->join('aroma','aroma.idAROMA = orders.idAROMA');
 		$this->db->join('packages','packages.idPACKAGE = orders.idPACKAGE');
-		$this->db->join('services','services.idSERVICES = orders.idSERVICES');
-		$this->db->join('jasa','jasa.idJASA = orders.idJASA');
+		$this->db->join('satuan','satuan.idSATUAN = orders.idSATUAN');
 		$this->db->join('payment','payment.idPAYMENT = orders.idPAYMENT');
 		$this->db->join('area','area.idAREA = orders.idAREA');
 		$this->db->join('regions','regions.idREGION = area.idREGION');

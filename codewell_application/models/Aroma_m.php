@@ -12,11 +12,6 @@ class Aroma_m extends MY_Model{
 			'field' => 'nameAROMA', 
 			'label' => 'nameAROMA', 
 			'rules' => 'trim|required'
-		),
-		'pricesAROMA' => array(
-			'field' => 'pricesAROMA', 
-			'label' => 'pricesAROMA', 
-			'rules' => 'trim|required'
 		)		  
 	);
 
@@ -28,7 +23,6 @@ class Aroma_m extends MY_Model{
 		$new = new stdClass();
 		$new->idAROMA = '';
 		$new->nameAROMA = '';
-		$new->pricesAROMA = '';
 		$new->statusAROMA = '';
 		return $new;
 	}

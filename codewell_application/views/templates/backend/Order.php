@@ -11,17 +11,7 @@
             <div class="md-card-content md-bg-process">
                 <div class="uk-float-right uk-margin-top uk-margin-small-right"><span class="peity_orders peity_data"><?php echo $process;?>/100</span></div>
                 <span class="uk-text-muted uk-text-small"><div class="uk-text-contrast">Order Dalam Proses</div></span>
-                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0
-                <noscript>
-                <?php if(!empty($process)){
-                    echo $process;
-                    } else {
-                echo 'No data';
-                    }
-                ?>
-                </noscript>
-                </span>
-                </h2>
+                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0<noscript><?php if(!empty($process)){echo $process;} else {echo 'No data';}?></noscript></span></h2>
             </div>
         </div>
     </div>
@@ -30,17 +20,7 @@
             <div class="md-card-content md-bg-wash">
                 <div class="uk-float-right uk-margin-top uk-margin-small-right"><span class="peity_orders peity_data"><?php echo $wash;?>/100</span></div>
                 <span class="uk-text-muted uk-text-small"><div class="uk-text-contrast">Proses Baju dicuci </div></span>
-                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0
-                <noscript>
-                <?php if(!empty($wash)){
-                    echo $wash;
-                    } else {
-                echo 'No data';
-                    }
-                ?>
-                </noscript>
-                </span>
-                </h2>
+                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0<noscript><?php if(!empty($wash)){echo $wash;} else {echo 'No data';}?></noscript></span></h2>
             </div>
         </div>
     </div>
@@ -49,17 +29,7 @@
             <div class="md-card-content md-bg-waitingpayment">
                 <div class="uk-float-right uk-margin-top uk-margin-small-right"><span class="peity_orders peity_data"><?php echo $waitingpayment;?>/100</span></div>
                 <span class="uk-text-muted uk-text-small"><div class="uk-text-contrast">Order tunggu pembayaran </div></span>
-                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0
-                <noscript>
-                <?php if(!empty($waitingpayment)){
-                    echo $waitingpayment;
-                    } else {
-                echo 'No data';
-                    }
-                ?>
-                </noscript>
-                </span>
-                </h2>
+                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0<noscript><?php if(!empty($waitingpayment)){echo $waitingpayment;} else {echo 'No data';}?></noscript></span></h2>
             </div>
         </div>
     </div>
@@ -68,18 +38,7 @@
             <div class="md-card-content md-bg-done">
                 <div class="uk-float-right uk-margin-top uk-margin-small-right"><span class="peity_orders peity_data"><?php echo $done;?>/100</span></div>
                 <span class="uk-text-muted uk-text-small"><div class="uk-text-contrast">Order Selesai</div></span>
-                <h2 class="uk-margin-remove uk-text-contrast">
-                <span class="countUpMe">0
-                <noscript>
-                <?php if(!empty($done)){
-                    echo $done;
-                    } else {
-                echo 'No data';
-                    }
-                ?>
-                </noscript>
-                </span>
-                </h2>
+                <h2 class="uk-margin-remove uk-text-contrast"><span class="countUpMe">0<noscript><?php if(!empty($done)){echo $done;} else {echo 'No data';}?></noscript></span></h2>
             </div>
         </div>
     </div>

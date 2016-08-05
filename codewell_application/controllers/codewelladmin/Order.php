@@ -6,6 +6,7 @@ class Order extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('Order_m');
+
 		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/Login');}
 	}
 
@@ -35,8 +36,8 @@ class Order extends Admin_Controller {
         $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2');
         $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3');
         $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4');
-		
-		$data['subview'] = $this->load->view($this->data['backendDIR'].'Order', $data, TRUE);
+        
+		$data['subview'] = $this->load->view('templates/backend/Order', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
 	}
 
@@ -64,7 +65,7 @@ class Order extends Admin_Controller {
 
         $data['detailorder'] = $detailorder;
 
-		$data['subview'] = $this->load->view($this->data['backendDIR'].'Detail', $data, TRUE);
+		$data['subview'] = $this->load->view('templates/backend/Detail', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
 	}
 
@@ -91,5 +92,19 @@ class Order extends Admin_Controller {
 		        $this->session->set_flashdata('message',$data);
 		        redirect('codewelladmin/order');
 		}
+	}
+
+	public function pdf(){
+ 	
+		$data['users']=array(
+			array('firstname'=>'Agung','lastname'=>'Setiawan','email'=>'ag@setiawan.com'),
+			array('firstname'=>'Hauril','lastname'=>'Maulida Nisfar','email'=>'hm@setiawan.com'),
+			array('firstname'=>'Akhtar','lastname'=>'Setiawan','email'=>'akh@setiawan.com'),
+			array('firstname'=>'Gitarja','lastname'=>'Setiawan','email'=>'git@setiawan.com')
+		);
+ 
+	    $html = $this->load->view('templates/backend/report', $data, TRUE);
+
+	    $this->PdfGenerator->generate($html,'contoh');
 	}
 }

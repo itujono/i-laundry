@@ -42,9 +42,24 @@
  	</div>
  	<div class="uk-width-xLarge-8-10  uk-width-large-7-10">
  		<div class="md-card">
- 			<div class="md-card-toolbar">
+ 			<div class="md-card-toolbar uk-grid-width-large-1-6">
  				<h3 class="md-card-toolbar-heading-text">
  					Detail Pelanggan
+ 				</h3>
+ 				<h3 class="md-card-toolbar-heading-text">
+ 					
+ 				</h3>
+ 				<h3 class="md-card-toolbar-heading-text">
+ 					
+ 				</h3>
+ 				<h3 class="md-card-toolbar-heading-text">
+ 					
+ 				</h3>
+ 				<h3 class="md-card-toolbar-heading-text">
+ 					
+ 				</h3>
+ 				<h3 class="md-card-toolbar-heading-text">
+ 					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="javascript:void(0)">Cetak</a>
  				</h3>
  			</div>
  			<div class="md-card-content large-padding">
@@ -140,10 +155,10 @@
  						<hr class="uk-grid-divider">
  						<div class="uk-grid uk-grid-small">
  							<div class="uk-width-large-1-3">
- 								<span class="uk-text-muted uk-text-small">Services</span>
+ 								<span class="uk-text-muted uk-text-small">Satuan</span>
  							</div>
  							<div class="uk-width-large-2-3 uk-text-bold">
- 							<?php echo $detailorder->nameSERVICES;?> - <?php echo $detailorder->nameJASA;?>
+ 							<?php echo $detailorder->nameSATUAN;?>
  							</div>
  						</div>
  						<hr class="uk-grid-divider">

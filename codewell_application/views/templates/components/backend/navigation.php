@@ -60,16 +60,10 @@
           <span class="menu_title">Order</span>
         </a>
       </li>
-      <li title="Servis">
-        <a href="<?php echo base_url();?>codewelladmin/Services">
+      <li title="Satuan">
+        <a href="<?php echo base_url();?>codewelladmin/Satuan">
           <span class="menu_icon"><i class="material-icons">&#xE54A;</i></span>
-          <span class="menu_title">Servis</span>
-        </a>
-      </li>
-      <li title="Jasa">
-        <a href="<?php echo base_url();?>codewelladmin/Jasa">
-          <span class="menu_icon"><i class="material-icons">&#xE52D;</i></span>
-          <span class="menu_title">Jasa</span>
+          <span class="menu_title">Satuan</span>
         </a>
       </li>
       <li title="Daerah">

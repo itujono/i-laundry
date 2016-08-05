@@ -62,7 +62,7 @@ class Aroma extends Admin_Controller {
         $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Aroma_m->array_from_post(array('nameAROMA','pricesAROMA','statusAROMA'));
+			$data = $this->Aroma_m->array_from_post(array('nameAROMA','statusAROMA'));
 			if($data['statusAROMA'] == 'on')$data['statusAROMA']=1;
 			else $data['statusAROMA']=0;
 			$id = decode($this->input->post('idAROMA'));
