@@ -27,25 +27,25 @@
              <div class="page-content">
                <nav class="main-nav icons_inline">
                  <ul>
-                   <li><a href="index.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/home.png" alt="" title="" /><span>Home</span></a></li>
-                   <li><a href="about.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/mobile.png" alt="" title="" /><span>About</span></a></li>
-                   <li><a href="features.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/features.png" alt="" title="" /><span>Features</span></a></li>
+                   <li><a href="index.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/home.png" alt="" title="" /><span>Home</span></a></li>
+                   <li><a href="about.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/mobile.png" alt="" title="" /><span>About</span></a></li>
+                   <li><a href="features.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/features.png" alt="" title="" /><span>Features</span></a></li>
 
-                   <li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/lock.png" alt="" title="" /><span>Login</span></a></li>
-                   <li><a href="team.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /><span>Team</span></a></li>
-                   <li><a href="blog.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /><span>Blog</span></a></li>		
+                   <li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Login</span></a></li>
+                   <li><a href="team.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/users.png" alt="" title="" /><span>Team</span></a></li>
+                   <li><a href="blog.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/blog.png" alt="" title="" /><span>Blog</span></a></li>		
 
-                   <li><a href="photos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/photos.png" alt="" title="" /><span>Photos</span></a></li>
-                   <li><a href="videos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/video.png" alt="" title="" /><span>Videos</span></a></li>
-                   <li><a href="music.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/music.png" alt="" title="" /><span>Music</span></a></li>
+                   <li><a href="photos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/photos.png" alt="" title="" /><span>Photos</span></a></li>
+                   <li><a href="videos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/video.png" alt="" title="" /><span>Videos</span></a></li>
+                   <li><a href="music.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/music.png" alt="" title="" /><span>Music</span></a></li>
 
-                   <li><a href="shop.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/shop.png" alt="" title="" /><span>Shop</span></a></li>
-                   <li class="subnav"><a href="categories.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/categories.png" alt="" title="" /><span>Categories</span></a></li>
-                   <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/cart.png" alt="" title="" /><span>Cart</span></a></li>
+                   <li><a href="shop.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/shop.png" alt="" title="" /><span>Shop</span></a></li>
+                   <li class="subnav"><a href="categories.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/categories.png" alt="" title="" /><span>Categories</span></a></li>
+                   <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/cart.png" alt="" title="" /><span>Cart</span></a></li>
 
-                   <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/tables.png" alt="" title="" /><span>Tables</span></a></li>
-                   <li><a href="form.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/form.png" alt="" title="" /><span>Forms</span></a></li>
-                   <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/contact.png" alt="" title="" /><span>Contact</span></a></li>
+                   <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/tables.png" alt="" title="" /><span>Tables</span></a></li>
+                   <li><a href="form.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/form.png" alt="" title="" /><span>Forms</span></a></li>
+                   <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/contact.png" alt="" title="" /><span>Contact</span></a></li>
                </ul>
            </nav>
        </div>
@@ -88,7 +88,7 @@
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">
-                            <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
+                            <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title="" width="140"/>
                         </div>
                     </div>			
                     <a href="#" data-panel="left" class="open-panel">
@@ -100,13 +100,13 @@
                 <div class="swiper-container slidertoolbar swiper-init" data-effect="slide" data-parallax="true" data-pagination=".swiper-pagination" data-paginationClickable="true">
                     <div class="swiper-wrapper">
 
-                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-01.png);">
+                        <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
                             <div class="slider_trans">
                                 <div class="slider-caption">
-                                    <h2 data-swiper-parallax="-100%">ARCHITECTURE</h2>
+                                    <h2 data-swiper-parallax="-100%">Selamat Datang!</h2>
                                     <span class="subtitle" data-swiper-parallax="-60%">CONSTRUCTIONS & BUILDINGS</span>
                                     <p data-swiper-parallax="-30%">Exceptional architectural and interior, design and construction management.</p>
-                                    <a href="about.html" class="swiper_read_more">VIEW PROJECT</a>
+                                    <a href="about.html" class="swiper_read_more">Baik, saya mau nyuci</a>
                                 </div>
                             </div> 
                         </div>
@@ -116,7 +116,7 @@
                                     <h2 data-swiper-parallax="-100%">OFFICE BUILDINGS</h2>
                                     <span class="subtitle" data-swiper-parallax="-60%">CONSTRUCTION MANAGEMENT</span>
                                     <p data-swiper-parallax="-30%">The architect hired by a client is responsible for creating a design concept that meets the requirements of that client.  </p>
-                                    <a href="about.html" class="swiper_read_more">VIEW PROJECT</a>
+                                    <a href="about.html" class="swiper_read_more">Baik, saya mau nyuci</a>
                                 </div>	
                             </div>	
                         </div>
@@ -126,7 +126,7 @@
                                     <h2 data-swiper-parallax="-100%">WORK WITH US</h2>
                                     <span class="subtitle" data-swiper-parallax="-60%">BEST DESIGN COMPANY</span>
                                     <p data-swiper-parallax="-30%">Developing the requirements the client wants in the building..</p>
-                                    <a href="contact.html" class="swiper_read_more">CONTACT</a>
+                                    <a href="contact.html" class="swiper_read_more">Baik, saya mau nyuci</a>
                                 </div>
                             </div>
                         </div> 		   
