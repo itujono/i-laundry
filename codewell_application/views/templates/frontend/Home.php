@@ -44,7 +44,7 @@
                    <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/cart.png" alt="" title="" /><span>Cart</span></a></li>
 
                    <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/tables.png" alt="" title="" /><span>Tables</span></a></li>
-                   <li><a href="form.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/form.png" alt="" title="" /><span>Forms</span></a></li>
+                   <li><a href="<?php echo base_url();?>Order" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/form.png" alt="" title="" /><span>Order</span></a></li>
                    <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/contact.png" alt="" title="" /><span>Contact</span></a></li>
                </ul>
            </nav>
@@ -268,6 +268,8 @@
         </div>
     </div>
 </div>
+
+
 
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
