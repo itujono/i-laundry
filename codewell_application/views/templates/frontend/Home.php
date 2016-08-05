@@ -209,18 +209,18 @@
 <!-- Register Popup -->
 <div class="popup popup-signup">
     <div class="content-block">
-        <h4>REGISTER</h4>
+        <h4>Okay! Mari daftar dulu.</h4>
         <div class="loginform">
             <form id="RegisterForm" method="post">
-                <input type="text" name="Username" value="" class="form_input required" placeholder="Username" />
-                <input type="text" name="Email" value="" class="form_input required" placeholder="Email" />
-                <input type="password" name="Password" value="" class="form_input required" placeholder="Password" />
-                <input type="submit" name="submit" class="form_submit" id="submit" value="SIGN UP" />
+                <input type="text" name="Username" value="" class="form_input required" placeholder="Isi username yang kamu inginkan" />
+                <input type="text" name="Email" value="" class="form_input required" placeholder="Alamat email kamu juga" />
+                <input type="password" name="Password" value="" class="form_input required" placeholder="Ketik password nya" />
+                <input type="submit" name="submit" class="form_submit" id="submit" value="Daftar sekarang" />
             </form>
-            <h5>- OR REGISTER WITH A SOCIAL ACCOUNT -</h5>
+            <h5>Lagi malas ngetik? Silakan daftar dengan akun sosial media kamu</h5>
             <div class="signup_social">
-                <a href="http://www.facebook.com/" class="signup_facebook external">FACEBOOK</a>
-                <a href="http://www.twitter.com/" class="signup_twitter external">TWITTER</a>            
+                <a href="http://www.facebook.com/" class="signup_facebook external">Facebook</a>
+                <a href="http://www.twitter.com/" class="signup_twitter external">Twitter</a>            
             </div>		
         </div>
         <div class="close_popup_button">
