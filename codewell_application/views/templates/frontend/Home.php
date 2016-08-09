@@ -11,6 +11,7 @@
   <title>i-Laundry - Selamat datang!</title>
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
   <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
@@ -58,20 +59,20 @@
     <div class="user_login_info">
 
         <div class="user_thumb">
-            <img src="<?php echo base_url().$this->data['asfront']; ?>images/page_photo.jpg" alt="" title="" />
+            <img class="cover" src="<?php echo base_url().$this->data['asfront']; ?>images/beach.jpg" alt="" title="" />
             <div class="user_details">
-               <p>Welcome, <span>John Doe</span></p>
+               <p>Hello, <span>John Doe</span></p>
             </div>  
-            <div class="user_avatar"><img src="<?php echo base_url().$this->data['asfront']; ?>images/avatar.jpg" alt="" title="" /></div>       
+            <div class="user_avatar"><img src="<?php echo base_url().$this->data['asfront']; ?>images/ava.png" alt="" title="" /></div>       
         </div>
 
         <nav class="user-nav">
             <ul>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/settings.png" alt="" title="" /><span>Account Settings</span></a></li>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/briefcase.png" alt="" title="" /><span>My Account</span></a></li>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/message.png" alt="" title="" /><span>Messages</span><strong>12</strong></a></li>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/love.png" alt="" title="" /><span>Favorites</span><strong>5</strong></a></li>
-                <li><a href="index.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/lock.png" alt="" title="" /><span>Logout</span></a></li>
+                <li><a href="<?php echo base_url();?>Settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/briefcase.png" alt="" title="" /><span>Akun ku</span></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li>
+                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/love.png" alt="" title="" /><span>Inbox</span><strong>5</strong></a></li>
+                <li><a href="index.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Logout</span></a></li>
             </ul>
         </nav>
     </div>
@@ -144,7 +145,7 @@
                             <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></a>
+                            <a href="#" data-panel="right" class="open-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
                             <a href="blog.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>

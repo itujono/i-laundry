@@ -296,3 +296,42 @@ textarea {
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
    color:    #fff;
 }
+
+
+.user-nav ul li span {
+    color: #6e969e;
+}
+
+.user-nav ul li strong {
+    background-color: #6b7373;
+}
+
+.panel-right {
+    background-color: #fff;
+}
+
+.user_thumb img.cover {
+/*    filter: brightness(.5);
+    -webkit-filter: brightness(.5);
+    -moz-filter: brightness(.5);
+*/}
+
+.settingsform {
+    width: 90%;
+    padding: 0 0 15px 5%;
+}
+
+.settingsform label {
+    width: 100%;
+    padding: 5px 0 3px 0;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.settingsform input.form_input {
+    padding: 3%;
+    width: 93%;
+    margin: 0 0 5px 0;
+    border: 1px solid #ddd;
+}
