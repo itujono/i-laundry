@@ -92,8 +92,8 @@
                             <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title="" width="140"/>
                         </div>
                     </div>			
-                    <a href="#" data-panel="left" class="open-panel">
-                        <div class="navbar_right"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu.png" alt="" title="" /></div>
+                    <a href="#" data-panel="right" class="open-panel">
+                        <div class="navbar_right"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/user.png" alt="" title="" /></div>
                     </a>					
                 </div>
 
@@ -157,16 +157,10 @@
                             <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/love.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/map.png" alt="" title="" /></a>
-                        </div>
-                        <div class="swiper-slide toolbar-icon">
                             <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
                             <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/settings.png" alt="" title="" /></a>
-                        </div>
-                        <div class="swiper-slide toolbar-icon">
-                            <a href="contact.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/contact.png" alt="" title="" /></a>
                         </div>
                     </div>
                 </div> <!-- kelar Swiper-container-toolbar -->
@@ -260,9 +254,6 @@
             <li><a href="http://twitter.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/twitter.png" alt="" title="" /><span>TWITTER</span></a></li>
             <li><a href="http://www.facebook.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/facebook.png" alt="" title="" /><span>FACEBOOK</span></a></li>
             <li><a href="http://plus.google.com" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/gplus.png" alt="" title="" /><span>GOOGLE</span></a></li>
-            <li><a href="http://www.dribbble.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/dribbble.png" alt="" title="" /><span>DRIBBBLE</span></a></li>
-            <li><a href="http://www.linkedin.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/linkedin.png" alt="" title="" /><span>LINKEDIN</span></a></li>
-            <li><a href="http://www.pinterest.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/pinterest.png" alt="" title="" /><span>PINTEREST</span></a></li>
         </ul>
         <div class="close_popup_button">
             <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu_close.png" alt="" title="" /></a>

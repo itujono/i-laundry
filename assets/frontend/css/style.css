@@ -1975,14 +1975,14 @@ font-weight:700;
 width:100%;
 padding:0 0 15px 0;
 }
-.contactform label{
+.contactform label, #settings label {
 width:100%;
 padding:5px 0 3px 0; 
 display:block; 
 font-size:16px;
 font-weight:400;
 }
-.contactform label.error{
+.contactform label.error, #settings label.error {
 padding:0 0 10px 0; 
 width:100%; 
 text-align:left; 
@@ -1990,45 +1990,45 @@ font-size:14px;
 color:#f65821;
 font-weight:400;
 }
-.contactform input.form_input{
+.contactform input.form_input, #settings input.form_input {
 padding:3%; 
 width:93%; 
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform select.form_select{
+.contactform select.form_select, #settings select.form_select {
 padding:3%; 
 width:100%; 
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform .item-content{
+.contactform .item-content, #settings .item-content {
 padding:5px 0 5px 0;
 margin:0px;
 }
-.contactform .form_row_right{
+.contactform .form_row_right, #settings .form_row_right {
 margin:0 0 20px 15%;
 padding:0 0 10px 0;
 border-bottom:1px solid #d6d6d6;
 }
-.contactform label .item-media{
+.contactform label .item-media, #settings label .item-media {
 display:inline-block;
 }
-.contactform label .item-inner{
+.contactform label .item-inner, #settings label .item-inner {
 display:inline-block;
 }
-.contactform label.label-switch{
+.contactform label.label-switch, #settings label.label-switch {
 display:inline-block;
 width:auto;
 }
-.contactform textarea.form_textarea{
+.contactform textarea.form_textarea, #settings textarea.form_textarea {
 padding:3%; 
 width:93%; 
 height:50px; 
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform input.form_submit{ 
+.contactform input.form_submit, #settings input.form_submit { 
 width:100%;
 padding:4% 0 4% 0; 
 margin:10px 0 0 0; 
