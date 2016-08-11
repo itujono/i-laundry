@@ -144,7 +144,7 @@
                             </a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
+                            <a href="<?php echo base_url();?>Order" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
                         </div>
                         <div class="swiper-slide toolbar-icon">
                             <a href="blog.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>

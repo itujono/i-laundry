@@ -1,53 +1,59 @@
 <div class="pages">
-    <div data-page="form" class="page no-toolbar no-navbar">
-        <div class="page-content">
+    <div data-page="order" class="page no-toolbar">
+        <div class="page-content order">
     
-        	<div class="navbarpages">
-        		<div class="navbar_left">
-        			<div class="logo_image">
-                        <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
+                <div class="navbarpages graybg">
+                    <div class="navbar_left">
+                         <div class="logo_image">
+                             <a href="<?php echo base_url();?>Home"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
+                         </div>
                     </div>
-        		</div>			
-        		<a href="#" data-panel="left" class="open-panel">
-        			<div class="navbar_right">
-                        <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu.png" alt="" title="" />
-                    </div>
-        		</a>
-        		<a href="#" data-panel="right" class="open-panel">
-        			<div class="navbar_right whitebg">
-                        <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/user.png" alt="" title="" />
-                    </div>
-        		</a>					
-        	</div>
-	
-            <div id="pages_maincontent">
+                    <a href="#" data-panel="right" class="open-panel">
+                         <div class="navbar_right whitebg">
+                             <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/user.png" alt="" title="" />
+                         </div>
+                    </a>                     
+                </div>
      
-                <h2 class="page_title">CUSTOM FORM</h2> 
-     
-                    <div class="page_single layout_fullwidth_padding">
+                <div id="pages_maincontent">
+                
+                    <h2 class="page_title">Form Pemesanan</h2>
+              
+                    <div class="page_single layout_fullwidth_padding">  
+
+                        <div class="history-title">
+                            <h2>Ada pakaian kotor?</h2>
+                            <p>Langsung saja isi form di bawah ini, dan kami akan segera memproses orderan kamu.</p>
+                        </div>
 
                         <div class="contactform">
                             <form>
                                 <div class="form_row">
-                                    <label>Name:</label>
+                                    <label>Pilih tanggalnya</label>
                                     <input type="text" name="name" value="" class="form_input" />
                                 </div>
-                                
+                            
                                 <div class="form_row">
-                                    <label>Email:</label>
+                                    <label>Pilih jam nya</label>
                                     <input type="text" name="email" value="" class="form_input" />
                                 </div>
-                            
+                                
+                                
+                                <div class="form_row"> 
+                                    <label>Alamat</label>
+                                    <textarea name="message" class="form_textarea" rows="" cols="">Misal: Jalan Kebaikan III #900, Tiban BTN</textarea>
+                                </div>
+
                                 <div class="form_row">
                                     <label>Select:</label>
                                     <select name="" class="form_select">
-                                    <option value="option one">option one</option>
-                                    <option value="option two">option two</option>
-                                    <option value="option three">option three</option>
-                                    <option value="option five">option five</option>
+                                        <option value="option one">option one</option>
+                                        <option value="option two">option two</option>
+                                        <option value="option three">option three</option>
+                                        <option value="option five">option five</option>
                                     </select>
                                 </div>
-                            
+                    
                                 <div class="form_row">
                                     <label>Radio:</label>
                                     <div class="form_row_right">
@@ -55,20 +61,20 @@
                                             <!-- Checked by default -->
                                             <input type="radio" name="my-radio" value="Books" checked="checked">
                                             <div class="item-inner">
-                                                <div class="item-title">Books</div>
+                                              <div class="item-title">Books</div>
                                             </div>
                                         </label>
                                       
                                         <label class="label-radio item-content">
-                                            <!-- Checked by default -->
-                                            <input type="radio" name="my-radio" value="Movies">
-                                            <div class="item-inner">
-                                                <div class="item-title">Movies</div>
-                                            </div>
+                                        <!-- Checked by default -->
+                                        <input type="radio" name="my-radio" value="Movies">
+                                        <div class="item-inner">
+                                          <div class="item-title">Movies</div>
+                                        </div>
                                         </label>
                                     </div> 
                                 </div>
-                            
+                    
                                 <div class="form_row">
                                     <label>Checkbox:</label>
                                     <div class="form_row_right">
@@ -82,7 +88,7 @@
                                                 <div class="item-title">Books</div>
                                             </div>
                                         </label>
-                    
+                        
                                         <label class="label-checkbox item-content">
                                             <input type="checkbox" name="my-checkbox" value="Movies">
                                             <div class="item-media">
@@ -94,38 +100,29 @@
                                         </label>
                                     </div>   
                                 </div>
-                            
+                    
                                 <div class="form_row">  
-                                 	<label>Switch:</label>
+                                    <label>Switch:</label>
                                     <div class="form_row_right">        
                                         <div class="item-content">
                                             <div class="item-inner">
                                                 <div class="item-title">On/Off</div>
                                                 <div class="item-input">
                                                     <label class="label-switch">
-                                                        <input type="checkbox">
-                                                        <div class="checkbox"></div>
+                                                      <input type="checkbox">
+                                                      <div class="checkbox"></div>
                                                     </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                             
-                                <div class="form_row"> 
-                                    <label>Message:</label>
-                                    <textarea name="message" class="form_textarea" rows="" cols="">your message here</textarea>
-                                </div>
-                            
+                                </div>                    
                                 <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
-                            </form>
-                        </div> <!-- kelar Contactform -->
 
-                    </div> <!-- kelar page_single layout blabla -->
-      
-                </div> <!-- kelar id pages_maincontent -->
-      
-      
-            </div> <!-- kelar Page-content -->
+                            </form>
+                        </div>              
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
