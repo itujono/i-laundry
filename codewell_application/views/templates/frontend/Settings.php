@@ -5,7 +5,7 @@
         	<div class="navbarpages">
         		<div class="navbar_left">
         			<div class="logo_image">
-                        <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
+                        <a href="<?php echo base_url();?>Home"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
                     </div>
         		</div>
         		<a href="#" data-panel="right" class="open-panel">
@@ -36,10 +36,12 @@
                             <input type="password" name="pwd1" value="" class="form_input" />
                         </div>
                         <div class="form-submit">
-                            <a href="about.html" class="swiper_read_more">Reset password</a>
+                            <a href="about.html" class="swiper_read_more">Ubah password</a>
                         </div>
                         <div class="back-to-home">
-                            <a href="#"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/back.png"> Kembali ke Home</a>
+                            <a href="<?php echo base_url();?>Home">
+                                <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/back.png"> Kembali ke Home
+                            </a>
                         </div>
                     </div>
                 </div> <!-- kelar page_single layout blabla -->

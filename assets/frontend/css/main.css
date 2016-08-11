@@ -297,6 +297,10 @@ textarea {
    color:    #fff;
 }
 
+.user-nav ul li {
+    border-bottom: 1px #dce2e2 solid;
+}
+
 
 .user-nav ul li span {
     color: #6e969e;
@@ -316,9 +320,17 @@ textarea {
     -moz-filter: brightness(.5);
 */}
 
+h2.page_title {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 100;
+    color: #999;
+    padding: 5px 0;
+}
+
 .settingsform {
     width: 90%;
-    padding: 0 0 15px 5%;
+    padding: 0 0 15px 0;
 }
 
 .settingsform label {
@@ -340,8 +352,8 @@ textarea {
     width: 100%;
     padding: 5px 0 3px 0;
     display: block;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 100;
     color: #999;
 }
 
@@ -356,12 +368,95 @@ textarea {
     margin-right: 5px;
 }
 
-#pages_maincontent .settings-title {
+#pages_maincontent .settings-title, #pages_maincontent .history-title {
     margin-bottom: 10px;
-    padding: 0 0 0 5%;
+    padding: 0;
 }
 
-#pages_maincontent .settings-title h2 {
-    padding-bottom: 5px;
+#pages_maincontent .settings-title h2, #pages_maincontent .history-title h2 {
+    padding-bottom: 0;
     font-weight: 600;
 }
+
+
+/* ini History Pemesanan bok! */
+
+
+ul.history-detailed li {
+    padding: 20px 2%;
+    margin: 0;
+    display: block;
+    width: 43%;
+    float: left;
+}
+
+ul.history-detailed .small-detail ul li h5 {
+    padding-bottom: 0;
+    font-size: 16px;
+    color: #999;
+}
+
+ul.history-detailed .small-detail ul li.half {
+    width: 50%;
+}
+
+ul.history-detailed .small-detail ul li.price p {
+    font-size: 24px;
+}
+
+ul.history-detailed .small-detail ul li {
+    padding: 0;
+}
+
+
+@media screen and (max-width: 780px) {
+
+    ul.history-detailed {
+        padding: 0 0 20px 0;
+        width: 100%;
+        margin: 0px;
+        list-style: none;
+        float: left;
+    }
+
+    ul.history-detailed li {
+        width: 96%;
+        padding: 10px 0;
+    }
+
+    ul.history-detailed li .small-icon {
+        width: 10%;
+        float: left;
+        margin: 2px 0 0 0;
+    }
+
+    ul.history-detailed li .small-icon h3 {
+        font-size: 38px;
+    }
+
+    ul.history-detailed li .small-detail {
+        width: 85%;
+        float: left;
+        padding: 0 0 0 5%;
+        border-left: 2px dashed #8ad3db;
+    }
+
+    ul.history-detailed li .small-detail h4 {
+        display: table;
+        font-weight: 100;
+        font-size: 16px;
+        padding: 2px 8px;
+        margin: 0px;
+        color: #fff;
+        background-color: #8ad3db;
+        border-radius: 0 20px 20px 0;
+        margin-bottom: 16px;
+    }
+
+    ul.history-detailed li .small-detail h4 span {
+        font-weight: 100;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+}
+
