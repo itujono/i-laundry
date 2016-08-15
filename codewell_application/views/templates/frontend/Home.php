@@ -105,9 +105,9 @@
                             <div class="slider_trans">
                                 <div class="slider-caption">
                                     <h2 data-swiper-parallax="-100%">Selamat Datang!</h2>
-                                    <span class="subtitle" data-swiper-parallax="-60%">CONSTRUCTIONS & BUILDINGS</span>
-                                    <p data-swiper-parallax="-30%">Exceptional architectural and interior, design and construction management.</p>
-                                    <a href="about.html" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                    <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
+                                    <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
+                                    <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
                                 </div>
                             </div> 
                         </div>
@@ -181,7 +181,7 @@
 <!-- Login Popup -->
 <div class="popup popup-login">
     <div class="content-block">
-        <h4>Silakan login dulu</h4>
+        <h4>Okay, silakan login dulu</h4>
         <div class="loginform">
             <form id="LoginForm" method="post">
                 <input type="text" name="Username" value="" class="form_input required" placeholder="Email kamu" />
@@ -214,6 +214,9 @@
                 <input type="password" name="Password" value="" class="form_input required" placeholder="Ketik password nya" />
                 <input type="submit" name="submit" class="form_submit" id="submit" value="Daftar sekarang" />
             </form>
+            <div class="signup_bottom">
+                <p>Sudah punya akun?<a href="#" data-popup=".popup-login" class="open-popup">Silakan login</a></p>
+            </div>
             <h5>Lagi malas ngetik? Silakan daftar dengan akun sosial media kamu</h5>
             <div class="signup_social">
                 <a href="http://www.facebook.com/" class="signup_facebook external">Facebook</a>
