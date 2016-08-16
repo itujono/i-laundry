@@ -38,6 +38,19 @@ class User_m extends MY_Model{
 		)
 	);
 
+	public $rules_login_customer = array(
+		'emailCUSTOMER' => array(
+			'field' => 'emailCUSTOMER',
+			'label' => 'emailCUSTOMER',
+			'rules' => 'trim|required|valid_email'
+		),
+		'passwordCUSTOMER' => array(
+			'field' => 'passwordCUSTOMER',
+			'label' => 'passwordCUSTOMER',
+			'rules' => 'trim|required'
+		)
+	);
+
 	public $rules_changepassword = array(
 		'oldpasswordUSER' => array(
 			'field' => 'oldpasswordUSER',

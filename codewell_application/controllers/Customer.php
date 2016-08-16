@@ -1,50 +1,126 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin_Controller extends MY_Controller{
+class Customer extends Frontend_Controller {
 
-	function __construct (){
-		parent::__construct();
-		$this->load->helper('codewell');
-		$this->load->library('PdfGenerator');
+	public function __construct (){
+        parent::__construct();
+        $this->load->model('User_m');
+        $this->load->model('Customer_m');
+    }
 
-		$this->data['folBACKEND'] = $this->data['folder_admin'];
-		$this->data['backendDIR'] = 'templates/backend/';
-		$this->data['asback'] = 'assets/backend/';
-		$this->data['rootDIR'] = 'templates/';
+	public function login(){
+		
+		$rules = $this->User_m->rules_login_customer;
+		$this->form_validation->set_rules($rules);
+		
+		if($this->form_validation->run() == TRUE){
+
+			$email = $this->input->post('emailCUSTOMER');
+			$pass = $this->input->post('passwordCUSTOMER');
+
+			if ($this->User_m->login($email, $pass) == "CUSTOMER"){
+				
+				$data = array(
+		            'title' => 'Welcome!',
+		            'text' => 'Hallo, Selamat datang '. $this->session->userdata('Name'),
+		            'type' => 'success'
+		        );
+
+		        $this->session->set_flashdata('message',$data);
+				redirect($_SERVER['HTTP_REFERER']);
+			} else {
+
+				$data = array(
+		            'title' => 'Oops!',
+		            'text' => 'Maaf, email dan kata sandi yang anda masukkan salah',
+		            'type' => 'danger'
+		        	);
+		        $this->session->set_flashdata('message',$data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+		} else {
+			$data = array(
+            'title' => 'Terjadi Kesalahan!',
+            'text' => 'Maaf, Silakan ulangi email dan kata sandi anda dibawah!',
+            'type' => 'warning'
+        	);
+        $this->session->set_flashdata('message',$data);
+		redirect($_SERVER['HTTP_REFERER']);
+		}
 	}
 
-	function mail_config(){
-		$config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'mail.dunia-otomotif.com';
-        //$config['smtp_host'] = 'smtp.mandrillapp.com';
-        $config['smtp_port'] = '587'; 
-        $config['smtp_timeout'] = 30;
-        $config['smtp_user'] = 'cs@dunia-otomotif.com';
-        $config['smtp_pass'] = 'duniaotomotif5612';
-        // $config['smtp_user'] = 'Proweb Media Indonesia';
-        // $config['smtp_pass'] = 'tg0eEIlltFAJKngiYKMCiQ';
-        $config['mailtype'] = 'html';
-        $config['charset'] = 'iso-8859-1';
-        $config['wordwrap'] = TRUE;
-        $config['newline'] = "\r\n";
-        return $config;
+	public function logout (){
+		$this->User_m->logout();
+		redirect('Home');
 	}
 
-	function mail_template($messages,$subject,$type){
-		if($type == 'newsletter'){
+	public function savecustomer($id = NULL)
+	{
+		$rules = $this->Customer_m->rules_customer;
+		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+        $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
-		$address = 'Komp. Baloi Permata Regency Blok. AA #3A';
-        $telephone = '+62 778 7418587';
+		if ($this->form_validation->run() == TRUE) {
+			$data = $this->Customer_m->array_from_post(array('nameCUSTOMER','emailCUSTOMER','passwordCUSTOMER'));
+            $data['passwordCUSTOMER'] = $this->Customer_m->hash($data['passwordCUSTOMER']);
+            
+			$id = decode($this->input->post('idCUSTOMER'));
+			if(empty($id))$id=NULL;
+			$idCUSTOMER = $this->Customer_m->save($data, $id);
+
+			if ($idCUSTOMER) {
+
+				$email = $this->input->post('emailCUSTOMER');
+                $name = ucwords($this->input->post('nameCUSTOMER'));
+                $this->sendemailconfirmation($idCUSTOMER, $name, $email);
+
+				$data = array(
+                    'title' => 'Sukses',
+                    'text' => 'Terima kasih sudah mendaftar di i-Laundry, silakan cek kotak masuk ataupun kotak spam anda!. Terima Kasih!',
+                    'type' => 'success'
+                );
+                $this->session->set_flashdata('message',$data);
+                redirect('Home');
+
+			} else {
+				$data = array(
+                    'title' => 'Terjadi Kesalahan',
+                    'text' => 'Maaf, mungkin ada Kesalahan koneksi, mohon ulangi beberapa saat lagi.',
+                    'type' => 'error'
+                );
+                $this->session->set_flashdata('message',$data);
+                redirect('Home');
+			}
+		} else {
+				$data = array(
+		            'title' => 'Terjadi Kesalahan',
+		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form registrasi anda!.',
+		            'type' => 'error'
+		        );
+		        $this->session->set_flashdata('message',$data);
+		        redirect('Home');
+		}
+	}
+
+	private function sendemailconfirmation($idCUSTOMER = NULL, $nameCUSTOMER = NULL, $emailCUSTOMER = NULL) {
+		$from_email = 'no-reply@i-laundry.co.id'; //change this to yours
+     	$idCODE = encode($idCUSTOMER);
+     	// $name = $result->nmCUSTOMER;
+        $subject = 'Konfirmasi Email - i-Laundry';
+        $word1 = 'Terima kasih telah mendaftar di i-Laundry! Kami sangat senang kamu telah bergabung bersama kami<br>Silakan ikuti tautan dibawah untuk verifikasi email kamu. Terima Kasih! ';
+        $address = 'Komplek Permata Regency, Baloi, Batam - Indonesia';
+        $telephone = '0778 - 741XXXX';
         $facebook = 'facebook.com';
         $twitter = 'twitter.com';
         $instagram = 'instagram.com';
-        $footer = 'Jika kamu ada pertanyaan, silakan hubungi kami lewat email di hello@prowebmedia.org atau hubungi di +62 778 7418587. Waktu buka (08:30 &mdash; 17:00)';
-
-		$messagesNews = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        $footer = 'Jika kamu ada pertanyaan, silakan hubungi kami lewat email di support@i-laundry.co.id atau hubungi di '. $telephone .'. Waktu buka (08:30 &mdash; 20:00)';
+        $message = '
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 		<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-	    <title>'. $subject .' - PROWEBMEDIA.ORG</title>
+	    <title>'. $subject .'</title>
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	    <!-- CSS Reset -->
@@ -177,7 +253,7 @@ class Admin_Controller extends MY_Controller{
 		    <center style="width: 100%;">
 		        <!-- Visually Hidden Preheader Text : BEGIN -->
 		        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
-		            '. $subject .' - PROWEBMEDIA.ORG
+		            Terima kasih sudah mendaftar, ' . $nameCUSTOMER . '!
 		        </div>
 		        <!-- Visually Hidden Preheader Text : END -->
 
@@ -189,23 +265,32 @@ class Admin_Controller extends MY_Controller{
 		            <!-- Hero Image, Flush : BEGIN -->
 		            <tr>
 		                <td style="font-family: sans-serif; padding: 25px 0 0 40px; font-size: 48px; color: #17C3D6; letter-spacing: 20px;">
-		                    PROWEBMEDIA
+		                    i-Laundry
 		                </td>
 		            </tr>
-
+		            
 		            <tr>
+		                <tr>
+		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Hallo!</td>
+		                </tr>
+		                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+		                        '.$word1.'
+		                        <br>
+		                    </td>
+		            </tr>
+		            <tr id="btn-confirm">
 		                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-
-		               '. $messages .'
-
+		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #fed501; transition: all 100ms ease-in; color: #111;" href="' . base_url() . 'Customer/confirmuser/' . $idCODE . '">Konfirmasi Email Kamu</a>
 		                </td>
 		            </tr>
 		            <!-- 1 Column Text : BEGIN -->
+		            </tr>
+		            </tr>
 		             <tr>
 		                <td style="padding: 20px 20px 20px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555; background-color: #f1fafa;">
 		                    <webversion style="color:#888888; font-size: 14px; text-decoration:underline; font-weight: bold;">Terima Kasih</webversion>
 		                    <br>
-		                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">Laparkali.com</span>
+		                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">www.i-laundry.co.id</span>
 		                    <br>
 		                    <span class="mobile-link--footer">'.$address.'</span><br><span class="mobile-link--footer">'.$telephone.'</span>
 		                    <div style="font-size: 24px; margin-top: 20px; color: #aaa;">
@@ -213,13 +298,12 @@ class Admin_Controller extends MY_Controller{
 		                        <a href="'.$twitter.'"><i class="fa fa-twitter-square"></i></a>
 		                        <a href="'.$instagram.'"><i class="fa fa-instagram"></i></a>
 		                    </div>
-		                     <div style="margin-top: 25px; color: #999;">'.$footer.'<br><a href="'.base_url().'User/UnsubcribedPage" title="Berhenti Berlangganan?">Berhenti Berlangganan newsletter ini?</a>
-		                     </div>
+		                    <div style="margin-top: 25px; color: #999;">'.$footer.'</div>
 		                </td>
 		            </tr>
 		            <tr style="background-color: #777">
 		            <td style="padding: 10px 20px 10px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #ffffff;">
-		                    2016 &copy; prowebmedia.org is crafted by <a href="https://www.prowebmedia.org/">Proweb Media Indonesia</a>
+		                    2016 &copy; i-laundry.co.id is crafted by Codewell Team.
 		                    <br>
 		                </td>
 		            </tr>
@@ -231,7 +315,17 @@ class Admin_Controller extends MY_Controller{
 			</td></tr></table>
 			</body>
 			</html>';
-		}
-        return $messagesNews;
+						        
+        //configure email settings
+        $config = $this->mail_config();
+        $this->email->initialize($config);
+        
+        //send mail
+        $this->email->from($from_email, 'i-Laundry');
+        $this->email->to($emailCUSTOMER);
+        $this->email->subject($subject);
+        $this->email->message($message);
+        return $this->email->send();
+
 	}
 }

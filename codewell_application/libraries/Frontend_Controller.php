@@ -16,15 +16,18 @@ class Frontend_Controller extends MY_Controller{
 
 	function mail_config(){
 		$config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'ssl://smtp.gmail.com'; 
-        $config['smtp_port'] = '465'; 
+        $config['smtp_host'] = 'mail.dunia-otomotif.com';
+        //$config['smtp_host'] = 'smtp.mandrillapp.com';
+        $config['smtp_port'] = '587'; 
         $config['smtp_timeout'] = 30;
-        $config['smtp_user'] = 'prowebmediaindonesia@gmail.com';
-        $config['smtp_pass'] = 'prowebmedia123'; 
+        $config['smtp_user'] = 'cs@dunia-otomotif.com';
+        $config['smtp_pass'] = 'duniaotomotif5612';
+        // $config['smtp_user'] = 'Proweb Media Indonesia';
+        // $config['smtp_pass'] = 'tg0eEIlltFAJKngiYKMCiQ';
         $config['mailtype'] = 'html';
         $config['charset'] = 'iso-8859-1';
         $config['wordwrap'] = TRUE;
-        $config['newline'] = "\r\n"; 
+        $config['newline'] = "\r\n";
         return $config;
 	}
 }

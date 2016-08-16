@@ -61,18 +61,35 @@
         <div class="user_thumb">
             <img class="cover" src="<?php echo base_url().$this->data['asfront']; ?>images/beach.jpg" alt="" title="" />
             <div class="user_details">
-               <p>Hello, <span>John Doe</span></p>
+            <?php 
+              if(!empty($this->session->userdata('idCUSTOMER'))){
+                $greetings = "<p>Hallo, <span>".$this->session->userdata('Name')."</span></p>";
+              } else {
+                $greetings = "<p>Hallo, <span> Selamat Datang!</span></p>";
+              }
+            ?>
+               <?php echo $greetings;?>
             </div>  
             <div class="user_avatar"><img src="<?php echo base_url().$this->data['asfront']; ?>images/ava.png" alt="" title="" /></div>       
         </div>
 
         <nav class="user-nav">
             <ul>
+            <?php
+              if(!empty($this->session->userdata('idCUSTOMER'))){
+            ?>
                 <li><a href="<?php echo base_url();?>Settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/briefcase.png" alt="" title="" /><span>Akun ku</span></a></li>
-                <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li>
-                <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/love.png" alt="" title="" /><span>Inbox</span><strong>5</strong></a></li>
-                <li><a href="index.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Logout</span></a></li>
+                <li><a href="<?php echo base_url();?>Customer/logout"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a></li>
+            <?php 
+              } else {
+            ?>
+                <li><a href="#" data-popup=".popup-login" class="close-panel open-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Masuk</span></a></li>
+            <?php
+              }
+            ?>
+                <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/briefcase.png" alt="" title="" /><span>Akun ku</span></a></li> -->
+                <!-- <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li> -->
+                <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/love.png" alt="" title="" /><span>Inbox</span><strong>5</strong></a></li> -->
             </ul>
         </nav>
     </div>
@@ -104,10 +121,23 @@
                         <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
                             <div class="slider_trans">
                                 <div class="slider-caption">
-                                    <h2 data-swiper-parallax="-100%">Selamat Datang!</h2>
+                                <?php
+                                  if(!empty($this->session->userdata('idCUSTOMER'))){
+                                    $name = "Hallo! ". $this->session->userdata('Name');
+                                  } else {
+                                    $name = "Selamat Datang!";
+                                  }
+                                ?>
+                                    <h2 data-swiper-parallax="-100%"><?php echo $name;?></h2>
                                     <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
                                     <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
+                                    <?php
+                                      if(!empty($this->session->userdata('idCUSTOMER'))){
+                                    ?>
+                                    <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                    <?php } else { ?>
                                     <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
+                                    <?php } ?>
                                 </div>
                             </div> 
                         </div>
@@ -183,9 +213,9 @@
     <div class="content-block">
         <h4>Okay, silakan login dulu</h4>
         <div class="loginform">
-            <form id="LoginForm" method="post">
-                <input type="text" name="Username" value="" class="form_input required" placeholder="Email kamu" />
-                <input type="password" name="Password" value="" class="form_input required" placeholder="Ketik password kamu" />
+            <form id="LoginForm" method="post" action="<?php echo base_url();?>Customer/login">
+                <input type="email" name="emailCUSTOMER" class="form_input email required" placeholder="Email kamu" />
+                <input type="password" name="passwordCUSTOMER" class="form_input required" placeholder="Ketik password kamu" />
                 <div class="forgot_pass">
                     <a href="#" data-popup=".popup-forgot" class="open-popup">Lupa Password?</a>
                 </div>
@@ -208,20 +238,21 @@
     <div class="content-block">
         <h4>Okay! Mari daftar dulu.</h4>
         <div class="loginform">
-            <form id="RegisterForm" method="post">
-                <input type="text" name="Username" value="" class="form_input required" placeholder="Isi username yang kamu inginkan" />
-                <input type="text" name="Email" value="" class="form_input required" placeholder="Alamat email kamu juga" />
-                <input type="password" name="Password" value="" class="form_input required" placeholder="Ketik password nya" />
+            <form id="RegisterForm" method="post" action="<?php echo base_url();?>Customer/savecustomer">
+                <input type="text" name="nameCUSTOMER" value="" class="form_input required" placeholder="Isi nama lengkap kamu" />
+                <input type="text" name="emailCUSTOMER" value="" class="form_input email required" placeholder="Alamat email kamu juga" />
+                <input type="password" name="passwordCUSTOMER" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repasswordCUSTOMER.pattern = this.value;" id="passwordCUSTOMER" required="" class="form_input required" placeholder="Ketik password nya" />
+                <input type="password" name="repasswordCUSTOMER" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mohon samakan kata sandi anda seperti kata sandi diatas' : '');" id="repasswordCUSTOMER" class="form_input required" placeholder="Ketik lagi password nya" />
                 <input type="submit" name="submit" class="form_submit" id="submit" value="Daftar sekarang" />
             </form>
             <div class="signup_bottom">
                 <p>Sudah punya akun?<a href="#" data-popup=".popup-login" class="open-popup">Silakan login</a></p>
             </div>
-            <h5>Lagi malas ngetik? Silakan daftar dengan akun sosial media kamu</h5>
+            <!-- <h5>Lagi malas ngetik? Silakan daftar dengan akun sosial media kamu</h5>
             <div class="signup_social">
                 <a href="http://www.facebook.com/" class="signup_facebook external">Facebook</a>
                 <a href="http://www.twitter.com/" class="signup_twitter external">Twitter</a>            
-            </div>		
+            </div>	 -->	
         </div>
         <div class="close_popup_button">
             <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" /></a>
