@@ -57,7 +57,6 @@
 
 <div class="panel panel-right panel-reveal">
     <div class="user_login_info">
-
         <div class="user_thumb">
             <img class="cover" src="<?php echo base_url().$this->data['asfront']; ?>images/beach.jpg" alt="" title="" />
             <div class="user_details">
@@ -78,7 +77,7 @@
             <?php
               if(!empty($this->session->userdata('idCUSTOMER'))){
             ?>
-                <li><a href="<?php echo base_url();?>Settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
+                <li><a href="<?php echo base_url();?>Customer/settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
                 <li><a href="<?php echo base_url();?>Customer/logout"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a></li>
             <?php 
               } else {
@@ -106,12 +105,16 @@
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">
-                            <a href="index.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title="" width="140"/>
+                            <a href="<?php echo base_url();?>"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title="" width="140"/>
                         </div>
-                    </div>			
+                    </div>
+                    <?php
+                      if(!empty($this->session->userdata('idCUSTOMER'))){
+                    ?>
                     <a href="#" data-panel="right" class="open-panel">
                         <div class="navbar_right"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></div>
-                    </a>					
+                    </a>
+                    <?php } ?>				
                 </div>
 
                 <!-- Slider -->

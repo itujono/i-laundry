@@ -15,15 +15,34 @@ class Customer_m extends MY_Model{
 		),
 		'emailCUSTOMER' => array(
 			'field' => 'emailCUSTOMER', 
-			'label' => 'emailCUSTOMER', 
+			'label' => 'Email Pelanggan', 
 			'rules' => 'trim|required|valid_email'
 		),
 		'passwordCUSTOMER' => array(
 			'field' => 'passwordCUSTOMER', 
-			'label' => 'passwordCUSTOMER', 
+			'label' => 'Kata sandi Pelanggan', 
 			'rules' => 'trim|required'
 		)		  
 	);
+
+	public $rules_recoverypass = array(
+		'oldpasswordCUSTOMER' => array(
+			'field' => 'oldpasswordCUSTOMER',
+			'label'	=> 'Kata Sandi Lama kamu',
+			'rules'	=> 'trim|required'
+		),
+		'passwordCUSTOMER' => array(
+			'field' => 'passwordCUSTOMER',
+			'label'	=> 'Kata Sandi Kamu',
+			'rules'	=> 'trim|required'
+		),
+		'repasswordCUSTOMER' => array(
+			'field' => 'repasswordCUSTOMER',
+			'label'	=> 'Konfirmasi Kata Sandi Kamu',
+			'rules'	=> 'trim|required'
+		),
+	);
+
 
 	function __construct (){
 		parent::__construct();
@@ -42,5 +61,22 @@ class Customer_m extends MY_Model{
 
 	public function hash ($string){
 		return hash('sha512', $string . config_item('encryption_key'));
+	}
+
+	public function checkuser($idCUSTOMER = NULL)
+	{
+		$this->db->select('idCUSTOMER');
+		$this->db->from('customers');
+		if (!empty($idCUSTOMER)){
+			$this->db->where('customers.idCUSTOMER', $idCUSTOMER);
+		}
+		return $this->db->get();
+	}
+
+	public function checkoldpassword($id){
+		$this->db->select('customers.idCUSTOMER, passwordCUSTOMER, emailCUSTOMER, nameCUSTOMER');
+		$this->db->from('customers');
+		$this->db->where('customers.idCUSTOMER', $id);
+		return $this->db->get();
 	}
 }

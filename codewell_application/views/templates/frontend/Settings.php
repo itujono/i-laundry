@@ -22,21 +22,23 @@
                         <h2>Ubah password</h2>
                         <p>Jika kamu ingin mengubah password akun mu, silakan gunakan form di bawah ini.</p>
                     </div>
+                    <form method="POST" action="<?php echo base_url();?>Customer/updatepasswordcustomer">
                     <div class="settingsform">
+                        <input type="hidden" readonly required name="idCUSTOMER" value="<?php echo encode($this->session->userdata('idCUSTOMER')); ?>">
+                        <div class="form_row">
+                            <label>Ketik password lama kamu</label>
+                            <input type="password" name="oldpasswordCUSTOMER" class="form_input" placeholder="******" required>
+                        </div>
                         <div class="form_row">
                             <label>Ketik password baru kamu</label>
-                            <input type="password" name="pwd" value="" class="form_input" />
+                            <input type="password" name="passwordCUSTOMER" placeholder="******" required="" class="form_input">
                         </div>
                         <div class="form_row">
                             <label>Ketik password baru kamu sekali lagi</label>
-                            <input type="password" name="pwd1" value="" class="form_input" />
-                        </div>
-                        <div class="form_row">
-                            <label>Ketik password lama kamu</label>
-                            <input type="password" name="pwd1" value="" class="form_input" />
+                            <input type="password" name="repasswordCUSTOMER" placeholder="******" required="" class="form_input">
                         </div>
                         <div class="form-submit">
-                            <a href="about.html" class="swiper_read_more">Ubah password</a>
+                            <input type="submit" value="Simpan">
                         </div>
                         <div class="back-to-home">
                             <a href="<?php echo base_url();?>Home">
@@ -44,6 +46,7 @@
                             </a>
                         </div>
                     </div>
+                    </form>
                 </div> <!-- kelar page_single layout blabla -->
             </div> <!-- kelar id pages_maincontent -->
 
