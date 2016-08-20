@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
   <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-  <title>i-Laundry - Selamat datang!</title>
+  <title>i-Laundry - Selamat Datang!</title>
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
@@ -78,7 +78,7 @@
               if(!empty($this->session->userdata('idCUSTOMER'))){
             ?>
                 <li><a href="<?php echo base_url();?>Customer/settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
-                <li><a href="<?php echo base_url();?>Customer/logout"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a></li>
+                <li><a href="<?php echo base_url();?>Customer/logout"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a></li> 
             <?php 
               } else {
             ?>
@@ -187,15 +187,6 @@
                         </div>
                         <div class="swiper-slide toolbar-icon">
                             <a href="#" data-panel="right" class="open-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></a>
-                        </div>
-                        <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/love.png" alt="" title="" /></a>
-                        </div>
-                        <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
-                        </div>
-                        <div class="swiper-slide toolbar-icon">
-                            <a href="about.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/settings.png" alt="" title="" /></a>
                         </div>
                     </div>
                 </div> <!-- kelar Swiper-container-toolbar -->
