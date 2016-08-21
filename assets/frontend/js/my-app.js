@@ -52,7 +52,19 @@ $$(document).on('pageInit', function (e) {
 		});
 
 		$$('.alert-register').on('click', function () {
-		    myApp.alert('Silakan cek email kamu untuk konfirmasi register', 'Sukses!');
+		    myApp.alert('Silakan cek inbox email kamu untuk konfirmasi akun', 'Sukses!');
+		});
+
+		$$('.alert-profile_update').on('click', function () {
+		    myApp.alert('Profile kamu berhasil diupdate', 'Sukses!');
+		});
+
+		$$('.alert-password_change').on('click', function () {
+		    myApp.alert('Password kamu sudah diubah', 'Berhasil!');
+		});
+
+		$$('.alert-forgot').on('click', function () {
+		    myApp.alert('Kami sudah mengirimkan link untuk mereset password kamu. Silakan cek inbox email', 'Email terkirim');
 		});
 })
 
