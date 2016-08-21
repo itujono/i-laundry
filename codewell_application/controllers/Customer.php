@@ -281,7 +281,7 @@ class Customer extends Frontend_Controller {
 		            
 		            <tr>
 		                <tr>
-		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Hallo! '.$nameCUSTOMER.'</td>
+		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Halo, '.$nameCUSTOMER.'</td>
 		                </tr>
 		                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
 		                        '.$word1.'

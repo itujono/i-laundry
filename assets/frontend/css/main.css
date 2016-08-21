@@ -496,3 +496,81 @@ ul.history-detailed .small-detail ul li {
     color: #999;
     font-weight: 100;
 }
+
+
+/*oh iya ini bagian Profile ya wak */
+
+.profile-form label {
+    width: 100%;
+    padding: 5px 0 3px 0;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
+}
+
+.profile-form input.form_input {
+    padding: 3%;
+    width: 93%;
+    margin: 0 0 5px 0;
+    border: 1px solid #ddd;
+}
+
+.profile-form textarea.form_textarea {
+    padding: 3%;
+    width: 93%;
+    margin: 0 0 5px 0;
+    border: 1px solid #ddd;
+}
+
+.profile-form input.form_submit {
+    width: 100%;
+    padding: 4% 0 4% 0;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #2fa9e0;
+    border-radius: 30px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#profile .user-avatar {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+#profile .user-avatar img {
+    float: left;
+    width: 30%;
+    display: block;
+    max-width: 100%;
+    margin: 10px 0 0 0;
+    border-radius: 50%;
+}
+
+#profile .user-avatar .change-ava {
+    float: left;
+    width: 50%;
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
+#profile .user-avatar a {
+    padding: 10px 15px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #2fa9e0;
+    border-radius: 7px;
+}
+
+#profile .user-avatar a i {
+    margin-right: 5px;
+    filter: brightness(200%);
+    -webkit-filter: brightness(200%);
+    -moz-filter: brightness(200%);
+}
