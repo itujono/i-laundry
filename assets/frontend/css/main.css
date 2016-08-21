@@ -514,6 +514,44 @@ ul.history-detailed .small-detail ul li {
     font-weight: 100;
 }
 
+.order label {
+    width: 100%;
+    padding: 5px 0 3px 0;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
+}
+
+.order input.form_input {
+    padding: 3%;
+    width: 93%;
+    margin: 0 0 5px 0;
+    border: 1px solid #ddd;
+}
+
+.order textarea.form_textarea {
+    padding: 3%;
+    width: 93%;
+    margin: 0 0 5px 0;
+    border: 1px solid #ddd;
+}
+
+.order input.form_submit {
+    width: 100%;
+    padding: 4% 0 4% 0;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #2fa9e0;
+    border-radius: 30px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
 
 /*oh iya ini bagian Profile ya wak */
 

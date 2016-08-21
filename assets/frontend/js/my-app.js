@@ -29,6 +29,7 @@ $(document).ready(function() {
 			$("label.error").hide();
 		});
 });
+ 
 
 myApp.onPageInit('index', function (page) {
 		circlemenu();
@@ -41,9 +42,20 @@ $$(document).on('pageInit', function (e) {
 		$(".close-popup").click(function() {					  
 			$("label.error").hide();
 		});
+				
+		$$('.alert-email_confirmation').on('click', function () {
+		    myApp.alert('Email kamu sudah berhasil dikonfirmasi', 'Selamat!');
+		});
 
-	
+		$$('.alert-logout').on('click', function () {
+		    myApp.alert('Kamu sudah logout dari i-Laundry', 'Sampai jumpa!');
+		});
+
+		$$('.alert-register').on('click', function () {
+		    myApp.alert('Silakan cek email kamu untuk konfirmasi register', 'Sukses!');
+		});
 })
+
 myApp.onPageInit('music', function (page) {
 		  audiojs.events.ready(function() {
 			var as = audiojs.createAll();

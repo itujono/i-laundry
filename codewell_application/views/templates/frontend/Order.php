@@ -117,7 +117,7 @@
                                         </div>
                                     </div>
                                 </div>                    
-                                <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
+                                <input type="submit" name="submit" class="form_submit" id="submit" value="All good!" />
 
                             </form>
                         </div>              

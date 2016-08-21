@@ -145,6 +145,7 @@
                                             <h2 data-swiper-parallax="-100%"><?php echo $name;?></h2>
                                             <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
                                             <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
+                                            <a href="#" class="alert-email_confirmation">Boleh ni dicoba</a>
                                             <?php
                                             if(!empty($this->session->userdata('idCUSTOMER'))){
                                                 ?>

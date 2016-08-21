@@ -12,6 +12,7 @@
 <link href="<?php echo base_url();?>assets/frontend/css/widget.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/frontend/css/responsive.css" rel="stylesheet">
 <link href="<?php echo base_url();?>assets/frontend/css/prettyPhoto.css" rel="stylesheet">
+<link href="<?php echo base_url();?>assets/frontend/css/headermessage.css" rel="stylesheet">
 
 <!-- <link href="<?php //echo base_url();?>assets/frontend/css/bootstrap-rtl.css" rel="stylesheet"> Uncomment it if needed! -->
 
