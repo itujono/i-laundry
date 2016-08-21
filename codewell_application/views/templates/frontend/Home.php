@@ -78,6 +78,7 @@
               if(!empty($this->session->userdata('idCUSTOMER'))){
             ?>
                 <li><a href="<?php echo base_url();?>Customer/settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a></li>
+                <li><a href="<?php echo base_url();?>Customer/settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/user.png" alt="" title="" /><span>Pengaturan Profil</span></a></li>
                 <li><a href="<?php echo base_url();?>Customer/logout"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a></li> 
             <?php 
               } else {
