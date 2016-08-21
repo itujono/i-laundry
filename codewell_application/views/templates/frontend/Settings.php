@@ -38,7 +38,7 @@
                             <input type="password" name="repasswordCUSTOMER" placeholder="******" required="" class="form_input">
                         </div>
                         <div class="form-submit">
-                            <input type="submit" value="Simpan">
+                            <input type="submit" name="submit" class="form_submit" id="submit" value="Simpan" />
                         </div>
                         <div class="back-to-home">
                             <a href="<?php echo base_url();?>Home">

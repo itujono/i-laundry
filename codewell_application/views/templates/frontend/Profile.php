@@ -46,7 +46,7 @@
                                 <label>Alamat</label>
                                 <textarea name="message" class="form_textarea" rows="7" cols="">Misal: Jalan Kebaikan III #900, Tiban BTN</textarea>
                             </div>     
-                            <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
+                            <input type="submit" name="submit" class="form_submit" id="submit" value="Simpan" />
                         </form>
                     </div> <!-- kelar Profile-Form -->
                     <div class="back-to-home">

@@ -352,7 +352,7 @@ h2.page_title {
 }
 
 .settingsform {
-    width: 90%;
+    width: 100%;
     padding: 0 0 15px 0;
 }
 
@@ -371,13 +371,28 @@ h2.page_title {
     border: 1px solid #ddd;
 }
 
+.settingsform input.form_submit {
+    width: 100%;
+    padding: 4% 0 4% 0;
+    margin: 10px 0 0 0;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: #2fa9e0;
+    border-radius: 30px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
 .settingsform label {
     width: 100%;
     padding: 5px 0 3px 0;
     display: block;
-    font-size: 14px;
-    font-weight: 100;
-    color: #999;
+    font-size: 16px;
+    font-weight: 400;
+    color: #777;
 }
 
 .back-to-home {
@@ -400,6 +415,8 @@ h2.page_title {
     padding-bottom: 0;
     font-weight: 600;
 }
+
+
 
 
 /* ini History Pemesanan bok! */
