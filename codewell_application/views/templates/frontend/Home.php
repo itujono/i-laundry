@@ -85,6 +85,7 @@
                   <li>
                       <a href="<?php echo base_url();?>profile" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/user.png" alt="" title="" /><span>Pengaturan Profil</span></a>
                   </li>
+                  <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li>
                   <li>
                       <a href="<?php echo base_url();?>Customer/logout" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a>
                   </li> 
@@ -98,7 +99,7 @@
               }
               ?>
               <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/briefcase.png" alt="" title="" /><span>Akun ku</span></a></li> -->
-              <!-- <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li> -->
+              
               <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/love.png" alt="" title="" /><span>Inbox</span><strong>5</strong></a></li> -->
             </ul>
 </nav>
@@ -145,7 +146,6 @@
                                             <h2 data-swiper-parallax="-100%"><?php echo $name;?></h2>
                                             <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
                                             <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
-                                            <a href="#" class="alert-email_confirmation">Boleh ni dicoba</a>
                                             <?php
                                             if(!empty($this->session->userdata('idCUSTOMER'))){
                                                 ?>

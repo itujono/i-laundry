@@ -552,6 +552,19 @@ ul.history-detailed .small-detail ul li {
     cursor: pointer;
 }
 
+.order .list-block li {
+    border-bottom: 1px #ddd solid;
+    margin: 0;
+}
+
+.order .list-block {
+    margin: 0 0 20px 0;
+}
+
+.order .content-block {
+    padding: 0px 5%;
+}
+
 
 /*oh iya ini bagian Profile ya wak */
 

@@ -28,16 +28,28 @@
 
                         <div class="contactform">
                             <form>
-                                <div class="form_row">
-                                    <label>Pilih tanggalnya</label>
-                                    <input type="text" name="name" value="" class="form_input" />
-                                </div>
-                            
-                                <div class="form_row">
-                                    <label>Pilih jam nya</label>
-                                    <input type="text" name="email" value="" class="form_input" />
-                                </div>
                                 
+                                <div class="form_row">
+                                    <label>Kapan mau dijemput?</label>
+                                    <div class="content-block">
+                                        <div style="padding:0; margin-right:-15px; width:auto" class="content-block-inner">
+                                            <div style="margin:0" class="list-block">
+                                                <ul style="border-top:none">
+                                                    <li>
+                                                        <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-input">
+                                                                <input type="text" placeholder="Date Time" readonly id="picker-date">
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div id="picker-date-container"></div>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <div class="form_row"> 
                                     <label>Alamat</label>
