@@ -156,12 +156,12 @@
                                             </div>
                                         </div> 
                                     </div>
-                                    <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo-02.png);">
+                                    <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-03.png);">
                                         <div class="slider_trans">		  
                                             <div class="slider-caption">
-                                                <h2 data-swiper-parallax="-100%">OFFICE BUILDINGS</h2>
-                                                <span class="subtitle" data-swiper-parallax="-60%">CONSTRUCTION MANAGEMENT</span>
-                                                <p data-swiper-parallax="-30%">The architect hired by a client is responsible for creating a design concept that meets the requirements of that client.  </p>
+                                                <h2 data-swiper-parallax="-100%">Mencuci bersih adalah passion kami</h2>
+                                                <span class="subtitle" data-swiper-parallax="-60%">Kami punya segelintir cara rahasia.</span>
+                                                <p data-swiper-parallax="-30%">Cara-cara rahasia inilah yang akan selalu setia merawat dan memelihara kebersihan serta keharuman pakaianmu.</p>
                                                 <a href="about.html" class="swiper_read_more">Baik, saya mau nyuci</a>
                                             </div>	
                                         </div>	
@@ -169,9 +169,9 @@
                                     <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
                                         <div class="slider_trans">		  
                                             <div class="slider-caption">
-                                                <h2 data-swiper-parallax="-100%">WORK WITH US</h2>
-                                                <span class="subtitle" data-swiper-parallax="-60%">BEST DESIGN COMPANY</span>
-                                                <p data-swiper-parallax="-30%">Developing the requirements the client wants in the building..</p>
+                                                <h2 data-swiper-parallax="-100%">Kualitas nggak akan bohong.</h2>
+                                                <span class="subtitle" data-swiper-parallax="-60%">Kata siapa kualitas bagus nggak bisa jalan beriringan dengan harga murah?</span>
+                                                <p data-swiper-parallax="-30%">Orang-orang mengenal kami sebagai laundry yang murah dan berkualitas. </p>
                                                 <a href="contact.html" class="swiper_read_more">Baik, saya mau nyuci</a>
                                             </div>
                                         </div>
