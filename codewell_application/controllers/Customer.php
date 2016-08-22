@@ -52,7 +52,7 @@ class Customer extends Frontend_Controller {
 
 	public function logout (){
 		$this->User_m->logout();
-		// redirect(base_url().'#!/'.base_url().'Home');
+		redirect(base_url().'#!/'.base_url().'Home');
 		redirect(base_url(), 'refresh');
 	}
 
