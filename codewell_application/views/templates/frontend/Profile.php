@@ -26,7 +26,8 @@
                     <div class="user-avatar">
                         <img src="<?php echo $profile->imageCUSTOMER;?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Foto Profile <?php echo $profile->nameCUSTOMER;?>" />
                         <div class="change-ava">
-                            <input type="file" name="imgCUSTOMER"><i class="icon icon-camera"></i> Ubah avatarmu
+                            <input type="file" name="imgCUSTOMER" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
+                            <label for="file"><i class="icon icon-camera"></i> Ubah avatarmu...</label>
                         </div>
                     </div>
                     <div class="profile-form">
@@ -62,3 +63,4 @@
         </div> <!-- kelar Page-Content -->
     </div> <!-- kelar data-page -->
 </div>
+

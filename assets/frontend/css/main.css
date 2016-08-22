@@ -500,7 +500,11 @@ ul.history-detailed .small-detail ul li {
     }
 
     .navbarpages {
-        background-color: #8cdde6;
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        height: 70px;
+        z-index: 10;
     }
 }
 
@@ -628,6 +632,57 @@ ul.history-detailed .small-detail ul li {
     padding-top: 40px;
 }
 
+#profile .user-avatar .change-ava label i {
+    filter: brightness(200%);
+    -webkit-filter: brightness(200%);
+    -moz-filter: brightness(200%);
+    margin-top: -4px;
+    margin-right: 5px;
+}
+
+
+
+
+/* ==== Hack custom si input file ==== */
+
+#profile .inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 100;
+    color: white;
+    background-color: #2fa9e0;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #aaa;
+}
+
+.inputfile + label {
+    cursor: pointer;
+}
+
+.inputfile:focus + label {
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
+
+/* ==== kelar hack custom input file ni wak ==== */
+
+
+
+
 #profile .user-avatar a {
     padding: 10px 15px;
     font-size: 20px;
@@ -642,3 +697,83 @@ ul.history-detailed .small-detail ul li {
     -webkit-filter: brightness(200%);
     -moz-filter: brightness(200%);
 }
+
+
+
+
+
+/* mulai Notif dulu wak */
+
+.notif {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+    padding: 15px;
+    background-color: #444;
+    color: #fff;
+}
+
+.notif .msg p {
+    font-size: 16px;
+}
+
+.notif .dismissable a {
+    color: #fed501;
+}
+
+.action {
+    display: inline-block;
+    padding: 0.5em;
+    border: 1px solid #000;
+}
+.notification {
+    position: fixed;
+    top: -20em;
+    left: 0;
+    width: 100%;
+    padding: 1em;
+    overflow: hidden;
+    background: #f9edbe;
+    border-bottom: 1px solid #f0c36d;
+}
+.notification.anim {
+    -webkit-transition: top 0.6s ease-out;  
+    -moz-transition: top 0.6s ease-out;
+    -ms-transition: top 0.6s ease-out;
+    -o-transition: top 0.6s ease-out;
+    transition: top 0.6s ease-out;
+}
+.notification.active {
+    top: 0;
+}
+.notification .actions {
+    margin-top: 0.5em;
+}
+.notification .btn {
+    border: 1px solid #f0c36d;
+    background: #f0c36d;
+    color: #fff;
+    display: inline-block;
+    padding: 0.3em;
+}
+
+.notification .dismiss-btn {
+    display: inline-block;
+    margin-left: 1em;
+}
+
+@media all and (min-width: 50em) {
+    .notification .msg {
+        float: left;
+        width: 70%;
+    }
+    .notification .actions {
+        float: right;
+        text-align: right;
+        width: 30%;
+        margin-top: -0.3em;
+    }
+}
+
+/* Notif udah kelar wak ya */

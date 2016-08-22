@@ -113,6 +113,14 @@
 
         <div data-page="index" class="page homepage">
             <div class="page-content">
+              <div class="notif">
+                <div class="msg">
+                  <p>Selamat! Kamu sudah logout. Sampai jumpa lagi!</p>
+                </div>
+                <div class="dismissable">
+                  <a href="#">Dismiss</a>
+                </div>
+              </div>
 
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
@@ -134,6 +142,7 @@
                             <div class="swiper-wrapper">
 
                                 <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
+
                                     <div class="slider_trans">
                                         <div class="slider-caption">
                                             <?php
@@ -207,9 +216,6 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 
@@ -304,6 +310,47 @@
 </div>
 
 
+<script>
+      $('body').addClass('js');
+      var $action = $('.action'),
+          $menulink = $('.menu-link'),
+          $menuTrigger = $('.has-subnav > a'),
+          $n,
+          nHeight;
+    
+      function addMessage() {
+        $('<div class="notification" id="notification"><div class="msg">You must be signed in to complete this action.</div> <div class="actions"><a href="#" id="sign-in" class="btn">Sign In or Register</a> <a href="#" class="dismiss-btn">Dismiss</a></div></div>').prependTo('.pattern');
+        
+        $n = $('#notification'),
+        nHeight = $n.outerHeight();
+          
+        showNotification();
+        setTimeout(hideNotification,8000);
+      }
+      
+      $action.click(function(e) { //Trigger
+        e.preventDefault();
+        addMessage();
+      });
+      
+      $('.pattern').delegate(".dismiss-btn", "click", function(e) {
+        hideNotification();
+        return false;
+      });
+      
+      function showNotification() {
+        $n.css('top',-nHeight).addClass('anim').css('top',0);
+      }
+    
+      function hideNotification() {
+        $n.css('top',-nHeight);
+        setTimeout(function() { $n.removeClass('anim'); }, 1000);
+      }
+      
+      $(window).resize(function() {
+        nHeight = $n.outerHeight();
+      });
+</script>
 
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
