@@ -43,6 +43,34 @@ class Customer_m extends MY_Model{
 		),
 	);
 
+	public $rules_update_customer = array(
+		'nameCUSTOMER' => array(
+			'field' => 'nameCUSTOMER',
+			'label'	=> 'Nama kamu',
+			'rules'	=> 'trim|required'
+		),
+		'emailCUSTOMER' => array(
+			'field' => 'emailCUSTOMER',
+			'label'	=> 'Email Kamu',
+			'rules'	=> 'trim|required'
+		),
+		'telephoneCUSTOMER' => array(
+			'field' => 'telephoneCUSTOMER',
+			'label'	=> 'Nomor telepon Kamu',
+			'rules'	=> 'trim|required|numeric|min_length[9]|max_length[14]'
+		),
+		'mobileCUSTOMER' => array(
+			'field' => 'mobileCUSTOMER',
+			'label'	=> 'Nomor handphone kamu',
+			'rules'	=> 'trim|required|numeric|min_length[9]|max_length[14]'
+		),
+		'addressCUSTOMER' => array(
+			'field' => 'addressCUSTOMER',
+			'label'	=> 'Alamat kamu',
+			'rules'	=> 'trim|required'
+		)
+	);
+
 
 	function __construct (){
 		parent::__construct();
@@ -77,6 +105,19 @@ class Customer_m extends MY_Model{
 		$this->db->select('customers.idCUSTOMER, passwordCUSTOMER, emailCUSTOMER, nameCUSTOMER');
 		$this->db->from('customers');
 		$this->db->where('customers.idCUSTOMER', $id);
+		return $this->db->get();
+	}
+
+	public function selectprofilecustomer($id){
+		$this->db->select('customers.idCUSTOMER, nameCUSTOMER, emailCUSTOMER, addressCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER');
+		$this->db->from('customers');
+		$this->db->where('customers.idCUSTOMER', $id);
+		return $this->db->get();
+	}
+	public function selectprofilecustomer_inhome($id){
+		$this->db->select('idCUSTOMER, nameCUSTOMER');
+		$this->db->from('customers');
+		$this->db->where('idCUSTOMER', $id);
 		return $this->db->get();
 	}
 }

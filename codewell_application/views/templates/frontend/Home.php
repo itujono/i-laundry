@@ -70,7 +70,7 @@
                 <?php echo $greetings;?>
             </div>  
             <div class="user_avatar">
-                <img src="<?php echo base_url().$this->data['asfront']; ?>images/ava.png" alt="" title="" />
+                <img src="<?php echo $profile->imageCUSTOMER; ?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Profil <?php echo $profile->nameCUSTOMER;?>" />
             </div>       
         </div>
 

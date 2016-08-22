@@ -21,3 +21,7 @@ function txt($string){
 function dF($date, $format){
 	return date($format, strtotime($date));
 }
+
+function folderENCRYPT($id,$type=0){
+    return base64_encode($id);
+}

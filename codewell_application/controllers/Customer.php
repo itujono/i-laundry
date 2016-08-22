@@ -52,7 +52,8 @@ class Customer extends Frontend_Controller {
 
 	public function logout (){
 		$this->User_m->logout();
-		redirect('Home');
+		// redirect(base_url().'#!/'.base_url().'Home');
+		redirect(base_url(), 'refresh');
 	}
 
 	public function savecustomer($id = NULL){
@@ -388,7 +389,10 @@ class Customer extends Frontend_Controller {
 			$this->session->set_flashdata('message',$data);
 			redirect('Home');
 		} else {
-			$this->load->view($this->data['frontendDIR']. 'Settings');
+				//if (!is_null($this->session->flashdata('message'))) {
+	            	$data['message'] = $this->session->flashdata('message');
+        		//}
+			$this->load->view($this->data['frontendDIR']. 'Settings',$data);
 		}
 	}
 
@@ -418,7 +422,7 @@ class Customer extends Frontend_Controller {
 							'type' => 'success'
 							);
 						$this->session->set_flashdata('message', $data);
-						redirect($_SERVER['HTTP_REFERER']);
+						redirect(base_url().'#!/'.base_url().'Customer/settings');
 					}else{
 						echo $this->email->print_debugger();
 					}
@@ -430,7 +434,7 @@ class Customer extends Frontend_Controller {
 						'type' => 'error'
 						);
 					$this->session->set_flashdata('message', $data);
-					redirect($_SERVER['HTTP_REFERER']);
+					redirect(base_url().'#!/'.base_url().'Customer/settings');
 				}
 
 			} else {
@@ -440,7 +444,7 @@ class Customer extends Frontend_Controller {
 					'type' => 'error'
 					);
 				$this->session->set_flashdata('message', $data);
-				redirect($_SERVER['HTTP_REFERER']);
+				redirect(base_url().'#!/'.base_url().'Customer/settings');
 			}
 		} else {
 			$data = array(
@@ -449,7 +453,7 @@ class Customer extends Frontend_Controller {
 				'type' => 'warning'
 				);
 			$this->session->set_flashdata('message', $data);
-			redirect($_SERVER['HTTP_REFERER']);
+			redirect(base_url().'#!/'.base_url().'Customer/settings');
 		}
 	}
 
@@ -457,7 +461,7 @@ class Customer extends Frontend_Controller {
 	{
 		$from_email = 'cs@dunia-otomotif.com';
         $subject = 'Pemberitahuan Perubahan Kata sandi - i-Laundry';
-        $word1 = 'Kami sangat menjaga dan menghargai privasi kamu oleh karena itu, kamu telah menerima email ini karena kamu baru saja merubah kata sandi kamu pada <b>'.date("d F Y H:i:s").'</b> oleh karena itu, apabila itu benar kamu, silahkan acuhkan email ini dan apabila itu bukan kamu, silakan secepatnya hubungi pihak kami di 0778 - 741XXXX Terima Kasih!.' ;
+        $word1 = 'Kami sangat menjaga dan menghargai privasi kamu oleh karena itu, kamu telah menerima email ini karena kamu baru saja merubah kata sandi kamu pada <b>'.date("l, d F Y H:i:s").'</b> oleh karena itu, apabila itu benar kamu, silahkan acuhkan email ini dan apabila itu bukan kamu, silakan secepatnya hubungi pihak kami di 0778 - 741XXXX Terima Kasih!.' ;
         $address = 'Komplek Permata Regency, Baloi, Batam - Indonesia';
         $telephone = '0778 - 741XXXX';
         $facebook = 'facebook.com';
