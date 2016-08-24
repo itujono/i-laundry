@@ -60,7 +60,10 @@ class Profile extends Frontend_Controller {
 			if (!file_exists( $path )){
                 mkdir($path, 0777, true);
         	}
-
+        	$map = directory_map($path, FALSE, TRUE);
+			foreach ($map as $value) {
+				unlink($path.'/'.$value);
+			}
 			$config['upload_path']          = $path;
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2048;
