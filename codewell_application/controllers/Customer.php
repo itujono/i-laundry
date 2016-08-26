@@ -22,9 +22,7 @@ class Customer extends Frontend_Controller {
 			if ($this->User_m->login($email, $pass) == "CUSTOMER"){
 				
 				$data = array(
-		            'title' => 'Welcome!',
-		            'text' => 'Hallo, Selamat datang '. $this->session->userdata('Name'),
-		            'type' => 'success'
+		            'text' => 'Hallo, Selamat datang '. $this->session->userdata('Name')
 		        );
 
 		        $this->session->set_flashdata('message',$data);
@@ -32,18 +30,14 @@ class Customer extends Frontend_Controller {
 			} else {
 
 				$data = array(
-		            'title' => 'Oops!',
-		            'text' => 'Maaf, email dan kata sandi yang anda masukkan salah',
-		            'type' => 'danger'
+		            'text' => 'Maaf, email dan kata sandi yang anda masukkan salah'
 		        	);
 		        $this->session->set_flashdata('message',$data);
 				redirect($_SERVER['HTTP_REFERER']);
 			}
 		} else {
 			$data = array(
-            'title' => 'Terjadi Kesalahan!',
-            'text' => 'Maaf, Silakan ulangi email dan kata sandi anda dibawah!',
-            'type' => 'warning'
+            'text' => 'Maaf, Silakan ulangi email dan kata sandi anda dibawah!'
         	);
         $this->session->set_flashdata('message',$data);
 		redirect($_SERVER['HTTP_REFERER']);
@@ -52,8 +46,11 @@ class Customer extends Frontend_Controller {
 
 	public function logout (){
 		$this->User_m->logout();
+		$data = array(
+            'text' => 'Selamat! Kamu sudah logout. Sampai jumpa lagi!'
+        	);
+        $this->session->set_flashdata('message',$data);
 		redirect(base_url().'#!/'.base_url().'Home');
-		redirect(base_url(), 'refresh');
 	}
 
 	public function savecustomer($id = NULL){
@@ -78,18 +75,14 @@ class Customer extends Frontend_Controller {
 	                if($this->sendemailconfirmation($idCUSTOMER, $name, $email)){
 
 					$data = array(
-	                    'title' => 'Sukses',
-	                    'text' => 'Terima kasih sudah mendaftar di i-Laundry, silakan cek kotak masuk ataupun kotak spam anda!. Terima Kasih!',
-	                    'type' => 'success'
+	                    'text' => 'Terima kasih sudah mendaftar di i-Laundry, silakan cek kotak masuk ataupun kotak spam anda!. Terima Kasih!'
 	                );
 	                $this->session->set_flashdata('message',$data);
 	                redirect('Home');
 
 					} else {
 					$data = array(
-	                    'title' => 'Terjadi Kesalahan',
-	                    'text' => 'Maaf, mungkin ada Kesalahan koneksi, mohon ulangi beberapa saat lagi.',
-	                    'type' => 'error'
+	                    'text' => 'Maaf, mungkin ada Kesalahan koneksi, mohon ulangi beberapa saat lagi.'
 	                );
 	                $this->session->set_flashdata('message',$data);
 	                redirect('Home');
@@ -97,18 +90,14 @@ class Customer extends Frontend_Controller {
 
 			} else {
 				$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf, Sistem tidak dapat menyimpan data anda, silakan ulangi beberapa saat lagi.',
-		            'type' => 'error'
+		            'text' => 'Maaf, Sistem tidak dapat menyimpan data anda, silakan ulangi beberapa saat lagi.'
 		        );
 		        $this->session->set_flashdata('message',$data);
 		        redirect('Home');
 			}
 		} else {
 			$data = array(
-	            'title' => 'Terjadi Kesalahan',
-	            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form registrasi anda!.',
-	            'type' => 'error'
+	            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form registrasi anda!.'
 	        );
 	        $this->session->set_flashdata('message',$data);
 	        redirect('Home');
@@ -342,9 +331,7 @@ class Customer extends Frontend_Controller {
 	public function confirmuser($idCUSTOMER = NULL) {
 		if (empty($idCUSTOMER)){
 			$data = array(
-	            'title' => 'Terjadi Kesalahan',
-	            'text' => 'Maaf sesuatu telah terjadi, silakan hubungi customer service kami di 0778 - 743XXXX.',
-	            'type' => 'error'
+	            'text' => 'Maaf sesuatu telah terjadi, silakan hubungi customer service kami di 0778 - 743XXXX.'
         	);
 		} else {
 			$idCUSTOMER = decode($idCUSTOMER);
@@ -354,23 +341,17 @@ class Customer extends Frontend_Controller {
 				if ($this->Customer_m->save($data,$idCUSTOMER)) {
 
 					$data = array(
-		                'title' => 'Berhasil',
-		                'text' => 'Kami telah mengonfirmasi email anda, silakan masuk untuk memulai',
-		                'type' => 'success'
+		                'text' => 'Kami telah mengonfirmasi email anda, silakan masuk untuk memulai'
 	            	);
 				} else{
 					$data = array(
-			            'title' => 'Terjadi Kesalahan',
-			            'text' => 'Maaf sesuatu memalukan telah terjadi, silakan hubungi customer service kami di 0778 - 743XXXX.',
-			            'type' => 'error'
+			            'text' => 'Maaf sesuatu memalukan telah terjadi, silakan hubungi customer service kami di 0778 - 743XXXX.'
 		        	);
 				}
 
 			} else {
 				$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf kamu belum terdaftar.',
-		            'type' => 'error'
+		            'text' => 'Maaf kamu belum terdaftar.'
 	        	);
 			}
 		}
@@ -382,18 +363,19 @@ class Customer extends Frontend_Controller {
 		$idCUSTOMER = $this->session->userdata('idCUSTOMER');
 		if(empty($idCUSTOMER)){
 			$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf, kamu diharuskan untuk masuk terlebih dahulu.',
-		            'type' => 'error'
+		            'text' => 'Maaf, kamu diharuskan untuk masuk/login terlebih dahulu.'
 	        );
 			$this->session->set_flashdata('message',$data);
 			redirect('Home');
-		} else {
-				//if (!is_null($this->session->flashdata('message'))) {
-	            	$data['message'] = $this->session->flashdata('message');
-        		//}
-			$this->load->view($this->data['frontendDIR']. 'Settings',$data);
 		}
+
+		if (!is_null($this->session->flashdata('message'))) {
+        	$data['message'] = $this->session->flashdata('message');
+		} else {
+			$data = '';
+		}
+
+		$this->load->view($this->data['frontendDIR']. 'Settings',$data);
 	}
 
 	public function updatepasswordcustomer(){
@@ -417,9 +399,7 @@ class Customer extends Frontend_Controller {
 
 					if($this->sendemailnotification($cekoldpassword->nameCUSTOMER, $cekoldpassword->emailCUSTOMER)){
 						$data = array(
-							'title' => 'Sukses!',
-							'text' => 'Kata sandi kamu sudah berhasil diganti.',
-							'type' => 'success'
+							'text' => 'Kata sandi kamu sudah berhasil diganti.'
 							);
 						$this->session->set_flashdata('message', $data);
 						redirect(base_url().'#!/'.base_url().'Customer/settings');
@@ -429,9 +409,7 @@ class Customer extends Frontend_Controller {
 				} else {
 
 					$data = array(
-						'title' => 'Ups! Terjadi kesalahan.',
-						'text' => 'Maaf, perubahan kata sandi tidak berhasil dilakukan, silakan coba beberapa saat lagi.',
-						'type' => 'error'
+						'text' => 'Maaf, perubahan kata sandi tidak berhasil dilakukan, silakan coba beberapa saat lagi.'
 						);
 					$this->session->set_flashdata('message', $data);
 					redirect(base_url().'#!/'.base_url().'Customer/settings');
@@ -439,18 +417,14 @@ class Customer extends Frontend_Controller {
 
 			} else {
 				$data = array(
-					'title' => 'Ups! Terjadi kesalahan.',
-					'text' => 'Maaf, Mohon ulangi inputan form perubahan kata sandi anda!',
-					'type' => 'error'
+					'text' => 'Maaf, Mohon ulangi inputan form perubahan kata sandi anda!'
 					);
 				$this->session->set_flashdata('message', $data);
 				redirect(base_url().'#!/'.base_url().'Customer/settings');
 			}
 		} else {
 			$data = array(
-				'title' => 'Ups! Terjadi kesalahan.',
-				'text' => 'Maaf, kata sandi Anda yang sebelumnya tidak sama dengan sebelumnya, mohon untuk dicoba kembali!',
-				'type' => 'warning'
+				'text' => 'Maaf, kata sandi Anda yang sebelumnya tidak sama dengan sebelumnya, mohon untuk dicoba kembali!'
 				);
 			$this->session->set_flashdata('message', $data);
 			redirect(base_url().'#!/'.base_url().'Customer/settings');

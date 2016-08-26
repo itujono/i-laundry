@@ -68,10 +68,14 @@
                 }
                 ?>
                 <?php echo $greetings;?>
-            </div>  
+            </div>
+            <?php
+              if(!empty($profile)){
+            ?>
             <div class="user_avatar">
                 <img src="<?php echo $profile->imageCUSTOMER; ?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Profil <?php echo $profile->nameCUSTOMER;?>" />
-            </div>       
+            </div>
+            <?php } ?>     
         </div>
 
         <nav class="user-nav">
@@ -113,15 +117,20 @@
 
         <div data-page="index" class="page homepage">
             <div class="page-content">
-              <div class="notif">
+            <?php
+              if (!empty($message['text'])){
+                ?>
+                <div class="notif">
                 <div class="msg">
-                  <p>Selamat! Kamu sudah logout. Sampai jumpa lagi!</p>
+                  <p><?php echo $message['text'];?></p>
                 </div>
                 <div class="dismissable">
                   <a href="#">Dismiss</a>
                 </div>
               </div>
-
+            <?php
+              }
+            ?>
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">

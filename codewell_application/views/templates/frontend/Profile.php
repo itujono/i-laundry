@@ -1,7 +1,21 @@
 <div class="pages" id="profile">
     <div data-page="profile" class="page no-toolbar no-navbar">
         <div class="page-content" id="profile">
-    
+            <?php
+              if (!empty($message)){
+                ?>
+                <div class="notif">
+                <div class="msg">
+                  <p><?php echo $message['text'];?></p>
+
+                </div>
+                <div class="dismissable">
+                  <a href="#">Dismiss</a>
+                </div>
+              </div>
+            <?php
+              }
+            ?>
         	<div class="navbarpages">
         		<div class="navbar_left">
         			<div class="logo_image">
@@ -24,7 +38,7 @@
                     </div>
                     <form enctype="multipart/form-data" method="POST" action="<?php echo base_url();?>Profile/updatecustomer">
                     <div class="user-avatar">
-                        <img src="<?php echo $profile->imageCUSTOMER;?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Foto Profile <?php echo $profile->nameCUSTOMER;?>" />
+                        <img required src="<?php echo $profile->imageCUSTOMER;?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Foto Profile <?php echo $profile->nameCUSTOMER;?>" />
                         <div class="change-ava">
                             <input type="file" name="imgCUSTOMER" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
                             <label for="file"><i class="icon icon-camera"></i> Ubah avatarmu...</label>

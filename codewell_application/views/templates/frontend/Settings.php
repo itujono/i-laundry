@@ -1,7 +1,6 @@
 <div class="pages" id="settings">
     <div data-page="settings" class="page no-toolbar no-navbar">
         <div class="page-content">
-    
         	<div class="navbarpages">
         		<div class="navbar_left">
         			<div class="logo_image">
@@ -14,7 +13,21 @@
                     </div>
         		</a>					
         	</div>
-	
+            <?php
+              if (!empty($message)){
+                ?>
+                <div class="notif">
+                <div class="msg">
+                  <p><?php echo $message['text'];?></p>
+
+                </div>
+                <div class="dismissable">
+                  <a href="#">Dismiss</a>
+                </div>
+              </div>
+            <?php
+              }
+            ?>
             <div id="pages_maincontent">
                 <h2 class="page_title">Pengaturan Akun</h2> 
                 <div class="page_single layout_fullwidth_padding">

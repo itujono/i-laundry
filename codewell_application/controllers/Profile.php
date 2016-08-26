@@ -12,17 +12,12 @@ class Profile extends Frontend_Controller {
 		$idCUSTOMER = $this->session->userdata('idCUSTOMER');
 		if(empty($idCUSTOMER)){
 			$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf, kamu diharuskan untuk masuk terlebih dahulu.',
-		            'type' => 'error'
+		            'text' => 'Maaf, kamu diharuskan untuk masuk/login terlebih dahulu.'
 	        );
 			$this->session->set_flashdata('message',$data);
 			redirect('Home');
 		}
 
-		if (!is_null($this->session->flashdata('message'))) {
-            $data['message'] = $this->session->flashdata('message');
-        }
         $data['profile'] = $this->Customer_m->selectprofilecustomer($idCUSTOMER)->row();
         if(!empty($data['profile'])){
 
@@ -33,6 +28,9 @@ class Profile extends Frontend_Controller {
 			} else {
 				$data['profile']->imageCUSTOMER = base_url() . 'assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER).'/'.$map[0];
 			}
+        }
+        if (!is_null($this->session->flashdata('message'))) {
+            $data['message'] = $this->session->flashdata('message');
         }
 		$this->load->view($this->data['frontendDIR']. 'Profile',$data);
 	}
@@ -61,9 +59,13 @@ class Profile extends Frontend_Controller {
                 mkdir($path, 0777, true);
         	}
         	$map = directory_map($path, FALSE, TRUE);
-			foreach ($map as $value) {
-				unlink($path.'/'.$value);
+        	
+        	if(empty($map)){
+				foreach ($map as $value) {
+					unlink($path.'/'.$value);
+				}
 			}
+
 			$config['upload_path']          = $path;
             $config['allowed_types']        = 'gif|jpg|png|jpeg';
             $config['max_size']             = 2048;
@@ -81,9 +83,7 @@ class Profile extends Frontend_Controller {
 	        if ($this->upload->do_upload('imgCUSTOMER')) {
 
 	          $datas = array(
-                    'title' => 'Sukses',
-                    'text' => 'Data kamu telah berhasil dirubah.',
-                    'type' => 'success'
+                    'text' => 'Data kamu telah berhasil dirubah.'
               );
 
        		} else {
@@ -97,12 +97,10 @@ class Profile extends Frontend_Controller {
 
 		} else {
 			$data = array(
-                'title' => 'Terjadi Kesalahan',
-                'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.',
-                'type' => 'error'
+                'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
             );
             $this->session->set_flashdata('message',$data);
-            redirect(base_url().'#!/'.base_url().'Profile');
+            redirect(base_url().'#!/'.base_url().'Profile', 'refresh');
 		}
 	}
 }

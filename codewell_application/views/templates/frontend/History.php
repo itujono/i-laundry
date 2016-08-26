@@ -1,7 +1,21 @@
 <div class="pages">
      <div data-page="history" class="page no-toolbar no-navbar">
           <div class="page-content">
-    
+               <?php
+              if (!empty($message)){
+                ?>
+                <div class="notif">
+                <div class="msg">
+                  <p><?php echo $message['text'];?></p>
+
+                </div>
+                <div class="dismissable">
+                  <a href="#">Dismiss</a>
+                </div>
+              </div>
+            <?php
+              }
+            ?>
           	<div class="navbarpages graybg">
                     <div class="navbar_left">
                          <div class="logo_image">

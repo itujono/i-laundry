@@ -1,7 +1,21 @@
 <div class="pages">
     <div data-page="order" class="page no-toolbar">
         <div class="page-content order">
-    
+            <?php
+              if (!empty($message)){
+                ?>
+                <div class="notif">
+                <div class="msg">
+                  <p><?php echo $message['text'];?></p>
+
+                </div>
+                <div class="dismissable">
+                  <a href="#">Dismiss</a>
+                </div>
+              </div>
+            <?php
+              }
+            ?>
                 <div class="navbarpages graybg">
                     <div class="navbar_left">
                          <div class="logo_image">
