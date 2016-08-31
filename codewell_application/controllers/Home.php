@@ -6,6 +6,7 @@ class Home extends Frontend_Controller {
 	public function __construct (){
         parent::__construct();
         $this->load->model('Customer_m');
+        $this->load->model('Order_m');
     }
 
 	public function index(){
@@ -21,6 +22,7 @@ class Home extends Frontend_Controller {
 				$data['profile']->imageCUSTOMER = base_url() . 'assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER).'/'.$map[0];
 			}
         }
+        $data['totalorder'] = $this->Order_m->counts('codewell_orders',NULL,1);
 
 		if (!is_null($this->session->flashdata('message'))) {
         	$data['message'] = $this->session->flashdata('message');

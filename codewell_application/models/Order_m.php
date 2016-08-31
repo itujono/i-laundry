@@ -11,9 +11,9 @@ class Order_m extends MY_Model{
 		parent::__construct();
 	}
 
-	public function selectall_order($id=NULL, $status=NULL){
+	public function selectall_order($id=NULL, $id2= NULL, $status=NULL){
 		$this->db->select('orders.*');
-		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER');
+		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER, addressCUSTOMER');
 		$this->db->select('aroma.nameAROMA');
 		$this->db->select('packages.namePACKAGE');
 		$this->db->select('satuan.nameSATUAN');
@@ -35,19 +35,25 @@ class Order_m extends MY_Model{
         if($id != NULL){
             $this->db->where('orders.idORDER',$id);
 		}
+		if($id2 != NULL){
+            $this->db->where('customers.idCUSTOMER',$id2);
+		}
 		if($status != NULL){
             $this->db->where('orders.statusORDER',$status);
 		}
 		return $this->db->get();
 	}
 
-	function counts($table=NULL,$filter=NULL){
+	function counts($table=NULL,$filter=NULL, $session = NULL){
         $fil = '';
+        $session = $this->session->userdata('idCUSTOMER');
+        if($session != ''){
+            $fil="WHERE idCUSTOMER = $session";
+        }
         if($filter != ''){
             $fil="WHERE $filter";
         }
         $query = $this->db->query("SELECT statusORDER FROM $table $fil");
         return $query->num_rows();
-
     }
 }

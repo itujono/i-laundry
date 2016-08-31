@@ -93,18 +93,4 @@ class Order extends Admin_Controller {
 		        redirect('codewelladmin/order');
 		}
 	}
-
-	public function pdf(){
- 	
-		$data['users']=array(
-			array('firstname'=>'Agung','lastname'=>'Setiawan','email'=>'ag@setiawan.com'),
-			array('firstname'=>'Hauril','lastname'=>'Maulida Nisfar','email'=>'hm@setiawan.com'),
-			array('firstname'=>'Akhtar','lastname'=>'Setiawan','email'=>'akh@setiawan.com'),
-			array('firstname'=>'Gitarja','lastname'=>'Setiawan','email'=>'git@setiawan.com')
-		);
- 
-	    $html = $this->load->view('templates/backend/report', $data, TRUE);
-
-	    $this->PdfGenerator->generate($html,'contoh');
-	}
 }

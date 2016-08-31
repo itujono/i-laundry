@@ -7,7 +7,6 @@
                 <div class="notif">
                 <div class="msg">
                   <p><?php echo $message['text'];?></p>
-
                 </div>
                 <div class="dismissable">
                   <a href="#">Dismiss</a>

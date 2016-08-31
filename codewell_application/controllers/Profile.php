@@ -15,7 +15,7 @@ class Profile extends Frontend_Controller {
 		            'text' => 'Maaf, kamu diharuskan untuk masuk/login terlebih dahulu.'
 	        );
 			$this->session->set_flashdata('message',$data);
-			redirect('Home');
+			redirect(base_url());
 		}
 
         $data['profile'] = $this->Customer_m->selectprofilecustomer($idCUSTOMER)->row();
@@ -52,55 +52,66 @@ class Profile extends Frontend_Controller {
 			$saveidCUSTOMER = $this->Customer_m->save($data, $id);
 			
 			if($saveidCUSTOMER != NULL) $Pic = $saveidCUSTOMER;
+			$number_of_files = sizeof($_FILES['imgSELLER']['tmp_name']);
+
 			$files = $_FILES['imgCUSTOMER'];
 
 			$path = 'assets/upload/profile/'.folderENCRYPT($Pic);
 			if (!file_exists( $path )){
-                mkdir($path, 0777, true);
+            mkdir($path, 0777, true);
         	}
-        	$map = directory_map($path, FALSE, TRUE);
-        	
-        	if(empty($map)){
+
+      $map = directory_map($path, FALSE, TRUE);  	
+      if(empty($map)){
 				foreach ($map as $value) {
 					unlink($path.'/'.$value);
 				}
 			}
 
 			$config['upload_path']          = $path;
-            $config['allowed_types']        = 'gif|jpg|png|jpeg';
-            $config['max_size']             = 2048;
-            $config['overwrite']             = TRUE;
-            $config['file_name']             = 'Profil '.$filenameemail;
+      $config['allowed_types']        = 'gif|jpg|png|jpeg';
+      $config['max_size']             = 2048;
+      $config['overwrite']             = TRUE;
+      $config['file_name']             = 'Profil '.$filenameemail;
 
-	        $_FILES['imgCUSTOMER']['name'] = $files['name'];
-	        $_FILES['imgCUSTOMER']['type'] = $files['type'];
-	        $_FILES['imgCUSTOMER']['tmp_name'] = $files['tmp_name'];
-	        $_FILES['imgCUSTOMER']['error'] = $files['error'];
-	        $_FILES['imgCUSTOMER']['size'] = $files['size'];
-	        //now we initialize the upload library
-	        $this->upload->initialize($config);
-	        // we retrieve the number of files that were uploaded
-	        if ($this->upload->do_upload('imgCUSTOMER')) {
+      $_FILES['imgCUSTOMER']['name'] = $files['name'];
+      $_FILES['imgCUSTOMER']['type'] = $files['type'];
+      $_FILES['imgCUSTOMER']['tmp_name'] = $files['tmp_name'];
+      $_FILES['imgCUSTOMER']['error'] = $files['error'];
+      $_FILES['imgCUSTOMER']['size'] = $files['size'];
+      //now we initialize the upload library
+      $this->upload->initialize($config);
+      // we retrieve the number of files that were uploaded
+      if ($this->upload->do_upload('imgCUSTOMER')) {
 
-	          $datas = array(
-                    'text' => 'Data kamu telah berhasil dirubah.'
-              );
+				$data['uploads'] = $this->upload->data();
+        $data = array(
+            'text' => 'Data kamu telah berhasil dirubah.'
+          );
+   		} else {
 
-       		} else {
-	          $data['upload_errors'] = $this->upload->display_errors();
-	    	  $datas = $data['upload_errors'];
-	    	  
-	        }
+   			if ($_FILES['imgCUSTOMER']['error'] != 4) {
+   				
+					$data['upload_errors'] = $this->upload->display_errors();
+					$data = array(
+						'text' => $data['upload_errors'] . ' '.$msg,
+						);
+				} else {
 
-	        $this->session->set_flashdata('message',$datas);
-			redirect(base_url().'#!/'.base_url().'Profile');
-
+					$data = array(
+						'text' => 'Data kamu telah berhasil dirubah.',
+						);
+				}
+      }
+    	$this->session->set_flashdata('message', $data);
+  		redirect(base_url().'#!/'.base_url().'Profile');
 		} else {
-			$data = array(
-                'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
-            );
-            $this->session->set_flashdata('message',$data);
-            redirect(base_url().'#!/'.base_url().'Profile', 'refresh');
+
+				$data = array(
+          'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
+        );
+        $this->session->set_flashdata('message',$data);
+        redirect(base_url().'#!/'.base_url().'Profile');
 		}
 	}
 }

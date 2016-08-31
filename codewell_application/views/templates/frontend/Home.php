@@ -89,7 +89,16 @@
                   <li>
                       <a href="<?php echo base_url();?>profile" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/user.png" alt="" title="" /><span>Pengaturan Profil</span></a>
                   </li>
-                  <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span><strong>12</strong></a></li>
+                  <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span>
+                    <strong>
+                    <?php
+                    if(!empty($totalorder)){
+                      echo $totalorder;
+                    }else {
+                      echo '0';
+                    }
+                    ?>
+                    </strong></a></li>
                   <li>
                       <a href="<?php echo base_url();?>Customer/logout" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a>
                   </li> 
