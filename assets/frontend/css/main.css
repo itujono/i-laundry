@@ -777,3 +777,17 @@ ul.history-detailed .small-detail ul li {
 }
 
 /* Notif udah kelar wak ya */
+
+
+
+
+/*Hooraaay ini bagian pwd Reset wak! */
+
+#pwd-reset {
+    background-color: #8ad3db;
+    color: #fff;
+}
+
+#pwd-reset h2 {
+    color: #fff;
+}

@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
   <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
   <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
 </head>
@@ -126,20 +127,14 @@
 
         <div data-page="index" class="page homepage">
             <div class="page-content">
-            <?php
-              if (!empty($message['text'])){
-                ?>
-                <div class="notif">
-                <div class="msg">
-                  <p><?php echo $message['text'];?></p>
+                <div class="notif animated slideInDown">
+                  <div class="msg">
+                    <p>Email atau password nya salah tuh wak.</p>
+                  </div>
+                  <div class="dismissable">
+                    <a href="#">Dismiss</a>
+                  </div>
                 </div>
-                <div class="dismissable">
-                  <a href="#">Dismiss</a>
-                </div>
-              </div>
-            <?php
-              }
-            ?>
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">
@@ -219,7 +214,7 @@
                                     <a href="<?php echo base_url();?>Order" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
                                 </div>
                                 <div class="swiper-slide toolbar-icon">
-                                    <a href="blog.html" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
+                                    <a href="<?php echo base_url();?>Password_Reset" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
                                 </div>
                                 <div class="swiper-slide toolbar-icon">
                                     <a href="tel:9007005600" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/phone.png" alt="" title="" /></a>
@@ -293,14 +288,14 @@
 <!-- Forgot Password Popup -->
 <div class="popup popup-forgot">
     <div class="content-block">
-        <h4>FORGOT PASSWORD</h4>
+        <h4>Lupa password? Tidak masalah.</h4>
         <div class="loginform">
             <form id="ForgotForm" method="post">
-                <input type="text" name="Email" value="" class="form_input required" placeholder="email" />
-                <input type="submit" name="submit" class="form_submit" id="submit" value="RESEND PASSWORD" />
+                <input type="text" name="Email" value="" class="form_input required" placeholder="Masukkan email kamu" />
+                <input type="submit" name="submit" class="form_submit" id="submit" value="Reset password" />
             </form>
             <div class="signup_bottom">
-                <p>Check your email and follow the instructions to reset your password.</p>
+                <p>Silakan cek inbox email kamu dan ikuti instruksi untuk mereset password akun kamu.</p>
             </div>
         </div>
         <div class="close_popup_button">
@@ -370,6 +365,7 @@
       });
 </script>
 
+
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.js"></script>
@@ -379,5 +375,15 @@
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/circlemenu.js"></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/audio.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
+
+<script>
+  $(function() {
+    $(".notif").on("click", function() {
+      $(this).removeClass("animated slideInDown");
+      $(this).addClass("animated slideOutUp");
+    });
+  });
+</script>
+
 </body>
 </html>
