@@ -61,34 +61,34 @@ class Profile extends Frontend_Controller {
             mkdir($path, 0777, true);
         	}
 
-      $map = directory_map($path, FALSE, TRUE);  	
-      if(empty($map)){
-				foreach ($map as $value) {
-					unlink($path.'/'.$value);
+	      	$map = directory_map($path, FALSE, TRUE);  	
+	      	if(empty($map)){
+					foreach ($map as $value) {
+						unlink($path.'/'.$value);
+					}
 				}
-			}
 
 			$config['upload_path']          = $path;
-      $config['allowed_types']        = 'gif|jpg|png|jpeg';
-      $config['max_size']             = 2048;
-      $config['overwrite']             = TRUE;
-      $config['file_name']             = 'Profil '.$filenameemail;
+	      	$config['allowed_types']        = 'gif|jpg|png|jpeg';
+	      	$config['max_size']             = 2048;
+	      	$config['overwrite']             = TRUE;
+	      	$config['file_name']             = 'Profil '.$filenameemail;
 
-      $_FILES['imgCUSTOMER']['name'] = $files['name'];
-      $_FILES['imgCUSTOMER']['type'] = $files['type'];
-      $_FILES['imgCUSTOMER']['tmp_name'] = $files['tmp_name'];
-      $_FILES['imgCUSTOMER']['error'] = $files['error'];
-      $_FILES['imgCUSTOMER']['size'] = $files['size'];
-      //now we initialize the upload library
-      $this->upload->initialize($config);
-      // we retrieve the number of files that were uploaded
-      if ($this->upload->do_upload('imgCUSTOMER')) {
+	      	$_FILES['imgCUSTOMER']['name'] = $files['name'];
+	      	$_FILES['imgCUSTOMER']['type'] = $files['type'];
+	      	$_FILES['imgCUSTOMER']['tmp_name'] = $files['tmp_name'];
+	      	$_FILES['imgCUSTOMER']['error'] = $files['error'];
+	      	$_FILES['imgCUSTOMER']['size'] = $files['size'];
+	      	//now we initialize the upload library
+	      	$this->upload->initialize($config);
+	      	// we retrieve the number of files that were uploaded
+	      	if ($this->upload->do_upload('imgCUSTOMER')) {
 
 				$data['uploads'] = $this->upload->data();
-        $data = array(
-            'text' => 'Data kamu telah berhasil dirubah.'
-          );
-   		} else {
+	        	$data = array(
+	            'text' => 'Data kamu telah berhasil dirubah.'
+	          );
+	   		} else {
 
    			if ($_FILES['imgCUSTOMER']['error'] != 4) {
    				
@@ -102,16 +102,16 @@ class Profile extends Frontend_Controller {
 						'text' => 'Data kamu telah berhasil dirubah.',
 						);
 				}
-      }
-    	$this->session->set_flashdata('message', $data);
-  		redirect(base_url().'#!/'.base_url().'Profile');
-		} else {
+      		}
+	    	$this->session->set_flashdata('message', $data);
+	  		redirect(base_url().'#!/'.base_url().'Profile');
+			} else {
 
-				$data = array(
-          'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
-        );
-        $this->session->set_flashdata('message',$data);
-        redirect(base_url().'#!/'.base_url().'Profile');
+					$data = array(
+	          'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
+	        );
+	        $this->session->set_flashdata('message',$data);
+	        redirect(base_url().'#!/'.base_url().'Profile');
+			}
 		}
-	}
 }

@@ -127,14 +127,18 @@
 
         <div data-page="index" class="page homepage">
             <div class="page-content">
+              <?php
+                if (!empty($message)){
+              ?>
                 <div class="notif animated slideInDown">
                   <div class="msg">
-                    <p>Email atau password nya salah tuh wak.</p>
+                    <p><?php echo $message['text'];?></p>
                   </div>
                   <div class="dismissable">
                     <a href="#">Dismiss</a>
                   </div>
                 </div>
+              <?php } ?>
                 <div class="navbarpages nobg">
                     <div class="navbar_left">
                         <div class="logo_image">
@@ -290,8 +294,8 @@
     <div class="content-block">
         <h4>Lupa password? Tidak masalah.</h4>
         <div class="loginform">
-            <form id="ForgotForm" method="post">
-                <input type="text" name="Email" value="" class="form_input required" placeholder="Masukkan email kamu" />
+            <form id="ForgotForm" method="post" action="<?php echo base_url();?>Customer/processreset">
+                <input type="email" name="emailing" value="" class="form_input required" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Masukkan email kamu" />
                 <input type="submit" name="submit" class="form_submit" id="submit" value="Reset password" />
             </form>
             <div class="signup_bottom">

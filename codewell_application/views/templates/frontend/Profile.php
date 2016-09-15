@@ -2,19 +2,17 @@
     <div data-page="profile" class="page no-toolbar no-navbar">
         <div class="page-content" id="profile">
             <?php
-              if (!empty($message)){
-                ?>
-                <div class="notif">
-                <div class="msg">
-                  <p><?php echo $message['text'];?></p>
+                if (!empty($message)){
+              ?>
+                <div class="notif animated slideInDown">
+                  <div class="msg">
+                    <p><?php echo $message['text'];?></p>
+                  </div>
+                  <div class="dismissable">
+                    <a href="#">Dismiss</a>
+                  </div>
                 </div>
-                <div class="dismissable">
-                  <a href="#">Dismiss</a>
-                </div>
-              </div>
-            <?php
-              }
-            ?>
+              <?php } ?>
         	<div class="navbarpages">
         		<div class="navbar_left">
         			<div class="logo_image">

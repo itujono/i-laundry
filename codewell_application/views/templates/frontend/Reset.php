@@ -26,26 +26,22 @@
                 </div>
               <?php } ?>
             <div id="pages_maincontent">
-                <h2 class="page_title">Pengaturan Akun</h2> 
+                <h2 class="page_title">Reset Kata sandi</h2> 
                 <div class="page_single layout_fullwidth_padding">
                     <div class="settings-title">
-                        <h2>Ubah password</h2>
-                        <p>Jika kamu ingin mengubah password akun mu, silakan gunakan form di bawah ini.</p>
+                        <h2>Reset kata sandi</h2>
+                        <p>Jika kamu ingin me-reset kata sandi akun mu, silakan gunakan form di bawah ini.</p>
                     </div>
-                    <form method="POST" action="<?php echo base_url();?>Customer/updatepasswordcustomer">
+                    <form method="POST" action="<?php echo base_url();?>Customer/updateresetpassword">
                     <div class="settingsform">
-                        <input type="hidden" readonly required name="idCUSTOMER" value="<?php echo encode($this->session->userdata('idCUSTOMER')); ?>">
-                        <div class="form_row">
-                            <label>Ketik password lama kamu</label>
-                            <input type="password" name="oldpasswordCUSTOMER" class="form_input" placeholder="******" required>
-                        </div>
+                        <input type="hidden" readonly required name="idCUSTOMER" value="<?php echo encode($idCUSTOMER); ?>">
                         <div class="form_row">
                             <label>Ketik password baru kamu</label>
-                            <input type="password" name="passwordCUSTOMER" placeholder="******" required="" class="form_input">
+                            <input type="password" name="passwordCUSTOMER" placeholder="Min. 8 Karakter" required="" class="form_input required">
                         </div>
                         <div class="form_row">
                             <label>Ketik password baru kamu sekali lagi</label>
-                            <input type="password" name="repasswordCUSTOMER" placeholder="******" required="" class="form_input">
+                            <input type="password" name="repasswordCUSTOMER" placeholder="Min. 8 Karakter dan samakan dengan kata sandi diatas!" required="" class="form_input required">
                         </div>
                         <div class="form-submit">
                             <input type="submit" name="submit" class="form_submit" id="submit" value="Simpan" />

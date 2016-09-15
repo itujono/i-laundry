@@ -43,6 +43,19 @@ class Customer_m extends MY_Model{
 		),
 	);
 
+	public $rules_resetpass = array(
+		'passwordCUSTOMER' => array(
+			'field' => 'passwordCUSTOMER',
+			'label'	=> 'Kata Sandi Kamu',
+			'rules'	=> 'trim|required|matches[repasswordCUSTOMER]|min_length[8]'
+		),
+		'repasswordCUSTOMER' => array(
+			'field' => 'repasswordCUSTOMER',
+			'label'	=> 'Konfirmasi Kata Sandi Kamu',
+			'rules'	=> 'trim|required|matches[passwordCUSTOMER]|min_length[8]'
+		),
+	);
+
 	public $rules_update_customer = array(
 		'nameCUSTOMER' => array(
 			'field' => 'nameCUSTOMER',
@@ -118,6 +131,15 @@ class Customer_m extends MY_Model{
 		$this->db->select('idCUSTOMER, nameCUSTOMER');
 		$this->db->from('customers');
 		$this->db->where('idCUSTOMER', $id);
+		return $this->db->get();
+	}
+
+	public function checkemailcustomer($email = NULL){
+		$this->db->select('idCUSTOMER, nameCUSTOMER, emailCUSTOMER');
+		$this->db->from('customers');
+		if (!empty($email)){
+			$this->db->where('customers.emailCUSTOMER', $email);
+		}
 		return $this->db->get();
 	}
 }
