@@ -672,7 +672,7 @@ class Customer extends Frontend_Controller {
 				$emailnotifreset = $this->sendemailnotificationreset($checkemail->idCUSTOMER, $checkemail->emailCUSTOMER, $checkemail->nameCUSTOMER);
 				if($emailnotifreset){
 					$data = array(
-	                    'text' => 'Terima kasih, kami sudah berhasil mengirim tautan reset kata sandi lewat email, silakan cek email kamu!'
+	                    'text' => 'Terima kasih, kami sudah berhasil mengirim tautan reset kata sandi lewat email<br>silakan cek email kamu!'
 	                );
 	                $this->session->set_flashdata('message',$data);
 	                redirect('Home');
@@ -842,7 +842,7 @@ class Customer extends Frontend_Controller {
 		    <center style="width: 100%;">
 		        <!-- Visually Hidden Preheader Text : BEGIN -->
 		        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
-		            Terima kasih sudah mendaftar, ' . $nameCUSTOMER . '!
+		            Reset kata sandi - , ' . $nameCUSTOMER . '!
 		        </div>
 		        <!-- Visually Hidden Preheader Text : END -->
 
@@ -944,7 +944,7 @@ class Customer extends Frontend_Controller {
 					'text' => 'Yeay!, Kata sandi kamu sudah berhasil di reset! Silakan masuk untuk memulai!.'
 					);
 				$this->session->set_flashdata('message', $data);
-				redirect(base_url());
+				redirect(base_url().'#!/'.base_url().'Customer/successresetpage');
 			}else{
 				$data = array(
 					'text' => 'Maaf, kami tidak dapat me-reset kata sandi kamu, silakan coba beberapa saat kembali!'
@@ -960,5 +960,10 @@ class Customer extends Frontend_Controller {
 			$this->session->set_flashdata('message', $data);
 			redirect(base_url());
 		}
+	}
+
+	public function successresetpage(){
+
+		$this->load->view($this->data['frontendDIR']. 'Password_Reset');
 	}
 }

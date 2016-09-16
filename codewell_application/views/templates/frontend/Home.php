@@ -173,12 +173,11 @@
                                             <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
                                             <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
                                             <?php
-                                            if(!empty($this->session->userdata('idCUSTOMER'))){
-                                                ?>
+                                            if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
                                                 <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
-                                                <?php } else { ?>
+                                            <?php } else { ?>
                                                 <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
-                                                <?php } ?>
+                                            <?php } ?>
                                             </div>
                                         </div> 
                                     </div>
@@ -188,7 +187,12 @@
                                                 <h2 data-swiper-parallax="-100%">Mencuci bersih adalah passion kami</h2>
                                                 <span class="subtitle" data-swiper-parallax="-60%">Kami punya segelintir cara rahasia.</span>
                                                 <p data-swiper-parallax="-30%">Cara-cara rahasia inilah yang akan selalu setia merawat dan memelihara kebersihan serta keharuman pakaianmu.</p>
-                                                <a href="about.html" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                                <?php
+                                            if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
+                                                <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                            <?php } else { ?>
+                                                <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
+                                            <?php } ?>
                                             </div>	
                                         </div>	
                                     </div>
@@ -198,7 +202,12 @@
                                                 <h2 data-swiper-parallax="-100%">Kualitas nggak akan bohong.</h2>
                                                 <span class="subtitle" data-swiper-parallax="-60%">Kata siapa kualitas bagus nggak bisa jalan beriringan dengan harga murah?</span>
                                                 <p data-swiper-parallax="-30%">Orang-orang mengenal kami sebagai laundry yang murah dan berkualitas. </p>
-                                                <a href="contact.html" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                                <?php
+                                              if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
+                                                  <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
+                                              <?php } else { ?>
+                                                  <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
+                                              <?php } ?>
                                             </div>
                                         </div>
                                     </div> 		   
