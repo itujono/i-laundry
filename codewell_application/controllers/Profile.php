@@ -52,21 +52,20 @@ class Profile extends Frontend_Controller {
 			$saveidCUSTOMER = $this->Customer_m->save($data, $id);
 			
 			if($saveidCUSTOMER != NULL) $Pic = $saveidCUSTOMER;
-			$number_of_files = sizeof($_FILES['imgSELLER']['tmp_name']);
 
 			$files = $_FILES['imgCUSTOMER'];
-
 			$path = 'assets/upload/profile/'.folderENCRYPT($Pic);
-			if (!file_exists( $path )){
-            mkdir($path, 0777, true);
-        	}
+			$map = directory_map($path, FALSE, TRUE);
 
-	      	$map = directory_map($path, FALSE, TRUE);  	
-	      	if(empty($map)){
-					foreach ($map as $value) {
-						unlink($path.'/'.$value);
-					}
+			if(!empty($_FILES['imgCUSTOMER']['name'])){
+				foreach ($map as $value) {
+					unlink($path.'/'.$value);
 				}
+			}
+
+			if (!file_exists( $path )){
+            	mkdir($path, 0777, true);
+        	}
 
 			$config['upload_path']          = $path;
 	      	$config['allowed_types']        = 'gif|jpg|png|jpeg';
@@ -74,14 +73,8 @@ class Profile extends Frontend_Controller {
 	      	$config['overwrite']             = TRUE;
 	      	$config['file_name']             = 'Profil '.$filenameemail;
 
-	      	$_FILES['imgCUSTOMER']['name'] = $files['name'];
-	      	$_FILES['imgCUSTOMER']['type'] = $files['type'];
-	      	$_FILES['imgCUSTOMER']['tmp_name'] = $files['tmp_name'];
-	      	$_FILES['imgCUSTOMER']['error'] = $files['error'];
-	      	$_FILES['imgCUSTOMER']['size'] = $files['size'];
-	      	//now we initialize the upload library
 	      	$this->upload->initialize($config);
-	      	// we retrieve the number of files that were uploaded
+
 	      	if ($this->upload->do_upload('imgCUSTOMER')) {
 
 				$data['uploads'] = $this->upload->data();
@@ -103,14 +96,14 @@ class Profile extends Frontend_Controller {
 						);
 				}
       		}
-	    	$this->session->set_flashdata('message', $data);
+	    	$this->session->set_flashdata('messagetest', $data);
 	  		redirect(base_url().'#!/'.base_url().'Profile');
 			} else {
 
 					$data = array(
-	          'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
-	        );
-	        $this->session->set_flashdata('message',$data);
+	          			'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
+	        			);
+	        $this->session->set_flashdata('messagetest',$data);
 	        redirect(base_url().'#!/'.base_url().'Profile');
 			}
 		}

@@ -2,11 +2,11 @@
     <div data-page="profile" class="page no-toolbar no-navbar">
         <div class="page-content" id="profile">
             <?php
-                if (!empty($message)){
+                if (!empty($messagetest)){
               ?>
                 <div class="notif animated slideInDown">
                   <div class="msg">
-                    <p><?php echo $message['text'];?></p>
+                    <p><?php echo $messagetest['text'];?></p>
                   </div>
                   <div class="dismissable">
                     <a href="#">Dismiss</a>
