@@ -412,7 +412,7 @@ class Customer extends Frontend_Controller {
 						'text' => 'Maaf, perubahan kata sandi tidak berhasil dilakukan, silakan coba beberapa saat lagi.'
 						);
 					$this->session->set_flashdata('message', $data);
-					redirect(base_url().'#!/'.base_url().'Customer/settings');
+					redirect('Customer/settings');
 				}
 
 			} else {
@@ -420,14 +420,14 @@ class Customer extends Frontend_Controller {
 					'text' => 'Maaf, Mohon ulangi inputan form perubahan kata sandi anda!'
 					);
 				$this->session->set_flashdata('message', $data);
-				redirect(base_url().'#!/'.base_url().'Customer/settings');
+				redirect('Customer/settings');
 			}
 		} else {
 			$data = array(
 				'text' => 'Maaf, kata sandi Anda yang sebelumnya tidak sama dengan sebelumnya, mohon untuk dicoba kembali!'
 				);
 			$this->session->set_flashdata('message', $data);
-			redirect(base_url().'#!/'.base_url().'Customer/settings');
+			redirect('Customer/settings');
 		}
 	}
 
