@@ -96,15 +96,15 @@ class Profile extends Frontend_Controller {
 						);
 				}
       		}
-	    	$this->session->set_flashdata('messagetest', $data);
-	  		redirect(base_url().'#!/'.base_url().'Profile');
+	    	$this->session->set_flashdata('message', $data);
+	  		redirect('Profile');
 			} else {
 
 					$data = array(
 	          			'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
 	        			);
-	        $this->session->set_flashdata('messagetest',$data);
-	        redirect(base_url().'#!/'.base_url().'Profile');
+	        $this->session->set_flashdata('message',$data);
+	        redirect('Profile');
 			}
 		}
 }
