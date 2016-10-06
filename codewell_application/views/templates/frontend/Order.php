@@ -62,28 +62,22 @@
                             </div>
 
                             <div class="contactform">
-                                <form>
+                                <form id="form-order" class="store-data">
                                     
                                     <div class="form_row">
                                         <label>Kapan mau dijemput?</label>
-                                        <div class="list-block">
-                                            <ul>
-                                                <li>
-                                                    <div class="item-content">
-                                                        <div class="item-inner">
-                                                            <div class="item-input">
-                                                                <input type="text" placeholder="Pilih waktu untuk kami jemput pakaian kotor kamu" readonly id="calendar-default">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div> <!-- kelar List-Block -->
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-input">
+                                                    <input type="text" placeholder="Pilih waktu yang pas untuk kami jemput" readonly id="calendar-default">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                     <div class="form_row"> 
                                         <label>Di mana mau dijemput?</label>
-                                        <textarea name="message" class="form_textarea" rows="" cols="">Misal: Jalan Kebaikan III #900, Tiban BTN</textarea>
+                                        <textarea placeholder="Misal: Jalan Kebaikan III #900, Tiban BTN" name="message" class="form_textarea" rows="" cols=""></textarea>
                                     </div>
                         
                                     <div class="form_row">
@@ -142,26 +136,50 @@
                                             <label class="label-radio item-content">
                                                 <!-- Checked by default -->
                                                 <input type="radio" name="services" value="Reguler" checked="checked">
-                                                <div class="item-inner">
-                                                  <div class="item-title">Reguler</div>
+                                                <div class="accordion-item item-inner">
+                                                    <div class="accordion-item-toggle item-title">Reguler</div>
+                                                    <div class="accordion-item-content">
+                                                        <ul>
+                                                            <li>Paket Reguler merupakan paket standar.</li>
+                                                            <li>Selesai dalam waktu 5 (lima) hari</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </label>
                                             <label class="label-radio item-content">
                                                 <input type="radio" name="services" value="Premium">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Premium</div>
+                                                <div class="accordion-item opened item-inner">
+                                                    <div class="accordion-item-toggle item-title">Premium</div>
+                                                    <div class="accordion-item-content">
+                                                        <ul>
+                                                            <li>Paket Premium menggunakan deterjen dan pewangi kelas premium (Rinso dan Downy).</li>
+                                                            <li>Selesai dalam waktu 5 (lima) hari</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </label>
                                             <label class="label-radio item-content">
                                                 <input type="radio" name="services" value="Express">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Express</div>
+                                                <div class="accordion-item opened item-inner">
+                                                    <div class="accordion-item-toggle item-title">Express</div>
+                                                    <div class="accordion-item-content">
+                                                        <ul>
+                                                            <li>Paket Express merupakan paket standard.</li>
+                                                            <li>Selesai dalam waktu 1 (satu) hari</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </label>
                                             <label class="label-radio item-content">
                                                 <input type="radio" name="services" value="ExPremium">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Express Premium</div>
+                                                <div class="accordion-item opened item-inner">
+                                                    <div class="accordion-item-toggle item-title">Express Premium</div>
+                                                    <div class="accordion-item-content">
+                                                        <ul>
+                                                            <li>Paket Express Premium menggunakan deterjen dan pewangi kelas premium (Rinso dan Downy).</li>
+                                                            <li>Selesai dalam waktu 1 (satu) hari</li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </label>
                                         </div> 

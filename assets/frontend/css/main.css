@@ -53,6 +53,11 @@ hr {
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
+body, input {
+   -webkit-font-smoothing: antialiased;
+   -webkit-filter: blur(0.000001px);
+}
+
 audio,
 canvas,
 iframe,
@@ -537,7 +542,7 @@ ul.history-detailed .small-detail ul li {
 .order textarea.form_textarea {
     padding: 3%;
     width: 93%;
-    margin: 0 0 5px 0;
+    margin: 5px 0 5px 0;
     border: 1px solid #ddd;
 }
 
@@ -802,11 +807,133 @@ ul.history-detailed .small-detail ul li {
 }
 
 .contactform .form_row_right, #settings .form_row_right {
-    margin: 0 0 20px 15%;
+    margin: 0 0 20px 10%;
     padding: 0 0 10px 0;
     border-bottom: 1px solid #eee;
 }
 
 .item-title {
     font-weight: 100;
+}
+
+.accordion-item-content {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    margin-top: 8px;
+    color: #999;
+    font-weight: 100;
+    font-size: 18px;
+    -webkit-transition-duration: 300ms;
+    transition-duration: 300ms;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+}
+
+.accordion-item-content ul > li {
+    margin: 0 0 10px 0;
+    padding: 0 0 0 25px;
+    background: url(../images/bullet.png) no-repeat 0% 14%;
+}
+
+.accordion-item-content ul > li:last-child {
+    margin: 0;
+}
+
+input#calendar-default {
+    width: 100%;
+    font-size: 14px;
+    line-height: 28px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* yak Anda memasuki waktu Confirmation Order heheh */
+
+#confirm-order ul.features_list_detailed li .feat_small_details {
+    width: 85%;
+    float: left;
+    padding: 0;
+}
+
+#confirm-order ul.features_list_detailed li .feat_small_details h4 {
+    font-weight: 100;
+    color: #8ad3db;
+    font-size: 16px;
+    padding: 0 0 5px 0;
+    margin: 0px;
+}
+
+#confirm-order ul.features_list_detailed .feat_small_details p {
+    padding-bottom: 0;
+}
+
+#confirm-order ul.features_list_detailed li:last-child {
+    border-bottom: none;
+}
+
+#confirm-order .item-content {
+    float: left;
+    margin-bottom: 15px;
+}
+
+#confirm-order .item-inner .item-title {
+    font-size: 12px;
+}
+
+#confirm-order .item-content .item-media, #confirm-order .item-content .item-inner {
+    display: inline-block;
+    float: left;
+}
+
+#confirm-order .item-content .item-inner {
+    width: 80%;
+    padding-left: 10px;
+}
+
+.cancel-btn {
+    text-align: center;
+    display: block;
+    margin-top: 15px;
+}
+
+.button-order {
+    margin-bottom: 30px;
+}
+
+
+
+/*Oppp kita masuk ke Completed Order wak */
+
+#completed .page {
+    background: #8ad3db;
+    color: #fff;
+}
+
+#completed .settings-title h2 {
+    color: #777;
+    margin-top: 25px;
+}
+
+#completed .main-text {
+    margin-top: 100px;
+}
+
+.back-to-home.round {
+    background-color: #4bb9e0;
+    padding: 10px 15px;
+    display: inline-block;
+    border-radius: 30px;
+    color: #fff;
+    margin-left: 5%;
+    margin-top: 5px;
+}
+
+.back-to-home.round a {
+    color: #fff;
 }
