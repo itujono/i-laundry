@@ -10,6 +10,23 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
+var calendarDefault = myApp.calendar({
+    input: '#calendar-default',
+});
+
+var $$ = Dom7;
+
+$$('.confirm-order').on('click', function () {
+    myApp.confirm('Are you sure?', 'Custom Title', 
+      function () {
+        myApp.alert('You clicked Ok button');
+      },
+      function () {
+        myApp.alert('You clicked Cancel button');
+      }
+    );
+});   
+
 // Export selectors engine
 var $$ = Dom7;
 

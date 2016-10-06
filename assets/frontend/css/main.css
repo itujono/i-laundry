@@ -791,3 +791,22 @@ ul.history-detailed .small-detail ul li {
 #pwd-reset h2 {
     color: #fff;
 }
+
+
+
+
+/*yok mulai Order nya yaaa. Yihaaaa! */
+
+.form_row > label {
+    color: #45b3bf;
+}
+
+.contactform .form_row_right, #settings .form_row_right {
+    margin: 0 0 20px 15%;
+    padding: 0 0 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.item-title {
+    font-weight: 100;
+}

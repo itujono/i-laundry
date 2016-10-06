@@ -66,105 +66,132 @@
                                     
                                     <div class="form_row">
                                         <label>Kapan mau dijemput?</label>
-                                        <div class="content-block">
-                                            <div style="padding:0; margin-right:-15px; width:auto" class="content-block-inner">
-                                                <div style="margin:0" class="list-block">
-                                                    <ul style="border-top:none">
-                                                        <li>
-                                                            <div class="item-content">
-                                                            <div class="item-inner">
-                                                                <div class="item-input">
-                                                                    <input type="text" placeholder="Date Time" readonly id="picker-date">
-                                                                </div>
+                                        <div class="list-block">
+                                            <ul>
+                                                <li>
+                                                    <div class="item-content">
+                                                        <div class="item-inner">
+                                                            <div class="item-input">
+                                                                <input type="text" placeholder="Pilih waktu untuk kami jemput pakaian kotor kamu" readonly id="calendar-default">
                                                             </div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div id="picker-date-container"></div>
-                                            </div>
-                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div> <!-- kelar List-Block -->
                                     </div>
                                     
                                     <div class="form_row"> 
-                                        <label>Alamat</label>
+                                        <label>Di mana mau dijemput?</label>
                                         <textarea name="message" class="form_textarea" rows="" cols="">Misal: Jalan Kebaikan III #900, Tiban BTN</textarea>
-                                    </div>
-
-                                    <div class="form_row">
-                                        <label>Select:</label>
-                                        <select name="" class="form_select">
-                                            <option value="option one">option one</option>
-                                            <option value="option two">option two</option>
-                                            <option value="option three">option three</option>
-                                            <option value="option five">option five</option>
-                                        </select>
                                     </div>
                         
                                     <div class="form_row">
-                                        <label>Radio:</label>
+                                        <label>Mau wangi apa?</label>
                                         <div class="form_row_right">
                                             <label class="label-radio item-content">
                                                 <!-- Checked by default -->
-                                                <input type="radio" name="my-radio" value="Books" checked="checked">
+                                                <input type="radio" name="my-radio" value="Romance" checked="checked">
                                                 <div class="item-inner">
-                                                  <div class="item-title">Books</div>
+                                                  <div class="item-title">Romance</div>
                                                 </div>
                                             </label>
-                                          
                                             <label class="label-radio item-content">
-                                            <!-- Checked by default -->
-                                            <input type="radio" name="my-radio" value="Movies">
-                                            <div class="item-inner">
-                                              <div class="item-title">Movies</div>
-                                            </div>
+                                                <input type="radio" name="my-radio" value="Mystique">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Mystique</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="my-radio" value="Fusion">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Fusion</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="my-radio" value="Passion">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Passion</div>
+                                                </div>
                                             </label>
                                         </div> 
                                     </div>
                         
                                     <div class="form_row">
-                                        <label>Checkbox:</label>
+                                        <label>Mau layanan yang mana?</label>
                                         <div class="form_row_right">
-                                            <label class="label-checkbox item-content">
+                                            <label class="label-radio item-content">
                                                 <!-- Checked by default -->
-                                                <input type="checkbox" name="my-checkbox" value="Books" checked="checked">
-                                                <div class="item-media">
-                                                    <i class="icon icon-form-checkbox"></i>
-                                                </div>
+                                                <input type="radio" name="layanan" value="CG" checked="checked">
                                                 <div class="item-inner">
-                                                    <div class="item-title">Books</div>
+                                                  <div class="item-title">Cuci gosok</div>
                                                 </div>
                                             </label>
-                            
-                                            <label class="label-checkbox item-content">
-                                                <input type="checkbox" name="my-checkbox" value="Movies">
-                                                <div class="item-media">
-                                                    <i class="icon icon-form-checkbox"></i>
-                                                </div>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="layanan" value="CS">
                                                 <div class="item-inner">
-                                                    <div class="item-title">Movies</div>
+                                                    <div class="item-title">Cuci saja</div>
                                                 </div>
                                             </label>
-                                        </div>   
+                                        </div> 
                                     </div>
-                        
-                                    <div class="form_row">  
-                                        <label>Switch:</label>
-                                        <div class="form_row_right">        
-                                            <div class="item-content">
+
+                                    <div class="form_row">
+                                        <label>Mau jenis services apa?</label>
+                                        <div class="form_row_right">
+                                            <label class="label-radio item-content">
+                                                <!-- Checked by default -->
+                                                <input type="radio" name="services" value="Reguler" checked="checked">
                                                 <div class="item-inner">
-                                                    <div class="item-title">On/Off</div>
-                                                    <div class="item-input">
-                                                        <label class="label-switch">
-                                                          <input type="checkbox">
-                                                          <div class="checkbox"></div>
-                                                        </label>
-                                                    </div>
+                                                  <div class="item-title">Reguler</div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>                    
-                                    <input type="submit" name="submit" class="form_submit" id="submit" value="All good!" />
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="services" value="Premium">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Premium</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="services" value="Express">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Express</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="services" value="ExPremium">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Express Premium</div>
+                                                </div>
+                                            </label>
+                                        </div> 
+                                    </div>
+
+                                    <div class="form_row">
+                                        <label>Mau pembayaran jenis apa?</label>
+                                        <div class="form_row_right">
+                                            <label class="label-radio item-content">
+                                                <!-- Checked by default -->
+                                                <input type="radio" name="payment" value="CoD" checked="checked">
+                                                <div class="item-inner">
+                                                  <div class="item-title">Cash on Delivery</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="payment" value="Transfer">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Transfer Bank</div>
+                                                </div>
+                                            </label>
+                                            <label class="label-radio item-content">
+                                                <input type="radio" name="payment" value="CC">
+                                                <div class="item-inner">
+                                                    <div class="item-title">Credit Card</div>
+                                                </div>
+                                            </label>
+                                        </div> 
+                                    </div>
+                                    <input type="submit" name="submit" class="form_submit confirm-order" id="submit" value="All good!" />
 
                                 </form>
                             </div> <!-- kelar Contact Form -->         
