@@ -131,7 +131,7 @@
                                     </div>
 
                                     <div class="form_row">
-                                        <label>Mau jenis services apa?</label>
+                                        <label>Mau jenis paket apa?</label>
                                         <div class="form_row_right">
                                             <label class="label-radio item-content">
                                                 <!-- Checked by default -->

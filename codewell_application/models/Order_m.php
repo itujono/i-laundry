@@ -7,6 +7,14 @@ class Order_m extends MY_Model{
 	protected $_order_by = 'idORDER';
 	protected $_primary_key = 'idORDER';
 
+	public $rules_order = array(
+		'nameAROMA' => array(
+			'field' => 'nameAROMA', 
+			'label' => 'nameAROMA', 
+			'rules' => 'trim|required'
+		)		  
+	);
+	
 	function __construct (){
 		parent::__construct();
 	}
@@ -20,7 +28,6 @@ class Order_m extends MY_Model{
 		$this->db->select('payment.namePAYMENT,descriptionPAYMENT');
 		$this->db->select('area.nameAREA');
 		$this->db->select('regions.nameREGION');
-
 
 		$this->db->from('orders');
 		$this->db->join('customers','customers.idCUSTOMER = orders.idCUSTOMER');
@@ -56,4 +63,6 @@ class Order_m extends MY_Model{
         $query = $this->db->query("SELECT statusORDER FROM $table $fil");
         return $query->num_rows();
     }
+
+
 }
