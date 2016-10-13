@@ -62,14 +62,14 @@
                             </div>
 
                             <div class="contactform">
-                                <form id="form-order" class="store-data">
+                                <form id="form-order" class="store-data" method="POST" action="<?php echo base_url();?>Order/saveorder">
                                     
                                     <div class="form_row">
                                         <label>Kapan mau dijemput?</label>
                                         <div class="item-content">
                                             <div class="item-inner">
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="Pilih waktu yang pas untuk kami jemput" readonly id="calendar-default">
+                                                    <input type="text" name="pickuptimeORDER" placeholder="Pilih waktu yang pas untuk kami jemput" readonly id="calendar-default" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -77,136 +77,102 @@
                                     
                                     <div class="form_row"> 
                                         <label>Di mana mau dijemput?</label>
-                                        <textarea placeholder="Misal: Jalan Kebaikan III #900, Tiban BTN" name="message" class="form_textarea" rows="" cols=""></textarea>
+                                        <textarea placeholder="Misal: Jalan Kebaikan III #900, Tiban BTN" name="pickupADDRESSORDERKOTOR" class="form_textarea" required></textarea>
                                     </div>
                         
                                     <div class="form_row">
                                         <label>Mau wangi apa?</label>
                                         <div class="form_row_right">
+                                        <?php
+                                            if(!empty($listaroma)){
+                                                foreach ($listaroma as $key => $aroma) {
+                                                    if($key == 0){
+                                                        $check = 'checked="checked"';
+                                                    } else {
+                                                        $check = '';
+                                                    }
+                                        ?>
                                             <label class="label-radio item-content">
-                                                <!-- Checked by default -->
-                                                <input type="radio" name="my-radio" value="Romance" checked="checked">
+                                                <input type="radio" name="idAROMA" value="<?php echo $aroma->idAROMA;?>" <?php echo $check;?>>
                                                 <div class="item-inner">
-                                                  <div class="item-title">Romance</div>
+                                                  <div class="item-title"><?php echo $aroma->nameAROMA;?></div>
                                                 </div>
                                             </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="my-radio" value="Mystique">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Mystique</div>
-                                                </div>
-                                            </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="my-radio" value="Fusion">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Fusion</div>
-                                                </div>
-                                            </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="my-radio" value="Passion">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Passion</div>
-                                                </div>
-                                            </label>
+                                        <?php } ?>
+                                        <?php } ?>
                                         </div> 
                                     </div>
                         
                                     <div class="form_row">
                                         <label>Mau layanan yang mana?</label>
                                         <div class="form_row_right">
+                                        <?php
+                                            if(!empty($listservices)){
+                                                foreach ($listservices as $key => $services) {
+                                                    if($key == 0){
+                                                        $check = 'checked="checked"';
+                                                    } else {
+                                                        $check = '';
+                                                    }
+                                        ?>
                                             <label class="label-radio item-content">
-                                                <!-- Checked by default -->
-                                                <input type="radio" name="layanan" value="CG" checked="checked">
+                                                <input type="radio" name="idSERVICES" value="<?php echo $services->idSERVICES;?>" <?php echo $check;?>>
                                                 <div class="item-inner">
-                                                  <div class="item-title">Cuci gosok</div>
+                                                  <div class="item-title"><?php echo $services->nameSERVICES;?></div>
                                                 </div>
                                             </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="layanan" value="CS">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Cuci saja</div>
-                                                </div>
-                                            </label>
+                                        <?php } ?>
+                                        <?php } ?>
                                         </div> 
                                     </div>
 
                                     <div class="form_row">
                                         <label>Mau jenis paket apa?</label>
                                         <div class="form_row_right">
+                                        <?php
+                                            if(!empty($listpackage)){
+                                                foreach ($listpackage as $key => $package) {
+                                                    if($key == 0){
+                                                        $check = 'checked="checked"';
+                                                    } else {
+                                                        $check = '';
+                                                    }
+                                        ?>
                                             <label class="label-radio item-content">
                                                 <!-- Checked by default -->
-                                                <input type="radio" name="services" value="Reguler" checked="checked">
+                                                <input type="radio" name="idPACKAGE" value="<?php echo $package->idPACKAGE;?>" <?php echo $check;?>>
                                                 <div class="accordion-item item-inner">
-                                                    <div class="accordion-item-toggle item-title">Reguler</div>
+                                                    <div class="accordion-item-toggle item-title"><?php echo $package->namePACKAGE;?></div>
                                                     <div class="accordion-item-content">
-                                                        <ul>
-                                                            <li>Paket Reguler merupakan paket standar.</li>
-                                                            <li>Selesai dalam waktu 5 (lima) hari</li>
-                                                        </ul>
+                                                        <?php echo $package->descriptionPACKAGE;?>
                                                     </div>
                                                 </div>
                                             </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="services" value="Premium">
-                                                <div class="accordion-item opened item-inner">
-                                                    <div class="accordion-item-toggle item-title">Premium</div>
-                                                    <div class="accordion-item-content">
-                                                        <ul>
-                                                            <li>Paket Premium menggunakan deterjen dan pewangi kelas premium (Rinso dan Downy).</li>
-                                                            <li>Selesai dalam waktu 5 (lima) hari</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="services" value="Express">
-                                                <div class="accordion-item opened item-inner">
-                                                    <div class="accordion-item-toggle item-title">Express</div>
-                                                    <div class="accordion-item-content">
-                                                        <ul>
-                                                            <li>Paket Express merupakan paket standard.</li>
-                                                            <li>Selesai dalam waktu 1 (satu) hari</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="services" value="ExPremium">
-                                                <div class="accordion-item opened item-inner">
-                                                    <div class="accordion-item-toggle item-title">Express Premium</div>
-                                                    <div class="accordion-item-content">
-                                                        <ul>
-                                                            <li>Paket Express Premium menggunakan deterjen dan pewangi kelas premium (Rinso dan Downy).</li>
-                                                            <li>Selesai dalam waktu 1 (satu) hari</li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </label>
+                                        <?php } ?>
+                                        <?php } ?>
                                         </div> 
                                     </div>
 
                                     <div class="form_row">
                                         <label>Mau pembayaran jenis apa?</label>
                                         <div class="form_row_right">
+                                        <?php
+                                            if(!empty($listpayment)){
+                                                foreach ($listpayment as $key => $payment) {
+                                                    if($key == 0){
+                                                        $check = 'checked="checked"';
+                                                    } else {
+                                                        $check = '';
+                                                    }
+                                        ?>
                                             <label class="label-radio item-content">
-                                                <!-- Checked by default -->
-                                                <input type="radio" name="payment" value="CoD" checked="checked">
+                                                <input type="radio" name="idPAYMENT" value="<?php echo $payment->idPAYMENT;?>" <?php echo $check;?>>
                                                 <div class="item-inner">
-                                                  <div class="item-title">Cash on Delivery</div>
+                                                  <div class="item-title"><?php echo $payment->namePAYMENT;?></div>
                                                 </div>
                                             </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="payment" value="Transfer">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Transfer Bank</div>
-                                                </div>
-                                            </label>
-                                            <label class="label-radio item-content">
-                                                <input type="radio" name="payment" value="CC">
-                                                <div class="item-inner">
-                                                    <div class="item-title">Credit Card</div>
-                                                </div>
-                                            </label>
+                                        <?php } ?>
+                                        <?php } ?>
                                         </div> 
                                     </div>
                                     <input type="submit" name="submit" class="form_submit confirm-order" id="submit" value="All good!" />

@@ -60,28 +60,28 @@
           <span class="menu_title">Order</span>
         </a>
       </li>
-      <li title="Satuan">
-        <a href="<?php echo base_url();?>codewelladmin/Satuan">
-          <span class="menu_icon"><i class="material-icons">&#xE54A;</i></span>
-          <span class="menu_title">Satuan</span>
-        </a>
-      </li>
-      <li title="Daerah">
+      <!-- <li title="Daerah">
         <a href="<?php echo base_url();?>codewelladmin/Region">
           <span class="menu_icon"><i class="material-icons">&#xE55B;</i></span>
           <span class="menu_title">Daerah</span>
         </a>
-      </li>
-      <li title="Area">
+      </li> -->
+      <!-- <li title="Area">
         <a href="<?php echo base_url();?>codewelladmin/Area">
           <span class="menu_icon"><i class="material-icons">&#xE55A;</i></span>
           <span class="menu_title">Area</span>
         </a>
-      </li>
+      </li> -->
       <li title="Aroma">
         <a href="<?php echo base_url();?>codewelladmin/Aroma">
           <span class="menu_icon"><i class="material-icons">&#xE545;</i></span>
           <span class="menu_title">Aroma</span>
+        </a>
+      </li>
+      <li title="Layanan">
+        <a href="<?php echo base_url();?>codewelladmin/Services">
+          <span class="menu_icon"><i class="material-icons">&#xE55B;</i></span>
+          <span class="menu_title">Layanan</span>
         </a>
       </li>
       <li title="Paket">

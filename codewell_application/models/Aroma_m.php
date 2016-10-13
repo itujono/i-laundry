@@ -27,9 +27,12 @@ class Aroma_m extends MY_Model{
 		return $new;
 	}
 
-	public function selectall_aroma($id=NULL){
+	public function selectall_aroma($id=NULL, $status=NULL){
 		$this->db->select('aroma.*');
 		$this->db->from('aroma');
+        if($status != NULL){
+        	$this->db->where('statusAROMA',1);
+		}
         if($id != NULL){
             $this->db->where('aroma.idAROMA',$id);
 		}

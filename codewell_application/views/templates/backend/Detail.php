@@ -155,22 +155,12 @@
  						<hr class="uk-grid-divider">
  						<div class="uk-grid uk-grid-small">
  							<div class="uk-width-large-1-3">
- 								<span class="uk-text-muted uk-text-small">Satuan</span>
+ 								<span class="uk-text-muted uk-text-small">Layanan</span>
  							</div>
  							<div class="uk-width-large-2-3 uk-text-bold">
- 							<?php echo $detailorder->nameSATUAN;?>
+ 							<?php echo $detailorder->nameSERVICES;?>
  							</div>
  						</div>
- 						<hr class="uk-grid-divider">
- 						<div class="uk-grid uk-grid-small">
- 							<div class="uk-width-large-1-3">
- 								<span class="uk-text-muted uk-text-small">Area</span>
- 							</div>
- 							<div class="uk-width-large-2-3 uk-text-bold">
- 								<?php echo $detailorder->nameAREA;?> - <?php echo $detailorder->nameREGION;?>
- 							</div>
- 						</div>
- 						<hr class="uk-grid-divider uk-hidden-large">
  					</div>
  				</div>
  			</div>

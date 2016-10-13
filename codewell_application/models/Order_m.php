@@ -8,11 +8,36 @@ class Order_m extends MY_Model{
 	protected $_primary_key = 'idORDER';
 
 	public $rules_order = array(
-		'nameAROMA' => array(
-			'field' => 'nameAROMA', 
-			'label' => 'nameAROMA', 
-			'rules' => 'trim|required'
-		)		  
+		'pickuptimeORDER' => array(
+			'field' => 'pickuptimeORDER', 
+			'label' => 'pickuptimeORDER', 
+			'rules' => 'required'
+		),
+		'pickupADDRESSORDERKOTOR' => array(
+			'field' => 'pickupADDRESSORDERKOTOR', 
+			'label' => 'pickupADDRESSORDERKOTOR', 
+			'rules' => 'required'
+		),
+		'idAROMA' => array(
+			'field' => 'idAROMA', 
+			'label' => 'idAROMA', 
+			'rules' => 'required'
+		),
+		'idSERVICES' => array(
+			'field' => 'idSERVICES', 
+			'label' => 'idSERVICES', 
+			'rules' => 'required'
+		),
+		'idPACKAGE' => array(
+			'field' => 'idPACKAGE', 
+			'label' => 'idPACKAGE', 
+			'rules' => 'required'
+		),
+		'idPAYMENT' => array(
+			'field' => 'idPAYMENT', 
+			'label' => 'idPAYMENT', 
+			'rules' => 'required'
+		)
 	);
 	
 	function __construct (){
@@ -24,20 +49,15 @@ class Order_m extends MY_Model{
 		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER, addressCUSTOMER');
 		$this->db->select('aroma.nameAROMA');
 		$this->db->select('packages.namePACKAGE');
-		$this->db->select('satuan.nameSATUAN');
 		$this->db->select('payment.namePAYMENT,descriptionPAYMENT');
-		$this->db->select('area.nameAREA');
-		$this->db->select('regions.nameREGION');
+		$this->db->select('services.nameSERVICES');
 
 		$this->db->from('orders');
 		$this->db->join('customers','customers.idCUSTOMER = orders.idCUSTOMER');
 		$this->db->join('aroma','aroma.idAROMA = orders.idAROMA');
 		$this->db->join('packages','packages.idPACKAGE = orders.idPACKAGE');
-		$this->db->join('satuan','satuan.idSATUAN = orders.idSATUAN');
 		$this->db->join('payment','payment.idPAYMENT = orders.idPAYMENT');
-		$this->db->join('area','area.idAREA = orders.idAREA');
-		$this->db->join('regions','regions.idREGION = area.idREGION');
-
+		$this->db->join('services','services.idSERVICES = orders.idSERVICES');
 
         if($id != NULL){
             $this->db->where('orders.idORDER',$id);

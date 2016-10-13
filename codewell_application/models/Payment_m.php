@@ -33,11 +33,13 @@ class Payment_m extends MY_Model{
 		return $new;
 	}
 
-	public function selectall_payment($id=NULL){
+	public function selectall_payment($id=NULL, $status=NULL){
 		$this->db->select('payment.*');
 
 		$this->db->from('payment');
-
+		if($status != NULL){
+        	$this->db->where('statusPAYMENT',1);
+		}
         if($id != NULL){
             $this->db->where('payment.idPAYMENT',$id);
 		}

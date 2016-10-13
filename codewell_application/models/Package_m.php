@@ -13,9 +13,9 @@ class Package_m extends MY_Model{
 			'label' => 'namePACKAGE', 
 			'rules' => 'trim|required'
 		),
-		'pricesPACKAGE' => array(
-			'field' => 'pricesPACKAGE', 
-			'label' => 'pricesPACKAGE', 
+		'descriptionPACKAGE' => array(
+			'field' => 'descriptionPACKAGE', 
+			'label' => 'descriptionPACKAGE', 
 			'rules' => 'trim|required'
 		)		  
 	);
@@ -28,16 +28,18 @@ class Package_m extends MY_Model{
 		$new = new stdClass();
 		$new->idPACKAGE = '';
 		$new->namePACKAGE = '';
-		$new->pricesPACKAGE = '';
+		$new->descriptionPACKAGE = '';
 		$new->statusPACKAGE = '';
 		return $new;
 	}
 
-	public function selectall_package($id=NULL){
+	public function selectall_package($id=NULL, $status=NULL){
 		$this->db->select('packages.*');
 
 		$this->db->from('packages');
-
+		if($status != NULL){
+        	$this->db->where('statusPACKAGE',1);
+		}
         if($id != NULL){
             $this->db->where('packages.idPACKAGE',$id);
 		}

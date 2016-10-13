@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    $title1 = 'Buat Satuan';
-    $actions = 'savesatuan';
-    $controller = 'Satuan';
-    if($getsatuan->idSATUAN != NULL){
-       $title1 = 'Perbaharui Satuan';
+    $title1 = 'Buat Layanan';
+    $actions = 'saveservices';
+    $controller = 'Services';
+    if($getservices->idSERVICES != NULL){
+       $title1 = 'Perbaharui Layanan';
     } 
     $url = base_url().$this->data['folBACKEND'].$controller.'/'.$actions;
 ?>
@@ -23,11 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="md-card">
     <div class="md-card-content">
       <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#tabs_4'}">
-        <li class="uk-width-1-2 <?php echo $tab['data-tab']?>>"><a href="#">Daftar Satuan</a></li>
-        <li class="uk-width-1-2 <?php echo $tab['form-tab']?>"><a href="#">Form Satuan</a></li>
+        <li class="uk-width-1-2 <?php echo $tab['data-tab']?>>"><a href="#">Daftar Layanan</a></li>
+        <li class="uk-width-1-2 <?php echo $tab['form-tab']?>"><a href="#">Form Layanan</a></li>
       </ul>
       <ul id="tabs_4" class="uk-switcher uk-margin">
-      <!-- START LIST JASA -->
+      <!-- START LIST SERVICES -->
         <li>
           <table id="dt_individual_search" class="uk-table" cellspacing="0" width="100%">
             <thead>
@@ -50,27 +50,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </tr>
             </tfoot>
             <tbody>
-            <?php foreach ($listsatuan  as $key => $satuan) { 
-              $id = encode($satuan->idSATUAN);
+            <?php foreach ($listservices as $key => $services) { 
+              $id = encode($services->idSERVICES);
               ?>
              <tr>
                 <td><?php echo $key+1; ?></td>
-                <td><?php echo $satuan->nameSATUAN;?></td>
-                <td><?php echo dF($satuan->createdateSATUAN, 'd F Y (H:i:s)');?></td>
-                <td><?php echo $satuan->status;?></td>
+                <td><?php echo $services->nameSERVICES;?></td>
+                <td><?php echo dF($services->createdateSERVICES, 'd F Y (H:i:s)');?></td>
+                <td><?php echo $services->status;?></td>
                 <?php
                  $id2 = '/1';
                  $icn = '&#xE8F4;'; 
                  $nm = 'Aktifkan'; 
-                 if($satuan->statusSATUAN == 1){
+                 if($services->statusSERVICES == 1){
                      $id2 = ''; 
                      $icn = '&#xE8F5;';
                      $nm = 'Non Aktifkan';
                  }
-                  $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($satuan->nameSATUAN).'</b> ?';
-                  $msg2 = 'Apakah kamu yakin akan merubah data ' . ' <b>'.addslashes($satuan->nameSATUAN).'</b> ?';
+                  $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($services->nameSERVICES).'</b> ?';
+                  $msg2 = 'Apakah kamu yakin akan merubah data ' . ' <b>'.addslashes($services->nameSERVICES).'</b> ?';
                   $url1 = $this->data['folBACKEND'].$controller.'/actionedit/'.urlencode($id).$id2;
-                  $url2 = $this->data['folBACKEND'].$controller.'/jasalist/'.urlencode($id);
+                  $url2 = $this->data['folBACKEND'].$controller.'/serviceslist/'.urlencode($id);
                 ?>
                 <td class="uk-text-center">
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
@@ -81,31 +81,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </li>
-        <!-- END LIST JASA -->
+        <!-- END LIST SERVICES -->
 
-        <!-- START FORM INPUT SATUAN -->
+        <!-- START FORM INPUT AREA -->
         <li>
-          <h3 class="heading_a uk-margin-bottom">Tambah atau perbaharui Satuan</h3>
-          <form method="POST" name="formsatuan" action="<?php echo $url;?>">
-          <?php echo form_hidden('idSATUAN',encode($getsatuan->idSATUAN),'hidden'); ?>
+          <h3 class="heading_a uk-margin-bottom">Tambah atau perbaharui Layanan</h3>
+          <form method="POST" name="formservices" action="<?php echo $url;?>">
+          <?php echo form_hidden('idSERVICES',encode($getservices->idSERVICES),'hidden'); ?>
             <div class="uk-grid" data-uk-grid-margin>
               <div class="uk-width-medium-1-1">
                 <div class="uk-form-row">
                   <div class="uk-grid" data-uk-grid-margin>
                     <div class="uk-width-medium-1-2">
-                      <label>Nama Satuan</label>
+                      <label>Nama Layanan</label>
                       <br>
-                        <input type="text" class="md-input label-fixed" name="nameSATUAN" required autocomplete value="<?php echo $getsatuan->nameSATUAN;?>" />
-                        <p class="text-red"><?php echo form_error('nameSATUAN'); ?></p>
+                        <input type="text" class="md-input label-fixed" name="nameSERVICES" required autocomplete value="<?php echo $getservices->nameSERVICES;?>" />
+                        <p class="text-red"><?php echo form_error('nameSERVICES'); ?></p>
                     </div>
                     <div class="uk-width-medium-1-2 uk-margin-top">
                       <div class="parsley-row">
                         <?php
                           $checkdis= '';
-                          if($getsatuan->statusSATUAN == 1) $checkdis = 'checked' ;
+                          if($getservices->statusSERVICES == 1) $checkdis = 'checked' ;
                         ?>
-                        <input type="checkbox" data-switchery <?php echo $checkdis; ?> data-switchery-size="large" data-switchery-color="#d32f2f" name="statusSATUAN" id="switch_demo_large">
-                        <label for="switch_demo_large" class="inline-label"><b>Aktifkan Satuan</b></label>
+                        <input type="checkbox" data-switchery <?php echo $checkdis; ?> data-switchery-size="large" data-switchery-color="#d32f2f" name="statusSERVICES" id="switch_demo_large">
+                        <label for="switch_demo_large" class="inline-label"><b>Aktifkan Layanan</b></label>
                       </div>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </form>
         </li>
-        <!-- END FORM INPUT SATUAN -->
+        <!-- END FORM INPUT AREA -->
       </ul>
     </div>
   </div>

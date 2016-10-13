@@ -14,7 +14,7 @@ class Package extends Admin_Controller {
 	}
 
 	public function packagelist($id = NULL){
-		$data['addONS'] = 'plugins_datatables';
+		$data['addONS'] = 'plugins_payment';
 
 		$id = decode(urldecode($id));
 
@@ -62,7 +62,7 @@ class Package extends Admin_Controller {
         $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Package_m->array_from_post(array('namePACKAGE','pricesPACKAGE','statusPACKAGE'));
+			$data = $this->Package_m->array_from_post(array('namePACKAGE','descriptionPACKAGE','statusPACKAGE'));
 			if($data['statusPACKAGE'] == 'on')$data['statusPACKAGE']=1;
 			else $data['statusPACKAGE']=0;
 			$id = decode($this->input->post('idPACKAGE'));

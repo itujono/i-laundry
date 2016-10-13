@@ -20,12 +20,9 @@ if($plugins == 'plugins_datatables'){
 
 <!-- datatables tableTools-->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/datatables-tabletools/js/dataTables.tableTools.js"></script>
-
-<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/forms_file_input.min.js"></script> -->
 <!--  preloaders functions -->
 <script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/components_preloaders.min.js"></script>
 
-<!-- page specific plugins -->
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
@@ -42,12 +39,12 @@ if($plugins == 'plugins_datatables'){
       tinymce.init({
       selector: "textarea",  // change this value according to your HTML
        toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
-        toolbar2: "| example link unlink anchor spellchecker | image media | forecolor backcolor  | print preview | template",
+        toolbar2: "| example link unlink anchor code | image media | forecolor backcolor  | print preview | template",
         toolbar3: "styleselect | fontsizeselect",
       plugins: [
                  "advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak",
                  "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-                 "table contextmenu directionality emoticons paste textcolor spellchecker", 
+                 "table contextmenu directionality emoticons paste textcolor code", 
            ]
     });
     </script>
