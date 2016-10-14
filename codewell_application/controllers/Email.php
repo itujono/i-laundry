@@ -3,28 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Email extends Frontend_Controller {
 
-	public function emailregistrasi()
+	public function Email_registrasi()
 	{
-		$this->load->view($this->data['frontendDIR']. 'emailregistrasi');
+		$this->load->view($this->data['frontendDIR']. 'Email_registrasi');
 	}
 
-	public function emailforgotpassword()
+	public function Email_forgot()
 	{
-		$this->load->view($this->data['frontendDIR']. 'emailforgotpassword');
+		$this->load->view($this->data['frontendDIR']. 'Email_forgot');
 	}
 
-	public function emailselesaiorder()
+	public function Email_ordercompleted()
 	{
-		$this->load->view($this->data['frontendDIR']. 'emailselesaiorder');
+		$this->load->view($this->data['frontendDIR']. 'Email_ordercompleted');
 	}
-
-	Dst....
-	ntar engko panggil nya di browser macam gini!
-	localhost/codewell/email/emailregistrasi
-	localhost/codewell/email/emailforgotpassword
-	localhost/codewell/email/emailselesaiorder
-	dst...
-
-	samakan aja filename controller dan view-nya, biar tak bingung.
 
 }
