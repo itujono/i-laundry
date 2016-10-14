@@ -34,6 +34,40 @@ class Order extends Frontend_Controller {
 		$this->load->view($this->data['frontendDIR']. 'Order',$data);
 	}
 
+	public function confirmation_order(){
+		$rules = $this->Order_m->rules_order;
+		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+
+		if ($this->form_validation->run() == TRUE) {
+			$datas = $this->Order_m->array_from_post(array('pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT'));
+			if(!empty($datas)){
+				$data['confirm_order'] = $datas;
+				// echo "<pre>";
+				// print_r($data['confirm_order']);
+				// break;
+				$this->load->view($this->data['frontendDIR']. 'confirmation_order',$data);
+			} else {
+				$data = array(
+		            'title' => 'Terjadi Kesalahan',
+		            'text' => 'salah wak data nya gak ada',
+		            'type' => 'error'
+		        );
+		        $this->session->set_flashdata('message',$data);
+		        $this->index();
+			}
+		} else {
+				$data = array(
+		            'title' => 'Terjadi Kesalahan',
+		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda dibawah.',
+		            'type' => 'error'
+		        );
+		        $this->session->set_flashdata('message',$data);
+		        $this->index();
+		}
+
+	}
+
 	public function saveorder(){
 
 		$rules = $this->Order_m->rules_order;
@@ -42,19 +76,11 @@ class Order extends Frontend_Controller {
 
 		if ($this->form_validation->run() == TRUE) {
 			$data = $this->Order_m->array_from_post(array('pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT'));
-			$id = decode($this->input->post('idORDER'));
-			if(empty($id))$id=NULL;
 			// echo "<pre>";
 			// print_r($data);
 			// break;
 			if ($this->Order_m->save($data, $id)) {
-				$data = array(
-                    'title' => 'Sukses',
-                    'text' => 'Penyimpanan Data berhasil dilakukan',
-                    'type' => 'success'
-                );
-                $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/aroma');
+                $this->confirmation_order($data);
 			} else {
 				$data = array(
                     'title' => 'Terjadi Kesalahan',
@@ -73,10 +99,5 @@ class Order extends Frontend_Controller {
 		        $this->session->set_flashdata('message',$data);
 		        $this->aromalist();
 		}
-	}
-
-	public function confirmation_order(){
-
-		$this->load->view($this->data['frontendDIR']. 'confirmation_order');
 	}
 }

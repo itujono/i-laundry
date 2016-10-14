@@ -26,8 +26,8 @@
         <div data-page="order" class="page no-toolbar">
             <div class="page-content order">
                 <?php
-                    if (!empty($message)){
-                  ?>
+                if (!empty($message)){
+                ?>
                     <div class="notif animated slideInDown">
                       <div class="msg">
                         <p><?php echo $message['text'];?></p>
@@ -36,7 +36,7 @@
                         <a href="#">Dismiss</a>
                       </div>
                     </div>
-                  <?php } ?>
+                <?php } ?>
                     <div class="navbarpages graybg">
                         <div class="navbar_left">
                              <div class="logo_image">
@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="contactform">
-                                <form id="form-order" class="store-data" method="POST" action="<?php echo base_url();?>Order/saveorder">
+                                <form id="form-order" class="store-data" method="POST" action="<?php echo base_url();?>Order/confirmation_order">
                                     
                                     <div class="form_row">
                                         <label>Kapan mau dijemput?</label>

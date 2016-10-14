@@ -71,7 +71,7 @@
                         <li>
                             <div class="feat_small_details">
                                 <h4>Alamat jemput</h4>
-                                <p>Jalan Kepodang Raya Blok C #34 <br> Sei Harapan, Batam 29432</p>
+                                <p><?php echo $confirm_order->pickupADDRESSORDERKOTOR;?></p>
                             </div>
                         </li>
                         <li>
