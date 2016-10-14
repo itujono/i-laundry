@@ -130,70 +130,82 @@
 
 	</head>
 		<body bgcolor="#ededed" width="100%" style="Margin: 0;">
-		<table bgcolor="#ededed" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse:collapse;"><tr><td valign="top">
-		    <center style="width: 100%;">
-		        <!-- Visually Hidden Preheader Text : BEGIN -->
-		        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
-		            Selamat Datang - Riva Yudha
-		        </div>
-		        <!-- Visually Hidden Preheader Text : END -->
+		<table bgcolor="#ededed" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse:collapse;">
+			<tr>
+				<td valign="top">
+				    <center style="width: 100%;">
+				        <!-- Visually Hidden Preheader Text : BEGIN -->
+				        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+				            Selamat Datang - Riva Yudha
+				        </div>
+				        <!-- Visually Hidden Preheader Text : END -->
 
-		       <div style="margin: 20px 0 20px 0">
-		        
-		        <!-- Email Body : BEGIN -->
-		        <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" class="email-container">
-		            
-		            <!-- Hero Image, Flush : BEGIN -->
-		            <tr>
-		                <td style="font-family: sans-serif; padding: 25px 0 0 40px; font-size: 48px; color: #61e2f1; letter-spacing: 1px; font-weight: 800;">
-		                    i-Laundry
-		                </td>
-		            </tr>
-		            
-		            <tr>
-		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Hi, Riva!
-		                    </td>
-		                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-		                        Terima kasih sudah menggunakan jasa kami. Berikut adalah detail order kamu.
-		                        <br>
-		                    </td>
-		            </tr>
-		            <tr id="btn-confirm">
-		                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'user/Forgot/' . $emailCode . '">Konfirmasi akun-mu</a>
-		                </td>
-		            </tr>
-		            <!-- 1 Column Text : BEGIN -->
-		            </tr>
-		            </tr>
-		             <tr>
-		                <td style="padding: 20px 20px 20px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555; background-color: #f1fafa; border-radius: 0 0 8px 8px;">
-		                    <webversion style="color:#888888; font-size: 14px; text-decoration:underline; font-weight: bold; margin-bottom: 15px;">Terima Kasih</webversion>
-		                    <br><br>
-		                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">i-Laundry.co.id</span>
-		                    <br>
-		                    <span class="mobile-link--footer">Ruko Permata Regency Blok HH #5, Baloi.</span><br><span class="mobile-link--footer">Tel. 0811 7777 837</span>
-		                    <div style="font-size: 24px; margin-top: 20px; color: #aaa;">
-		                        <a href="'.$facebook.'"><i class="fa fa-facebook-square"></i></a>
-		                        <a href="'.$twitter.'"><i class="fa fa-twitter-square"></i></a>
-		                        <a href="'.$instagram.'"><i class="fa fa-instagram"></i></a>
-		                    </div>
-		                    <div style="margin-top: 25px; color: #999;">
-		                    Enjoy your quality time and let us take care your clothes.
-		                    </div>
-		                </td>
-		            </tr>
-		            <tr style="background-color: #8fcae4">
-		            <td style="padding: 10px 20px 10px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #ffffff; border-radius: 0 0 8px 8px">
-		                    2016 &copy; i-laundry.co.id is crafted by <a href="mailto: rivayudha@msn.com">Codewell Indonesia</a>
-		                    <br>
-		                </td>
-		            </tr>
-		        </table>
-		        <!-- Email Body : END -->
-		        <table>
-		        </table>
-		    </center>
-			</td></tr></table>
+				       <div style="margin: 20px 0 20px 0">
+				        
+				        <!-- Email Body : BEGIN -->
+				        <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="600" class="email-container">
+				            
+				            <!-- Hero Image, Flush : BEGIN -->
+				            <tr>
+				                <td style="font-family: sans-serif; padding: 25px 0 0 40px; font-size: 48px; color: #61e2f1; letter-spacing: 1px; font-weight: 800;">
+				                    i-Laundry
+				                </td>
+				            </tr>
+				            
+				            <tr>
+			                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Hi, Riva!
+			                    	<p style="padding: 10px 20px 0px 0; font-weight: normal; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+			                        	Terima kasih sudah menggunakan jasa kami. Berikut adalah detail order kamu.
+			                        </p>
+			                    </td>
+			                    <br>
+				            </tr>
+
+				            <tr>
+				            	<td>
+				            		<blockquote>Coba ya heheh.</blockquote>
+				            	</td>
+				            </tr>
+				            
+				            <tr id="btn-confirm">
+				                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+				                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'user/Forgot/' . $emailCode . '">Konfirmasi akun-mu</a>
+				                </td>
+				            </tr>
+				            </center>
+				            <!-- 1 Column Text : BEGIN -->
+				            </td>
+				        </tr>
+				    </tr>
+				             <tr>
+				                <td style="padding: 20px 20px 20px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555; background-color: #f1fafa; border-radius: 0 0 8px 8px;">
+				                    <webversion style="color:#888888; font-size: 14px; text-decoration:underline; font-weight: bold; margin-bottom: 15px;">Terima Kasih</webversion>
+				                    <br><br>
+				                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">i-Laundry.co.id</span>
+				                    <br>
+				                    <span class="mobile-link--footer">Ruko Permata Regency Blok HH #5, Baloi.</span><br><span class="mobile-link--footer">Tel. 0811 7777 837</span>
+				                    <div style="font-size: 24px; margin-top: 20px; color: #aaa;">
+				                        <a href="'.$facebook.'"><i class="fa fa-facebook-square"></i></a>
+				                        <a href="'.$twitter.'"><i class="fa fa-twitter-square"></i></a>
+				                        <a href="'.$instagram.'"><i class="fa fa-instagram"></i></a>
+				                    </div>
+				                    <div style="margin-top: 25px; color: #999;">
+				                    Enjoy your quality time and let us take care your clothes.
+				                    </div>
+				                </td>
+				            </tr>
+				            <tr style="background-color: #8fcae4">
+				            <td style="padding: 10px 20px 10px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #ffffff; border-radius: 0 0 8px 8px">
+				                    2016 &copy; i-laundry.co.id is crafted by <a href="mailto: rivayudha@msn.com">Codewell Indonesia</a>
+				                    <br>
+				                </td>
+				            </tr>
+				        </table>
+				        <!-- Email Body : END -->
+				        <table>
+				        </table>
+				    </center>
+				</td></tr>
+			</table>
 		</body>
 	</html>';  

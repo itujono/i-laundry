@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-	    <title>Reset Password - i-Laundry</title>
+	    <title>Promo Keren untuk Kamu - i-Laundry</title>
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	    <!-- CSS Reset -->
@@ -157,13 +157,15 @@
 				                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Hi, Riva!</td>
 				                </tr>
 				                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-				                        Kamu telah melakukan request untuk mereset password-mu. Silakan klik tautan berikut ini untuk melanjutkan. 
+				                        Terima kasih sudah menggunakan jasa kami. Kamu hanya berjarak 1x nyuci lagi untuk mendapatkan diskon sebesar 30%. Wow!
+				                        <br><br>
+				                        Ayo nyuci terus ya di i-Laundry. Nyuci di i-Laundry, makin sering, malah makin untung!
 				                        <br>
 				                    </td>
 				            </tr>
 				            <tr id="btn-confirm">
 				                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-				                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'user/Forgot/' . $emailCode . '">Reset password sekarang</a>
+				                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="www.i-laundry.co.id">Terima kasih infonya</a>
 				                </td>
 				            </tr>
 				            <!-- 1 Column Text : BEGIN -->

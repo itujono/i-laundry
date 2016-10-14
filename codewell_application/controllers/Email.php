@@ -18,4 +18,9 @@ class Email extends Frontend_Controller {
 		$this->load->view($this->data['frontendDIR']. 'Email_ordercompleted');
 	}
 
+	public function Email_promo()
+	{
+		$this->load->view($this->data['frontendDIR']. 'Email_promo');
+	}
+
 }
