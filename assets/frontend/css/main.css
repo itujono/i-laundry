@@ -200,6 +200,36 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
 }
 
+@media only screen and (min-width: 1000px) {
+        #pages_maincontent {
+        width: 70%;
+        padding: 0 0 30px 0;
+        margin: 0px auto;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0px;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .order input.form_submit, #reset input.form_submit {
+        width: 100%;
+        padding: 4% 0 4% 0;
+        margin: 10px 0 0 0;
+        font-weight: normal;
+        text-align: center;
+        cursor: pointer;
+        font-size: 20px;
+        background-color: #2fa9e0;
+        border-radius: 100px !important;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+}
+
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
@@ -795,6 +825,13 @@ ul.history-detailed .small-detail ul li {
 
 #pwd-reset h2 {
     color: #fff;
+}
+
+#pwd-reset .settings-title h2 {
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.2;
 }
 
 

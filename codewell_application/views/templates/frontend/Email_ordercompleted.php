@@ -158,18 +158,47 @@
 			                        	Terima kasih sudah menggunakan jasa kami. Berikut adalah detail order kamu.
 			                        </p>
 			                    </td>
-			                    <br>
 				            </tr>
 
 				            <tr>
-				            	<td>
-				            		<blockquote>Coba ya heheh.</blockquote>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Waktu jemput</h3>
+				            		<p style="margin: 0">21 Oktober 2016</p>
+				            	</td>
+				            <tr>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Alamat jemput</h3>
+				            		<p style="margin: 0">Jalan Gemintang Blok A #1, Tanjung Piayu</p>
+				            	</td>
+				            </tr>
+				            <tr>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Pilihan aroma</h3>
+				            		<p style="margin: 0">21 Oktober 2016</p>
+				            	</td>
+				            </tr>
+				            <tr>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Layanan</h3>
+				            		<p style="margin: 0">Jalan Gemintang Blok A #1, Tanjung Piayu</p>
+				            	</td>
+				            </tr>
+				            <tr>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Jenis servis</h3>
+				            		<p style="margin: 0">21 Oktober 2016</p>
+				            	</td>
+				            </tr>
+				            <tr>
+				            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+				            		<h3 style="margin: 0; font-size: .8em; color: #999;">Metode Pembayaran</h3>
+				            		<p style="margin: 0">Cash on Delivery (CoD)</p>
 				            	</td>
 				            </tr>
 				            
 				            <tr id="btn-confirm">
 				                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-				                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'user/Forgot/' . $emailCode . '">Konfirmasi akun-mu</a>
+				                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'user/Forgot/' . $emailCode . '">Kembali ke website kami</a>
 				                </td>
 				            </tr>
 				            </center>
