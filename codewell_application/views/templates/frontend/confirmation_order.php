@@ -65,37 +65,38 @@
                         <li>
                             <div class="feat_small_details">
                                 <h4>Waktu jemput</h4>
-                                <p>21 Oktober 2016</p>
+                                <input type="text" placeholder="21 Oktober 2016" readonly></input>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Alamat jemput</h4>
                                 <p><?php echo $confirm_order->pickupADDRESSORDERKOTOR;?></p>
+                                <input type="text" placeholder="Jalan Gemintang Blok A #1, Tanjung Piayu" readonly></input>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Wangi</h4>
-                                <p>Mystique</p>
+                                <input type="text" placeholder="Mystique" readonly></input>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Layanan</h4>
-                                <p>Cuci gosok</p>
+                                <input type="text" placeholder="Cuci gosok" readonly></input>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Jenis service</h4>
-                                <p>Premium</p>
+                                <input type="text" placeholder="Premium" readonly></input>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Metode pembayaran</h4>
-                                <p>Cash on Delivery (CoD)</p>
+                                <input type="text" placeholder="Cash o Delivery (CoD)" readonly></input>
                             </div>
                         </li> 
                     </ul>

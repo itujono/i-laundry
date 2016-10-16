@@ -518,12 +518,12 @@ ul.history-detailed .small-detail ul li {
 
 /* ini bagian Order deccch */
 
-.order label {
+.order label, #reset label {
     color: #999;
     font-weight: 100;
 }
 
-.order label {
+.order label, #reset label {
     width: 100%;
     padding: 5px 0 3px 0;
     display: block;
@@ -532,21 +532,21 @@ ul.history-detailed .small-detail ul li {
     color: #777;
 }
 
-.order input.form_input {
+.order input.form_input, #reset input.form_input {
     padding: 3%;
     width: 93%;
     margin: 0 0 5px 0;
     border: 1px solid #ddd;
 }
 
-.order textarea.form_textarea {
+.order textarea.form_textarea, #reset textarea.form_textarea {
     padding: 3%;
     width: 93%;
     margin: 5px 0 5px 0;
     border: 1px solid #ddd;
 }
 
-.order input.form_submit {
+.order input.form_submit, #reset input.form_submit {
     width: 100%;
     padding: 4% 0 4% 0;
     margin: 10px 0 0 0;
@@ -904,6 +904,10 @@ input#calendar-default {
 
 .button-order {
     margin-bottom: 30px;
+}
+
+#confirm-order input {
+    border: none;
 }
 
 

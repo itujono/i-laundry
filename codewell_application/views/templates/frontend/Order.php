@@ -42,12 +42,7 @@
                              <div class="logo_image">
                                  <a href="<?php echo base_url();?>Home"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
                              </div>
-                        </div>
-                        <a href="#" data-panel="right" class="open-panel">
-                             <div class="navbar_right whitebg">
-                                 <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/user.png" alt="" title="" />
-                             </div>
-                        </a>                     
+                        </div>           
                     </div>
          
                     <div id="pages_maincontent">

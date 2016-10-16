@@ -21,7 +21,7 @@
   <div class="statusbar-overlay"></div>
 
   <div class="panel-overlay"></div>
-<div class="pages" id="settings">
+<div class="pages" id="reset">
     <div data-page="settings" class="page no-toolbar no-navbar">
         <div class="page-content">
         	<div class="navbarpages">
@@ -67,7 +67,7 @@
                             <input type="password" name="repasswordCUSTOMER" placeholder="Min. 8 Karakter dan samakan dengan kata sandi diatas!" required="" class="form_input required">
                         </div>
                         <div class="form-submit">
-                            <input type="submit" name="submit" class="form_submit" id="submit" value="Simpan" />
+                            <input type="submit" name="submit" class="form_submit confirm-order" id="submit" value="All good!" />
                         </div>
                         <div class="back-to-home">
                             <a href="<?php echo base_url();?>Home">
