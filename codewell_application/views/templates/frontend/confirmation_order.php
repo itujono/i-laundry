@@ -60,12 +60,12 @@
                         <h2>Review Order</h2>
                         <p>Silakan review data order kamu di sini.</p>
                     </div>
-
                     <ul class="features_list_detailed">
                         <li>
                             <div class="feat_small_details">
                                 <h4>Waktu jemput</h4>
                                 <input type="text" placeholder="21 Oktober 2016" readonly></input>
+                                <p><?php echo dF($confirm_order['pickuptimeORDER'], 'l,d F Y');?></p>
                             </div>
                         </li>
                         <li>
@@ -73,32 +73,39 @@
                                 <h4>Alamat jemput</h4>
                                 <p><?php echo $confirm_order->pickupADDRESSORDERKOTOR;?></p>
                                 <input type="text" placeholder="Jalan Gemintang Blok A #1, Tanjung Piayu" readonly></input>
+                                <p><?php echo $confirm_order['pickupADDRESSORDERKOTOR'];?>
+                                </p>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Wangi</h4>
                                 <input type="text" placeholder="Mystique" readonly></input>
+                                <p><?php echo $confirm_order['idAROMA'];?></p>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Layanan</h4>
                                 <input type="text" placeholder="Cuci gosok" readonly></input>
+                                <p><?php echo $confirm_order['idSERVICES'];?></p>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Jenis service</h4>
                                 <input type="text" placeholder="Premium" readonly></input>
+                                <h4>Jenis paket</h4>
+                                <p><?php echo $confirm_order['idPACKAGE'];?></p>
                             </div>
                         </li>
                         <li>
                             <div class="feat_small_details">
                                 <h4>Metode pembayaran</h4>
                                 <input type="text" placeholder="Cash o Delivery (CoD)" readonly></input>
+                                <p><?php echo $confirm_order['idPAYMENT'];?></p>
                             </div>
-                        </li> 
+                        </li>
                     </ul>
 
                     <label class="label-checkbox item-content">
@@ -116,54 +123,48 @@
                         <input type="submit" name="submit" class="form_submit confirm-order" id="submit" value="All good! Proses sekarang!" />
                         <a href="#" class="cancel-btn">Tunggu, masih ada yang kurang</a>
                     </div>
-
-
                 </div>
-
-
-
-
-                    <script>
-      $('body').addClass('js');
-      var $action = $('.action'),
-          $menulink = $('.menu-link'),
-          $menuTrigger = $('.has-subnav > a'),
-          $n,
-          nHeight;
-    
-      function addMessage() {
-        $('<div class="notification" id="notification"><div class="msg">You must be signed in to complete this action.</div> <div class="actions"><a href="#" id="sign-in" class="btn">Sign In or Register</a> <a href="#" class="dismiss-btn">Dismiss</a></div></div>').prependTo('.pattern');
+    <script>
+    $('body').addClass('js');
+    var $action = $('.action'),
+        $menulink = $('.menu-link'),
+        $menuTrigger = $('.has-subnav > a'),
+        $n,
+        nHeight;
+  
+    function addMessage() {
+      $('<div class="notification" id="notification"><div class="msg">You must be signed in to complete this action.</div> <div class="actions"><a href="#" id="sign-in" class="btn">Sign In or Register</a> <a href="#" class="dismiss-btn">Dismiss</a></div></div>').prependTo('.pattern');
+      
+      $n = $('#notification'),
+      nHeight = $n.outerHeight();
         
-        $n = $('#notification'),
-        nHeight = $n.outerHeight();
-          
-        showNotification();
-        setTimeout(hideNotification,8000);
-      }
-      
-      $action.click(function(e) { //Trigger
-        e.preventDefault();
-        addMessage();
-      });
-      
-      $('.pattern').delegate(".dismiss-btn", "click", function(e) {
-        hideNotification();
-        return false;
-      });
-      
-      function showNotification() {
-        $n.css('top',-nHeight).addClass('anim').css('top',0);
-      }
+      showNotification();
+      setTimeout(hideNotification,8000);
+    }
     
-      function hideNotification() {
-        $n.css('top',-nHeight);
-        setTimeout(function() { $n.removeClass('anim'); }, 1000);
-      }
-      
-      $(window).resize(function() {
-        nHeight = $n.outerHeight();
-      });
-    </script>
+    $action.click(function(e) { //Trigger
+      e.preventDefault();
+      addMessage();
+    });
+    
+    $('.pattern').delegate(".dismiss-btn", "click", function(e) {
+      hideNotification();
+      return false;
+    });
+    
+    function showNotification() {
+      $n.css('top',-nHeight).addClass('anim').css('top',0);
+    }
+  
+    function hideNotification() {
+      $n.css('top',-nHeight);
+      setTimeout(function() { $n.removeClass('anim'); }, 1000);
+    }
+    
+    $(window).resize(function() {
+      nHeight = $n.outerHeight();
+    });
+  </script>
 
 
     <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>

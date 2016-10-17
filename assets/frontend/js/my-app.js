@@ -65,7 +65,7 @@ $$(document).on('pageInit', function (e) {
 		    input: '#calendar-default',
 		    monthNames: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September' , 'Oktober', 'November', 'Desember'],
 		    dayNames: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
-		    dateFormat: 'DD, dd MM yyyy'
+		    dateFormat: 'DD,dd MM yyyy'
 		});
 
 		var today = new Date();
