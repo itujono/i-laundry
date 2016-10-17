@@ -24,7 +24,7 @@
 
     <div class="pages" id="promo">
         <div data-page="order" class="page no-toolbar">
-            <div class="page-content order">
+            <div class="page-content">
                 <?php
                 if (!empty($message)){
                 ?>
@@ -62,48 +62,71 @@
                     </div>
 
                     <div class="list-block">
-                    <ul class="posts">
-                        <li class="swipeout">
-                            <div class="swipeout-content item-content">
-                                <div class="post_entry">
-                                    <div class="post_thumb">
-                                        <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" alt="Brosur Promo 17 Agustus" title="Brosur Murah"/>
-                                    </div>
-                                    <div class="post_details">
-                                        <div class="post_category">
-                                            <a href="blog.html">DESIGN</a>
-                                        </div>               
-                                        <h2>
-                                            <a href="blog-single.html">Design is not just what it looks like and feels like.</a>
-                                        </h2>
-                                    </div>
-                                    <div class="post_swipe">
-                                        <img src="<?php echo base_url().$this->data['asfront']; ?>images/swipe_more.png" alt="" title="" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swipeout-actions-right">
-                                <a href="blog-single.html" class="action1">
-                                    <img src="images/icons/black/message.png" alt="" title="" />
-                                </a>
-                                <a href="#" class="action1 open-popup" data-popup=".popup-social">
-                                    <img src="images/icons/black/like.png" alt="" title="" />
-                                </a>
-                                <a href="#" class="action1 open-popup" data-popup=".popup-social">
-                                    <img src="images/icons/black/contact.png" alt="" title="" />
-                                </a>
-                            </div>
-                        </li>
-                
-                    </ul>
-              
-            <div id="loadMore">LOAD MORE</div> 
-            <div id="showLess">END</div> 
-            </div>
-
-
-
-                </div>
+                        <div class="content-block-title">OKTOBER 2016</div>
+                        <div class="list-block media-list">
+                            <ul>
+                                <li>
+                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
+                                        <div class="item-media">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Yellow Submarine</div>
+                                            </div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
+                                        <div class="item-media">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Yellow Submarine</div>
+                                            </div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div> <!-- kelar List-Block -->
+                        <div class="content-block-title">NOVEMBER 2016</div>
+                        <div class="list-block media-list">
+                            <ul>
+                                <li>
+                                    <a href="<?php echo base_url();?>Home" class="item-link item-content">
+                                        <div class="item-media">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Yellow Submarine</div>
+                                            </div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
+                                        <div class="item-media">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
+                                        </div>
+                                        <div class="item-inner">
+                                            <div class="item-title-row">
+                                                <div class="item-title">Yellow Submarine</div>
+                                            </div>
+                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div> <!-- kelar List-Block -->
+                    </div>
+                </div> <!-- kelar Page-Single -->
+            </div> <!-- kelar Page-Maincontent -->
 
 
 

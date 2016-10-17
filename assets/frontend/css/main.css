@@ -1021,3 +1021,23 @@ a.backto {
     display: inline-block;
     margin: -10px 0 20px 20px
 }
+
+#promo .post_category a {
+    font-size: 18px;
+    background-color: transparent;
+    padding: 0;
+    display: inline-block;
+}
+
+#promo .content-block-title {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #6d6d72;
+    margin: 35px 0 0px;
+}
