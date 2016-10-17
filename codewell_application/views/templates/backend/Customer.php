@@ -28,7 +28,7 @@
 	    <div data-uk-filter="<?php echo $customer->nameCUSTOMER;?>,<?php echo $customer->addressCUSTOMER;?>,<?php echo $customer->emailCUSTOMER;?>">
 	        <div class="md-card md-card-hover">
 	            <div class="md-card-head <?php echo $customer->status;?>">
-	                <div class="md-card-head-menu" data-uk-dropdown="{pos:'bottom-right'}">
+	                <!-- <div class="md-card-head-menu" data-uk-dropdown="{pos:'bottom-right'}">
 	                    <i class="md-icon material-icons">&#xE5D4;</i>
 	                    <div class="uk-dropdown uk-dropdown-small">
 	                        <ul class="uk-nav">
@@ -36,9 +36,9 @@
 	                            <li><a href="#">Remove</a></li>
 	                        </ul>
 	                    </div>
-	                </div>
+	                </div> -->
 	                <div class="uk-text-center">
-	                    <img class="md-card-head-avatar" src="<?php echo base_url();?>assets/backend/assets/img/avatars/avatar_10.png" alt=""/>
+	                    <img class="md-card-head-avatar" src="<?php echo $customer->imageSELLER;?>" alt=""/>
 	                </div>
 	                <h3 class="md-card-head-text uk-text-center md-color-white">
 	                    <?php echo $customer->nameCUSTOMER;?>
@@ -63,14 +63,20 @@
 	                        <div class="md-list-content">
 	                            <span class="md-list-heading">Telepon &amp; Handphone</span>
 	                            <span class="uk-text-small uk-text-muted uk-text-truncate">
-	                            <?php echo $customer->telephoneCUSTOMER;?><br>
-	                            <?php echo $customer->mobileCUSTOMER;?></span>
+	                            +62&nbsp;<?php echo $customer->telephoneCUSTOMER;?><br>
+	                            +62&nbsp;<?php echo $customer->mobileCUSTOMER;?></span>
 	                        </div>
 	                    </li>
 	                    <li>
 	                        <div class="md-list-content">
 	                            <span class="md-list-heading">Terdaftar pada</span>
 	                            <span class="uk-text-small uk-text-muted"><?php echo dF($customer->createdateCUSTOMER, 'd F Y (H:i:s)');?></span>
+	                        </div>
+	                    </li>
+	                    <li>
+	                        <div class="md-list-content">
+	                            <span class="md-list-heading">Diperbaharui pada</span>
+	                            <span class="uk-text-small uk-text-muted"><?php echo dF($customer->updatedateCUSTOMER, 'd F Y (H:i:s)');?></span>
 	                        </div>
 	                    </li>
 	                </ul>

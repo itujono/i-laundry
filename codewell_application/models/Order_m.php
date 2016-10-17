@@ -39,6 +39,29 @@ class Order_m extends MY_Model{
 			'rules' => 'required'
 		)
 	);
+
+	public $rules_editorder = array(
+		'pickupfinishedtimeORDER' => array(
+			'field' => 'pickupfinishedtimeORDER', 
+			'label' => 'Waktu Antar', 
+			'rules' => 'required'
+		),
+		'pickupADDRESSORDERBERSIH' => array(
+			'field' => 'pickupADDRESSORDERBERSIH', 
+			'label' => 'Alamat Antar', 
+			'rules' => 'required'
+		),
+		'beratORDER' => array(
+			'field' => 'beratORDER', 
+			'label' => 'Berat Order', 
+			'rules' => 'required'
+		),
+		'priceORDER' => array(
+			'field' => 'priceORDER', 
+			'label' => 'Price Order', 
+			'rules' => 'required'
+		)
+	);
 	
 	function __construct (){
 		parent::__construct();

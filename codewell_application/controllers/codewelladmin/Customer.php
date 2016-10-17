@@ -25,6 +25,9 @@ class Customer extends Admin_Controller {
 				$status='md-bg-blue-A700';
 			}
 			$data['listcustomer'][$key]->status = $status;
+
+		$data['listcustomer'][$key]->imageSELLER = img_view('profile/'.folderENCRYPT($data['listcustomer'][$key]->idCUSTOMER));
+
 		}
 
 		if(!empty($this->session->flashdata('message'))) {

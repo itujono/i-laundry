@@ -2,6 +2,13 @@
  	<h1><?php echo $detailorder->nameCUSTOMER;?>, <?php echo $detailorder->namePACKAGE;?>, <?php echo $detailorder->namePAYMENT;?></h1>
  	<span class="uk-text-muted uk-text-upper"><b><?php echo $detailorder->kodeORDER;?> (<?php echo dF($detailorder->createdateORDER, 'd F Y (H:i:s)');?>)</span></b>
  </div>
+  <?php if (!empty($message)){ ?>
+      <div class="uk-alert uk-alert-<?php echo $message['type']; ?>" data-uk-alert>
+        <a href="#" class="uk-alert-close uk-close"></a>
+        <h4><?php echo $message['title']; ?></h4>
+        <?php echo $message['text']; ?>
+      </div>
+    <?php } ?>
  <div class="uk-grid uk-grid-medium" data-uk-grid-margin>
  	<div class="uk-width-xLarge-2-10 uk-width-large-3-10">
  		<div class="md-card">
@@ -36,6 +43,18 @@
  							<span class="md-list-heading uk-text-medium"><?php echo $detailorder->pickupADDRESSORDERBERSIH;?></span>
  						</div>
  					</li>
+ 					<li>
+ 						<div class="md-list-content">
+ 							<span class="uk-text-small uk-text-muted uk-display-block">Berat</span>
+ 							<span class="md-list-heading uk-text-medium uk-text-primary"><?php echo $detailorder->beratORDER;?></span>
+ 						</div>
+ 					</li>
+ 					<li>
+ 						<div class="md-list-content">
+ 							<span class="uk-text-small uk-text-muted uk-display-block">Total Harga</span>
+ 							<span class="md-list-heading uk-text-medium uk-text-primary">Rp. <?php echo number_format( $detailorder->priceORDER, 0,',','.'); ?></span>
+ 						</div>
+ 					</li>
  				</ul>
  			</div>
  		</div>
@@ -59,7 +78,7 @@
  					
  				</h3>
  				<h3 class="md-card-toolbar-heading-text">
- 					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="javascript:void(0)">Cetak</a>
+ 					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="<?php echo base_url();?>codewelladmin/Order/editorder/<?php echo encode($detailorder->idORDER);?>">Update</a>
  				</h3>
  			</div>
  			<div class="md-card-content large-padding">
@@ -91,7 +110,7 @@
  							<?php 
  								if(!empty($detailorder->telephoneCUSTOMER AND $detailorder->mobileCUSTOMER)){
  							?>
- 								+62 <?php echo $detailorder->telephoneCUSTOMER;?>/+62 <?php echo $detailorder->mobileCUSTOMER;?>
+ 								+62 <?php echo $detailorder->telephoneCUSTOMER;?><br>+62 <?php echo $detailorder->mobileCUSTOMER;?>
  							<?php } elseif (!empty($detailorder->telephoneCUSTOMER)) { ?>
  								+62 <?php echo $detailorder->telephoneCUSTOMER;?>
  							<?php } elseif (!empty($detailorder->mobileCUSTOMER)) { ?>

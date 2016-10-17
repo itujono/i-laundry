@@ -93,4 +93,75 @@ class Order extends Admin_Controller {
 		        redirect('codewelladmin/order');
 		}
 	}
+
+	public function editorder($id){
+		$data['addONS'] = 'plugins_editorder';
+
+		$id = decode(urldecode($id));
+		if(empty($id))redirect($this->data['folBACKEND'].'Customer');
+
+		$editorder = $this->Order_m->selectall_order($id)->row();
+		
+			if($editorder->statusORDER == 1){
+				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
+			} elseif($editorder->statusORDER == 2) {
+				$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
+			} elseif ($editorder->statusORDER == 3) {
+				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
+			} else{
+				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+			}
+			$editorder->status = $status;
+
+		if(!empty($this->session->flashdata('message'))) {
+            $data['message'] = $this->session->flashdata('message');
+        }
+
+        $data['editorder'] = $editorder;
+        $data['subview'] = $this->load->view('templates/backend/Update_order', $data, TRUE);
+		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
+	}
+
+	public function processeditorder()
+	{
+		$rules = $this->Order_m->rules_editorder;
+		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+
+		if ($this->form_validation->run() == TRUE) {
+			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER'));
+			$data['pickupfinishedtimeORDER'] = str_replace(['PM',' '], [':00',''], $data['pickupfinishedtimeORDER']);
+			$data['pickupfinishedtimeORDER'] = date("Y-m-d H:i:s",strtotime($data['pickupfinishedtimeORDER']));
+			$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
+
+			$id = decode($this->input->post('idORDER'));
+			if(empty($id))$id=NULL;
+
+			if ($this->Order_m->save($data, $id)) {
+				$data = array(
+                    'title' => 'Sukses',
+                    'text' => 'Penyimpanan Data berhasil dilakukan',
+                    'type' => 'success'
+                );
+                $this->session->set_flashdata('message',$data);
+                redirect('codewelladmin/order/detail/'.encode($id));
+			} else {
+				$data = array(
+                    'title' => 'Terjadi Kesalahan',
+                    'text' => 'Maaf, sistem tidak dapat menyimpan perubahan anda, mohon ulangi',
+                    'type' => 'error'
+                );
+                $this->session->set_flashdata('message',$data);
+                redirect('codewelladmin/order/detail/'.encode($id));
+			}
+		} else {
+				$data = array(
+		            'title' => 'Terjadi Kesalahan',
+		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda dibawah.',
+		            'type' => 'error'
+		        );
+		        $this->session->set_flashdata('message',$data);
+		        $this->index();
+		}
+	}
 }

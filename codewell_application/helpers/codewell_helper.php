@@ -25,3 +25,15 @@ function dF($date, $format){
 function folderENCRYPT($id,$type=0){
     return base64_encode($id);
 }
+
+function img_view($link){
+	$dir = 'assets/upload/'.$link;
+	$map = directory_map($dir, FALSE, TRUE);
+    if(!empty($map[0])){
+    	$img = base_url().$dir.'/'.$map[0];
+    }else{
+		$img = base_url().'assets/frontend/images/ava.png';
+    }
+
+    return $img;
+}

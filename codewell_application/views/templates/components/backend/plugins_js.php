@@ -98,6 +98,26 @@ if($plugins == 'plugins_datatables'){
 ?>
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+<?php
+}elseif($plugins == 'plugins_editorder'){
+?>
+<!--  preloaders functions -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/components_preloaders.min.js"></script>
+<!-- ionrangeslider -->
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
+<!-- inputmask-->
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.js"></script>
+
+<!--  forms advanced functions -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/forms_advanced.min.js"></script>
+<!-- page specific plugins -->
+<!-- kendo UI -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/kendoui_custom.min.js"></script>
+<!--  kendoui functions -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/kendoui.min.js"></script>
+
+<!-- jquery.idle -->
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
 <?php                   
 }else{}
