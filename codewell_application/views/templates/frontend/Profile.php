@@ -18,11 +18,11 @@
 </head>
 <body id="mobile_wrap">
 
-  <div class="statusbar-overlay"></div>
+<div class="statusbar-overlay"></div>
 
-  <div class="panel-overlay"></div>
+<div class="panel-overlay"></div>
 <div class="pages" id="profile">
-    <div data-page="profile" class="page no-toolbar no-navbar">
+    <div data-page="Profile" class="page no-toolbar no-navbar">
         <div class="page-content" id="profile">
             <?php
                 if (!empty($message)){

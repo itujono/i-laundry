@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
     <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
     <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <title>i-Laundry - Selamat Datang!</title>
+    <title>Order - i-Laundry</title>
     <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
     <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
     <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
@@ -22,8 +22,11 @@
 
     <div class="panel-overlay"></div>
 
+
+<div class="views">
+    <div class="view view-main">
     <div class="pages">
-        <div data-page="order" class="page no-toolbar">
+        <div data-page="Order" class="page no-toolbar">
             <div class="page-content order">
                 <?php
                 if (!empty($message)){
@@ -179,6 +182,8 @@
                 </div>
             </div> <!-- kelar page no-toolbar -->
         </div> <!-- kelar Pages -->
+        </div>
+    </div>
     <script>
       $('body').addClass('js');
       var $action = $('.action'),
