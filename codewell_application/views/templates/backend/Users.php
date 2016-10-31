@@ -115,9 +115,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <br>
                         <select name="roleUSER" required data-md-selectize data-md-selectize-bottom required>
                           <option disabled="">Pilih Role</option>
-                              <option selected="" value="<?php echo encode('22'); ?>">Karyawan</option>
+                              <option selected="" value="<?php echo encode('24'); ?>">Karyawan</option>
                         </select>
-                        <p class="text-red"><?php echo form_error('passwordUSER'); ?></p>
+                        <p class="text-red"><?php echo form_error('roleUSER'); ?></p>
                     </div>
                     <div class="uk-width-medium-1-4 uk-margin-top">
                       <div class="parsley-row">

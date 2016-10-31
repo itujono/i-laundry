@@ -37,4 +37,19 @@ class Region_m extends MY_Model{
 		}
 		return $this->db->get();
 	}
+
+	public function select_all_region_drop($id = NULL, $dropdown=NULL){
+        $this->db->select('*');
+        $this->db->from('regions');
+        if($id != NULL)$this->db->where('idREGION', $id);
+        if($dropdown != NULL){
+            $ddown = array();
+            foreach ($this->db->get()->result() as $value) {
+                $ddown[$value->idREGION] = $value->nameREGION;
+            }
+            return $ddown;
+        }else{
+            return $this->db->get();
+        }
+    }
 }

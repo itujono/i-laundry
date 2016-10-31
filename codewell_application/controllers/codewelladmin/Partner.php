@@ -1,32 +1,41 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Aroma extends Admin_Controller {
+class Partner extends Admin_Controller {
 
 	public function __construct (){
 		parent::__construct();
-		$this->load->model('Aroma_m');
+		$this->load->model('Partner_m');
+		$this->load->model('Region_m');
 		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
 	}
 
 	public function index(){
-		$this->aromalist();
+		$this->partnerlist();
 	}
 
-	public function aromalist($id = NULL){
+	public function partnerlist($id = NULL){
 		$data['addONS'] = 'plugins_datatables';
 
 		$id = decode(urldecode($id));
 
-		$data['listaroma'] = $this->Aroma_m->selectall_aroma()->result();
+		$data['listpartner'] = $this->Partner_m->selectall_partner()->result();
+		$data['region'] = $this->Region_m->select_all_region_drop(NULL, 1);
 
-		foreach ($data['listaroma'] as $key => $value) {
-			if($value->statusAROMA == 1){
+		foreach ($data['listpartner'] as $key => $value) {
+			if($value->statusPARTNER == 1){
 				$status='<a href="#" data-uk-tooltip title="Aktif"><i class="material-icons md-36 uk-text-success">&#xE86C;</i></a>';
 			} else {
 				$status='<a href="#" data-uk-tooltip title="Tak Aktif"><i class="material-icons  md-36 uk-text-danger">&#xE5C9;</i></a>';
 			}
-			$data['listaroma'][$key]->status = $status;
+			$data['listpartner'][$key]->status = $status;
+
+			if($value->ondutyPARTNER == 1){
+				$statusduty ='<a href="#" data-uk-tooltip title="Sedang ditugaskan"><i class="material-icons md-36 uk-text-primary">&#xE862;</i></a>';
+			} else {
+				$statusduty ='<a href="#" data-uk-tooltip title="Sedang tidak ditugaskan"><i class="material-icons  md-36 uk-text-warning">&#xE888;</i></a>';
+			}
+			$data['listpartner'][$key]->statusduty = $statusduty;
 		}
 
 		if($id == NULL){
@@ -35,14 +44,14 @@ class Aroma extends Admin_Controller {
 	            'data-tab' => 'uk-active',
 	            'form-tab' => '',
 	        );
-			$data['getaroma'] = $this->Aroma_m->get_new();
+			$data['getpartner'] = $this->Partner_m->get_new();
 		} else {
 			//conf tab (optional)
 	        $data['tab'] = array(
 	            'data-tab' => '',
 	            'form-tab' => 'uk-active',
 	        );
-			$data['getaroma'] = $this->Aroma_m->selectall_aroma($id)->row();
+			$data['getpartner'] = $this->Partner_m->selectall_partner($id)->row();
 
 		}
 
@@ -50,32 +59,32 @@ class Aroma extends Admin_Controller {
             $data['message'] = $this->session->flashdata('message');
         }
 
-		$data['subview'] = $this->load->view($this->data['backendDIR'].'Aroma', $data, TRUE);
+		$data['subview'] = $this->load->view($this->data['backendDIR'].'Partner', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
 	}
 
-	public function savearoma()
+	public function savepartner()
 	{
-		$rules = $this->Aroma_m->rules_aroma;
+		$rules = $this->Partner_m->rules_partner;
 		$this->form_validation->set_rules($rules);
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
-        $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Aroma_m->array_from_post(array('nameAROMA','statusAROMA'));
-			if($data['statusAROMA'] == 'on')$data['statusAROMA']=1;
-			else $data['statusAROMA']=0;
-			$id = decode($this->input->post('idAROMA'));
+			$data = $this->Partner_m->array_from_post(array('namePARTNER','passwordPARTNER','addressPARTNER','telephonePARTNER','idREGION','statusPARTNER'));
+			if($data['statusPARTNER'] == 'on')$data['statusPARTNER']=1;
+			else $data['statusPARTNER']=0;
+			$data['passwordPARTNER'] = $this->Partner_m->hash($data['passwordPARTNER']);
+			$id = decode($this->input->post('idPARTNER'));
 			if(empty($id))$id=NULL;
 
-			if ($this->Aroma_m->save($data, $id)) {
+			if ($this->Partner_m->save($data, $id)) {
 				$data = array(
                     'title' => 'Sukses',
                     'text' => 'Penyimpanan Data berhasil dilakukan',
                     'type' => 'success'
                 );
                 $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/aroma');
+                redirect('codewelladmin/partner');
 			} else {
 				$data = array(
                     'title' => 'Terjadi Kesalahan',
@@ -83,7 +92,7 @@ class Aroma extends Admin_Controller {
                     'type' => 'error'
                 );
                 $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/aroma');
+                redirect('codewelladmin/partner');
 			}
 		} else {
 				$data = array(
@@ -92,7 +101,7 @@ class Aroma extends Admin_Controller {
 		            'type' => 'error'
 		        );
 		        $this->session->set_flashdata('message',$data);
-		        $this->aromalist();
+		        $this->partnerlist();
 		}
 	}
 
@@ -101,23 +110,23 @@ class Aroma extends Admin_Controller {
 		$ss = 0;
 		if($id2 != NULL)$ss = 1;
 		if($id != 0){
-			$data['statusaroma'] = $ss;
-			$this->Aroma_m->save($data, $id);
+			$data['statusPARTNER'] = $ss;
+			$this->Partner_m->save($data, $id);
 			$data = array(
                     'title' => 'Sukses',
                     'text' => 'Perubahan Data berhasil dilakukan',
                     'type' => 'success'
                 );
                 $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/aroma/aromalist');
+                redirect('codewelladmin/partner/partnerlist');
 		}else{
 			$data = array(
 	            'title' => 'Terjadi Kesalahan',
-	            'text' => 'Maaf, Sesuatu yang memalukan terjadi',
+	            'text' => 'Maaf, Sesuatu telah terjadi, silakan ulangi beberapa saat lagi!',
 	            'type' => 'error'
 		        );
 		        $this->session->set_flashdata('message',$data);
-		        redirect('codewelladmin/aroma/aromalist');
+		        redirect('codewelladmin/partner/partnerlist');
 		}
 	}
 }

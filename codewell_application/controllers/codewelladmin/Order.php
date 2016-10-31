@@ -7,7 +7,7 @@ class Order extends Admin_Controller {
 		parent::__construct();
 		$this->load->model('Order_m');
 
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/Login');}
+		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
 	}
 
 	public function index($id = NULL){

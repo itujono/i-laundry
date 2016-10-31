@@ -54,18 +54,24 @@
           <span class="menu_title">Customer</span>
         </a>
       </li>
+      <li title="Partner">
+        <a href="<?php echo base_url();?>codewelladmin/Partner">
+          <span class="menu_icon"><i class="material-icons">&#xE54A;</i></span>
+          <span class="menu_title">Partner</span>
+        </a>
+      </li>
       <li title="Order">
         <a href="<?php echo base_url();?>codewelladmin/Order">
           <span class="menu_icon"><i class="material-icons">&#xE8CC;</i></span>
           <span class="menu_title">Order</span>
         </a>
       </li>
-      <!-- <li title="Daerah">
+      <li title="Daerah">
         <a href="<?php echo base_url();?>codewelladmin/Region">
           <span class="menu_icon"><i class="material-icons">&#xE55B;</i></span>
           <span class="menu_title">Daerah</span>
         </a>
-      </li> -->
+      </li>
       <!-- <li title="Area">
         <a href="<?php echo base_url();?>codewelladmin/Area">
           <span class="menu_icon"><i class="material-icons">&#xE55A;</i></span>
@@ -102,13 +108,7 @@
           <span class="menu_title">Pengguna</span>
         </a>
       </li>
-    <?php } else if($this->session->userdata('roleUSER') == 24) {?>
-      <li title="Customer">
-        <a href="<?php echo base_url();?>codewelladmin/Customer">
-          <span class="menu_icon"><i class="material-icons">&#xE8CC;</i></span>
-          <span class="menu_title">Customer</span>
-        </a>
-      </li>
+    <?php } else { ?>
       <li title="Order">
         <a href="<?php echo base_url();?>codewelladmin/Order">
           <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>

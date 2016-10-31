@@ -26,6 +26,8 @@ if($plugins == 'plugins_datatables'){
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
+<?php echo $forms_advanced;?>
+
 <?php
 }elseif($plugins == 'plugins_payment'){
 ?>

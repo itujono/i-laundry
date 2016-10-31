@@ -9,7 +9,7 @@ class User extends Admin_Controller {
 	}
 
 	public function index(){
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/Login');}
+		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
 		$this->userlist();
 	}
 

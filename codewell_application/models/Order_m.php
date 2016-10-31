@@ -74,6 +74,7 @@ class Order_m extends MY_Model{
 		$this->db->select('packages.namePACKAGE');
 		$this->db->select('payment.namePAYMENT,descriptionPAYMENT');
 		$this->db->select('services.nameSERVICES');
+		$this->db->select('partner.namePARTNER');
 
 		$this->db->from('orders');
 		$this->db->join('customers','customers.idCUSTOMER = orders.idCUSTOMER');
@@ -81,6 +82,7 @@ class Order_m extends MY_Model{
 		$this->db->join('packages','packages.idPACKAGE = orders.idPACKAGE');
 		$this->db->join('payment','payment.idPAYMENT = orders.idPAYMENT');
 		$this->db->join('services','services.idSERVICES = orders.idSERVICES');
+		$this->db->join('partner','partner.idPARTNER = orders.idPARTNER');
 
         if($id != NULL){
             $this->db->where('orders.idORDER',$id);
