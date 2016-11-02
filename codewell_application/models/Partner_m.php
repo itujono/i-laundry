@@ -13,6 +13,11 @@ class Partner_m extends MY_Model{
 			'label' => 'Nama partner', 
 			'rules' => 'required'
 		),
+		'emailPARTNER' => array(
+			'field' => 'emailPARTNER', 
+			'label' => 'Email partner', 
+			'rules' => 'required|valid_email'
+		),
 		'passwordPARTNER' => array(
 			'field' => 'passwordPARTNER', 
 			'label' => 'kata sandi partner', 
@@ -43,6 +48,7 @@ class Partner_m extends MY_Model{
 		$new = new stdClass();
 		$new->idPARTNER = '';
 		$new->namePARTNER = '';
+		$new->emailPARTNER = '';
 		$new->passwordPARTNER = '';
 		$new->addressPARTNER = '';
 		$new->telephonePARTNER = '';
@@ -67,4 +73,24 @@ class Partner_m extends MY_Model{
 	public function hash ($string){
 		return hash('sha512', $string . config_item('encryption_key'));
 	}
+
+	public function select_all_partner_drop($id = NULL, $dropdown=NULL){
+        $this->db->select('partner.idPARTNER, namePARTNER');
+        $this->db->select('regions.nameREGION');
+        $this->db->from('partner');
+        //$this->db->where('partner.ondutyPARTNER', 0);
+        $this->db->where('partner.statusPARTNER', 1);
+       	$this->db->join('regions','regions.idREGION = partner.idREGION');
+
+        if($id != NULL)$this->db->where('idPARTNER', $id);
+        if($dropdown != NULL){
+            $ddown = array();
+            foreach ($this->db->get()->result() as $value) {
+                $ddown[$value->idPARTNER] = $value->namePARTNER.' '.'('.$value->nameREGION.')';
+            }
+            return $ddown;
+        }else{
+            return $this->db->get();
+        }
+    }
 }

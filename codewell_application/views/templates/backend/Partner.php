@@ -34,8 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                   <th>No.</th>
                   <th>Nama</th>
+                  <th>Email</th>
                   <th>Telepon</th>
-                  <th>Dibuat</th>
+                  <th>Didaftarkan</th>
                   <th>Status</th>
                   <th>Info</th>
                   <th>Actions</th>
@@ -46,8 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                 <th>No.</th>
                 <th>Nama</th>
+                <th>Email</th>
                 <th>Telepon</th>
-                <th>Dibuat</th>
+                <th>Didaftarkan</th>
                 <th>Status</th>
                 <th>Info</th>
                 <th>Actions</th>
@@ -60,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <tr>
                 <td><?php echo $key+1; ?></td>
                 <td><?php echo $partner->namePARTNER;?></td>
+                <td><?php echo $partner->emailPARTNER;?></td>
                 <td>+62&nbsp;<?php echo $partner->telephonePARTNER;?></td>
                 <td><?php echo dF($partner->createdatePARTNER, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $partner->status;?></td>
@@ -98,13 +101,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="uk-width-medium-1-1">
                 <div class="uk-form-row">
                   <div class="uk-grid" data-uk-grid-margin>
-                    <div class="uk-width-medium-1-2">
+                    <div class="uk-width-medium-1-3">
                       <label>Nama Partner</label>
                       <br>
                         <input type="text" class="input-count md-input label-fixed" id="input_counter" maxlength="50" name="namePARTNER" required autocomplete value="<?php echo $getpartner->namePARTNER;?>" />
                         <p class="text-red"><?php echo form_error('namePARTNER'); ?></p>
                     </div>
-                    <div class="uk-width-medium-1-2">
+                    <div class="uk-width-medium-1-3">
+                      <label>Email Partner</label>
+                      <br>
+                        <input type="email" class="input-count md-input label-fixed" id="input_counter" maxlength="70" name="namePARTNER" required autocomplete value="<?php echo $getpartner->emailPARTNER;?>" />
+                        <p class="text-red"><?php echo form_error('emailPARTNER'); ?></p>
+                    </div>
+                    <div class="uk-width-medium-1-3">
                       <label>Telepon Partner</label>
                       <br>
                         <input type="tel" class="input-count md-input label-fixed" id="input_counter" maxlength="15" name="telephonePARTNER" required autocomplete value="<?php echo $getpartner->telephonePARTNER;?>" />

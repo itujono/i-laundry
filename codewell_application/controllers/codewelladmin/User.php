@@ -126,21 +126,16 @@ class User extends Admin_Controller {
 		
 		if($this->form_validation->run() == TRUE){
 
-			$email = $this->input->post('emailUSER');
-			$pass = $this->input->post('passwordUSER');
-			
-			if ($this->User_m->login($email, $pass) == "CUSTOMER"){
-				
-				$data = array(
-		            'title' => 'Welcome!',
-		            'text' => 'Hallo, Selamat datang '. $this->session->userdata('Name'),
-		            'type' => 'success'
-		        );
-
-		        $this->session->set_flashdata('message',$data);
-				redirect($_SERVER['HTTP_REFERER']);
-
-			} elseif ($this->User_m->login($email, $pass) == "ADMIN") {
+			$email = $this->input->post('email');
+			$pass = $this->input->post('password');
+			// print_r($email);
+			// echo "<br>";
+			// print_r($pass);
+			// echo "<br>";
+			// print_r($this->User_m->hash($pass));
+			// echo "<br>";
+			// break;
+			if ($this->User_m->login($email, $pass) == "ADMIN") {
 
 					$data = array(
 		            'title' => 'Welcome!',
@@ -149,7 +144,6 @@ class User extends Admin_Controller {
 		        );
 		        
 		        $this->session->set_flashdata('message',$data);
-
 				redirect($this->data['folBACKEND'].'Customer');
 
 			} elseif ($this->User_m->login($email, $pass) == "KARYAWAN") {
@@ -161,8 +155,18 @@ class User extends Admin_Controller {
 		        );
 		        
 		        $this->session->set_flashdata('message',$data);
-
 				redirect($this->data['folBACKEND'].'Customer');
+
+			} elseif ($this->User_m->login($email, $pass) == "PARTNER") {
+
+				$data = array(
+		            'title' => 'Welcome!',
+		            'text' => 'Hallo, Selamat datang kembali '. $this->session->userdata('Name').' !',
+		            'type' => 'success'
+		        );
+		        
+		        $this->session->set_flashdata('message',$data);
+				redirect($this->data['folBACKEND'].'Order');
 
 			} else {
 

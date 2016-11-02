@@ -61,24 +61,19 @@
  	</div>
  	<div class="uk-width-xLarge-8-10  uk-width-large-7-10">
  		<div class="md-card">
- 			<div class="md-card-toolbar uk-grid-width-large-1-6">
+ 			<div class="md-card-toolbar uk-grid-width-large-1-3">
  				<h3 class="md-card-toolbar-heading-text">
  					Detail Pelanggan
  				</h3>
- 				<h3 class="md-card-toolbar-heading-text">
- 					
+ 				<h3 class="md-card-toolbar-heading-text uk-text-danger">
+ 				
  				</h3>
  				<h3 class="md-card-toolbar-heading-text">
- 					
- 				</h3>
- 				<h3 class="md-card-toolbar-heading-text">
- 					
- 				</h3>
- 				<h3 class="md-card-toolbar-heading-text">
- 					
- 				</h3>
- 				<h3 class="md-card-toolbar-heading-text">
+ 				<?php
+ 					if($detailorder->statusORDER != 4){
+ 				?>
  					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="<?php echo base_url();?>codewelladmin/Order/editorder/<?php echo encode($detailorder->idORDER);?>">Update</a>
+ 				<?php } ?>
  				</h3>
  			</div>
  			<div class="md-card-content large-padding">
@@ -132,6 +127,18 @@
  						<hr class="uk-grid-divider uk-hidden-large">
  					</div>
  					<div class="uk-width-large-1-2">
+ 						<p>
+		 				<?php
+			 				if($detailorder->idPARTNER == 0){
+			 					$partners = '(Belum ada)';
+			 				} else {
+			 					$partners = $partner->namePARTNER;
+			 				}
+		 				?>
+ 							<span class="uk-text-muted uk-text-small uk-display-block uk-margin-small-bottom">Ditangani</span>
+ 							<p class="uk-text-danger"><?php echo $partners;?></p>
+ 						</p>
+ 						<hr class="uk-grid-divider">
  						<p>
  							<span class="uk-text-muted uk-text-small uk-display-block uk-margin-small-bottom">Status Order</span>
  							<?php echo $detailorder->status;?>
@@ -195,6 +202,7 @@
 	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2" class="md-color-white"><i class="material-icons md-color-white">&#xE86A;</i> Proses cuci</a>
 	    <?php } elseif($detailorder->statusORDER == 2) { ?>
 	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3" class="md-color-white"><i class="material-icons md-color-white">&#xE227;</i> Tunggu pembayaran</a>
+	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4" class="md-color-white"><i class="material-icons md-color-white">&#xE877;</i> Selesai</a>
 	    <?php } elseif($detailorder->statusORDER == 3) { ?>
 	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4" class="md-color-white"><i class="material-icons md-color-white">&#xE877;</i> Selesai</a>
 	    <?php } ?>

@@ -108,7 +108,7 @@
           <span class="menu_title">Pengguna</span>
         </a>
       </li>
-    <?php } else { ?>
+    <?php } elseif($this->session->userdata('roleUSER') == 26) { ?>
       <li title="Order">
         <a href="<?php echo base_url();?>codewelladmin/Order">
           <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>

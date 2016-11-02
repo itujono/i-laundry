@@ -39,11 +39,11 @@
                 <form action="<?php echo base_url();?>codewelladmin/User/login" method="POST">
                     <div class="uk-form-row">
                         <label for="login_email">Email</label>
-                        <input class="md-input" type="email" name="emailUSER" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
+                        <input class="md-input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required />
                     </div>
                     <div class="uk-form-row">
                         <label for="login_password">Kata sandi</label>
-                        <input class="md-input" type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Paling sedikit 8 Karakter' : '');" name="passwordUSER" required />
+                        <input class="md-input" type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Paling sedikit 8 Karakter' : '');" name="password" required />
                     </div>
                     <div class="uk-margin-medium-top">
                         <input type="submit" class="md-btn md-btn-primary md-btn-block md-btn-large" value="MASUK">

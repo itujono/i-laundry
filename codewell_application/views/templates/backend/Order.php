@@ -58,7 +58,6 @@
             <tr>
                 <th>No</th>
                 <th>Pelanggan</th>
-                <th>Ditangani</th>
                 <th>No. Order</th>
                 <th>Tanggal Order</th>
                 <th>Status</th>
@@ -70,7 +69,6 @@
             <tr>
                 <th>No</th>
                 <th>Pelanggan</th>
-                <th>Ditangani</th>
                 <th>No. Order</th>
                 <th>Tanggal Order</th>
                 <th>Status</th>
@@ -84,9 +82,8 @@
             <tr>
                 <td><?php echo $key+1;?></td>
                 <td><?php echo $order->nameCUSTOMER;?></td>
-                <td><?php echo $order->namePARTNER;?></td>
                 <td><?php echo $order->kodeORDER;?></td>
-                <td><?php echo $order->createdateORDER;?></td>
+                <td><?php echo dF($order->createdateORDER, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $order->status;?></td>
                 <td><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>">Lihat detail</a></td>
             </tr>

@@ -6,36 +6,66 @@ class Order extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('Order_m');
+		$this->load->model('Partner_m');
 
 		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
 	}
-
-	public function index($id = NULL){
+	public function cobak(){
+		$cekkodeorder = $this->Order_m->cekkode()->row();
+		$codeorder = str_replace("IL","",substr($cekkodeorder->kode,10))+1;
+		$kodeorder = "IL" . date('Ymds') . $codeorder;
+		print_r($kodeorder);
+		break;
+	}
+	public function index(){
 		$data['addONS'] = 'plugins_order';
+		$ids = $this->session->userdata('idUSER');
+		
+		if($this->session->userdata('roleUSER') == 22) {
 
-		$data['orderlist'] = $this->Order_m->selectall_order()->result();
+			$data['orderlist'] = $this->Order_m->selectall_order()->result();
+				foreach ($data['orderlist'] as $key => $value) {
+					if($value->statusORDER == 1){
+						$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
+					} elseif($value->statusORDER == 2) {
+						$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
+					} elseif ($value->statusORDER == 3) {
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
+					} else{
+						$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+					}
+					$data['orderlist'][$key]->status = $status;
+				}
 
-		foreach ($data['orderlist'] as $key => $value) {
-			if($value->statusORDER == 1){
-				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
-			} elseif($value->statusORDER == 2) {
-				$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
-			} elseif ($value->statusORDER == 3) {
-				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
-			} else{
-				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
-			}
-			$data['orderlist'][$key]->status = $status;
+			$data['process'] = $this->Order_m->counts('codewell_orders','statusORDER = 1');
+	        $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2');
+	        $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3');
+	        $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4');
+
+		} elseif($this->session->userdata('roleUSER') == 26){
+			$data['orderlist'] = $this->Order_m->selectall_order(NULL,NULL,NULL,$ids)->result();
+				foreach ($data['orderlist'] as $key => $value) {
+					if($value->statusORDER == 1){
+						$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
+					} elseif($value->statusORDER == 2) {
+						$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
+					} elseif ($value->statusORDER == 3) {
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
+					} else{
+						$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+					}
+					$data['orderlist'][$key]->status = $status;
+				}
+
+			$data['process'] = $this->Order_m->counts('codewell_orders','statusORDER = 1',$ids);
+	        $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2',$ids);
+	        $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3',$ids);
+	        $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4',$ids);
 		}
 		
 		if(!empty($this->session->flashdata('message'))) {
             $data['message'] = $this->session->flashdata('message');
         }
-
-        $data['process'] = $this->Order_m->counts('codewell_orders','statusORDER = 1');
-        $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2');
-        $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3');
-        $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4');
         
 		$data['subview'] = $this->load->view('templates/backend/Order', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
@@ -47,14 +77,13 @@ class Order extends Admin_Controller {
 		$id = decode(urldecode($id));
 
 		$detailorder = $this->Order_m->selectall_order($id)->row();
-		
 			if($detailorder->statusORDER == 1){
 				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
 			} elseif($detailorder->statusORDER == 2) {
 				$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
 			} elseif ($detailorder->statusORDER == 3) {
 				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
-			} else{
+			} elseif($detailorder->statusORDER == 4){
 				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
 			}
 			$detailorder->status = $status;
@@ -64,6 +93,8 @@ class Order extends Admin_Controller {
         }
 
         $data['detailorder'] = $detailorder;
+        
+        $data['partner'] = $this->Order_m->selectpartneronly($id)->row();
 
 		$data['subview'] = $this->load->view('templates/backend/Detail', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
@@ -117,6 +148,8 @@ class Order extends Admin_Controller {
             $data['message'] = $this->session->flashdata('message');
         }
 
+        $data['partner'] = $this->Partner_m->select_all_partner_drop(NULL, 1);
+
         $data['editorder'] = $editorder;
         $data['subview'] = $this->load->view('templates/backend/Update_order', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
@@ -129,14 +162,14 @@ class Order extends Admin_Controller {
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER'));
+			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER'));
 			$data['pickupfinishedtimeORDER'] = str_replace(['PM',' '], [':00',''], $data['pickupfinishedtimeORDER']);
 			$data['pickupfinishedtimeORDER'] = date("Y-m-d H:i:s",strtotime($data['pickupfinishedtimeORDER']));
 			$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
 
 			$id = decode($this->input->post('idORDER'));
 			if(empty($id))$id=NULL;
-
+			
 			if ($this->Order_m->save($data, $id)) {
 				$data = array(
                     'title' => 'Sukses',

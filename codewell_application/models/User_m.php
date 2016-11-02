@@ -26,14 +26,14 @@ class User_m extends MY_Model{
 	);
 
 	public $rules_login = array(
-		'emailUSER' => array(
-			'field' => 'emailUSER',
-			'label' => 'emailUSER',
+		'email' => array(
+			'field' => 'email',
+			'label' => 'Email',
 			'rules' => 'trim|required|valid_email'
 		),
-		'passwordUSER' => array(
-			'field' => 'passwordUSER',
-			'label' => 'passwordUSER',
+		'password' => array(
+			'field' => 'password',
+			'label' => 'Kata sandi',
 			'rules' => 'trim|required'
 		)
 	);
@@ -102,8 +102,7 @@ class User_m extends MY_Model{
     	
     	$dat1 = array(
     		'emailUSER' => $email,
-    		'passwordUSER' => $this->hash($pass),
-    		'roleUSER' => '22'
+    		'passwordUSER' => $this->hash($pass)
     	);
 
     	$dat2 = array(
@@ -113,13 +112,18 @@ class User_m extends MY_Model{
 
     	$dat3 = array(
     		'emailUSER' => $email,
-    		'passwordUSER' => $this->hash($pass),
-    		'roleUSER' => '24'
+    		'passwordUSER' => $this->hash($pass)
+    	);
+
+    	$dat4 = array(
+    		'emailPARTNER' => $email,
+    		'passwordPARTNER' => $this->hash($pass)
     	);
 
     	$Administrator = $this->db->get_where('codewell_users',$dat1)->row();
     	$Customer = $this->db->get_where('codewell_customers',$dat2)->row();
     	$Karyawan = $this->db->get_where('codewell_users',$dat3)->row();
+    	$Partner = $this->db->get_where('codewell_partner',$dat4)->row();
 
     	if(count($Customer)){
     		if($Customer->statusCUSTOMER == 1){
@@ -154,6 +158,18 @@ class User_m extends MY_Model{
     		);
     		$this->session->set_userdata($data);
     		return "KARYAWAN";
+    	}
+
+    	if(count($Partner)){
+    		$data = array(
+    			'Name' => $Partner->namePARTNER,
+    			'Email' => $Partner->emailPARTNER,
+    			'idUSER' => $Partner->idPARTNER,
+    			'roleUSER' => 26,
+    			'logged_in' => TRUE,
+    		);
+    		$this->session->set_userdata($data);
+    		return "PARTNER";
     	}	
     }
 
