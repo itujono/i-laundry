@@ -16,17 +16,17 @@
                         <div class="uk-form-row">
                             <label for="settings_site_name">Password Lama</label>
                             <br>
-                            <input class="md-input label-fixed" type="password" name="oldpasswordUSER" placeholder="Masukkan kata sandi lama kamu"/>
+                            <input class="md-input label-fixed" type="password" name="oldpassword" placeholder="Masukkan kata sandi lama kamu"/>
                         </div>
                         <div class="uk-form-row">
                             <label for="settings_page_description">Password baru</label>
                             <br>
-                            <input class="md-input label-fixed" type="password" name="passwordUSER" placeholder="Masukkan kata sandi baru kamu" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repasswordUSER.pattern = this.value;" id="passwordUSER" required />
+                            <input class="md-input label-fixed" type="password" name="password" placeholder="Masukkan kata sandi baru kamu" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repassword.pattern = this.value;" id="password" required />
                         </div>
                         <div class="uk-form-row">
                             <label for="settings_admin_email">Masukan Password baru</label>
                             <br>
-                            <input class="md-input label-fixed" type="password" name="repasswordUSER" placeholder="Masukkan kembali kata sandi baru kamu"  pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mohon masukkan kata sandi yang sama seperti diatas' : '');" id="repasswordUSER" required/>
+                            <input class="md-input label-fixed" type="password" name="repassword" placeholder="Masukkan kembali kata sandi baru kamu"  pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mohon masukkan kata sandi yang sama seperti diatas' : '');" id="repassword" required/>
                         </div>
                     </div>
                 </div>

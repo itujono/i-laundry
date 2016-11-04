@@ -6,6 +6,7 @@ class User extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('User_m');
+		$this->load->model('Partner_m');
 	}
 
 	public function index(){
@@ -128,13 +129,7 @@ class User extends Admin_Controller {
 
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
-			// print_r($email);
-			// echo "<br>";
-			// print_r($pass);
-			// echo "<br>";
-			// print_r($this->User_m->hash($pass));
-			// echo "<br>";
-			// break;
+
 			if ($this->User_m->login($email, $pass) == "ADMIN") {
 
 					$data = array(
@@ -209,10 +204,12 @@ class User extends Admin_Controller {
 	}
 
 	public function processchangepassword($id = NULL){
-		$id = decode($this->input->post('idUSER'));
-		if(empty($id)){
+		$ids = decode($this->input->post('idUSER'));
+		
+		if(empty($ids)){
 			$this->Logout();
 		}
+
 		$rules = $this->User_m->rules_changepassword;
 		$this->form_validation->set_rules($rules);
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
@@ -220,39 +217,77 @@ class User extends Admin_Controller {
 
 	    if($this->form_validation->run() == TRUE) {
 
-			$oldpassword = $this->User_m->hash($this->input->post('oldpasswordUSER'));
-			$data['passwordUSER'] = $this->User_m->hash($this->input->post('passwordUSER'));
-			$renewpassword = $this->User_m->hash($this->input->post('repasswordUSER'));
+			$oldpassword = $this->User_m->hash($this->input->post('oldpassword'));
+			$password = $this->User_m->hash($this->input->post('password'));
+			$renewpassword = $this->User_m->hash($this->input->post('repassword'));
 		
-			if($data['passwordUSER'] != $renewpassword){
+			if($password != $renewpassword){
 				$data = array(
 		            'title' => 'Maaf!',
-		            'text' => 'password baru kamu tidak sama dengan field konfirmasi password baru, mohon ulangi',
+		            'text' => 'password baru kamu tidak sama dengan form konfirmasi password baru, mohon ulangi',
 		            'type' => 'danger'
 		        	);
 		        $this->session->set_flashdata('message',$data);
 				$this->changepassword();
 			}
+			$email = $this->session->userdata('Email');
 
-			$checkoldpassword = $this->User_m->checkoldpassword($id)->row();
+			$cekiduser = $this->User_m->checkpartner($email)->row();
+			$cekiduseradmin = $this->User_m->checkuser($email)->row();
+			
+			if(!empty($cekiduser)){
 
-			if($oldpassword == $checkoldpassword->passwordUSER){
-				$this->User_m->save($data, $id);
-				$data = array(
-					'title' => 'Sukses',
-					'text' => 'Perubahan kata sandi telah berhasil dilakukan',
-					'type' => 'success'
-					);
-				$this->session->set_flashdata('message', $data);
-				redirect($_SERVER['HTTP_REFERER']);
-			} else {
-				$data = array(
-					'title' => 'Terjadi Kesalahan',
-					'text' => 'Maaf, kami tidak bisa merubah kata sandi anda, karena kata sandi lama anda tidak sama dengan yang anda masukkan sebelumnya, Mohon ulangi!.',
-					'type' => 'warning'
-					);
-				$this->session->set_flashdata('message', $data);
-				redirect($_SERVER['HTTP_REFERER']);
+				$checkoldpasswordpartner = $this->User_m->checkoldpasswordpartner($ids)->row();
+
+				if($oldpassword == $checkoldpasswordpartner->passwordPARTNER){
+
+					$datas['passwordPARTNER'] = $this->User_m->hash($this->input->post('password'));
+					$this->Partner_m->save($datas, $ids);
+					$data = array(
+						'title' => 'Sukses',
+						'text' => 'Perubahan kata sandi telah berhasil dilakukan',
+						'type' => 'success'
+						);
+					$this->session->set_flashdata('message', $data);
+					redirect($_SERVER['HTTP_REFERER']);
+
+				} else {
+
+					$data = array(
+						'title' => 'Terjadi Kesalahan',
+						'text' => 'Maaf, kami tidak bisa merubah kata sandi anda, karena kata sandi lama anda tidak sama dengan yang anda masukkan sebelumnya, Mohon ulangi!.',
+						'type' => 'warning'
+						);
+					$this->session->set_flashdata('message', $data);
+					redirect($_SERVER['HTTP_REFERER']);
+				}
+
+			} elseif(!empty($cekiduseradmin)) {
+
+				$checkoldpassword = $this->User_m->checkoldpassword($ids)->row();
+
+				if($oldpassword == $checkoldpassword->passwordUSER){
+
+					$data['passwordUSER'] = $this->User_m->hash($this->input->post('password'));
+					$this->User_m->save($data, $ids);
+					$data = array(
+						'title' => 'Sukses',
+						'text' => 'Perubahan kata sandi telah berhasil dilakukan',
+						'type' => 'success'
+						);
+					$this->session->set_flashdata('message', $data);
+					redirect($_SERVER['HTTP_REFERER']);
+
+				} else {
+
+					$data = array(
+						'title' => 'Terjadi Kesalahan',
+						'text' => 'Maaf, kami tidak bisa merubah kata sandi anda, karena kata sandi lama anda tidak sama dengan yang anda masukkan sebelumnya, Mohon ulangi!.',
+						'type' => 'warning'
+						);
+					$this->session->set_flashdata('message', $data);
+					redirect($_SERVER['HTTP_REFERER']);
+				}
 			}
 		} else {
 			$data = array(

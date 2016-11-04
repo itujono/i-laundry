@@ -20,6 +20,13 @@
 </script>
 
 <?php echo $plugins; ?>
-
+<script>
+   setInterval(function(){
+    $("#notif_count").load('<?php echo base_url();?>codewelladmin/order/countunreadorder')
+    }, 5000);
+   setInterval(function(){
+    $("#load_unread").load('<?php echo base_url();?>codewelladmin/order/unreadorder')
+    }, 5000);
+</script>
 </body>
 </html>

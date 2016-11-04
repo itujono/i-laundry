@@ -52,19 +52,19 @@ class User_m extends MY_Model{
 	);
 
 	public $rules_changepassword = array(
-		'oldpasswordUSER' => array(
-			'field' => 'oldpasswordUSER',
-			'label' => 'oldpasswordUSER',
+		'oldpassword' => array(
+			'field' => 'oldpassword',
+			'label' => 'Kata sandi lama',
 			'rules' => 'trim|required'
 		),
-		'passwordUSER' => array(
-			'field' => 'passwordUSER',
-			'label' => 'passwordUSER',
+		'password' => array(
+			'field' => 'password',
+			'label' => 'Kata sandi',
 			'rules' => 'trim|required'
 		),
-		'repasswordUSER' => array(
-			'field' => 'repasswordUSER',
-			'label' => 'repasswordUSER',
+		'repassword' => array(
+			'field' => 'repassword',
+			'label' => 'Ulangi kata sandi',
 			'rules' => 'trim|required'
 		)
 	);
@@ -175,6 +175,30 @@ class User_m extends MY_Model{
 
 	public function logout(){
 		$this->session->sess_destroy();
+	}
+
+	public function checkpartner($mail){
+		$this->db->select('emailPARTNER');
+		$this->db->from('partner');
+		$this->db->where('emailPARTNER', $mail);
+
+		return $this->db->get();
+	}
+
+	public function checkuser($mail){
+		$this->db->select('emailUSER');
+		$this->db->from('users');
+		$this->db->where('emailUSER', $mail);
+
+		return $this->db->get();
+	}
+
+	public function checkoldpasswordpartner($id){
+		$this->db->select('idPARTNER, passwordPARTNER');
+		$this->db->from('partner');
+		$this->db->where('idPARTNER', $id);
+
+		return $this->db->get();
 	}
 
 	public function checkoldpassword($id){

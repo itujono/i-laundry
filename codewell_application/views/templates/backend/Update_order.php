@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <input type="text" value="<?php echo $editorder->nameAROMA; ?>" class="md-input" required disabled>
                 </div>
                 <?php
-                    if($this->session->userdata('idUSER') == 22){
+                    if($this->session->userdata('roleUSER') == 22){
                 ?>
                 <div class="uk-width-medium-1-1 uk-margin-top">
                     <label for="Partner" class="uk-form-label">Partner<span class="req">*</span></label>

@@ -17,6 +17,7 @@ class Order extends Admin_Controller {
 		print_r($kodeorder);
 		break;
 	}
+
 	public function index(){
 		$data['addONS'] = 'plugins_order';
 		$ids = $this->session->userdata('idUSER');
@@ -77,6 +78,10 @@ class Order extends Admin_Controller {
 		$id = decode(urldecode($id));
 
 		$detailorder = $this->Order_m->selectall_order($id)->row();
+		if($detailorder->isreadORDER == 0){
+			$datas['isreadORDER'] = 1;
+			$this->Order_m->save($datas,$id);
+		}
 			if($detailorder->statusORDER == 1){
 				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
 			} elseif($detailorder->statusORDER == 2) {
@@ -195,6 +200,33 @@ class Order extends Admin_Controller {
 		        );
 		        $this->session->set_flashdata('message',$data);
 		        $this->index();
+		}
+	}
+
+	public function countunreadorder(){
+		$counts = count_notif();
+		echo $counts;
+	}
+
+	public function unreadorder(){
+		$data = selectunreadorders();
+		if(!empty($data)){
+			$no = 1;
+			foreach ($data as $key => $unreads) {
+				echo "<li>
+	                  <div class='md-list-addon-element'>
+	                      <span class='md-user-letters md-bg-cyan'>".$no++."</span>
+	                  </div>
+	                  <div class='md-list-content'>
+	                      <span class='md-list-heading'><a href='".base_url()."codewelladmin/Order/detail/".encode($unreads->idORDER)."'>".$unreads->nameCUSTOMER." - ".$unreads->kodeORDER."</a></span>
+	                      <span class='uk-text-small uk-text-muted'>".$unreads->pickupADDRESSORDERKOTOR."<br><p class='uk-text-danger'>".timeAgo(dF('H:i:s',strtotime($unreads->createdateORDER)))."</p></span>
+	                  </div>
+	              	  </li>";
+			}
+		} else {
+			echo "<div class='uk-text-center uk-margin-top uk-margin-small-bottom'>
+                  <a href='#' class='md-btn md-btn-flat md-btn-flat-primary js-uk-prevent'>BELUM ADA NOTIFIKASI</a>
+                 </div>";
 		}
 	}
 }

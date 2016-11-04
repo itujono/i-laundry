@@ -20,7 +20,51 @@
           <li><a href="#" id="full_screen_toggle" class="user_action_icon uk-visible-large"><i class="material-icons md-24 md-light">&#xE5D0;</i></a></li>
 
           <li><a href="#" class="user_action_icon uk-visible-large"><i class="material-icons md-24 md-light">&#xE54A;</i>&nbsp;Hello <?php echo $this->session->userdata('Email');?>!</a></li>
+          <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
+          <?php
+          $counting = count_notif();
+          ?>
+              <a href="#" class="user_action_icon"><i class="material-icons md-24 md-light">&#xE7F4;</i><span class="uk-badge" id="notif_count"><?php echo $counting;?></span></a>
 
+              <div class="uk-dropdown uk-dropdown-xlarge">
+                  <div class="md-card-content">
+                      <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#header_alerts',animation:'slide-horizontal'}">
+                          <li class="uk-width-1-1 uk-active"><a href="#" class="js-uk-prevent uk-text-small">Notifikasi Order</a></li>
+                      </ul>
+                      <ul id="header_alerts" class="uk-switcher uk-margin">
+                          <li>
+                              <ul class="md-list md-list-addon" id="load_unread">
+                              <?php
+                              $unreadorder = selectunreadorders();
+                              if(!empty($unreadorder)){
+                              $no = 1;
+                              foreach ($unreadorder as $key => $unread) {
+                                $id = encode($unread->idORDER);
+                              ?>
+                                  <li>
+                                      <div class="md-list-addon-element">
+                                          <span class="md-user-letters md-bg-cyan"><?php echo $no++;?></span>
+                                      </div>
+                                      <div class="md-list-content">
+                                          <span class="md-list-heading"><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>"><?php echo $unread->nameCUSTOMER;?> - <?php echo $unread->kodeORDER;?></a></span>
+                                          <span class="uk-text-small uk-text-muted"><?php echo $unread->pickupADDRESSORDERKOTOR;?><br><p class="uk-text-danger"><?php echo timeAgo(dF('H:i:s',strtotime($unread->createdateORDER)));?></p></span>
+                                      </div>
+                                  </li>
+                              <?php } ?>
+                              <?php } else { ?>
+                                <div class="uk-text-center uk-margin-top uk-margin-small-bottom">
+                                  <a href="#" class="md-btn md-btn-flat md-btn-flat-primary js-uk-prevent">BELUM ADA NOTIFIKASI</a>
+                                </div>
+                              <?php } ?>
+                              </ul>
+                              <div class="uk-text-center uk-margin-top uk-margin-small-bottom">
+                                  <a href="<?php echo base_url();?>codewelladmin/order" class="md-btn md-btn-flat md-btn-flat-primary js-uk-prevent">Show All</a>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </li>
           <li data-uk-dropdown="{mode:'click',pos:'bottom-right'}">
             <a href="#" class="user_action_image"><img class="md-user-image" src="<?php echo base_url();?>assets/backend/assets/img/avatars/avatar_11_tn.png" alt=""/></a>
             <div class="uk-dropdown uk-dropdown-small">
