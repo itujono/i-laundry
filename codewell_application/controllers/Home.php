@@ -22,8 +22,8 @@ class Home extends Frontend_Controller {
 				$data['profile']->imageCUSTOMER = base_url() . 'assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER).'/'.$map[0];
 			}
         }
-        $data['totalorder'] = $this->Order_m->counts('codewell_orders',NULL,1);
-
+        $data['totalorder'] = $this->Order_m->counts('codewell_orders',NULL,NULL);
+        
 		if (!is_null($this->session->flashdata('message'))) {
         	$data['message'] = $this->session->flashdata('message');
         }

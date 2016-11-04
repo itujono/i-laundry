@@ -19,7 +19,7 @@ class History extends Frontend_Controller {
 		}
 
 		$data['order'] = $this->Order_m->selectall_order('',$idCUSTOMER,'')->result();
-
+		
 		foreach ($data['order'] as $key => $value) {
 			if($value->statusORDER == 1){
 				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
