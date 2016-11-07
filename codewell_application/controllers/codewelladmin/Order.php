@@ -45,6 +45,9 @@ class Order extends Admin_Controller {
 
 		} elseif($this->session->userdata('roleUSER') == 26){
 			$data['orderlist'] = $this->Order_m->selectall_order(NULL,NULL,NULL,$ids)->result();
+			// echo "<pre>";
+			// print_r($ids);
+			// break;
 				foreach ($data['orderlist'] as $key => $value) {
 					if($value->statusORDER == 1){
 						$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
@@ -78,9 +81,11 @@ class Order extends Admin_Controller {
 		$id = decode(urldecode($id));
 
 		$detailorder = $this->Order_m->selectall_order($id)->row();
-		if($detailorder->isreadORDER == 0){
-			$datas['isreadORDER'] = 1;
-			$this->Order_m->save($datas,$id);
+		if($this->session->userdata('roleUSER') == 26){
+			if($detailorder->isreadORDER == 0){
+				$datas['isreadORDER'] = 1;
+				$this->Order_m->save($datas,$id);
+			}
 		}
 			if($detailorder->statusORDER == 1){
 				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
@@ -130,7 +135,7 @@ class Order extends Admin_Controller {
 		}
 	}
 
-	public function editorder($id){
+	public function editorder($id = NULL){
 		$data['addONS'] = 'plugins_editorder';
 
 		$id = decode(urldecode($id));
@@ -167,7 +172,7 @@ class Order extends Admin_Controller {
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER'));
+			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER','rejectedmessagesORDER'));
 			$data['pickupfinishedtimeORDER'] = str_replace(['PM',' '], [':00',''], $data['pickupfinishedtimeORDER']);
 			$data['pickupfinishedtimeORDER'] = date("Y-m-d H:i:s",strtotime($data['pickupfinishedtimeORDER']));
 			$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
@@ -215,7 +220,7 @@ class Order extends Admin_Controller {
 			foreach ($data as $key => $unreads) {
 				echo "<li>
 	                  <div class='md-list-addon-element'>
-	                      <span class='md-user-letters md-bg-cyan'>".$no++."</span>
+	                      <span class='md-user-letters md-bg-light-green'>".$no++."</span>
 	                  </div>
 	                  <div class='md-list-content'>
 	                      <span class='md-list-heading'><a href='".base_url()."codewelladmin/Order/detail/".encode($unreads->idORDER)."'>".$unreads->nameCUSTOMER." - ".$unreads->kodeORDER."</a></span>

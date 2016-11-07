@@ -43,7 +43,7 @@
                               ?>
                                   <li>
                                       <div class="md-list-addon-element">
-                                          <span class="md-user-letters md-bg-cyan"><?php echo $no++;?></span>
+                                          <span class="md-user-letters md-bg-light-green"><?php echo $no++;?></span>
                                       </div>
                                       <div class="md-list-content">
                                           <span class="md-list-heading"><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>"><?php echo $unread->nameCUSTOMER;?> - <?php echo $unread->kodeORDER;?></a></span>

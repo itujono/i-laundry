@@ -191,6 +191,29 @@
  				</div>
  			</div>
  		</div>
+ 		<div class="md-card">
+	        <div class="md-card-toolbar">
+	            <h3 class="md-card-toolbar-heading-text">
+	                Alasan Pembatalan
+	            </h3>
+	        </div>
+ 			<div class="md-card-content large-padding">
+                <div class="uk-grid uk-grid-divider uk-grid-medium" data-uk-grid-margin>
+                    <div class="uk-width-large-1-1">
+                        <div class="uk-form-row">
+                        <?php
+                        	if(!empty($detailorder->rejectedmessagesORDER)){
+                        		$rejected = $detailorder->rejectedmessagesORDER;
+                        	} else {
+                        		$rejected = ' Tidak ada ';
+                        	}
+                        ?>
+                            <span class="md-list-heading uk-text-large"><?php echo $rejected;?></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
  	</div>
  </div>
 <?php if($detailorder->statusORDER != 4){ ?>

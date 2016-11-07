@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
     $actions = 'processeditorder';
@@ -38,6 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="Partner" class="uk-form-label">Partner<span class="req">*</span></label>
                     <?php echo form_dropdown('idPARTNER', $partner, $editorder->idPARTNER,'data-md-selectize required'); ?> 
                 </div>
+                <?php } else { ?>
+                    <?php echo form_hidden('idPARTNER', $editorder->idPARTNER,'required'); ?>
                 <?php } ?>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
@@ -63,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="Waktu Antar" class="uk-form-label">Waktu Antar<span class="req">*</span></label>
                     <?php
                         $timedelivery = '';
-                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = dF($editorder->pickupfinishedtimeORDER, 'MM/dd/yyyy H:i');
+                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = dF($editorder->pickupfinishedtimeORDER, 'MM/dd/yyyy HH:mm');
                     ?>
                     <input id="kUI_datetimepicker_basic" name="pickupfinishedtimeORDER" required value="<?php echo $timedelivery;?>">
                 </div>
@@ -114,6 +117,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if(!empty($editorder->priceORDER))$price = $editorder->priceORDER;
                     ?>
                     <input class="md-input masked_input label-fixed" id="masked_currency" type="text" data-inputmask="'alias': 'currency', 'groupSeparator': '.', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'prefix': 'Rp. ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" name="priceORDER" value="<?php echo $price;?>" />
+                </div>
+            </div>
+            <?php
+                if($this->session->userdata('roleUSER') == 26){
+                    $disabled = '';
+                } else {
+                    $disabled = 'disabled';
+                }
+            ?>
+            <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-medium-1-1 uk-margin-top">
+                    <div class="parsley-row">
+                        <label for="Alasan Pembatalan" class="uk-form-label">Alasan Pembatalan<span class="req">*</span></label>
+                        <textarea cols="30" rows="4" class="md-input" <?php echo $disabled;?>><?php echo $editorder->rejectedmessagesORDER;?></textarea>
+                    </div>
                 </div>
             </div>
             <div class="uk-width-medium-1-1 uk-margin-top">

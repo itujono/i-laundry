@@ -29,13 +29,6 @@ class Partner extends Admin_Controller {
 				$status='<a href="#" data-uk-tooltip title="Tak Aktif"><i class="material-icons  md-36 uk-text-danger">&#xE5C9;</i></a>';
 			}
 			$data['listpartner'][$key]->status = $status;
-
-			if($value->ondutyPARTNER == 1){
-				$statusduty ='<a href="#" data-uk-tooltip title="Sedang ditugaskan"><i class="material-icons md-36 uk-text-primary">&#xE862;</i></a>';
-			} else {
-				$statusduty ='<a href="#" data-uk-tooltip title="Sedang tidak ditugaskan"><i class="material-icons  md-36 uk-text-warning">&#xE888;</i></a>';
-			}
-			$data['listpartner'][$key]->statusduty = $statusduty;
 		}
 
 		if($id == NULL){

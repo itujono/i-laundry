@@ -38,7 +38,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Telepon</th>
                   <th>Didaftarkan</th>
                   <th>Status</th>
-                  <th>Info</th>
                   <th>Actions</th>
               </tr>
             </thead>
@@ -51,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Telepon</th>
                 <th>Didaftarkan</th>
                 <th>Status</th>
-                <th>Info</th>
                 <th>Actions</th>
               </tr>
             </tfoot>
@@ -66,7 +64,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td>+62&nbsp;<?php echo $partner->telephonePARTNER;?></td>
                 <td><?php echo dF($partner->createdatePARTNER, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $partner->status;?></td>
-                <td><?php echo $partner->statusduty;?></td>
                 <?php
                  $id2 = '/1';
                  $icn = '&#xE8F4;'; 
@@ -142,39 +139,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php } ?>
                   </div>
                   <div class="uk-grid" data-uk-grid-margin>
-                     <div class="uk-width-medium-1-2">
-                      <label>Daerah</label>
-                      <br>
-                      <?php echo form_dropdown('idREGION', $region, $getpartner->idREGION,'data-md-selectize'); ?> 
-                      <p class="text-red"><?php echo form_error('idREGION'); ?></p>
-                    </div>
                     <div class="uk-width-medium-1-2">
                       <label>Alamat Partner</label>
                       <br>
                       <textarea cols="30" rows="4" class="input-count md-input label-fixed" id="input_counter" name="addressPARTNER" maxlength="150"><?php echo $getpartner->addressPARTNER;?></textarea>
                       <p class="text-red"><?php echo form_error('addressPARTNER'); ?></p>
                     </div>
+                    <div class="uk-width-medium-1-2">
+                      <label>Daerah</label>
+                      <br>
+                      <?php echo form_dropdown('idREGION', $region, $getpartner->idREGION,'data-md-selectize'); ?> 
+                      <p class="text-red"><?php echo form_error('idREGION'); ?></p>
+                    </div>
                   </div>
                   <div class="uk-grid" data-uk-grid-margin>
-                  <?php
-                    if(!empty($getpartner->idPARTNER)){
-                  ?>
-                    <div class="uk-width-medium-1-2 uk-margin-top">
-                      <div class="parsley-row">
-                        <?php
-                          if($getpartner->ondutyPARTNER == 1){
-                            $statuscek = 'checked';
-                            $ket = 'Sedang ditugaskan';
-                          } else {
-                            $statuscek = '';
-                            $ket = 'Sedang tidak ditugaskan';
-                          }
-                        ?>
-                        <input type="checkbox" data-switchery data-switchery-size="large" <?php echo $statuscek;?> disabled />
-                        <span class="uk-form-help-block"><?php echo $ket;?></span>
-                      </div>
-                    </div>
-                  <?php } ?>
                   <?php
                     $widths = 'uk-width-medium-1-2';
                     if(empty($getpartner->idPARTNER))$widths = 'uk-width-medium-1-1';

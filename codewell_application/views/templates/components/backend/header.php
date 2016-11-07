@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no"/>
     <meta name="description" content="">
-    <meta name="author" content="Proweb Media Indonesia">
+    <meta name="author" content="Codewell Team">
 
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/backend/img/favicon.png" sizes="16x16">
 
