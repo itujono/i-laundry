@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="apple-touch-icon" href="img/photos/apple-touch-icon.png" />
+	<link rel="apple-touch-startup-image" href="img/photos/apple-touch-startup-image-320x460.png" />
+	<meta name="mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" sizes="196x196" href="img/photos/196x196.png">
+	<link rel="shortcut icon" sizes="128x128" href="img/photos/128x128.png">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#3db5e4">
+    <title>i-Laundry - Selamat Datang</title>
+	
+	<link href="https://fonts.googleapis.com/css?family=Itim|Roboto:300,400,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/framework7.material.min.css">
+    <link rel="stylesheet" href="css/framework7.material.colors.min.css">
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" href="fonts/flaticon.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/my-app.css">
+</head>
+
+<body class="theme-blue">
+    <!-- Status bar overlay for fullscreen mode-->
+    <div class="statusbar-overlay"></div>
+    <!-- Panels overlay-->
+    <div class="panel-overlay"></div>
+    <!-- Left panel with reveal effect-->
+    <div id="left-menu" class="panel panel-left panel-reveal">
+		<div class="content-block">
+			<div class="left-menu-profile text-center">
+				<div class="row">
+					<div class="col-15">
+						<a href="#"><i class="flaticon-how"></i></a>
+					</div>
+					<div class="col-70">
+						<input type="text" class="text-thiny" placeholder="Find a restaurant">
+					</div>
+					<div class="col-15">
+						<a href="#"><i class="flaticon-menu"></i></a>
+					</div>
+				</div>
+				<div class="margin-top-30">
+					<img src="img/photos/user.png" alt="user" width="80" height="80">
+				</div>
+				<div class="text-small text-capitalize">
+					Rusmantoro
+				</div>
+				<div class="text-thiny gray-text text-capitalize icon-location">
+					<i class="flaticon-location-pin"></i> Baloi Center, Batam
+				</div>
+			</div>
+        </div>
+		<!-- Menu items -->
+		<div class="list-block list-menu">
+			<ul>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-house-outline"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="index.html" class="close-panel">Home</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-how"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="walkthrough.html" class="close-panel">How It Works ?</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-shop"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="promo.html" class="close-panel">Promo</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-list"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="profile.html" class="close-panel">Edit Profile</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-settings"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="setting.html" class="close-panel">Setting</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-star"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="pages-list.html"  class="close-panel">Pages</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-cooker"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="order.html" class="close-panel">Order</a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="item-content">
+						<div class="item-media">
+							<i class="flaticon-power-button"></i>
+						</div>
+						<div class="item-inner no-margin">
+							<div class="item-title text-small">
+								<a href="#">Logout</a>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div> <!-- kelar List Block List Menu -->
+    </div> <!-- kelar Panel Left -->
+   
+
+    <!-- Views -->
+    <div class="views">
+        <div class="view view-main">
+            <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+            <div class="pages">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+
+                    <!-- Scrollable page content -->
+                    <div class="page-content" id="app-cover">
+						<div class="pull-right">
+							<a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
+						</div>
+						<div class="clearfix"></div>
+                        <div class="app-cover-content">
+                            <div class="logo">
+                            	<img src="img/logo_image.png" alt="i-Laundry"/>
+                            </div>
+							<div class="main-title">
+								<h1>Selamat Datang di i-Laundry!</h1>
+								<h4>Kamu berada di tempat yang tepat. Karena kami siap mengembalikan keharuman pakaianmu seperti sedia kala.</h4>
+							</div>
+							<div class="row">
+								<div class="col-100">
+									<a href="login.html" class="button login-btn">Bagus, saya mau nyuci sekarang</a>
+								</div>
+							</div>
+							<div class="row offset-top-10 margin-bottom-10">
+								<div class="col-100">
+									<a href="walkthrough.html" class="button link-btn">
+										Bagaimana cara kerja i-Laundry?
+									</a>
+								</div>
+							</div>
+							
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <script type="text/javascript" src="js/my-app.js"></script>
+</body>
+
+</html>

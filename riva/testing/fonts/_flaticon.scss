@@ -1,0 +1,95 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 18/09/2016 19:02
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-add-user:before { content: "\f100"; }
+.flaticon-close:before { content: "\f101"; }
+.flaticon-cooker:before { content: "\f102"; }
+.flaticon-cover:before { content: "\f103"; }
+.flaticon-date:before { content: "\f104"; }
+.flaticon-email:before { content: "\f105"; }
+.flaticon-hamburger:before { content: "\f106"; }
+.flaticon-house-outline:before { content: "\f107"; }
+.flaticon-how:before { content: "\f108"; }
+.flaticon-key:before { content: "\f109"; }
+.flaticon-list:before { content: "\f10a"; }
+.flaticon-location-pin:before { content: "\f10b"; }
+.flaticon-menu:before { content: "\f10c"; }
+.flaticon-pasta:before { content: "\f10d"; }
+.flaticon-people:before { content: "\f10e"; }
+.flaticon-phone:before { content: "\f10f"; }
+.flaticon-pizza:before { content: "\f110"; }
+.flaticon-power-button:before { content: "\f111"; }
+.flaticon-profile:before { content: "\f112"; }
+.flaticon-seafood:before { content: "\f113"; }
+.flaticon-search:before { content: "\f114"; }
+.flaticon-settings:before { content: "\f115"; }
+.flaticon-shop:before { content: "\f116"; }
+.flaticon-star:before { content: "\f117"; }
+.flaticon-sushi:before { content: "\f118"; }
+.flaticon-taco:before { content: "\f119"; }
+.flaticon-time:before { content: "\f11a"; }
+.flaticon-user:before { content: "\f11b"; }
+    
+    $font-Flaticon-add-user: "\f100";
+    $font-Flaticon-close: "\f101";
+    $font-Flaticon-cooker: "\f102";
+    $font-Flaticon-cover: "\f103";
+    $font-Flaticon-date: "\f104";
+    $font-Flaticon-email: "\f105";
+    $font-Flaticon-hamburger: "\f106";
+    $font-Flaticon-house-outline: "\f107";
+    $font-Flaticon-how: "\f108";
+    $font-Flaticon-key: "\f109";
+    $font-Flaticon-list: "\f10a";
+    $font-Flaticon-location-pin: "\f10b";
+    $font-Flaticon-menu: "\f10c";
+    $font-Flaticon-pasta: "\f10d";
+    $font-Flaticon-people: "\f10e";
+    $font-Flaticon-phone: "\f10f";
+    $font-Flaticon-pizza: "\f110";
+    $font-Flaticon-power-button: "\f111";
+    $font-Flaticon-profile: "\f112";
+    $font-Flaticon-seafood: "\f113";
+    $font-Flaticon-search: "\f114";
+    $font-Flaticon-settings: "\f115";
+    $font-Flaticon-shop: "\f116";
+    $font-Flaticon-star: "\f117";
+    $font-Flaticon-sushi: "\f118";
+    $font-Flaticon-taco: "\f119";
+    $font-Flaticon-time: "\f11a";
+    $font-Flaticon-user: "\f11b";
