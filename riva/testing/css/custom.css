@@ -273,3 +273,37 @@
     margin-top: -4px;
     margin-right: 5px;
 }
+
+
+
+
+/* Wah masuk Wakthrough/Wizard wak! Heheh */
+
+.skip-btn {
+    position: relative;
+    bottom: -50px;
+    color: #fff;
+    text-transform: none;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 90px;
+}
+
+.walkthrough-item > h4 {
+    font-weight: 200;
+    font-size: 30px;
+    line-height: 1.1;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: -75px;
+}
+
+.slick-list {
+    position: relative;
+    display: block;
+    overflow: visible; 
+    margin: 0;
+    padding: 0;
+}

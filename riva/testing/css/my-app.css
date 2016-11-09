@@ -44,14 +44,53 @@ Template:		Comida - Restaurant reservations Responsive App Mobile
 /* 01. COVER PAGE	 						     */
 /*===============================================*/
 
-#app-cover {
-	background-image: url(../img/photos/);
+#app-cover { 
+	background: linear-gradient(253deg, #2598b3, #62dee6, #8bc5e4);
+    -webkit-animation: Background 20s ease infinite;
+    -moz-animation: Background 20s ease infinite;
+    animation: Background 20s ease infinite;
 	background-position: center;
-	background-size: cover;
+	background-size: 300% 300%;
 	color: #FFFFFF;
 	padding: 12px 15px;
 	text-align: center;
-}
+  }
+  
+  @-webkit-keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @-moz-keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
+  
+  @keyframes Background {
+    0% {
+      background-position: 0% 50%
+    }
+    50% {
+      background-position: 100% 50%
+    }
+    100% {
+      background-position: 0% 50%
+    }
+  }
 
 .app-cover-content {
 	padding-top: 50px;
