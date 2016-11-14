@@ -12,12 +12,13 @@ class Home extends Frontend_Controller {
 	public function index(){
 		$idCUSTOMER = $this->session->userdata('idCUSTOMER');
 		$data['profile'] = $this->Customer_m->selectprofilecustomer_inhome($idCUSTOMER)->row();
+		
         if(!empty($data['profile'])){
 
 	        $map = directory_map('assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER), FALSE, TRUE);
 
 			if (empty($map)) {
-				$data['profile']->imageCUSTOMER = base_url() . 'assets/frontend/images/ava.png';
+				$data['profile']->imageCUSTOMER = base_url() . 'assets/frontend/img/photos/user.png';
 			} else {
 				$data['profile']->imageCUSTOMER = base_url() . 'assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER).'/'.$map[0];
 			}

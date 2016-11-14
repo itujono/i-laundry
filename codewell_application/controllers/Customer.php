@@ -9,15 +9,24 @@ class Customer extends Frontend_Controller {
         $this->load->model('Customer_m');
     }
 
-	public function login(){
+    public function login(){
+        if(!empty($this->session->userdata('idCUSTOMER')))redirect('order');
+		if (!is_null($this->session->flashdata('message'))) {
+        	$data['message'] = $this->session->flashdata('message');
+        }
+
+		$this->load->view($this->data['frontendDIR']. 'Login',$data);
+	}
+
+	public function processlogin(){
 		
 		$rules = $this->User_m->rules_login_customer;
 		$this->form_validation->set_rules($rules);
 		
 		if($this->form_validation->run() == TRUE){
 
-			$email = $this->input->post('emailCUSTOMER');
-			$pass = $this->input->post('passwordCUSTOMER');
+			$email = $this->input->post('email');
+			$pass = $this->input->post('password');
 
 			if ($this->User_m->login($email, $pass) == "CUSTOMER"){
 				
@@ -51,6 +60,15 @@ class Customer extends Frontend_Controller {
         	);
         $this->session->set_flashdata('message',$data);
 		redirect(base_url().'#!/'.base_url().'Home');
+	}
+
+	public function register(){
+        if(!empty($this->session->userdata('idCUSTOMER')))redirect('order');
+		if (!is_null($this->session->flashdata('message'))) {
+        	$data['message'] = $this->session->flashdata('message');
+        }
+
+		$this->load->view($this->data['frontendDIR']. 'Registration',$data);
 	}
 
 	public function savecustomer($id = NULL){
@@ -106,21 +124,22 @@ class Customer extends Frontend_Controller {
 
 	private function sendemailconfirmation($idCUSTOMER = NULL, $nameCUSTOMER = NULL, $emailCUSTOMER = NULL)
 	{
-		$from_email = 'cs@dunia-otomotif.com'; //change this to yours
+
+		$from_email = 'andhana@prowebmedia.org'; //change this to yours
      	$idCODE = encode($idCUSTOMER);
         $subject = 'Konfirmasi Email - i-Laundry';
-        $word1 = 'Terima kasih telah mendaftar di i-Laundry! Kami sangat senang kamu telah bergabung bersama kami<br>Silakan ikuti tautan dibawah untuk verifikasi email kamu. Terima Kasih! ';
+        $word1 = 'Tinggal sedikit lagi agar kamu bisa bergabung di i-Laundry. Silakan klik tautan di bawah ini dan akhiri perjalanan panjang baju kotormu.';
         $address = 'Komplek Permata Regency, Baloi, Batam - Indonesia';
-        $telephone = '0778 - 741XXXX';
+        $telephone = 'Tel. 0778 - 741XXXX';
         $facebook = 'facebook.com';
         $twitter = 'twitter.com';
         $instagram = 'instagram.com';
         $footer = 'Jika kamu ada pertanyaan, silakan hubungi kami lewat email di support@i-laundry.co.id atau hubungi di '. $telephone .'. Waktu buka (08:30 &mdash; 20:00)';
         $message = '
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-		<html xmlns="http://www.w3.org/1999/xhtml">
+	<html xmlns="http://www.w3.org/1999/xhtml">
 		<head>
-	    <title>'. $subject .'</title>
+	    <title>Selamat Datang di i-Laundry</title>
 
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	    <!-- CSS Reset -->
@@ -153,8 +172,8 @@ class Customer extends Frontend_Controller {
 	            border-collapse: collapse !important;
 	            table-layout: fixed !important;
 	            margin: 0 auto !important;
-	            border-radius: 3px;
-	            box-shadow: 1px 3px 5px rgba(0,0,0,0.2);
+	            border-radius: 8px;
+	            box-shadow: 0 7px 21px 0 rgba(0,0,0,.1);
 	        }
 
 	        table table table {
@@ -195,7 +214,7 @@ class Customer extends Frontend_Controller {
 	        }
 
 	        .button-td:hover, .button-a:hover {
-	            background: #FF9C02 !important;
+	            background: #27b9ca !important;
 	            color: #fff;
 	            border-color: #555555 !important;
 	        }
@@ -247,13 +266,13 @@ class Customer extends Frontend_Controller {
 	        
 	    </style>
 
-		</head>
+	</head>
 		<body bgcolor="#ededed" width="100%" style="Margin: 0;">
 		<table bgcolor="#ededed" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse:collapse;"><tr><td valign="top">
 		    <center style="width: 100%;">
 		        <!-- Visually Hidden Preheader Text : BEGIN -->
 		        <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
-		            Terima kasih sudah mendaftar, ' . $nameCUSTOMER . '!
+		            Selamat Datang - '.$nameCUSTOMER.'
 		        </div>
 		        <!-- Visually Hidden Preheader Text : END -->
 
@@ -264,14 +283,14 @@ class Customer extends Frontend_Controller {
 		            
 		            <!-- Hero Image, Flush : BEGIN -->
 		            <tr>
-		                <td style="font-family: sans-serif; padding: 25px 0 0 40px; font-size: 48px; color: #17C3D6; letter-spacing: 20px;">
+		                <td style="font-family: sans-serif; padding: 25px 0 0 40px; font-size: 48px; color: #61e2f1; letter-spacing: 1px; font-weight: 800;">
 		                    i-Laundry
 		                </td>
 		            </tr>
 		            
 		            <tr>
 		                <tr>
-		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Halo, '.$nameCUSTOMER.'</td>
+		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Selamat Datang, '.$nameCUSTOMER.'!</td>
 		                </tr>
 		                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
 		                        '.$word1.'
@@ -280,17 +299,17 @@ class Customer extends Frontend_Controller {
 		            </tr>
 		            <tr id="btn-confirm">
 		                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #fed501; transition: all 100ms ease-in; color: #111;" href="' . base_url() . 'Customer/confirmuser/' . $idCODE . '">Konfirmasi Email Kamu</a>
+		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #2fa9e0; border-radius: 50px; transition: all 100ms ease-in; color: #fff;" href="' . base_url() . 'customer/confirmuser/' . $idCODE . '">Konfirmasi email-mu</a>
 		                </td>
 		            </tr>
 		            <!-- 1 Column Text : BEGIN -->
 		            </tr>
 		            </tr>
 		             <tr>
-		                <td style="padding: 20px 20px 20px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555; background-color: #f1fafa;">
-		                    <webversion style="color:#888888; font-size: 14px; text-decoration:underline; font-weight: bold;">Terima Kasih</webversion>
-		                    <br>
-		                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">www.i-laundry.co.id</span>
+		                <td style="padding: 20px 20px 20px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555; background-color: #f1fafa; border-radius: 0 0 8px 8px;">
+		                    <webversion style="color:#888888; font-size: 14px; text-decoration:underline; font-weight: bold; margin-bottom: 15px;">Terima Kasih</webversion>
+		                    <br><br>
+		                    <span style="font-size: 20px; padding: 10px 0px 15px 0px; font-weight: bold; font-style: italic;">i-Laundry.co.id</span>
 		                    <br>
 		                    <span class="mobile-link--footer">'.$address.'</span><br><span class="mobile-link--footer">'.$telephone.'</span>
 		                    <div style="font-size: 24px; margin-top: 20px; color: #aaa;">
@@ -298,12 +317,14 @@ class Customer extends Frontend_Controller {
 		                        <a href="'.$twitter.'"><i class="fa fa-twitter-square"></i></a>
 		                        <a href="'.$instagram.'"><i class="fa fa-instagram"></i></a>
 		                    </div>
-		                    <div style="margin-top: 25px; color: #999;">'.$footer.'</div>
+		                    <div style="margin-top: 25px; color: #999;">
+		                    Enjoy your quality time and let us take care your clothes.
+		                    </div>
 		                </td>
 		            </tr>
-		            <tr style="background-color: #777">
-		            <td style="padding: 10px 20px 10px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #ffffff;">
-		                    2016 &copy; i-laundry.co.id is crafted by Codewell Team.
+		            <tr style="background-color: #8fcae4">
+		            <td style="padding: 10px 20px 10px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #ffffff; border-radius: 0 0 8px 8px">
+		                    2016 &copy; i-laundry.co.id is crafted by <a href="mailto: rivayudha@msn.com">Codewell Indonesia</a>
 		                    <br>
 		                </td>
 		            </tr>
@@ -311,10 +332,10 @@ class Customer extends Frontend_Controller {
 		        <!-- Email Body : END -->
 		        <table>
 		        </table>
-		    </center>
-			</td></tr></table>
+			    </center>
+				</td></tr></table>
 			</body>
-			</html>';
+		</html>';
 						        
         //configure email settings
         $config = $this->mail_config();
@@ -661,6 +682,17 @@ class Customer extends Frontend_Controller {
 		$this->load->view($this->data['frontendDIR']. 'Password_Reset');
 	}
 
+	public function reset(){
+        if(!empty($this->session->userdata('idCUSTOMER')))redirect('order');
+
+		if (!is_null($this->session->flashdata('message'))) {
+        	$data['message'] = $this->session->flashdata('message');
+        }
+
+		$this->load->view($this->data['frontendDIR']. 'Reset',$data);
+	}
+
+
 	public function processreset(){
 		$email = $this->input->post('emailing');
 		if(empty($email)){
@@ -966,4 +998,104 @@ class Customer extends Frontend_Controller {
 
 		$this->load->view($this->data['frontendDIR']. 'Password_Reset');
 	}
+
+	public function profile() {
+		$idCUSTOMER = $this->session->userdata('idCUSTOMER');
+		if(empty($idCUSTOMER)){
+			$data = array(
+		            'text' => 'Maaf, kamu diharuskan untuk masuk/login terlebih dahulu.'
+	        );
+			$this->session->set_flashdata('message',$data);
+			redirect(base_url());
+		}
+
+        $data['profile'] = $this->Customer_m->selectprofilecustomer($idCUSTOMER)->row();
+        if(!empty($data['profile'])){
+
+	        $map = directory_map('assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER), FALSE, TRUE);
+
+			if (empty($map)) {
+				$data['profile']->imageCUSTOMER = base_url() . 'assets/frontend/img/photos/user.png';
+			} else {
+				$data['profile']->imageCUSTOMER = base_url() . 'assets/upload/profile/'.folderENCRYPT($data['profile']->idCUSTOMER).'/'.$map[0];
+			}
+        }
+        if (!is_null($this->session->flashdata('message'))) {
+            $data['message'] = $this->session->flashdata('message');
+        }
+		$this->load->view($this->data['frontendDIR']. 'Profile',$data);
+	}
+
+	public function updatecustomer($id = NULL){
+		$rules = $this->Customer_m->rules_update_customer;
+		$this->form_validation->set_rules($rules);
+
+		if($this->form_validation->run() == TRUE){
+			$data = $this->Customer_m->array_from_post(array('nameCUSTOMER','telephoneCUSTOMER','mobileCUSTOMER','addressCUSTOMER'));
+			$id = decode($this->input->post('idCUSTOMER'));
+			if(empty($id)){
+				redirect('Customer/logout');
+			}
+
+			$email = decode($this->input->post('emailCUSTOMER'));
+			$filenameemail = str_replace(['@','.com'], ['',''], $email);
+			
+			$saveidCUSTOMER = $this->Customer_m->save($data, $id);
+			
+			if($saveidCUSTOMER != NULL) $Pic = $saveidCUSTOMER;
+
+			$files = $_FILES['imgCUSTOMER'];
+			$path = 'assets/upload/profile/'.folderENCRYPT($Pic);
+			$map = directory_map($path, FALSE, TRUE);
+
+			if(!empty($_FILES['imgCUSTOMER']['name'])){
+				foreach ($map as $value) {
+					unlink($path.'/'.$value);
+				}
+			}
+
+			if (!file_exists( $path )){
+            	mkdir($path, 0777, true);
+        	}
+
+			$config['upload_path']          = $path;
+	      	$config['allowed_types']        = 'gif|jpg|png|jpeg';
+	      	$config['max_size']             = 2048;
+	      	$config['overwrite']             = TRUE;
+	      	$config['file_name']             = 'Profil '.$filenameemail;
+
+	      	$this->upload->initialize($config);
+
+	      	if ($this->upload->do_upload('imgCUSTOMER')) {
+
+				$data['uploads'] = $this->upload->data();
+	        	$data = array(
+	            'text' => 'Data kamu telah berhasil dirubah.'
+	          );
+	   		} else {
+
+   			if ($_FILES['imgCUSTOMER']['error'] != 4) {
+   				
+					$data['upload_errors'] = $this->upload->display_errors();
+					$data = array(
+						'text' => $data['upload_errors'] . ' '.$msg,
+						);
+				} else {
+
+					$data = array(
+						'text' => 'Data kamu telah berhasil dirubah.',
+						);
+				}
+      		}
+	    	$this->session->set_flashdata('message', $data);
+	  		redirect(base_url().'Customer/profile');
+			} else {
+
+					$data = array(
+	          			'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
+	        			);
+	        $this->session->set_flashdata('message',$data);
+	        redirect('customer/profile');
+			}
+		}
 }

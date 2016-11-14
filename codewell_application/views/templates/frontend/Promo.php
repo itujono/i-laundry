@@ -1,197 +1,123 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
-    <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
-    <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <title>Promo - i-Laundry</title>
-    <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
-    <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
-    <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
-    <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
-    <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
-    <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
-    <div class="statusbar-overlay"></div>
-
-    <div class="panel-overlay"></div>
-
-    <div class="pages" id="promo">
-        <div data-page="order" class="page no-toolbar">
-            <div class="page-content">
-                <?php
-                if (!empty($message)){
-                ?>
-                <div class="notif animated slideInDown">
-                  <div class="msg">
-                    <p><?php echo $message['text'];?></p>
+<div class="pages">
+    <div data-page="promo" class="page navbar-fixed toolbar-fixed" id="promo">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <a href="#" class="back link"> <i class="icon icon-back"></i></a>
                 </div>
-                <div class="dismissable">
-                    <a href="#">Dismiss</a>
+                <div class="center">Restaurants</div>
+                <div class="right">
+                    <!-- Right link contains only icon - additional "icon-only" class-->
+                    <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
                 </div>
             </div>
-            <?php } ?>
-            <div class="navbarpages graybg">
-                <div class="navbar_left">
-                 <div class="logo_image">
-                     <a href="<?php echo base_url();?>Home"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title=""/>
-                     </div>
-                 </div>
-                 <a href="#" data-panel="right" class="open-panel">
-                     <div class="navbar_right whitebg">
-                         <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/user.png" alt="" title="" />
-                     </div>
-                 </a>                     
-             </div>
+        </div>
 
-             <div id="pages_maincontent">
+        <div class="toolbar tabbar">
+            <div class="toolbar-inner">
+                <a href="#tab-1" class="tab-link active">List</a>
+                <a href="#tab-2" class="tab-link">Grid</a>
+            </div>
+        </div>
 
-                <h2 class="page_title">Promo</h2>
+        <div class="tabs-animated-wrap">
+            <div class="tabs">
+			
+                <div id="tab-1" class="page-content tab active">
+                    <div class="content-block">
+                        <div id="list-restaurants">
 
-                <div class="page_single layout_fullwidth_padding">  
+                            <div class="promo-title">
+                                <div class="row">
+                                    <div class="col-100">
+                                        <div class="promo-img">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>img/cover-order.png" alt="Promo 1">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-50">
+                                        <h3>Hamburger Resto</h3>
+                                        <div class="grey-text"><a href="#">Sampai 3 November 2016</a></div>
+                                    </div>
+                                    <div class="col-50">
+                                        <a href="#" data-popup=".popup-about" class="button login-btn block open-popup">Lihat detail</a>
+                                    </div>
+                                </div>
+                            </div>
 
-                    <div class="history-title">
-                        <h2>Promo</h2>
-                        <p>Mau tau apa saja promo-promo yang akan datang maupun yang sedang berjalan di i-Laundry? Pantengin aja terus page ini. :)</p>
+                            <div class="promo-title">
+                                <div class="row">
+                                    <div class="col-100">
+                                        <div class="promo-img">
+                                            <img src="<?php echo base_url().$this->data['asfront']; ?>img/ubah-password.png" alt="restaurant">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-50">
+                                        <h3>Friends Restaurant</h3>
+                                        <div class="grey-text"><a href="#">Sampai 3 November 2016</a></div>
+                                    </div>
+                                    <div class="col-50">
+                                        <a href="#" class="button login-btn block">Lihat detail</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                </div>
+				<!-- TAB LIST -->
+				
+				<!-- TAB GRID -->
+				<div id="tab-2" class="page-content tab">
+					<div class="content-block">
+						<div class="row">
 
-                    <div class="list-block">
-                        <div class="content-block-title">OKTOBER 2016</div>
-                        <div class="list-block media-list">
-                            <ul>
-                                <li>
-                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
-                                        <div class="item-media">
-                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title">Yellow Submarine</div>
-                                            </div>
-                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
-                                        <div class="item-media">
-                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title">Yellow Submarine</div>
-                                            </div>
-                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> <!-- kelar List-Block -->
-                        <div class="content-block-title">NOVEMBER 2016</div>
-                        <div class="list-block media-list">
-                            <ul>
-                                <li>
-                                    <a href="<?php echo base_url();?>Home" class="item-link item-content">
-                                        <div class="item-media">
-                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title">Yellow Submarine</div>
-                                            </div>
-                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url();?>Promo_detail" class="item-link item-content">
-                                        <div class="item-media">
-                                            <img src="<?php echo base_url().$this->data['asfront']; ?>images/brosur.png" width="80">
-                                        </div>
-                                        <div class="item-inner">
-                                            <div class="item-title-row">
-                                                <div class="item-title">Yellow Submarine</div>
-                                            </div>
-                                            <div class="item-text">Lorem ipsum dolor sit amet sempardak stingking pap pap butakup butakup...</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> <!-- kelar List-Block -->
+							<div class="col-50">
+								<div class="promo-grid">
+									<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/4.jpg" alt="restaurant">
+									<h3>Big Pizza</h3>
+									<div class="gray-text text-thiny margin-bottom-10"><a href="#">Pizza</a></div>
+									<a href="#" class="button login-btn">Lihat detail</a>
+								</div>
+							</div>
+
+							<div class="col-50">
+								<div class="promo-grid">
+									<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/5.jpg" alt="restaurant">
+									<h3>Hello Restaurant</h3>
+									<div class="gray-text text-thiny margin-bottom-10"><a href="#">food</a></div>
+									<a href="#" class="button login-btn">Lihat detail</a>
+								</div>
+							</div>
+							
+						</div>
+					</div> <!-- kelar Content-Block -->
+				</div>				
+            </div> <!-- kelar class Tabs -->
+            <div class="popup popup-about">
+                <div class="content-block">
+                    <div class="row">
+                        <div class="col-100">
+                            <p class="popup-title">Promo i-Laundry</p>
+                            <img src="<?php echo base_url().$this->data['asfront']; ?>img/ubah-password.png"/>
+                            <h3>Hamburger Gratis 5 Hari</h3>
+                            <h6><span>Valid sampai</span> 3 November 2016</h6>
+                            <p><span class="first">L</span>orem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p>
+                                <a href="#" class="close-popup">Close popup</a>
+                            </p>
+                        </div>
                     </div>
-                </div> <!-- kelar Page-Single -->
-            </div> <!-- kelar Page-Maincontent -->
-
-
-
-
-                <script>
-                  $('body').addClass('js');
-                  var $action = $('.action'),
-                  $menulink = $('.menu-link'),
-                  $menuTrigger = $('.has-subnav > a'),
-                  $n,
-                  nHeight;
-
-                  function addMessage() {
-                    $('<div class="notification" id="notification"><div class="msg">You must be signed in to complete this action.</div> <div class="actions"><a href="#" id="sign-in" class="btn">Sign In or Register</a> <a href="#" class="dismiss-btn">Dismiss</a></div></div>').prependTo('.pattern');
-
-                    $n = $('#notification'),
-                    nHeight = $n.outerHeight();
-
-                    showNotification();
-                    setTimeout(hideNotification,8000);
-                }
-
-      $action.click(function(e) { //Trigger
-        e.preventDefault();
-        addMessage();
-    });
-      
-      $('.pattern').delegate(".dismiss-btn", "click", function(e) {
-        hideNotification();
-        return false;
-    });
-      
-      function showNotification() {
-        $n.css('top',-nHeight).addClass('anim').css('top',0);
-    }
-    
-    function hideNotification() {
-        $n.css('top',-nHeight);
-        setTimeout(function() { $n.removeClass('anim'); }, 1000);
-    }
-
-    $(window).resize(function() {
-        nHeight = $n.outerHeight();
-    });
-</script>
-
-
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.swipebox.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/email.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/circlemenu.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/audio.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
-
-<script>
-  $(function() {
-    $(".notif").on("click", function() {
-      $(this).removeClass("animated slideInDown");
-      $(this).addClass("animated slideOutUp");
-  });
-});
-</script>
-
-</body>
-</html>
+                </div>
+            </div>
+        </div>
+    </div> <!-- kelar Data-Page Promo -->
+</div>

@@ -39,14 +39,14 @@ class User_m extends MY_Model{
 	);
 
 	public $rules_login_customer = array(
-		'emailCUSTOMER' => array(
-			'field' => 'emailCUSTOMER',
-			'label' => 'emailCUSTOMER',
+		'email' => array(
+			'field' => 'email',
+			'label' => 'Email kamu',
 			'rules' => 'trim|required|valid_email'
 		),
-		'passwordCUSTOMER' => array(
-			'field' => 'passwordCUSTOMER',
-			'label' => 'passwordCUSTOMER',
+		'password' => array(
+			'field' => 'password',
+			'label' => 'password kamu',
 			'rules' => 'trim|required'
 		)
 	);

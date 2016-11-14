@@ -1,364 +1,244 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-icon.png" />
-  <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
-  <link href="<?php echo base_url().$this->data['asfront']; ?>images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-  <title>i-Laundry - Selamat Datang!</title>
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.css">
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/style.css">
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/main.css">
-  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
-  <link type="text/css" rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/swipebox.css" />
-  <link href='https://fonts.googleapis.com/css?family=Signika:400,300,600,700' rel='stylesheet' type='text/css'>
+  <link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/apple-touch-icon.png" />
+  <link rel="apple-touch-startup-image" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/apple-touch-startup-image-320x460.png" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/196x196.png">
+  <link rel="shortcut icon" sizes="128x128" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/128x128.png">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#3db5e4">
+  <title>i-Laundry - Selamat Datang</title>
+  
+  <link href="https://fonts.googleapis.com/css?family=Itim|Roboto:300,400,700,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.material.min.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.material.colors.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().$this->data['asfront']; ?>css/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url().$this->data['asfront']; ?>css/slick-theme.css"/>
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>fonts/flaticon.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/base.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/custom.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/my-app.css">
 </head>
-<body id="mobile_wrap">
 
+<body class="theme-blue">
+  <!-- Status bar overlay for fullscreen mode-->
   <div class="statusbar-overlay"></div>
-
+  <!-- Panels overlay-->
   <div class="panel-overlay"></div>
+  <!-- Left panel with reveal effect-->
+  <div id="left-menu" class="panel panel-left panel-reveal">
+    <div class="content-block">
+      <div class="left-menu-profile text-center">
+        <div class="row">
+          <div class="col-15">
+            <a href="#"><i class="flaticon-how"></i></a>
+          </div>
+          <div class="col-70">
+            <input type="text" class="text-thiny" placeholder="Cari apa saja...">
+          </div>
+          <div class="col-15">
+            <a href="#"><i class="flaticon-menu"></i></a>
+          </div>
+        </div>
+        <?php 
+          if(!empty($this->session->userdata('idCUSTOMER'))){
+              $Name = $profile->nameCUSTOMER;
+              $Alt = $profile->nameCUSTOMER;
+          } else {
+              $Name = "Selamat datang!";
+              $Alt = "i-Laundry - Selamat Datang";
+          }
+        ?>
+        <div class="margin-top-30">
+          <img src="<?php echo $profile->imageCUSTOMER;?>" alt="<?php echo $Name;?>" width="80" height="80">
+        </div>
+        <div class="text-small text-capitalize">
+          <?php echo $Name;?>
+        </div>
+        <div class="text-thiny gray-text text-capitalize icon-location">
+          <?php 
+            if(!empty($this->session->userdata('idCUSTOMER'))){
+                $Address = $profile->addressCUSTOMER;
+            } else {
+                $Address = "Batam, Indonesia";
+            }
+          ?>
+          <i class="flaticon-location-pin"></i> <?php echo $Address;?>
+        </div>
+      </div>
+    </div>
+    <!-- Menu items -->
+    <div class="list-block list-menu">
+      <ul>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-house-outline"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>" class="close-panel">Home</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-shop"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>promo" class="close-panel">Promo</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <?php
+          if(!empty($this->session->userdata('idCUSTOMER'))){
+        ?>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-list"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>customer/profile" class="close-panel">Edit Profile</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-settings"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>customer/settings" class="close-panel">Setting</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-star"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="pages-list.html"  class="close-panel">Pages</a>
+              </div>
+            </div>
+          </div>
+        </li> -->
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-cooker"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>order" class="close-panel">Order</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <?php } ?>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-how"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>howto" class="close-panel">Bagaimana Cara Kerja Kami?</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <?php
+          if(!empty($this->session->userdata('idCUSTOMER'))){
+        ?>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-power-button"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>customer/logout">Logout</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <?php } ?>
+      </ul>
+    </div> <!-- kelar List Block List Menu -->
+  </div> <!-- kelar Panel Left -->
 
-  <div class="panel panel-left panel-reveal">
+
+  <!-- Views -->
   <div class="views">
-   <div class="view view-main">
-     <div class="pages">
-      <div data-page="panel-leftmenu" class="page pagepanel">	
-       <div class="page-content">
-         <nav class="main-nav icons_inline">
-           <ul>
-             <li><a href="index.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/home.png" alt="" title="" /><span>Home</span></a></li>
-             <li><a href="about.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/mobile.png" alt="" title="" /><span>About</span></a></li>
-             <li><a href="features.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/features.png" alt="" title="" /><span>Features</span></a></li>
+    <div class="view view-main">
+      <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+      <div class="pages">
+        <!-- Page, "data-page" contains page name -->
+        <div data-page="index" class="page">
 
-             <li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Login</span></a></li>
-             <li><a href="team.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/users.png" alt="" title="" /><span>Team</span></a></li>
-             <li><a href="blog.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/blog.png" alt="" title="" /><span>Blog</span></a></li>		
-
-             <li><a href="photos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/photos.png" alt="" title="" /><span>Photos</span></a></li>
-             <li><a href="videos.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/video.png" alt="" title="" /><span>Videos</span></a></li>
-             <li><a href="music.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/music.png" alt="" title="" /><span>Music</span></a></li>
-
-             <li><a href="shop.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/shop.png" alt="" title="" /><span>Shop</span></a></li>
-             <li class="subnav"><a href="categories.html"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/categories.png" alt="" title="" /><span>Categories</span></a></li>
-             <li><a href="cart.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/cart.png" alt="" title="" /><span>Cart</span></a></li>
-
-             <li><a href="tables.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/tables.png" alt="" title="" /><span>Tables</span></a></li>
-             <li><a href="<?php echo base_url();?>Order" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/form.png" alt="" title="" /><span>Order</span></a></li>
-             <li><a href="contact.html" class="close-panel" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/contact.png" alt="" title="" /><span>Contact</span></a></li>
-         </ul>
-     </nav>
- </div>
-</div>
-</div>
-</div>
-</div> <!-- kelar Views utama -->
-</div> <!-- kelar panel-left Panel-Reveal --> 
-
-<div class="panel panel-right panel-reveal">
-    <div class="user_login_info">
-        <div class="user_thumb">
-            <img class="cover" src="<?php echo base_url().$this->data['asfront']; ?>images/beach.jpg" alt="" title="" />
-            <div class="user_details">
-                <?php 
-                if(!empty($this->session->userdata('idCUSTOMER'))){
-                    $greetings = "<p>Halo, <span>".$this->session->userdata('Name')."</span></p>";
-                } else {
-                    $greetings = "<p>Halo, <span> Selamat Datang!</span></p>";
-                }
-                ?>
-                <?php echo $greetings;?>
+          <!-- Scrollable page content -->
+          <div class="page-content" id="app-cover">
+            <div class="pull-right">
+              <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
-            <?php
-              if(!empty($profile)){
-            ?>
-            <div class="user_avatar">
-                <img src="<?php echo $profile->imageCUSTOMER; ?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Profil <?php echo $profile->nameCUSTOMER;?>" />
-            </div>
-            <?php } ?>     
-        </div>
-
-        <nav class="user-nav">
-            <ul>
-                <?php
-                if(!empty($this->session->userdata('idCUSTOMER'))){
-                    ?>
-                    <li>
-                      <a href="<?php echo base_url();?>Customer/settings" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/settings.png" alt="" title="" /><span>Pengaturan Akun</span></a>
-                  </li>
-                  <li>
-                      <a href="<?php echo base_url();?>profile" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/user.png" alt="" title="" /><span>Pengaturan Profil</span></a>
-                  </li>
-                  <li><a href="<?php echo base_url();?>History" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/message.png" alt="" title="" /><span>History Pemesanan</span>
-                    <strong>
-                    <?php
-                    if(!empty($totalorder)){
-                      echo $totalorder;
-                    }else {
-                      echo '0';
-                    }
-                    ?>
-                    </strong></a></li>
-                  <li>
-                      <a href="<?php echo base_url();?>Customer/logout" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/logout.png" alt="" title="" /><span>Keluar</span></a>
-                  </li> 
-                      <?php 
-                  } else {
-                    ?>
-                    <li>
-                      <a href="#" data-popup=".popup-login" class="close-panel open-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/lock.png" alt="" title="" /><span>Masuk</span></a>
-                    </li>
-                  <?php
-              }
-              ?>
-              <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/briefcase.png" alt="" title="" /><span>Akun ku</span></a></li> -->
-              
-              <!-- <li><a href="features.html" class="close-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/blue/love.png" alt="" title="" /><span>Inbox</span><strong>5</strong></a></li> -->
-            </ul>
-</nav>
-</div>
-</div> <!-- kelar panel-right Panel-Reveal -->
-
-<div class="views">
-
-  <div class="view view-main">
-    <div class="pages">
-
-        <div data-page="index" class="page homepage">
-            <div class="page-content">
+            <div class="clearfix"></div>
+            <div class="app-cover-content">
+              <div class="logo">
+                <img src="<?php echo base_url().$this->data['asfront']; ?>img/logo_image.png" alt="i-Laundry"/>
+              </div>
+              <div class="main-title">
+                <h1>Selamat Datang di i-Laundry!</h1>
+                <h4>Kamu berada di tempat yang tepat. Karena kami siap mengembalikan keharuman pakaianmu seperti sedia kala.</h4>
+              </div>
               <?php
-                if (!empty($message)){
+                if(!empty($this->session->userdata('idCUSTOMER'))){
+                  $button = base_url().'order';
+                } else {
+                  $button = base_url().'customer/login';
+                }
               ?>
-                <div class="notif animated slideInDown">
-                  <div class="msg">
-                    <p><?php echo $message['text'];?></p>
-                  </div>
-                  <div class="dismissable">
-                    <a href="#">Dismiss</a>
-                  </div>
+              <div class="row">
+                <div class="col-100">
+                  <a href="<?php echo $button;?>" class="button login-btn">Bagus, saya mau nyuci sekarang</a>
                 </div>
-              <?php } ?>
-                <div class="navbarpages nobg">
-                    <div class="navbar_left">
-                        <div class="logo_image">
-                            <a href="<?php echo base_url();?>"><img src="<?php echo base_url().$this->data['asfront']; ?>images/logo_image.png" alt="" title="" width="140"/>
-                            </div>
-                        </div>
-                        <?php
-                        if(!empty($this->session->userdata('idCUSTOMER'))){
-                            ?>
-                            <a href="#" data-panel="right" class="open-panel">
-                                <div class="navbar_right"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></div>
-                            </a>
-                            <?php } ?>				
-                        </div>
-
-                        <!-- Slider -->
-                        <div class="swiper-container slidertoolbar swiper-init" data-effect="slide" data-parallax="true" data-pagination=".swiper-pagination" data-paginationClickable="true">
-                            <div class="swiper-wrapper">
-
-                                <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
-
-                                    <div class="slider_trans">
-                                        <div class="slider-caption">
-                                            <?php
-                                            if(!empty($this->session->userdata('idCUSTOMER'))){
-                                                $name = "Halo, ". $this->session->userdata('Name');
-                                            } else {
-                                                $name = "Selamat Datang!";
-                                            }
-                                            ?>
-                                            <h2 data-swiper-parallax="-100%"><?php echo $name;?></h2>
-                                            <span class="subtitle" data-swiper-parallax="-60%">Kamu berada di tempat yang tepat.</span>
-                                            <p data-swiper-parallax="-30%">Kami siap mengembalikan keharuman pakaian kamu seperti semula.</p>
-                                            <?php
-                                            if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
-                                                <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
-                                            <?php } else { ?>
-                                                <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
-                                            <?php } ?>
-                                            </div>
-                                        </div> 
-                                    </div>
-                                    <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-03.png);">
-                                        <div class="slider_trans">		  
-                                            <div class="slider-caption">
-                                                <h2 data-swiper-parallax="-100%">Mencuci bersih adalah passion kami</h2>
-                                                <span class="subtitle" data-swiper-parallax="-60%">Kami punya segelintir cara rahasia.</span>
-                                                <p data-swiper-parallax="-30%">Cara-cara rahasia inilah yang akan selalu setia merawat dan memelihara kebersihan serta keharuman pakaianmu.</p>
-                                                <?php
-                                            if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
-                                                <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
-                                            <?php } else { ?>
-                                                <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
-                                            <?php } ?>
-                                            </div>	
-                                        </div>	
-                                    </div>
-                                    <div class="swiper-slide" style="background-image:url(<?php echo base_url().$this->data['asfront']; ?>images/Logo2-02.png);">
-                                        <div class="slider_trans">		  
-                                            <div class="slider-caption">
-                                                <h2 data-swiper-parallax="-100%">Kualitas nggak akan bohong.</h2>
-                                                <span class="subtitle" data-swiper-parallax="-60%">Kata siapa kualitas bagus nggak bisa jalan beriringan dengan harga murah?</span>
-                                                <p data-swiper-parallax="-30%">Orang-orang mengenal kami sebagai laundry yang murah dan berkualitas. </p>
-                                                <?php
-                                              if(!empty($this->session->userdata('idCUSTOMER'))) { ?>
-                                                  <a href="<?php echo base_url();?>Order" class="swiper_read_more">Baik, saya mau nyuci</a>
-                                              <?php } else { ?>
-                                                  <a href="#" data-popup=".popup-login" class="open-popup swiper_read_more">Baik, saya mau nyuci</a>
-                                              <?php } ?>
-                                            </div>
-                                        </div>
-                                    </div> 		   
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div> <!-- kelar Swiper-Container slider -->
-
-                            <div class="swiper-container-toolbar swiper-toolbar swiper-init" data-effect="slide" data-slides-per-view="5" data-slides-per-group="3" data-space-between="0" data-pagination=".swiper-pagination-toolbar">
-                                <div class="swiper-pagination-toolbar"></div>
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide toolbar-icon">
-                                        <a href="<?php echo base_url();?>Home" data-view=".view-main">
-                                          <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/home.png" alt="" title="" />
-                                      </a>
-                                  </div>
-                                  <div class="swiper-slide toolbar-icon">
-                                    <a href="<?php echo base_url();?>Order" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/drink.png" alt="" title="" /></a>
-                                </div>
-                                <div class="swiper-slide toolbar-icon">
-                                    <a href="<?php echo base_url();?>Password_Reset" data-view=".view-main"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/blog.png" alt="" title="" /></a>
-                                </div>
-                                <div class="swiper-slide toolbar-icon">
-                                    <a href="tel:9007005600" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/phone.png" alt="" title="" /></a>
-                                </div>
-                                <div class="swiper-slide toolbar-icon">
-                                    <a href="#" data-panel="right" class="open-panel"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/users.png" alt="" title="" /></a>
-                                </div>
-                            </div>
-                        </div> <!-- kelar Swiper-container-toolbar -->
-
-
-                    </div>
+              </div>
+              <div class="row offset-top-10 margin-bottom-10">
+                <div class="col-100">
+                  <a href="<?php echo base_url();?>howto" class="button link-btn">
+                    Bagaimana cara kerja i-Laundry?
+                  </a>
                 </div>
+              </div>
+              
             </div>
+          </div>
+
         </div>
+      </div>
     </div>
-
-
-    <!-- Login Popup -->
-    <div class="popup popup-login">
-        <div class="content-block">
-            <h4>Okay, silakan login dulu</h4>
-            <div class="loginform">
-                <form id="LoginForm" method="post" action="<?php echo base_url();?>Customer/login">
-                    <input type="email" name="emailCUSTOMER" class="form_input email required" placeholder="Email kamu" />
-                    <input type="password" name="passwordCUSTOMER" class="form_input required" placeholder="Ketik password kamu" />
-                    <div class="forgot_pass">
-                        <a href="#" data-popup=".popup-forgot" class="open-popup">Lupa Password?</a>
-                    </div>
-                    <input type="submit" name="submit" class="form_submit" id="submit" value="SIGN IN" />
-                </form>
-                <div class="signup_bottom">
-                    <p>Belum punya akun?<a href="#" data-popup=".popup-signup" class="open-popup">Silakan daftar</a></p>
-                </div>
-            </div>
-            <div class="close_popup_button">
-                <a href="#" class="close-popup">
-                    <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu_close.png" alt="" title="" />
-                </a>
-            </div>
-        </div>
-    </div> <!-- kelar Popup-login -->
-
-    <!-- Register Popup -->
-    <div class="popup popup-signup">
-        <div class="content-block">
-            <h4>Okay! Mari daftar dulu.</h4>
-            <div class="loginform">
-                <form id="RegisterForm" method="post" action="<?php echo base_url();?>Customer/savecustomer">
-                    <input type="text" name="nameCUSTOMER" value="" class="form_input required" placeholder="Isi nama lengkap kamu" />
-                    <input type="text" name="emailCUSTOMER" value="" class="form_input email required" placeholder="Alamat email kamu juga" />
-                    <input type="password" name="passwordCUSTOMER" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repasswordCUSTOMER.pattern = this.value;" id="passwordCUSTOMER" required="" class="form_input required" placeholder="Ketik password nya" />
-                    <input type="password" name="repasswordCUSTOMER" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Mohon samakan kata sandi anda seperti kata sandi diatas' : '');" id="repasswordCUSTOMER" class="form_input required" placeholder="Ketik lagi password nya" />
-                    <input type="submit" name="submit" class="form_submit" id="submit" value="Daftar sekarang" />
-                </form>
-                <div class="signup_bottom">
-                    <p>Sudah punya akun?<a href="#" data-popup=".popup-login" class="open-popup">Silakan login</a></p>
-                </div>
-            <!-- <h5>Lagi malas ngetik? Silakan daftar dengan akun sosial media kamu</h5>
-            <div class="signup_social">
-                <a href="http://www.facebook.com/" class="signup_facebook external">Facebook</a>
-                <a href="http://www.twitter.com/" class="signup_twitter external">Twitter</a>            
-            </div>	 -->	
-        </div>
-        <div class="close_popup_button">
-            <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" /></a>
-        </div>
-    </div>
-</div>
-
-<!-- Forgot Password Popup -->
-<div class="popup popup-forgot">
-    <div class="content-block">
-        <h4>Lupa password? Tidak masalah.</h4>
-        <div class="loginform">
-            <form id="ForgotForm" method="post" action="<?php echo base_url();?>Customer/processreset">
-                <input type="email" name="emailing" value="" class="form_input required" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Masukkan email kamu" />
-                <input type="submit" name="submit" class="form_submit" id="submit" value="Reset password" />
-            </form>
-            <div class="signup_bottom">
-                <p>Silakan cek inbox email kamu dan ikuti instruksi untuk mereset password akun kamu.</p>
-            </div>
-        </div>
-        <div class="close_popup_button">
-            <a href="#" class="close-popup">
-                <img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/black/menu_close.png" alt="" title="" />
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- Social Icons Popup -->
-<div class="popup popup-social">
-    <div class="content-block">
-        <h4>Social Share</h4>
-        <p>Share icons solution that allows you share and increase your social popularity.</p>
-        <ul class="social_share">
-            <li><a href="http://twitter.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/twitter.png" alt="" title="" /><span>TWITTER</span></a></li>
-            <li><a href="http://www.facebook.com/" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/facebook.png" alt="" title="" /><span>FACEBOOK</span></a></li>
-            <li><a href="http://plus.google.com" class="external"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/gplus.png" alt="" title="" /><span>GOOGLE</span></a></li>
-        </ul>
-        <div class="close_popup_button">
-            <a href="#" class="close-popup"><img src="<?php echo base_url().$this->data['asfront']; ?>images/icons/white/menu_close.png" alt="" title="" /></a>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.validate.min.js" ></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.swipebox.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/email.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/circlemenu.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/audio.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
-
-<script>
-  $(function() {
-    $(".notif").on("click", function() {
-      $(this).removeClass("animated slideInDown");
-      $(this).addClass("animated slideOutUp");
-    });
-  });
-</script>
-
+  </div>
+  <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.12.3.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/slick.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.min.js"></script>
+  <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
 </body>
+
 </html>
