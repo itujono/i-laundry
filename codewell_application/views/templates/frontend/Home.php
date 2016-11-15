@@ -47,17 +47,19 @@
             <a href="#"><i class="flaticon-menu"></i></a>
           </div>
         </div>
-        <?php 
+        <?php
           if(!empty($this->session->userdata('idCUSTOMER'))){
               $Name = $profile->nameCUSTOMER;
               $Alt = $profile->nameCUSTOMER;
+              $image = $profile->imageCUSTOMER;
           } else {
               $Name = "Selamat datang!";
               $Alt = "i-Laundry - Selamat Datang";
+              $image = base_url().'assets/frontend/img/photos/user.png';
           }
         ?>
         <div class="margin-top-30">
-          <img src="<?php echo $profile->imageCUSTOMER;?>" alt="<?php echo $Name;?>" width="80" height="80">
+          <img src="<?php echo $image;?>" alt="<?php echo $Name;?>" width="80" height="80">
         </div>
         <div class="text-small text-capitalize">
           <?php echo $Name;?>

@@ -127,7 +127,7 @@ class Customer_m extends MY_Model{
 		$this->db->where('customers.idCUSTOMER', $id);
 		return $this->db->get();
 	}
-	public function selectprofilecustomer_inhome($id){
+	public function selectprofilecustomer_inhome($id = NULL){
 		$this->db->select('idCUSTOMER, nameCUSTOMER, addressCUSTOMER');
 		$this->db->from('customers');
 		$this->db->where('idCUSTOMER', $id);

@@ -72,13 +72,9 @@
                 ?>
                 <?php echo $greetings;?>
             </div>
-            <?php
-              if(!empty($profile)){
-            ?>
             <div class="user_avatar">
                 <img src="<?php echo $profile->imageCUSTOMER; ?>" alt="<?php echo $profile->nameCUSTOMER;?>" title="Profil <?php echo $profile->nameCUSTOMER;?>" />
             </div>
-            <?php } ?>     
         </div>
 
         <nav class="user-nav">
