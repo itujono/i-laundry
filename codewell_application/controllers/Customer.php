@@ -59,7 +59,7 @@ class Customer extends Frontend_Controller {
             'text' => 'Selamat! Kamu sudah logout. Sampai jumpa lagi!'
         	);
         $this->session->set_flashdata('message',$data);
-		redirect(base_url().'#!/'.base_url().'Home');
+		redirect('Home', 'refresh');
 	}
 
 	public function register(){
@@ -1088,14 +1088,14 @@ class Customer extends Frontend_Controller {
 				}
       		}
 	    	$this->session->set_flashdata('message', $data);
-	  		redirect(base_url().'Customer/profile');
+	  		redirect($_SERVER['HTTP_REFERER']);
 			} else {
 
 					$data = array(
 	          			'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
 	        			);
 	        $this->session->set_flashdata('message',$data);
-	        redirect('customer/profile');
+	        redirect($_SERVER['HTTP_REFERER']);
 			}
 		}
 }

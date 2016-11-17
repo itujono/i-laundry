@@ -80,7 +80,7 @@
 				</div>
 				<div class="margin-bottom-15 content-block">
 					<!-- <a href="index.html" class="button login-btn block">Simpan</a> -->
-					<input type="submit" name="submit" class="button login-btn block" value="Simpan"/>
+					<input type="submit" name="submit" class="button login-btn block confirm-save" value="Simpan"/>
 				</div>
 			</form>
 		</div>
