@@ -86,6 +86,11 @@ class Order extends Admin_Controller {
 				$datas['isreadORDER'] = 1;
 				$this->Order_m->save($datas,$id);
 			}
+		} elseif ($this->session->userdata('roleUSER') == 22) {
+			if($detailorder->isreadadminORDER == 0){
+				$datas['isreadadminORDER'] = 1;
+				$this->Order_m->save($datas,$id);
+			}
 		}
 			if($detailorder->statusORDER == 1){
 				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';

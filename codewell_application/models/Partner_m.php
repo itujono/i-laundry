@@ -74,6 +74,22 @@ class Partner_m extends MY_Model{
 		return hash('sha512', $string . config_item('encryption_key'));
 	}
 
+	public function select_partner_drop($id = NULL, $dropdown=NULL){
+        $this->db->select('*');
+        $this->db->from('partner');
+        $this->db->where('statusPARTNER', 1);
+        if($id != NULL)$this->db->where('idPARTNER', $id);
+        if($dropdown != NULL){
+            $ddown = array();
+            foreach ($this->db->get()->result() as $value) {
+                $ddown[$value->idPARTNER] = $value->namePARTNER;
+            }
+            return $ddown;
+        }else{
+            return $this->db->get();
+        }
+    }
+
 	public function select_all_partner_drop($id = NULL, $dropdown=NULL){
         $this->db->select('partner.idPARTNER, namePARTNER');
         $this->db->select('regions.nameREGION');

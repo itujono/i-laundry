@@ -78,10 +78,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   $url1 = $this->data['folBACKEND'].$controller.'/actionedit/'.urlencode($id).$id2;
                   $url2 = $this->data['folBACKEND'].$controller.'/partnerlist/'.urlencode($id);
                 ?>
+                <?php
+                  if($partner->idREGION != 'ALL' AND $this->session->userdata('roleUSER') == 22){
+                ?>
                 <td class="uk-text-center">
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg2; ?>', function(){ document.location.href='<?php echo site_url($url2);?>'; });"><i class="md-icon material-icons">&#xE254;</i></a>
                 </td>
+                <?php } ?>
               </tr>
             <?php } ?>
             </tbody>

@@ -34,9 +34,10 @@ function count_notif(){
 
     if($CI->session->userdata('roleUSER') == 26){
         $CI->db->where('idPARTNER',$partner);
+         $CI->db->where('isreadORDER',0);
+    } elseif ($CI->session->userdata('roleUSER') == 22) {
+        $CI->db->where('orders.isreadadminORDER', 0);
     }
-
-    $CI->db->where('isreadORDER',0);
 
 	$data = $CI->db->get()->num_rows();
 	return $data;
@@ -52,9 +53,11 @@ function selectunreadorders(){
     
     if($CI->session->userdata('roleUSER') == 26){
         $CI->db->where('orders.idPARTNER',$partner);
+        $CI->db->where('orders.isreadORDER', 0);
+    } elseif ($CI->session->userdata('roleUSER') == 22) {
+        $CI->db->where('orders.isreadadminORDER', 0);
     }
-
-	$CI->db->where('orders.isreadORDER', 0);
+	
 	$CI->db->order_by('createdateORDER', 'DESC');
 	$data = $CI->db->get()->result();
 	return $data;
@@ -91,4 +94,20 @@ function timeAgo($timestamp){
     $tmp = floor($time / 946080000);
     return ($tmp > 1) ? $tmp . ' years' : ' a year';
     }
+}
+
+function img_view($link){
+    $dir = 'assets/upload/'.$link;
+    $map = directory_map($dir, FALSE, TRUE);
+    if(!empty($map[0])){
+        $img = base_url().$dir.'/'.$map[0];
+    }else{
+        $img = base_url().'assets/frontend/images/ava.png';
+    }
+
+    return $img;
+}
+
+function replacesymbol($string){
+    return str_replace([' ','&',',','.','(',')','!','?'], ['','','','','','','',''], $string);
 }

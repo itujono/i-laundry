@@ -116,12 +116,12 @@
           <span class="menu_title">Daerah</span>
         </a>
       </li>
-      <!-- <li title="Area">
-        <a href="<?php echo base_url();?>codewelladmin/Area">
-          <span class="menu_icon"><i class="material-icons">&#xE55A;</i></span>
-          <span class="menu_title">Area</span>
+      <li title="Promo">
+        <a href="<?php echo base_url();?>codewelladmin/Promo">
+          <span class="menu_icon"><i class="material-icons">&#xE8F6;</i></span>
+          <span class="menu_title">Promo</span>
         </a>
-      </li> -->
+      </li>
       <li title="Aroma">
         <a href="<?php echo base_url();?>codewelladmin/Aroma">
           <span class="menu_icon"><i class="material-icons">&#xE545;</i></span>

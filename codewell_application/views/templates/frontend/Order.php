@@ -21,28 +21,39 @@
 								<div class="input-icon item-media"><i class="flaticon-date"></i></div>
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<input type="text" name="pickuptimeORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required="">
+										<input type="text" name="pickuptimeORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
 								  	</div>
 								</div>
 							
 						  	</div>
 						</li>
-						<li class="align-top">
+						<li>
+						  	<div class="item-content">
+								<div class="input-icon item-media"><i class="flaticon-time"></i></div>
+								<div class="item-inner no-margin">
+								  	<div class="item-input">
+										<input type="text" placeholder="Time*" id="picker-time" required>
+								  	</div>
+								</div>
+							
+						  	</div>
+						</li>
+						<li class="">
 						  	<div class="item-content">
 								<div class="input-icon item-media"><i class="flaticon-location-pin"></i></div>
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<textarea name="pickupADDRESSORDERKOTOR" placeholder="Di mana mau dijemput?" required=""></textarea>
+										<textarea name="pickupADDRESSORDERKOTOR" placeholder="Di mana mau dijemput?" required></textarea>
 								  	</div>
 								</div>
 						  	</div>
 						</li>
 						<li>
 						  	<div class="item-content">
-								<div class="input-icon item-media"><i class="flaticon-cover"></i></div>
+								<div class="input-icon item-media"><i class="flaticon-list"></i></div>
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idPACKAGE" required="">
+										<select name="idPACKAGE" required>
 										<?php
                                         if(!empty($listpackage)){
                                             foreach ($listpackage as $key => $package) {
@@ -52,7 +63,7 @@
                                                     $check = '';
                                                 }
                                         ?>
-											<option <?php echo $check;?>><?php echo $package->namePACKAGE;?></option>
+											<option value="<?php echo $package->idPACKAGE;?>" <?php echo $check;?>><?php echo $package->namePACKAGE;?></option>
 										<?php } ?>
 										<?php } ?>
 										</select>
@@ -63,7 +74,7 @@
 						</li>
 						<li>
 						  	<div class="item-content">
-								<div class="input-icon item-media"><i class="flaticon-cover"></i></div>
+								<div class="input-icon item-media"><i class="flaticon-star"></i></div>
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
 										<select name="idAROMA" required>
@@ -76,7 +87,7 @@
 	                                                $check = '';
 	                                            }
 										?>
-											<option <?php echo $check;?>><?php echo $aroma->idAROMA;?></option>
+											<option value="<?php echo $aroma->idAROMA;?>" <?php echo $check;?>><?php echo $aroma->nameAROMA;?></option>
 										<?php } ?>
 										<?php } ?>
 										</select>
@@ -86,10 +97,10 @@
 						</li>
 						<li>
 						  	<div class="item-content">
-								<div class="input-icon item-media"><i class="flaticon-cover"></i></div>
+								<div class="input-icon item-media"><i class="flaticon-people"></i></div>
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idSERVICES" required="">
+										<select name="idSERVICES" required>
 										<?php
                                         if(!empty($listservices)){
                                             foreach ($listservices as $key => $services) {
@@ -99,7 +110,7 @@
                                                     $check = '';
                                                 }
                                         ?>
-											<option <?php echo $check;?>><?php echo $services->idSERVICES;?></option>
+											<option value="<?php echo $services->idSERVICES;?>" <?php echo $check;?>><?php echo $services->nameSERVICES;?></option>
 										<?php } ?>
 										<?php } ?>
 										</select>
@@ -107,33 +118,11 @@
 								</div>
 						  	</div>
 						</li>
-						
-						<li>
-						  	<div class="item-content">
-								<div class="input-icon item-media"><i class="flaticon-time"></i></div>
-								<div class="item-inner no-margin">
-								  	<div class="item-input">
-										<input type="text" placeholder="Time*" id="picker-time">
-								  	</div>
-								</div>
-							
-						  	</div>
-						</li>
-						<li>
-						  	<div class="item-content">
-								<div class="input-icon item-media"><i class="flaticon-people"></i></div>
-								<div class="item-inner no-margin">
-								  	<div class="item-input">
-										<input type="text" placeholder="Seats*">
-								  	</div>
-								</div>
-							
-						  	</div>
-						</li>
 					</ul>
 				</div>
 				<div class="margin-bottom-15 content-block">
-					<a href="login.html" class="button button-fill color-deeporange text-thiny">Book now</a>
+					<!-- <a href="login.html" class="button button-fill color-deeporange text-thiny">Book now</a> -->
+					<input type="submit" name="submit" class="button button-fill color-deeporange text-thiny" value="Konfirmasi data" />
 				</div>
 			</form>
 		</div>

@@ -19,7 +19,7 @@
 							<div class="input-icon item-media"><i class="flaticon-email"></i></div>
 							<div class="item-inner no-margin">
 							  <div class="item-input">
-								<input type="email" name="emailing" class="" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" placeholder="Ketik email kamu">
+								<input type="email" name="emailing" class="" placeholder="Ketik email kamu">
 							  </div>
 							</div>
 						  </div>

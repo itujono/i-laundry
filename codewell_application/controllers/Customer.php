@@ -59,7 +59,7 @@ class Customer extends Frontend_Controller {
             'text' => 'Selamat! Kamu sudah logout. Sampai jumpa lagi!'
         	);
         $this->session->set_flashdata('message',$data);
-		redirect('Home', 'refresh');
+		redirect('Home');
 	}
 
 	public function register(){
@@ -901,7 +901,7 @@ class Customer extends Frontend_Controller {
 		            </tr>
 		            <tr id="btn-confirm">
 		                <td style="padding: 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #fed501; transition: all 100ms ease-in; color: #111;" href="'.base_url().'#!/' . base_url() . 'Customer/confirmresetpassword/' . $idCODE . '">Reset kata sandi kamu!</a>
+		                    <a class="button-td" style="margin-top: 25px; margin-bottom: 25px; padding: 10px 15px; background-color: #fed501; transition: all 100ms ease-in; color: #111;" href="'.base_url().'Customer/confirmresetpassword/' . $idCODE . '">Reset kata sandi kamu!</a>
 		                </td>
 		            </tr>
 		            <!-- 1 Column Text : BEGIN -->
@@ -956,7 +956,7 @@ class Customer extends Frontend_Controller {
 			redirect(base_url());
 		} else {
 			$data['idCUSTOMER'] = $idCUSTOMER;
-			$this->load->view($this->data['frontendDIR']. 'Reset',$data);
+			$this->load->view($this->data['frontendDIR']. 'Confirm_reset',$data);
 		}
 	}
 
@@ -976,7 +976,7 @@ class Customer extends Frontend_Controller {
 					'text' => 'Yeay!, Kata sandi kamu sudah berhasil di reset! Silakan masuk untuk memulai!.'
 					);
 				$this->session->set_flashdata('message', $data);
-				redirect(base_url().'#!/'.base_url().'Customer/successresetpage');
+				redirect('Customer/successresetpage');
 			}else{
 				$data = array(
 					'text' => 'Maaf, kami tidak dapat me-reset kata sandi kamu, silakan coba beberapa saat kembali!'
@@ -996,7 +996,7 @@ class Customer extends Frontend_Controller {
 
 	public function successresetpage(){
 
-		$this->load->view($this->data['frontendDIR']. 'Password_Reset');
+		$this->load->view($this->data['frontendDIR']. 'Successfull_Reset');
 	}
 
 	public function profile() {

@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <label for="Waktu Antar" class="uk-form-label">Waktu Antar<span class="req">*</span></label>
                     <?php
                         $timedelivery = '';
-                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = dF($editorder->pickupfinishedtimeORDER, 'MM/dd/yyyy HH:mm');
+                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = dF($editorder->pickupfinishedtimeORDER, 'dd/MM/yyyy HH:mm');
                     ?>
                     <input id="kUI_datetimepicker_basic" name="pickupfinishedtimeORDER" required value="<?php echo $timedelivery;?>">
                 </div>
