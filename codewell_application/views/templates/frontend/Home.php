@@ -38,7 +38,7 @@
       <div class="left-menu-profile text-center">
         <div class="row">
           <div class="col-15">
-            <a href="#"><i class="flaticon-how"></i></a>
+            <a href="<?php echo base_url();?>about" class="close-panel"><i class="flaticon-how"></i></a>
           </div>
           <div class="col-70">
             <input type="text" class="text-thiny" placeholder="Cari apa saja...">
