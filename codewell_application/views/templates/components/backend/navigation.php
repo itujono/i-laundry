@@ -140,10 +140,16 @@
           <span class="menu_title">Paket</span>
         </a>
       </li>
-      <li title="Payment">
-        <a href="<?php echo base_url();?>codewelladmin/Payment">
-          <span class="menu_icon"><i class="material-icons">&#xE8A1;</i></span>
-          <span class="menu_title">Payment</span>
+      <li title="Satuan">
+        <a href="<?php echo base_url();?>codewelladmin/Satuan">
+          <span class="menu_icon"><i class="material-icons">&#xE885;</i></span>
+          <span class="menu_title">Satuan</span>
+        </a>
+      </li>
+      <li title="Category Satuan">
+        <a href="<?php echo base_url();?>codewelladmin/Category_satuan">
+          <span class="menu_icon"><i class="material-icons">&#xE83A;</i></span>
+          <span class="menu_title">Category Satuan</span>
         </a>
       </li>
       <li title="Pengguna">

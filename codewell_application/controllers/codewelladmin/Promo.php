@@ -161,23 +161,23 @@ class Promo extends Admin_Controller {
 		$ss = 0;
 		if($id2 != NULL)$ss = 1;
 		if($id != 0){
-			$data['statusarea'] = $ss;
-			$this->Area_m->save($data, $id);
+			$data['statusPROMO'] = $ss;
+			$this->Promo_m->save($data, $id);
 			$data = array(
                     'title' => 'Sukses',
                     'text' => 'Perubahan Data berhasil dilakukan',
                     'type' => 'success'
                 );
                 $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/area/arealist');
+                redirect('codewelladmin/promo/promolist');
 		}else{
 			$data = array(
 	            'title' => 'Terjadi Kesalahan',
-	            'text' => 'Maaf, Sesuatu yang memalukan terjadi',
+	            'text' => 'Maaf, data tidak berhasil dirubah silakan coba beberapa saat kembali',
 	            'type' => 'error'
 		        );
 		        $this->session->set_flashdata('message',$data);
-		        redirect('codewelladmin/area/arealist');
+		        redirect('codewelladmin/promo/promolist');
 		}
 	}
 

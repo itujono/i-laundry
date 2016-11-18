@@ -45,9 +45,7 @@ class Order extends Admin_Controller {
 
 		} elseif($this->session->userdata('roleUSER') == 26){
 			$data['orderlist'] = $this->Order_m->selectall_order(NULL,NULL,NULL,$ids)->result();
-			// echo "<pre>";
-			// print_r($ids);
-			// break;
+			
 				foreach ($data['orderlist'] as $key => $value) {
 					if($value->statusORDER == 1){
 						$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';

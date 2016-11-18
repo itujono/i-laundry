@@ -1,5 +1,5 @@
  <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }" class="uk-margin-bottom">
- 	<h1><?php echo $detailorder->nameCUSTOMER;?>, <?php echo $detailorder->namePACKAGE;?>, <?php echo $detailorder->namePAYMENT;?></h1>
+ 	<h1><?php echo $detailorder->nameCUSTOMER;?>, <?php echo $detailorder->namePACKAGE;?></h1>
  	<span class="uk-text-muted uk-text-upper"><b><?php echo $detailorder->kodeORDER;?> (<?php echo dF($detailorder->createdateORDER, 'd F Y (H:i:s)');?>)</span></b>
  </div>
   <?php if (!empty($message)){ ?>
@@ -113,15 +113,6 @@
  							<?php } else { ?>
  								- / -
  							<?php } ?>
- 							</div>
- 						</div>
- 						<hr class="uk-grid-divider">
- 						<div class="uk-grid uk-grid-small">
- 							<div class="uk-width-large-1-3">
- 								<span class="uk-text-muted uk-text-small">Jenis Pembayaran</span>
- 							</div>
- 							<div class="uk-width-large-2-3">
- 								<?php echo $detailorder->namePAYMENT;?>
  							</div>
  						</div>
  						<hr class="uk-grid-divider uk-hidden-large">

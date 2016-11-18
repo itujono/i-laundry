@@ -67,7 +67,7 @@
 									<img src="<?php echo $promos->imagePROMO;?>" alt="<?php echo $promos->namePROMO;?>">
 									<h3><?php echo $promos->namePROMO;?></h3>
 									<div class="grey-text"><a href="#">Sampai <?php echo date('d F Y', strtotime($promos->endPROMO));?> </a></div>
-									<a href="#" data-popup=".<?php echo strtolower(replacesymbol($promo->namePROMO));?>" class="button login-btn block open-popup">Lihat detail</a>
+									<a href="#" data-popup=".<?php echo strtolower(replacesymbol($promos->namePROMO));?>" class="button login-btn block open-popup">Lihat detail</a>
 								</div>
 							</div>
 						  <?php } ?>
@@ -80,7 +80,7 @@
                 if(!empty($listpromo)){
                     foreach ($listpromo as $key => $detail) {
             ?>
-            <div class="popup <?php echo strtolower(replacesymbol($promo->namePROMO));?>">
+            <div class="popup <?php echo strtolower(replacesymbol($detail->namePROMO));?>">
                 <div class="content-block">
                     <div class="row">
                         <div class="col-100">

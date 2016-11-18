@@ -12,6 +12,7 @@ $datatables = '
 $forms_advanced='<script src="'.base_url().'assets/backend/bower_components/ion.rangeslider/js/ion.rangeSlider.min.js"></script>
     <script src="'.base_url().'assets/backend/assets/js/pages/forms_advanced.min.js"></script>';
 ?>
+
 <?php
 if($plugins == 'plugins_datatables'){
 ?>
@@ -27,32 +28,8 @@ if($plugins == 'plugins_datatables'){
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
 <?php echo $forms_advanced;?>
-
-<?php
-}elseif($plugins == 'plugins_payment'){
-?>
-<?php echo $datatables;?>
-<!-- datatables tableTools-->
-<script src="<?php echo base_url(); ?>assets/backend/bower_components/datatables-tabletools/js/dataTables.tableTools.js"></script>
-<!--  preloaders functions -->
-<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/components_preloaders.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/backend/bower_components/tinymce/tinymce.min.js"></script>
-    <script>
-      tinymce.init({
-      selector: "textarea",  // change this value according to your HTML
-       toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
-        toolbar2: "| example link unlink anchor code | image media | forecolor backcolor  | print preview | template",
-        toolbar3: "styleselect | fontsizeselect",
-      plugins: [
-                 "advlist autolink link image imagetools lists charmap print preview hr anchor pagebreak",
-                 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-                 "table contextmenu directionality emoticons paste textcolor code", 
-           ]
-    });
-    </script>
-<!-- page specific plugins -->
-<!-- jquery.idle -->
-<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+<!-- inputmask-->
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery.inputmask/dist/jquery.inputmask.bundle.js"></script>
 <?php
 }elseif($plugins == 'plugins_customer'){
 ?>

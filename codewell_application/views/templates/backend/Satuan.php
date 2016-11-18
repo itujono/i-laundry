@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    $title1 = 'Buat Payment';
-    $actions = 'savepayment';
-    $controller = 'Payment';
-    if($getpayment->idPAYMENT != NULL){
-       $title1 = 'Perbaharui Payment';
+    $title1 = 'Buat Satuan Harga';
+    $actions = 'savesatuan';
+    $controller = 'Satuan';
+    if($getsatuan->idSATUAN != NULL){
+       $title1 = 'Perbaharui Satuan Harga';
     } 
     $url = base_url().$this->data['folBACKEND'].$controller.'/'.$actions;
 ?>
@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div class="md-card">
     <div class="md-card-content">
       <ul class="uk-tab uk-tab-grid" data-uk-tab="{connect:'#tabs_4'}">
-        <li class="uk-width-1-2 <?php echo $tab['data-tab']?>>"><a href="#">Daftar Payment</a></li>
-        <li class="uk-width-1-2 <?php echo $tab['form-tab']?>"><a href="#">Form Payment</a></li>
+        <li class="uk-width-1-2 <?php echo $tab['data-tab']?>>"><a href="#">Daftar Satuan Harga</a></li>
+        <li class="uk-width-1-2 <?php echo $tab['form-tab']?>"><a href="#">Form Satuan Harga</a></li>
       </ul>
       <ul id="tabs_4" class="uk-switcher uk-margin">
       <!-- START LIST PAYMENT -->
@@ -34,7 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                   <th>No.</th>
                   <th>Nama</th>
-                  <th>Deskripsi</th>
+                  <th>Kategori</th>
+                  <th>Harga</th>
                   <th>Dibuat</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -45,35 +46,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                 <th>No.</th>
                 <th>Nama</th>
-                <th>Deskripsi</th>
+                <th>Kategori</th>
+                <th>Harga</th>
                 <th>Dibuat</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
             </tfoot>
             <tbody>
-            <?php foreach ($listpayment  as $key => $payment) { 
-              $id = encode($payment->idPAYMENT);
+            <?php foreach ($listsatuan  as $key => $satuan) { 
+              $id = encode($satuan->idSATUAN);
               ?>
              <tr>
                 <td><?php echo $key+1; ?></td>
-                <td><?php echo $payment->namePAYMENT;?></td>
-                <td><?php echo $payment->descriptionPAYMENT;?></td>
-                <td><?php echo dF($payment->createdatePAYMENT, 'd F Y (H:i:s)');?></td>
-                <td><?php echo $payment->status;?></td>
+                <td><?php echo $satuan->nameSATUAN;?></td>
+                <td><?php echo $satuan->nameCATEGORYSATUAN;?></td>
+                <td>Rp. <?php echo number_format($satuan->priceSATUAN, 0,',','.'); ?></td>
+                <td><?php echo dF($satuan->createdateSATUAN, 'd F Y (H:i:s)');?></td>
+                <td><?php echo $satuan->status;?></td>
                 <?php
                  $id2 = '/1';
                  $icn = '&#xE8F4;'; 
                  $nm = 'Aktifkan'; 
-                 if($payment->statusPAYMENT == 1){
+                 if($satuan->statusSATUAN == 1){
                      $id2 = ''; 
                      $icn = '&#xE8F5;';
                      $nm = 'Non Aktifkan';
                  }
-                  $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($payment->namePAYMENT).'</b> ?';
-                  $msg2 = 'Apakah kamu yakin akan merubah data ' . ' <b>'.addslashes($payment->namePAYMENT).'</b> ?';
+                  $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($satuan->nameSATUAN).'</b> ?';
+                  $msg2 = 'Apakah kamu yakin akan merubah data ' . ' <b>'.addslashes($satuan->nameSATUAN).'</b> ?';
                   $url1 = $this->data['folBACKEND'].$controller.'/actionedit/'.urlencode($id).$id2;
-                  $url2 = $this->data['folBACKEND'].$controller.'/paymentlist/'.urlencode($id);
+                  $url2 = $this->data['folBACKEND'].$controller.'/satuanlist/'.urlencode($id);
                 ?>
                 <td class="uk-text-center">
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
@@ -84,39 +87,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </li>
-        <!-- END LIST PAYMENT -->
-
-        <!-- START FORM INPUT PAYMENT -->
         <li>
-          <h3 class="heading_a uk-margin-bottom">Tambah atau perbaharui Payment</h3>
-          <form method="POST" name="formPAYMENT" action="<?php echo $url;?>">
-          <?php echo form_hidden('idPAYMENT',encode($getpayment->idPAYMENT),'hidden'); ?>
+          <h3 class="heading_a uk-margin-bottom">Tambah atau perbaharui Satuan</h3>
+          <form method="POST" name="formSATUAN" action="<?php echo $url;?>">
+          <?php echo form_hidden('idSATUAN',encode($getsatuan->idSATUAN),'hidden'); ?>
             <div class="uk-grid" data-uk-grid-margin>
               <div class="uk-width-medium-1-1">
                 <div class="uk-form-row">
                   <div class="uk-grid" data-uk-grid-margin>
                     <div class="uk-width-medium-1-2">
-                      <label>Nama Payment</label>
+                      <label>Nama Satuan</label>
                       <br>
-                        <input type="text" class="md-input label-fixed" name="namePAYMENT" required autocomplete value="<?php echo $getpayment->namePAYMENT;?>" />
-                        <p class="text-red"><?php echo form_error('namePAYMENT'); ?></p>
+                        <input type="text" class="md-input label-fixed" name="nameSATUAN" required autocomplete value="<?php echo $getsatuan->nameSATUAN;?>" />
+                        <p class="text-red"><?php echo form_error('nameSATUAN'); ?></p>
                     </div>
+                    <div class="uk-width-medium-1-2">
+                      <label for="Kategori" class="uk-form-label">Kategori Satuan<span class="req">*</span></label>
+                      <br>
+                      <?php echo form_dropdown('idCATEGORYSATUAN', $categorysatuan, $getsatuan->idCATEGORYSATUAN,'data-md-selectize required'); ?> 
+                    </div>
+                  </div>
+                  <div class="uk-grid" data-uk-grid-margin>
                     <div class="uk-width-medium-1-2 uk-margin-top">
                       <div class="parsley-row">
                         <?php
                           $checkdis= '';
-                          if($getpayment->statusPAYMENT == 1) $checkdis = 'checked' ;
+                          if($getsatuan->statusSATUAN == 1) $checkdis = 'checked' ;
                         ?>
-                        <input type="checkbox" data-switchery <?php echo $checkdis; ?> data-switchery-size="large" data-switchery-color="#d32f2f" name="statusPAYMENT" id="switch_demo_large">
-                        <label for="switch_demo_large" class="inline-label"><b>Aktifkan Payment</b></label>
+                        <input type="checkbox" data-switchery <?php echo $checkdis; ?> data-switchery-size="large" data-switchery-color="#d32f2f" name="statusSATUAN" id="switch_demo_large">
+                        <label for="switch_demo_large" class="inline-label"><b>Aktifkan Satuan harga</b></label>
                       </div>
                     </div>
-                    <div class="uk-width-medium-1-1 uk-margin-top">
-                        <div class="uk-form-row">
-                          <label>Payment</label>
-                            <br>
-                          <textarea cols="30" rows="4" name="descriptionPAYMENT" class="md-input label-fixed"><?php echo $getpayment->descriptionPAYMENT;?></textarea>
-                        </div>
+                    <div class="uk-width-medium-1-2 uk-margin-top">
+                      <label for="Total Harga" class="uk-form-label">Harga Satuan<span class="req">*</span></label>
+                      <?php
+                          $price = '';
+                          if(!empty($getsatuan->priceSATUAN))$price = $getsatuan->priceSATUAN;
+                      ?>
+                      <input class="md-input masked_input label-fixed" id="masked_currency" type="text" data-inputmask="'alias': 'currency', 'groupSeparator': '.', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'prefix': 'Rp. ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" name="priceSATUAN" value="<?php echo $price;?>" />
                     </div>
                   </div>
                     <div class="uk-width-medium-1-1 uk-margin-top">
@@ -129,7 +137,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </form>
         </li>
-        <!-- END FORM INPUT PAYMENT -->
       </ul>
     </div>
   </div>
