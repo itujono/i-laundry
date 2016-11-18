@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>fonts/flaticon.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/base.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/custom.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/my-app.css">
 </head>
 
@@ -210,6 +211,14 @@
 
           <!-- Scrollable page content -->
           <div class="page-content" id="app-cover">
+            <div class="notif animated slideInDown">
+              <div class="msg">
+                <p>Selamat datang di i-Laundry ya kawan, heheh.</p>
+              </div>
+              <div class="dismissable">
+                <a href="#">Dismiss</a>
+              </div>
+            </div>
             <div class="pull-right">
               <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>

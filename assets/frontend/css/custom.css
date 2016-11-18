@@ -80,6 +80,40 @@
 
 
 
+
+
+/*Notification di Home nich */
+
+.notif {
+    position: absolute;
+    top: 0;
+    left: 6%;
+    width: 80%;
+    z-index: 11;
+    padding: 15px;
+    background-color: #444;
+    color: #fff;
+    border-radius: 0 0 6px 6px;
+    text-align: left;
+    box-shadow: 1px 8px 14px rgba(0, 0, 0, 0.26);
+}
+
+.notif .msg p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.notif .dismissable a {
+    color: #fed501;
+}
+
+
+
+
+
+
+
+
 /* okay masuk ke Login page wak heheh */
 
 #login .page-top-cover {
