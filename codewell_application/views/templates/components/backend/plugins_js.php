@@ -89,17 +89,11 @@ if($plugins == 'plugins_datatables'){
 
 <!--  forms advanced functions -->
 <script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/forms_advanced.min.js"></script>
-<!-- page specific plugins -->
-<!-- kendo UI -->
-<script src="<?php echo base_url(); ?>assets/backend/assets/js/kendoui_custom.min.js"></script>
-<!--  kendoui functions -->
-<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/kendoui.min.js"></script>
-
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
 
 <?php                   
-}else{}
+}
 ?>
 <script>
     $(function() {

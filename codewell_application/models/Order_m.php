@@ -46,6 +46,11 @@ class Order_m extends MY_Model{
 			'label' => 'Waktu Antar', 
 			'rules' => 'required'
 		),
+		'pickupfinisheddateORDER' => array(
+			'field' => 'pickupfinisheddateORDER', 
+			'label' => 'Tanggal Antar', 
+			'rules' => 'required'
+		),
 		'pickupADDRESSORDERBERSIH' => array(
 			'field' => 'pickupADDRESSORDERBERSIH', 
 			'label' => 'Alamat Antar', 

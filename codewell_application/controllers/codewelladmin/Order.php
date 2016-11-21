@@ -164,6 +164,7 @@ class Order extends Admin_Controller {
         $data['partner'] = $this->Partner_m->select_all_partner_drop(NULL, 1);
 
         $data['editorder'] = $editorder;
+
         $data['subview'] = $this->load->view('templates/backend/Update_order', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
 	}
@@ -175,9 +176,8 @@ class Order extends Admin_Controller {
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER','rejectedmessagesORDER'));
-			$data['pickupfinishedtimeORDER'] = str_replace(['PM',' '], [':00',''], $data['pickupfinishedtimeORDER']);
-			$data['pickupfinishedtimeORDER'] = date("Y-m-d H:i:s",strtotime($data['pickupfinishedtimeORDER']));
+			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupfinisheddateORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER','rejectedmessagesORDER'));
+			$data['pickupfinisheddateORDER'] = date("Y-m-d",strtotime($data['pickupfinisheddateORDER']));
 			$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
 
 			$id = decode($this->input->post('idORDER'));

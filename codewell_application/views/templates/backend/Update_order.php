@@ -62,13 +62,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input class="md-input" type="text" value="<?php echo dF($editorder->pickuptimeORDER, 'l, d F Y (H:i:s)');?>" disabled required>
                     </div>
                 </div>
-                <div class="uk-width-medium-1-2 uk-margin-top">
+                <div class="uk-width-medium-1-4 uk-margin-top">
+                    <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
+                    <?php
+                        $datedelivery = '';
+                        if(!empty($editorder->pickupfinisheddateORDER))$datedelivery = $editorder->pickupfinisheddateORDER;
+                    ?>
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $datedelivery;?>">
+                </div>
+                <div class="uk-width-medium-1-4 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Waktu Antar<span class="req">*</span></label>
                     <?php
                         $timedelivery = '';
-                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = dF($editorder->pickupfinishedtimeORDER, 'dd/MM/yyyy HH:mm');
+                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = $editorder->pickupfinishedtimeORDER;
                     ?>
-                    <input id="kUI_datetimepicker_basic" name="pickupfinishedtimeORDER" required value="<?php echo $timedelivery;?>">
+                    <input class="md-input" type="text" name="pickupfinishedtimeORDER" id="uk_tp_1" data-uk-timepicker value="<?php echo $timedelivery;?>">
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>

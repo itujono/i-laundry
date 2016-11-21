@@ -1,6 +1,6 @@
  <div id="page_heading" data-uk-sticky="{ top: 48, media: 960 }" class="uk-margin-bottom">
  	<h1><?php echo $detailorder->nameCUSTOMER;?>, <?php echo $detailorder->namePACKAGE;?></h1>
- 	<span class="uk-text-muted uk-text-upper"><b><?php echo $detailorder->kodeORDER;?> (<?php echo dF($detailorder->createdateORDER, 'd F Y (H:i:s)');?>)</span></b>
+ 	<span class="uk-text-muted uk-text-upper"><b><?php echo $detailorder->kodeORDER;?> (<?php echo dF($detailorder->createdateORDER, 'd F Y (H:i)');?>)</span></b>
  </div>
   <?php if (!empty($message)){ ?>
       <div class="uk-alert uk-alert-<?php echo $message['type']; ?>" data-uk-alert>
@@ -22,13 +22,13 @@
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Waktu ambil laundry (KOTOR)</span>
- 							<span class="md-list-heading uk-text-medium uk-text-success"><?php echo dF($detailorder->pickuptimeORDER, 'd F Y (H:i:s)');?></span>
+ 							<span class="md-list-heading uk-text-medium uk-text-success"><?php echo dF($detailorder->pickuptimeORDER, 'd F Y (H:i)');?></span>
  						</div>
  					</li>
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Waktu antar laundry (BERSIH)</span>
- 							<span class="md-list-heading uk-text-medium"><?php echo dF( $detailorder->pickupfinishedtimeORDER, 'd F Y H:i:s' );?></span>
+ 							<span class="md-list-heading uk-text-medium"><?php echo dF($detailorder->pickupfinisheddateORDER, 'd F Y');?> (<?php echo dF($detailorder->pickupfinishedtimeORDER, 'H:i');?>)</span>
  						</div>
  					</li>
  					<li>
