@@ -45,7 +45,7 @@
             <input type="text" class="text-thiny" placeholder="Cari apa saja...">
           </div>
           <div class="col-15">
-            <a href="#"><i class="flaticon-menu"></i></a>
+            <a href="#" class="close-panel"><i class="flaticon-menu"></i></a>
           </div>
         </div>
         <?php

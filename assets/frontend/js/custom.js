@@ -12,4 +12,9 @@ $(document).ready(function() {
 	});
 });
 
-	
+$(document).ready(function() {
+    $(".notif").on("click", function() {
+      $(this).removeClass("animated slideInDown");
+      $(this).addClass("animated slideOutUp");
+    });
+});
