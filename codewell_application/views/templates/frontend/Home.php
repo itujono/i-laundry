@@ -111,7 +111,7 @@
             </div>
             <div class="item-inner no-margin">
               <div class="item-title text-small">
-                <a href="<?php echo base_url();?>satuan"  class="close-panel">Harga Satuan</a>
+                <a href="<?php echo base_url();?>satuan" class="close-panel">Harga Satuan</a>
               </div>
             </div>
           </div>

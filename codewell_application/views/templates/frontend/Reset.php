@@ -16,7 +16,9 @@
 					  <ul class="no-border">		
 						<li>
 						  <div class="item-content">
-							<div class="input-icon item-media"><i class="flaticon-email"></i></div>
+							<div class="input-icon item-media">
+								<i class="flaticon-email"></i>
+							</div>
 							<div class="item-inner no-margin">
 							  <div class="item-input">
 								<input type="email" name="emailing" class="" placeholder="Ketik email kamu">

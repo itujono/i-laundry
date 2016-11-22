@@ -24,9 +24,9 @@
 							$img = base_url().$this->data['asfront'].'img/photos/user.png';
 						}
 					?>
-						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/>
+						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/> 
 						<div class="change-ava">
-							<input type="file" class="inputfile" id="file" name="imgCUSTOMER">
+							<input type="file" class="inputfile" id="file" name="myfiles[]">
 							<label for="file">
 								<i class="icon icon-camera"></i>
 								Ubah avatarmu...

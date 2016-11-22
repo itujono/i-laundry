@@ -189,6 +189,17 @@
     background-color: #47c3e6;
 }
 
+#order .payment-option {
+    padding-left: 0;
+}
+
+#order .list-block .item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    text-align: left;
+    top: 5px;
+}
 
 
 
@@ -288,6 +299,17 @@
     overflow: hidden;
     position: absolute;
     z-index: -1;
+}
+
+label#bb {
+    padding: 10px;
+    background: red; 
+    display: table;
+    color: #fff;
+}
+
+input[type="file"] {
+    display: none;
 }
 
 .inputfile + label {
