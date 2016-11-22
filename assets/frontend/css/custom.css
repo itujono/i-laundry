@@ -402,3 +402,37 @@ input[type="file"] {
 .about-app {
     float: left;
 }
+
+
+
+
+
+
+/* Mak Review Order wak nih eheheh */
+
+.review {
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.review-list {
+    padding-left: 10px;
+}
+
+.review-list h4 {
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.review-list p {
+    margin: 0;
+}
+
+.review-list > li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    list-style-type: none;
+}

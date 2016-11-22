@@ -183,7 +183,6 @@
 					</ul>
 				</div>
 				<div class="margin-bottom-15 content-block">
-					<!-- <a href="login.html" class="button button-fill color-deeporange text-thiny">Book now</a> -->
 					<input type="submit" name="submit" class="button button-fill" value="Konfirmasi data" />
 				</div>
 			</form>
