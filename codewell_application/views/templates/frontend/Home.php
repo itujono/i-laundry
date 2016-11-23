@@ -223,14 +223,18 @@
 
           <!-- Scrollable page content -->
           <div class="page-content" id="app-cover">
-            <div class="notif animated slideInDown">
-              <div class="msg">
-                <p>Selamat datang di i-Laundry ya kawan, heheh.</p>
-              </div>
-              <div class="dismissable">
-                <a href="#">Dismiss</a>
-              </div>
-            </div>
+              <?php
+                if (!empty($message)){
+              ?>
+                <div class="notif animated slideInDown">
+                  <div class="msg">
+                    <p><?php echo $message['text'];?></p>
+                  </div>
+                  <div class="dismissable">
+                    <a href="#">Dismiss</a>
+                  </div>
+                </div>
+              <?php } ?>
             <div class="pull-right">
               <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
             </div>
