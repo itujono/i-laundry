@@ -26,7 +26,7 @@
 					?>
 						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/> 
 						<div class="change-ava">
-							<input type="file" class="inputfile" id="file" name="myfiles[]">
+							<input type="file" class="inputfile" id="file" name="imageCUSTOMER[]">
 							<label for="file">
 								<i class="icon icon-camera"></i>
 								Ubah avatarmu...
