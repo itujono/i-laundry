@@ -125,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img src="<?php echo $getpromo->imagePROMO;?>" alt="" class="img_medium"/>
                     </div>
                     <?php } else { ?>
-                      <?php echo form_upload('imagePROMO','','class="md-input" required'); ?>
+                      <?php echo form_upload('imgPROMO','','class="md-input" required'); ?>
                     <?php } ?>
                   </div>
                 </div>

@@ -92,11 +92,11 @@ class Promo extends Admin_Controller {
 			$idpromo = $this->Promo_m->save($data, $id);
 			if($idpromo != NULL) $Pic = $idpromo;
 
-			$files = $_FILES['imagePROMO'];
+			$files = $_FILES['imgPROMO'];
 			$path = 'assets/upload/promo/'.$partner.'/'.folderENCRYPT($Pic);
 			$map = directory_map($path, FALSE, TRUE);
 
-			if(!empty($_FILES['imagePROMO']['name'])){
+			if(!empty($_FILES['imgPROMO']['name'])){
 				foreach ($map as $value) {
 					unlink($path.'/'.$value);
 				}
@@ -114,7 +114,7 @@ class Promo extends Admin_Controller {
 
 	      	$this->upload->initialize($config);
 
-	      	if ($this->upload->do_upload('imagePROMO')) {
+	      	if ($this->upload->do_upload('imgPROMO')) {
 
 				$data['uploads'] = $this->upload->data();
 	        	$data = array(
@@ -125,12 +125,12 @@ class Promo extends Admin_Controller {
 
 	   		} else {
 
-   				if ($_FILES['imagePROMO']['error'] != 4) {
+   				if ($_FILES['imgPROMO']['error'] != 4) {
 				$data['upload_errors'] = $this->upload->display_errors();
 				$data = array(
 					'title' => 'Gagal',
 					'text' => $data['upload_errors'].' '.$msg,
-					'type' => 'error'
+					'type' => 'success'
 					);
 
 				} else {

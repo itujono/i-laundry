@@ -1060,7 +1060,7 @@ class Customer extends Frontend_Controller {
 
 			$config['upload_path']          = $path;
 	      	$config['allowed_types']        = 'gif|jpg|png|jpeg';
-	      	$config['max_size']             = 2048;
+	      	//$config['max_size']             = 2048;
 	      	$config['overwrite']             = TRUE;
 	      	$config['file_name']             = 'Profil '.$filenameemail;
 
@@ -1088,14 +1088,14 @@ class Customer extends Frontend_Controller {
 				}
       		}
 	    	$this->session->set_flashdata('message', $data);
-	  		redirect($_SERVER['HTTP_REFERER']);
+	  		redirect('Home');
 			} else {
 
 					$data = array(
 	          			'text' => 'Maaf, kami tidak dapat merubah data kamu, mohon ulangi beberapa saat lagi.'
 	        			);
 	        $this->session->set_flashdata('message',$data);
-	        redirect($_SERVER['HTTP_REFERER']);
+	        redirect('Home');
 			}
 		}
 }
