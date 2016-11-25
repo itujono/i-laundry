@@ -61,13 +61,21 @@ $$(document).on("pageInit", function (e) {
                 textAlign: "left",
                 values: (function () {
                     var arr = [];
-                    for (var i = 0; i <= 23; i++) { arr.push(i); }
+                    for (var i = 1; i <= 23; i++) { arr.push(i); }
                     return arr;
                 })(),
             },
             {
-                values: ("PM AM").split(" ")
+                divider: true,
+                content: ':'
             },
+            {
+                values: (function () {
+                    var arr = [];
+                    for (var i = 0; i <= 59; i++) { arr.push(i < 10 ? '0' + i : i); }
+                    return arr;
+                })(),
+            }
         ]
     }); 
 });

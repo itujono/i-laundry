@@ -36,7 +36,7 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<input type="text" placeholder="Time*" id="picker-time" required>
+										<input type="text" placeholder="Jam berapa?" id="picker-time" required>
 								  	</div>
 								</div>
 							
@@ -50,13 +50,18 @@
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
 								  		<select>
-								  			<option value="Sekupang">Sekupang</option>
-								  			<option value="Batam Center">Batam Center</option>
-								  			<option value="Sagulung">Sagulung</option>
-								  			<option value="Batam Kota">Batam Kota</option>
+								  			<option value="Sekupang">Batam Kota</option>
+								  			<option value="Batam Center">Batu Aji</option>
+								  			<option value="Sagulung">Batu Ampar</option>
 								  			<option value="Belakang Padang">Belakang Padang</option>
-								  			<option value="Rempang">Rempang</option>
-								  			<option value="Batu Ampar">Batu Ampar</option>
+								  			<option value="Bengkong">Bengkong</option>
+								  			<option value="Bulang">Bulang</option>
+								  			<option value="Galang">Galang</option>
+								  			<option value="Lubuk Baja">Lubuk Baja</option>
+								  			<option value="Nongsa">Nongsa</option>
+								  			<option value="Sagulung">Sagulung</option>
+								  			<option value="Sekupang">Sekupang</option>
+								  			<option value="Sungai Beduk">Sungai Beduk</option>
 								  		</select>
 								  	</div>
 								</div>
@@ -142,48 +147,53 @@
 						  	</div>
 						</li>
 						<li>
-							<ul class="payment-option">
-						    <!-- Single radio input -->
-							    <li>
-							      	<label class="label-radio item-content">
-							        <!-- Checked by default -->
-							        	<input type="radio" name="my-radio" value="transfer" checked="checked">
-								        <div class="item-media">
-								          	<i class="icon icon-form-radio"></i>
-								        </div>
-								        <div class="item-inner">
-								          	<div class="item-title">Transfer Bank</div>
-								        </div>
-							      	</label>
-							    </li>
-							    <li>
-							      	<label class="label-radio item-content">
-							        	<input type="radio" name="my-radio" value="debit">
-								        <div class="item-media">
-								          	<i class="icon icon-form-radio"></i>
-								        </div>
-								        <div class="item-inner">
-								          	<div class="item-title">Kartu Debit/Kartu Kredit</div>
-								        </div>
-							      	</label>
-							    </li>
-							    <li>
-							      	<label class="label-radio item-content">
-							        	<input type="radio" name="my-radio" value="cash">
-								        <div class="item-media">
-								          	<i class="icon icon-form-radio"></i>
-								        </div>
-								        <div class="item-inner">
-								          	<div class="item-title">Tunai/COD</div>
-								        </div>
-							      	</label>
-							    </li>
-						  	</ul>
+							<div class="item-content block">
+								<ul class="payment-option">
+									<h3>Pilih metode pembayaran</h3>
+								    <li>
+								      	<label class="label-radio item-content">
+								        <!-- Checked by default -->
+								        	<input type="radio" name="my-radio" value="transfer" checked="checked">
+									        <div class="item-media">
+									          	<i class="icon icon-form-radio"></i>
+									        </div>
+									        <div class="item-inner">
+									          	<div class="item-title">Transfer Bank</div>
+									        </div>
+								      	</label>
+								    </li>
+								    <li>
+								      	<label class="label-radio item-content">
+								        	<input type="radio" name="my-radio" value="debit">
+									        <div class="item-media">
+									          	<i class="icon icon-form-radio"></i>
+									        </div>
+									        <div class="item-inner">
+									          	<div class="item-title">Kartu Debit/Kartu Kredit</div>
+									        </div>
+								      	</label>
+								    </li>
+								    <li>
+								      	<label class="label-radio item-content">
+								        	<input type="radio" name="my-radio" value="cash">
+									        <div class="item-media">
+									          	<i class="icon icon-form-radio"></i>
+									        </div>
+									        <div class="item-inner">
+									          	<div class="item-title">Tunai/COD</div>
+									        </div>
+								      	</label>
+								    </li>
+						  		</ul>
+						  		<div class="foot-note">
+						  			Note: Nomor rekening (untuk metode Transfer Bank) akan diberitahukan di email
+						  		</div>
+						  	</div>
 						</li>
 					</ul>
 				</div>
-				<div class="margin-bottom-15 content-block">
-					<input type="submit" name="submit" class="button button-fill" value="Konfirmasi data" />
+				<div class="margin-bottom-45 content-block">
+					<input type="submit" name="submit" class="button button-fill" value="Okay, order sekarang" />
 				</div>
 			</form>
 		</div>
