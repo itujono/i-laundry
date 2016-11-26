@@ -12,7 +12,10 @@
 		</div>
 		<div class="page-content">
 			<div class="review">
-				<div class="content-block-title">Ini detail orderan kamu kali ini.</div>
+				<div class="content-block-title">
+					<p>Ini detail orderan kamu kali ini</p>
+					<h2>Inv #34950A</h2>
+				</div>
 			    <div class="content-block">
 			    	<ul class="review-list">
 			    		<li>
@@ -29,7 +32,7 @@
 					    </li>
 			    		<li>
 					    	<h4>Alamat</h4>
-					    	<p>Jalan Kepodang Timur</p>
+					    	<p>Perumahan Bestari Mall <br> Jalan Kepodang Timur #34 Sanusi Selatan Batam 29462</p>
 					    </li>
 			    	</ul>
 			    </div>

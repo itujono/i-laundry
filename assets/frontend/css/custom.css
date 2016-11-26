@@ -437,15 +437,24 @@ input[type="file"] {
 
 /* Mak Review Order wak nih eheheh */
 
+#order-review {
+    background: #f1f1f1;
+}
+
 .review {
+    background: url(../img/papernote.png) no-repeat -45px top;
     float: left;
     width: 100%;
+    height: 80%;
     margin-top: 50px;
     margin-bottom: 30px;
 }
 
 .review-list {
-    padding-left: 10px;
+    position: relative;
+    top: 100px;
+    padding-left: 30px;
+    color: #444;
 }
 
 .review-list h4 {
@@ -459,7 +468,20 @@ input[type="file"] {
 
 .review-list > li {
     margin-bottom: 10px;
-    padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
-    list-style-type: none;
+}
+
+.review .content-block-title {
+    padding-left: 20px;
+    position: relative;
+    top: 100px;
+}
+
+.review .content-block-title > p {
+    margin: 0;
+}
+
+.review .content-block-title > h2 {
+    font-weight: 700;
+    color: #444;
 }
