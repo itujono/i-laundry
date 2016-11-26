@@ -49,20 +49,7 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-								  		<select>
-								  			<option value="Sekupang">Batam Kota</option>
-								  			<option value="Batam Center">Batu Aji</option>
-								  			<option value="Sagulung">Batu Ampar</option>
-								  			<option value="Belakang Padang">Belakang Padang</option>
-								  			<option value="Bengkong">Bengkong</option>
-								  			<option value="Bulang">Bulang</option>
-								  			<option value="Galang">Galang</option>
-								  			<option value="Lubuk Baja">Lubuk Baja</option>
-								  			<option value="Nongsa">Nongsa</option>
-								  			<option value="Sagulung">Sagulung</option>
-								  			<option value="Sekupang">Sekupang</option>
-								  			<option value="Sungai Beduk">Sungai Beduk</option>
-								  		</select>
+								  		<input type="text" placeholder="Daerah mana?" readonly id="picker-daerah" required>
 								  	</div>
 								</div>
 						  	</div>
@@ -83,7 +70,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idPACKAGE" required>
+										<!-- <select name="idPACKAGE" required>
 										<?php
                                         if(!empty($listpackage)){
                                             foreach ($listpackage as $key => $package) {
@@ -96,7 +83,8 @@
 											<option value="<?php echo $package->idPACKAGE;?>" <?php echo $check;?>><?php echo $package->namePACKAGE;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select>
+										</select> -->
+										<input type="text" placeholder="Mau paket yang mana?" readonly id="picker-paket">
 								  	</div>
 								</div>
 							
@@ -106,7 +94,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idAROMA" required>
+										<!-- <select name="idAROMA" required>
 										<?php
 										if(!empty($listaroma)){
 	                                        foreach ($listaroma as $key => $aroma) {
@@ -119,7 +107,8 @@
 											<option value="<?php echo $aroma->idAROMA;?>" <?php echo $check;?>><?php echo $aroma->nameAROMA;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select>
+										</select> -->
+										<input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma">
 								  	</div>
 								</div>
 						  	</div>
@@ -128,7 +117,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idSERVICES" required>
+										<!-- <select name="idSERVICES" required>
 										<?php
                                         if(!empty($listservices)){
                                             foreach ($listservices as $key => $services) {
@@ -141,53 +130,10 @@
 											<option value="<?php echo $services->idSERVICES;?>" <?php echo $check;?>><?php echo $services->nameSERVICES;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select>
+										</select> -->
+										<input type="text" placeholder="Mau service apa?" readonly id="picker-service">
 								  	</div>
 								</div>
-						  	</div>
-						</li>
-						<li>
-							<div class="item-content block">
-								<ul class="payment-option">
-									<h3>Pilih metode pembayaran</h3>
-								    <li>
-								      	<label class="label-radio item-content">
-								        <!-- Checked by default -->
-								        	<input type="radio" name="my-radio" value="transfer" checked="checked">
-									        <div class="item-media">
-									          	<i class="icon icon-form-radio"></i>
-									        </div>
-									        <div class="item-inner">
-									          	<div class="item-title">Transfer Bank</div>
-									        </div>
-								      	</label>
-								    </li>
-								    <li>
-								      	<label class="label-radio item-content">
-								        	<input type="radio" name="my-radio" value="debit">
-									        <div class="item-media">
-									          	<i class="icon icon-form-radio"></i>
-									        </div>
-									        <div class="item-inner">
-									          	<div class="item-title">Kartu Debit/Kartu Kredit</div>
-									        </div>
-								      	</label>
-								    </li>
-								    <li>
-								      	<label class="label-radio item-content">
-								        	<input type="radio" name="my-radio" value="cash">
-									        <div class="item-media">
-									          	<i class="icon icon-form-radio"></i>
-									        </div>
-									        <div class="item-inner">
-									          	<div class="item-title">Tunai/COD</div>
-									        </div>
-								      	</label>
-								    </li>
-						  		</ul>
-						  		<div class="foot-note">
-						  			Note: Nomor rekening (untuk metode Transfer Bank) akan diberitahukan di email
-						  		</div>
 						  	</div>
 						</li>
 					</ul>

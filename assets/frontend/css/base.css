@@ -8,6 +8,18 @@ body {
 	font-family: "Roboto", Arial, sans-serif;
 }
 
+
+
+.theme-blue .toolbar {
+    background-color: #65c3f7;
+}
+
+.theme-blue .input-field.focus-state:after, .theme-blue .input-field.not-empty-state:after,
+.theme-blue .item-input-field.focus-state:after, .theme-blue .item-input-field.not-empty-state:after {
+    background: #85c7fb;
+}
+
+
 /* Titles */
 
 h1,
