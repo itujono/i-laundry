@@ -54,7 +54,7 @@
 		                  	<a href="#" class="button login-btn">Okay, silakan proses</a>
 		                </div>
 		                <div class="col-50">
-		                  	<a href="#" class="button link-btn">
+		                  	<a href="<?php echo base_url();?>order" class="button link-btn">
 		                    	Tunggu dulu!
 		                  	</a>
 		                </div>
