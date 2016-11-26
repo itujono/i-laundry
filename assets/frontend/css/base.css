@@ -14,9 +14,11 @@ body {
     background-color: #65c3f7;
 }
 
-.theme-blue .input-field.focus-state:after, .theme-blue .input-field.not-empty-state:after,
+
+
+.theme-blue .navbar, .theme-blue .input-field.focus-state:after, .theme-blue .input-field.not-empty-state:after,
 .theme-blue .item-input-field.focus-state:after, .theme-blue .item-input-field.not-empty-state:after {
-    background: #85c7fb;
+    background: #5ac9ff;
 }
 
 
