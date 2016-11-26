@@ -14,11 +14,13 @@ body {
     background-color: #65c3f7;
 }
 
-
+.button:active {
+  transform: translateY(2px);
+}
 
 .theme-blue .navbar, .theme-blue .input-field.focus-state:after, .theme-blue .input-field.not-empty-state:after,
 .theme-blue .item-input-field.focus-state:after, .theme-blue .item-input-field.not-empty-state:after {
-    background: #5ac9ff;
+    background: #2196f3;
 }
 
 
@@ -129,8 +131,8 @@ h6 {
     overflow: hidden;
     outline: 0;
     border: none;
-    -webkit-transition-duration: .3s;
-    transition-duration: .3s;
+    -webkit-transition-duration: .05s;
+    transition-duration: .05s;
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }

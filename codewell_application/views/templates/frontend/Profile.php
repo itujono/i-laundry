@@ -23,15 +23,12 @@
 						} else {
 							$img = base_url().$this->data['asfront'].'img/photos/user.png';
 						}
-					?>
-						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/> 
-						<div class="change-ava">
-							<input type="file" class="inputfile" id="file" name="imgCUSTOMER">
-							<label for="file">
-								<i class="icon icon-camera"></i>
-								Ubah avatarmu...
-							</label>
-						</div>
+					?>	
+						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/>
+						<label class="img-container" for="imgfile">
+							Ubah avatarmu...
+							<input type="file" name="imgfile"/>
+						</label>
 					</div>
 				  	<ul class="no-border">
 				  		<input readonly type="hidden" name='idCUSTOMER' value="<?php echo encode($profile->idCUSTOMER);?>"/>
