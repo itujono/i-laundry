@@ -19,12 +19,14 @@
 			    <div class="content-block">
 			    	<ul class="review-list">
 			    		<li>
-					    	<h4>Tanggal</h4>
-					    	<p>15 November 2016</p>
-					    </li>
-			    		<li>
-					    	<h4>Jam</h4>
-					    	<p>14.00</p>
+			    			<div>
+						    	<h4>Tanggal</h4>
+						    	<p>15 November 2016</p>
+					    	</div>
+				    		<div>
+						    	<h4>Jam</h4>
+						    	<p>14.00</p>
+						    </div>
 					    </li>
 			    		<li>
 					    	<h4>Daerah</h4>
@@ -32,9 +34,31 @@
 					    </li>
 			    		<li>
 					    	<h4>Alamat</h4>
-					    	<p>Perumahan Bestari Mall <br> Jalan Kepodang Timur #34 Sanusi Selatan Batam 29462</p>
+					    	<p>Perumahan Bestari Mall <br> Jalan Kepodang Timur #34 Sanusi Selatan <br> Batam 29462</p>
+					    </li>
+			    		<li>
+					    	<h4>Paket</h4>
+					    	<p>Express premium (5 jam selesai)</p>
+					    </li>
+			    		<li>
+					    	<h4>Aroma</h4>
+					    	<p>Mystique</p>
+					    </li>
+			    		<li>
+					    	<h4>Service</h4>
+					    	<p>Cuci gosok</p>
 					    </li>
 			    	</ul>
+	              	<div class="button-submit">
+		                <div class="col-50">
+		                  	<a href="#" class="button login-btn">Okay, silakan proses</a>
+		                </div>
+		                <div class="col-50">
+		                  	<a href="#" class="button link-btn">
+		                    	Tunggu dulu!
+		                  	</a>
+		                </div>
+		            </div>
 			    </div>
 		    </div>
 		</div>
