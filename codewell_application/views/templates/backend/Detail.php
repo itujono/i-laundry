@@ -207,7 +207,7 @@
         </div>
  	</div>
  </div>
-<?php if($detailorder->statusORDER != 4){ ?>
+<?php if($detailorder->statusORDER != 4 AND $detailorder->statusORDER != 5){ ?>
 <div class="md-fab-wrapper">
 	<div class="md-fab md-fab-accent md-fab-sheet">
 	    <i class="material-icons">&#xE54A;</i>

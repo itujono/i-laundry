@@ -10,32 +10,37 @@ class Order_m extends MY_Model{
 	public $rules_order = array(
 		'pickuptimeORDER' => array(
 			'field' => 'pickuptimeORDER', 
-			'label' => 'pickuptimeORDER', 
+			'label' => 'Jam Jemput', 
+			'rules' => 'required'
+		),
+		'pickupdateORDER' => array(
+			'field' => 'pickupdateORDER', 
+			'label' => 'Tanggal Jemput', 
 			'rules' => 'required'
 		),
 		'pickupADDRESSORDERKOTOR' => array(
 			'field' => 'pickupADDRESSORDERKOTOR', 
-			'label' => 'pickupADDRESSORDERKOTOR', 
+			'label' => 'Alamat Jemput', 
 			'rules' => 'required'
 		),
 		'idAROMA' => array(
 			'field' => 'idAROMA', 
-			'label' => 'idAROMA', 
+			'label' => 'Aroma', 
 			'rules' => 'required'
 		),
 		'idSERVICES' => array(
 			'field' => 'idSERVICES', 
-			'label' => 'idSERVICES', 
+			'label' => 'Layanan', 
 			'rules' => 'required'
 		),
 		'idPACKAGE' => array(
 			'field' => 'idPACKAGE', 
-			'label' => 'idPACKAGE', 
+			'label' => 'Paket', 
 			'rules' => 'required'
 		),
-		'idPAYMENT' => array(
-			'field' => 'idPAYMENT', 
-			'label' => 'idPAYMENT', 
+		'idREGION' => array(
+			'field' => 'idREGION', 
+			'label' => 'Daerah', 
 			'rules' => 'required'
 		)
 	);
@@ -65,6 +70,49 @@ class Order_m extends MY_Model{
 			'field' => 'priceORDER', 
 			'label' => 'Price Order', 
 			'rules' => 'required'
+		)
+	);
+
+	public $rules_order_confirmation = array(
+		'pickuptimeORDER' => array(
+			'field' => 'pickuptimeORDER', 
+			'label' => 'Jam Jemput', 
+			'rules' => 'required'
+		),
+		'pickupdateORDER' => array(
+			'field' => 'pickupdateORDER', 
+			'label' => 'Tanggal Jemput', 
+			'rules' => 'required'
+		),
+		'pickupADDRESSORDERKOTOR' => array(
+			'field' => 'pickupADDRESSORDERKOTOR', 
+			'label' => 'Alamat Jemput', 
+			'rules' => 'required'
+		),
+		'idAROMA' => array(
+			'field' => 'idAROMA', 
+			'label' => 'Aroma', 
+			'rules' => 'required'
+		),
+		'idSERVICES' => array(
+			'field' => 'idSERVICES', 
+			'label' => 'Layanan', 
+			'rules' => 'required'
+		),
+		'idPACKAGE' => array(
+			'field' => 'idPACKAGE', 
+			'label' => 'Paket', 
+			'rules' => 'required'
+		),
+		'idREGION' => array(
+			'field' => 'idREGION', 
+			'label' => 'Daerah', 
+			'rules' => 'required'
+		),
+		'kodeORDER' => array(
+			'field' => 'kodeORDER', 
+			'label' => 'Kode Order', 
+			'rules' => 'required|is_unique[codewell_orders.kodeORDER]'
 		)
 	);
 	
@@ -132,6 +180,13 @@ class Order_m extends MY_Model{
 		
 		return $this->db->get();
 
+	}
+
+	public function checkkodeorder($kodeorder){
+		$this->db->select('kodeORDER');
+		$this->db->from('orders');
+		$this->db->where('kodeORDER', $kodeorder);
+		return $this->db->get();
 	}
 
 }

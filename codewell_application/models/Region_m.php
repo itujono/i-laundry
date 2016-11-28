@@ -27,14 +27,18 @@ class Region_m extends MY_Model{
 		return $new;
 	}
 
-	public function selectall_region($id=NULL){
+	public function selectall_region($id=NULL,$status=NULL){
 		$this->db->select('regions.*');
 
 		$this->db->from('regions');
 
+		if($status != NULL){
+        	$this->db->where('statusREGION',1);
+		}
         if($id != NULL){
             $this->db->where('regions.idREGION',$id);
 		}
+
 		return $this->db->get();
 	}
 

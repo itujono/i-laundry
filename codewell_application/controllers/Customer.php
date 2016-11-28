@@ -423,7 +423,7 @@ class Customer extends Frontend_Controller {
 							'text' => 'Kata sandi kamu sudah berhasil diganti.'
 							);
 						$this->session->set_flashdata('message', $data);
-						redirect(base_url().'#!/'.base_url().'Customer/settings');
+						redirect(base_url());
 					}else{
 						echo $this->email->print_debugger();
 					}

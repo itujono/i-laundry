@@ -13,7 +13,7 @@
 			
 			<div class="page-top-cover reservation-cover"></div>
 			<div class="text-medium margin-top-15">Mau nyuci sekarang? <br> Isi form di bawah ini ya</div>
-			<form>
+			<form method="POST" action="<?php echo base_url();?>Order/confirmation_order">
 				<div class="list-block margin-bottom-40 booking-form">
 				  	<ul class="no-border">
 						<li>
@@ -23,7 +23,7 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<input type="text" name="pickuptimeORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
+										<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
 								  	</div>
 								</div>
 							
@@ -36,7 +36,7 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<input type="text" placeholder="Jam berapa?" id="picker-time" required>
+										<input type="text" name="pickuptimeORDER" placeholder="Jam berapa?" id="picker-time" required>
 								  	</div>
 								</div>
 							
@@ -49,7 +49,21 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-								  		<input type="text" placeholder="Daerah mana?" readonly id="picker-daerah" required>
+								  		<select name="idREGION" required>
+										<?php
+                                        if(!empty($listregion)){
+                                            foreach ($listregion as $key => $region) {
+                                                if($key == 0){
+                                                    $check = 'checked="checked"';
+                                                } else {
+                                                    $check = '';
+                                                }
+                                        ?>
+											<option value="<?php echo $region->idREGION;?>" <?php echo $check;?>><?php echo $region->nameREGION;?></option>
+										<?php } ?>
+										<?php } ?>
+										</select>
+								  		<!-- <input type="text" placeholder="Daerah mana?" readonly id="picker-daerah" required> -->
 								  	</div>
 								</div>
 						  	</div>
@@ -70,7 +84,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<!-- <select name="idPACKAGE" required>
+										<select name="idPACKAGE" required>
 										<?php
                                         if(!empty($listpackage)){
                                             foreach ($listpackage as $key => $package) {
@@ -83,8 +97,8 @@
 											<option value="<?php echo $package->idPACKAGE;?>" <?php echo $check;?>><?php echo $package->namePACKAGE;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select> -->
-										<input type="text" placeholder="Mau paket yang mana?" readonly id="picker-paket">
+										</select>
+										<!-- <input type="text" placeholder="Mau paket yang mana?" readonly id="picker-paket"> -->
 								  	</div>
 								</div>
 							
@@ -94,7 +108,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<!-- <select name="idAROMA" required>
+										<select name="idAROMA" required>
 										<?php
 										if(!empty($listaroma)){
 	                                        foreach ($listaroma as $key => $aroma) {
@@ -107,8 +121,8 @@
 											<option value="<?php echo $aroma->idAROMA;?>" <?php echo $check;?>><?php echo $aroma->nameAROMA;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select> -->
-										<input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma">
+										</select>
+										<!-- <input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma"> -->
 								  	</div>
 								</div>
 						  	</div>
@@ -117,7 +131,7 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<!-- <select name="idSERVICES" required>
+										<select name="idSERVICES" required>
 										<?php
                                         if(!empty($listservices)){
                                             foreach ($listservices as $key => $services) {
@@ -130,8 +144,8 @@
 											<option value="<?php echo $services->idSERVICES;?>" <?php echo $check;?>><?php echo $services->nameSERVICES;?></option>
 										<?php } ?>
 										<?php } ?>
-										</select> -->
-										<input type="text" placeholder="Mau service apa?" readonly id="picker-service">
+										</select>
+										<!-- <input type="text" placeholder="Mau service apa?" readonly id="picker-service"> -->
 								  	</div>
 								</div>
 						  	</div>

@@ -10,6 +10,7 @@ class Order extends Frontend_Controller {
         $this->load->model('Services_m');
         $this->load->model('Package_m');
 		$this->load->model('Order_m');
+		$this->load->model('Region_m');
     }
 
 	public function index() {
@@ -20,12 +21,13 @@ class Order extends Frontend_Controller {
 		            'text' => 'Maaf, kamu diharuskan untuk masuk/login terlebih dahulu.'
 	        );
 			$this->session->set_flashdata('message',$data);
-			redirect(base_url());
+			redirect('Customer/login');
 		}
-
+		//$data = '';
 		$data['listaroma'] = $this->Aroma_m->selectall_aroma(NULL, 1)->result();
 		$data['listservices'] = $this->Services_m->selectall_services(NULL, 1)->result();
 		$data['listpackage'] = $this->Package_m->selectall_package(NULL, 1)->result();
+		$data['listregion'] = $this->Region_m->selectall_region(NULL, 1)->result();
 		
 		$this->load->view($this->data['frontendDIR']. 'Order',$data);
 	}
@@ -34,69 +36,88 @@ class Order extends Frontend_Controller {
 		$rules = $this->Order_m->rules_order;
 		$this->form_validation->set_rules($rules);
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+		$this->form_validation->set_message('is_unique', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
 
-			$datas = $this->Order_m->array_from_post(array('pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT'));
-			$datas['pickuptimeORDER'] = str_replace(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September' , 'Oktober', 'November', 'Desember','Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', ',', ' '], ['01', '02', '03', '04', '05', '06', '07', '08' , '09' , '10', '11', '12', '', '', '', '', '', '', '', '','.'], $datas['pickuptimeORDER']);
+			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT','idREGION'));
+			$datas['pickuptimeORDER'] = str_replace([' '], [':'], $datas['pickuptimeORDER']);
 
-			$datas['pickuptimeORDER'] = date("Y-m-d",strtotime($datas['pickuptimeORDER']));
-			
+			//START GENERATE KODE ORDER //
+			$chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			$res = "";
+			for ($i = 0; $i < 4; $i++) {
+			    $res .= $chars[mt_rand(0, strlen($chars)-1)];
+			}
+			$kodeorder = "IL" . date('Ymd') . $res;
+			//END GENERATE KODE ORDER //
+
+			$datas['kodeORDER'] = $kodeorder;
+
 			if(!empty($datas)){
 				$data['confirm_order'] = $datas;
-				$this->load->view($this->data['frontendDIR']. 'confirmation_order',$data);
+
+				$data['aroma'] = $this->Aroma_m->selectall_aroma($datas['idAROMA'], 1)->row();
+				$data['services'] = $this->Services_m->selectall_services($datas['idSERVICES'], 1)->row();
+				$data['package'] = $this->Package_m->selectall_package($datas['idPACKAGE'], 1)->row();
+				$data['region'] = $this->Region_m->selectall_region($datas['idREGION'], 1)->row();
+
+				$this->load->view($this->data['frontendDIR']. 'Order_review',$data);
 			} else {
+
 				$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'salah wak data nya gak ada',
-		            'type' => 'error'
+		            'text' => 'Maaf, data yang anda masukkan mengalami kesalahan, silakan ulangi beberapa saat lagi.'
 		        );
+
 		        $this->session->set_flashdata('message',$data);
-		        $this->index();
+		        redirect(base_url());
 			}
 		} else {
-				$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda dibawah.',
-		            'type' => 'error'
-		        );
-		        $this->session->set_flashdata('message',$data);
-		        $this->index();
+			$data = array(
+		            'text' => 'Maaf, silakan cek kembali inputan anda, terima kasih!'
+		    );
+
+	        $this->session->set_flashdata('message',$data);
+	        redirect(base_url());
 		}
 
 	}
 
 	public function saveorder(){
 
-		$rules = $this->Order_m->rules_order;
+		$rules = $this->Order_m->rules_order_confirmation;
 		$this->form_validation->set_rules($rules);
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$datas = $this->Order_m->array_from_post(array('pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT'));
-			$datas['pickuptimeORDER'] = str_replace(['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September' , 'Oktober', 'November', 'Desember','Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', ',', ' '], ['01', '02', '03', '04', '05', '06', '07', '08' , '09' , '10', '11', '12', '', '', '', '', '', '', '', '','.'], $datas['pickuptimeORDER']);
-			// echo "<pre>";
-			// print_r(date("Y-m-d",strtotime($datas['pickuptimeORDER'])));
-			// break;
+			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idREGION','idCUSTOMER','kodeORDER'));
+			$datas['idCUSTOMER'] = decode($datas['idCUSTOMER']);
+			
+			$checkkodeorder = $this->Order_m->checkkodeorder($datas['kodeORDER'])->row();
+
+			if($checkkodeorder != NULL){
+				$data = array(
+		            'text' => 'Maaf, kami tidak dapat memproses data order anda, silakan ulangi beberapa saat kembali.'
+		        );
+		        $this->session->set_flashdata('message',$data);
+		        redirect(base_url());
+			}
+			
 			if ($this->Order_m->save($datas)) {
-                //$this->confirmation_order($data);
+                $this->load->view($this->data['frontendDIR']. 'Order_completed');
 			} else {
 				$data = array(
-                    'title' => 'Terjadi Kesalahan',
-                    'text' => 'Maaf, Sesuatu yang memalukan terjadi',
-                    'type' => 'error'
+                    'text' => 'Maaf, data order anda tidak dapat kami proses, silakan ulangi beberapa saat kembali.'
                 );
                 $this->session->set_flashdata('message',$data);
-                redirect('codewelladmin/aroma');
+                redirect(base_url());
 			}
 		} else {
 				$data = array(
-		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda dibawah.',
-		            'type' => 'error'
+		            'text' => 'Maaf, silakan cek kembali inputan anda, terima kasih!'
 		        );
 		        $this->session->set_flashdata('message',$data);
-		        $this->aromalist();
+		        redirect(base_url());
 		}
 	}
 }

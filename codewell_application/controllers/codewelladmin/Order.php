@@ -10,13 +10,7 @@ class Order extends Admin_Controller {
 
 		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
 	}
-	public function cobak(){
-		$cekkodeorder = $this->Order_m->cekkode()->row();
-		$codeorder = str_replace("IL","",substr($cekkodeorder->kode,10))+1;
-		$kodeorder = "IL" . date('Ymds') . $codeorder;
-		print_r($kodeorder);
-		break;
-	}
+	
 
 	public function index(){
 		$data['addONS'] = 'plugins_order';
@@ -32,8 +26,10 @@ class Order extends Admin_Controller {
 						$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
 					} elseif ($value->statusORDER == 3) {
 						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
-					} else{
+					} else if ($value->statusORDER == 4){
 						$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+					} elseif($value->statusORDER == 5){
+						$status='<span class="uk-badge uk-badge-warning">Dibatalkan</span>';
 					}
 					$data['orderlist'][$key]->status = $status;
 				}
@@ -53,8 +49,10 @@ class Order extends Admin_Controller {
 						$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
 					} elseif ($value->statusORDER == 3) {
 						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
-					} else{
+					} else if ($value->statusORDER == 4){
 						$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+					} elseif($value->statusORDER == 5){
+						$status='<span class="uk-badge uk-badge-warning">Dibatalkan</span>';
 					}
 					$data['orderlist'][$key]->status = $status;
 				}
@@ -98,6 +96,8 @@ class Order extends Admin_Controller {
 				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 			} elseif($detailorder->statusORDER == 4){
 				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+			} elseif($detailorder->statusORDER == 5){
+				$status='<span class="uk-badge uk-badge-warning">Dibatalkan</span>';
 			}
 			$detailorder->status = $status;
 
@@ -152,9 +152,11 @@ class Order extends Admin_Controller {
 				$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
 			} elseif ($editorder->statusORDER == 3) {
 				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
-			} else{
+			} elseif ($editorder->statusORDER == 4){
 				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
-			}
+			} elseif ($editorder->statusORDER == 5){
+				$status='<span class="uk-badge uk-badge-warning">Dibatalkan</span>';
+			} 
 			$editorder->status = $status;
 
 		if(!empty($this->session->flashdata('message'))) {
@@ -179,7 +181,9 @@ class Order extends Admin_Controller {
 			$data = $this->Order_m->array_from_post(array('pickupfinishedtimeORDER','pickupfinisheddateORDER','pickupADDRESSORDERBERSIH','beratORDER','priceORDER','idPARTNER','rejectedmessagesORDER'));
 			$data['pickupfinisheddateORDER'] = date("Y-m-d",strtotime($data['pickupfinisheddateORDER']));
 			$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
-
+			if($data['rejectedmessagesORDER'] != NULL){
+				$data['statusORDER'] = 5;
+			}
 			$id = decode($this->input->post('idORDER'));
 			if(empty($id))$id=NULL;
 			

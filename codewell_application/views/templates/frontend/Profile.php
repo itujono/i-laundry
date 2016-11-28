@@ -27,7 +27,7 @@
 						<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/>
 						<label class="img-container" for="imgfile">
 							Ubah avatarmu...
-							<input type="file" name="imgfile"/>
+							<input type="file" name="imgCUSTOMER"/>
 						</label>
 					</div>
 				  	<ul class="no-border">

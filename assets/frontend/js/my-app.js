@@ -80,49 +80,49 @@ $$(document).on("pageInit", function (e) {
         ]
     });
 
-    var pickerDaerah = myApp.picker({
-        input: '#picker-daerah',
-        rotateEffect: true,
-        cols: [
-            {
-                textAlign: 'center',
-                values: ['Batam Kota', 'Batu Aji', 'Batu Ampar', 'Belakang Padang', 'Bengkong', 'Bulang', 'Galang', 'Lubuk Baja', 'Nongsa', 'Sagulung', 'Sekupang', 'Sungai Beduk']
-            }
-        ]
-    });
+    // var pickerDaerah = myApp.picker({
+    //     input: '#picker-daerah',
+    //     rotateEffect: true,
+    //     cols: [
+    //         {
+    //             textAlign: 'center',
+    //             values: ['Batam Kota', 'Batu Aji', 'Batu Ampar', 'Belakang Padang', 'Bengkong', 'Bulang', 'Galang', 'Lubuk Baja', 'Nongsa', 'Sagulung', 'Sekupang', 'Sungai Beduk']
+    //         }
+    //     ]
+    // });
 
-    var pickerPaket = myApp.picker({
-        input: '#picker-paket',
-        rotateEffect: true,
-        cols: [
-            {
-                textAlign: 'center',
-                values: ['Reguler', 'Premium', 'Express - 5 jam selesai', 'Premium Express - 5 jam selesai']
-            }
-        ]
-    });
+    // var pickerPaket = myApp.picker({
+    //     input: '#picker-paket',
+    //     rotateEffect: true,
+    //     cols: [
+    //         {
+    //             textAlign: 'center',
+    //             values: ['Reguler', 'Premium', 'Express - 5 jam selesai', 'Premium Express - 5 jam selesai']
+    //         }
+    //     ]
+    // });
 
-    var pickerAroma = myApp.picker({
-        input: '#picker-aroma',
-        rotateEffect: true,
-        cols: [
-            {
-                textAlign: 'center',
-                values: ['Mystique', 'Romance', 'Fusion', 'Passion']
-            }
-        ]
-    });
+    // var pickerAroma = myApp.picker({
+    //     input: '#picker-aroma',
+    //     rotateEffect: true,
+    //     cols: [
+    //         {
+    //             textAlign: 'center',
+    //             values: ['Mystique', 'Romance', 'Fusion', 'Passion']
+    //         }
+    //     ]
+    // });
 
-    var pickerService = myApp.picker({
-        input: '#picker-service',
-        rotateEffect: true,
-        cols: [
-            {
-                textAlign: 'center',
-                values: ['Cuci saja', 'Cuci gosok']
-            }
-        ]
-    });
+    // var pickerService = myApp.picker({
+    //     input: '#picker-service',
+    //     rotateEffect: true,
+    //     cols: [
+    //         {
+    //             textAlign: 'center',
+    //             values: ['Cuci saja', 'Cuci gosok']
+    //         }
+    //     ]
+    // });
 });
 
 // AND NOW WE INITIALIZE APP
