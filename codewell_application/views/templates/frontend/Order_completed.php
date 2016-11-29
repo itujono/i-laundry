@@ -46,7 +46,7 @@
 							Selanjutnya, kurir kami akan langsung menuju tempat kamu untuk menjemput pakaian kotor kamu. Nikmati saja waktu santai kamu, biarkan kami yang bekerja. :)
 						</div>
 						<div class="text-center margin-bottom-15 margin-top-30">
-							<a href="<?php echo base_url();?>home" class="button login-btn">Kembali ke Home</a>
+							<a href="<?php echo base_url();?>" class="button login-btn">Kembali ke Home</a>
 						</div>
 					</div>
 				</div>

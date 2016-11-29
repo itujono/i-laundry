@@ -150,6 +150,15 @@
 								</div>
 						  	</div>
 						</li>
+						<li class="align-top">
+						  	<div class="item-content">
+								<div class="item-inner no-margin">
+								  	<div class="item-input">
+										<textarea name="notesORDER" placeholder="Ada catatan tambahan? (optional)"></textarea>
+								  	</div>
+								</div>
+						  	</div>
+						</li>
 					</ul>
 				</div>
 				<div class="margin-bottom-45 content-block">
