@@ -22,13 +22,20 @@
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Waktu ambil laundry (KOTOR)</span>
- 							<span class="md-list-heading uk-text-medium uk-text-success"><?php echo dF($detailorder->pickuptimeORDER, 'd F Y (H:i)');?></span>
+ 							<span class="md-list-heading uk-text-medium uk-text-success"><?php echo dF($detailorder->pickupdateORDER, 'd F Y');?> (<?php echo dF($detailorder->pickuptimeORDER, 'H:i:s');?>) </span>
  						</div>
  					</li>
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Waktu antar laundry (BERSIH)</span>
- 							<span class="md-list-heading uk-text-medium"><?php echo dF($detailorder->pickupfinisheddateORDER, 'd F Y');?> (<?php echo dF($detailorder->pickupfinishedtimeORDER, 'H:i');?>)</span>
+ 							<?php
+ 								if($detailorder->pickupfinisheddateORDER == '0000-00-00' AND $detailorder->pickupfinishedtimeORDER == '00:00:00'){
+ 							?>
+ 							<span class="md-list-heading uk-text-medium"> <i>Belum ditetapkan</i> </span>
+ 							<?php } else { ?>
+ 							<span class="md-list-heading uk-text-medium"><?php echo dF($detailorder->pickupfinisheddateORDER, 'd F Y');?> (<?php echo dF($detailorder->pickupfinishedtimeORDER, 'H:i');?>)
+ 							</span>
+ 							<?php } ?>
  						</div>
  					</li>
  					<li>
@@ -40,13 +47,21 @@
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Alamat antar</span>
+ 							<?php if(empty($detailorder->pickupADDRESSORDERBERSIH)){ ?>
+ 							<span class="md-list-heading uk-text-medium"><i>Belum ditetapkan</i></span>
+ 							<?php } else { ?>
  							<span class="md-list-heading uk-text-medium"><?php echo $detailorder->pickupADDRESSORDERBERSIH;?></span>
+ 							<?php } ?>
  						</div>
  					</li>
  					<li>
  						<div class="md-list-content">
  							<span class="uk-text-small uk-text-muted uk-display-block">Berat</span>
+ 							<?php if(empty($detailorder->beratORDER)){ ?>
+ 							<span class="md-list-heading uk-text-medium uk-text-primary">0 Kg</span>
+ 							<?php } else { ?>
  							<span class="md-list-heading uk-text-medium uk-text-primary"><?php echo $detailorder->beratORDER;?></span>
+ 							<?php } ?>
  						</div>
  					</li>
  					<li>
@@ -70,7 +85,7 @@
  				</h3>
  				<h3 class="md-card-toolbar-heading-text">
  				<?php
- 					if($detailorder->statusORDER != 4){
+ 					if($detailorder->statusORDER != 4 AND $detailorder->statusORDER != 5){
  				?>
  					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="<?php echo base_url();?>codewelladmin/Order/editorder/<?php echo encode($detailorder->idORDER);?>">Update</a>
  				<?php } ?>
@@ -123,7 +138,7 @@
 			 				if($detailorder->idPARTNER == 0){
 			 					$partners = '(Belum ada)';
 			 				} else {
-			 					$partners = $partner->namePARTNER;
+			 					$partners = '<a href="'.base_url().'codewelladmin/Partner">'.$partner->namePARTNER.'</a>';
 			 				}
 		 				?>
  							<span class="uk-text-muted uk-text-small uk-display-block uk-margin-small-bottom">Ditangani</span>

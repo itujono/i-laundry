@@ -61,6 +61,11 @@
                 <th>No. Order</th>
                 <th>Tanggal Order</th>
                 <th>Status</th>
+                <?php
+                    if($this->session->userdata('roleUSER') == '22'){
+                ?>
+                <th>Dibaca oleh</th>
+                <?php } ?>
                 <th>Lihat Order</th>
             </tr>
             </thead>
@@ -72,6 +77,11 @@
                 <th>No. Order</th>
                 <th>Tanggal Order</th>
                 <th>Status</th>
+                <?php
+                    if($this->session->userdata('roleUSER') == '22'){
+                ?>
+                <th>Dibaca oleh</th>
+                <?php } ?>
                 <th>Lihat Order</th>
             </tr>
             </tfoot>
@@ -85,6 +95,18 @@
                 <td><?php echo $order->kodeORDER;?></td>
                 <td><?php echo dF($order->createdateORDER, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $order->status;?></td>
+                <?php
+                    if($this->session->userdata('roleUSER') == '22'){
+                        if($order->isreadadminORDER == 1 AND $order->isreadORDER == 1){
+                            $readby = '<span class="uk-badge uk-badge-notification uk-badge-primary">Read both</span>';
+                        } elseif($order->isreadadminORDER == 1 AND $order->isreadORDER == 0){
+                            $readby = '<span class="uk-badge uk-badge-notification uk-badge-warning">Admin Read / Partner Unread</span>';
+                        } elseif($order->isreadadminORDER == 0 AND $order->isreadORDER == 0){
+                            $readby = ' - / - ';
+                        }
+                ?>
+                <td><?php echo $readby;?></td>
+                <?php } ?>
                 <td><a href="<?php echo base_url();?>codewelladmin/Order/detail/<?php echo $id;?>">Lihat detail</a></td>
             </tr>
             <?php } ?>

@@ -90,6 +90,11 @@
 							    	<p><?php echo $services->nameSERVICES;?></p>
 							    	<input type="hidden" name="idSERVICES" value="<?php echo $confirm_order['idSERVICES'];?>" readonly required>
 							    </li>
+							    <li>
+							    	<h4>Catatan Order</h4>
+							    	<p><?php echo $confirm_order['notesORDER'];?></p>
+							    	<input type="hidden" name="notesORDER" value="<?php echo $confirm_order['notesORDER'];?>" readonly required>
+							    </li>
 					    	</ul>
 			              	<div class="button-submit">
 				                <div class="col-50">

@@ -40,7 +40,7 @@ class Order extends Frontend_Controller {
 
 		if ($this->form_validation->run() == TRUE) {
 
-			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT','idREGION'));
+			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idPAYMENT','idREGION','notesORDER'));
 			$datas['pickuptimeORDER'] = str_replace([' '], [':'], $datas['pickuptimeORDER']);
 
 			//START GENERATE KODE ORDER //
@@ -90,7 +90,7 @@ class Order extends Frontend_Controller {
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idREGION','idCUSTOMER','kodeORDER'));
+			$datas = $this->Order_m->array_from_post(array('pickupdateORDER','pickuptimeORDER','pickupADDRESSORDERKOTOR','idAROMA','idSERVICES','idPACKAGE','idREGION','idCUSTOMER','kodeORDER','notesORDER'));
 			$datas['idCUSTOMER'] = decode($datas['idCUSTOMER']);
 			
 			$checkkodeorder = $this->Order_m->checkkodeorder($datas['kodeORDER'])->row();

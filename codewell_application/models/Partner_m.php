@@ -94,7 +94,6 @@ class Partner_m extends MY_Model{
         $this->db->select('partner.idPARTNER, namePARTNER');
         $this->db->select('regions.nameREGION');
         $this->db->from('partner');
-        //$this->db->where('partner.ondutyPARTNER', 0);
         $this->db->where('partner.statusPARTNER', 1);
        	$this->db->join('regions','regions.idREGION = partner.idREGION');
 

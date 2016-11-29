@@ -49,27 +49,27 @@ class Order_m extends MY_Model{
 		'pickupfinishedtimeORDER' => array(
 			'field' => 'pickupfinishedtimeORDER', 
 			'label' => 'Waktu Antar', 
-			'rules' => 'required'
+			'rules' => ''
 		),
 		'pickupfinisheddateORDER' => array(
 			'field' => 'pickupfinisheddateORDER', 
 			'label' => 'Tanggal Antar', 
-			'rules' => 'required'
+			'rules' => ''
 		),
 		'pickupADDRESSORDERBERSIH' => array(
 			'field' => 'pickupADDRESSORDERBERSIH', 
 			'label' => 'Alamat Antar', 
-			'rules' => 'required'
+			'rules' => ''
 		),
 		'beratORDER' => array(
-			'field' => 'beratORDER', 
+			'field' => 'beratORDER',
 			'label' => 'Berat Order', 
-			'rules' => 'required'
+			'rules' => ''
 		),
 		'priceORDER' => array(
 			'field' => 'priceORDER', 
 			'label' => 'Price Order', 
-			'rules' => 'required'
+			'rules' => ''
 		)
 	);
 
@@ -132,7 +132,8 @@ class Order_m extends MY_Model{
 		$this->db->join('aroma','aroma.idAROMA = orders.idAROMA');
 		$this->db->join('packages','packages.idPACKAGE = orders.idPACKAGE');
 		$this->db->join('services','services.idSERVICES = orders.idSERVICES');
-		
+		$this->db->order_by('orders.createdateORDER', 'desc');
+
         if($id != NULL){
             $this->db->where('orders.idORDER',$id);
 		}
@@ -174,18 +175,19 @@ class Order_m extends MY_Model{
 		return $this->db->get();
 	}
 
-	public function cekkode(){
-		$this->db->select('max(kodeORDER) as kode');
-		$this->db->from('orders');
-		
-		return $this->db->get();
-
-	}
-
 	public function checkkodeorder($kodeorder){
 		$this->db->select('kodeORDER');
 		$this->db->from('orders');
 		$this->db->where('kodeORDER', $kodeorder);
+		return $this->db->get();
+	}
+
+	public function selectpartnerassignoder($id){
+		$this->db->select('orders.kodeORDER, pickuptimeORDER, pickupdateORDER, pickupADDRESSORDERKOTOR');
+		$this->db->select('partner.namePARTNER, emailPARTNER');
+		$this->db->from('orders');
+		$this->db->join('partner', 'partner.idPARTNER = orders.idPARTNER');
+		$this->db->where('orders.idORDER', $id);
 		return $this->db->get();
 	}
 

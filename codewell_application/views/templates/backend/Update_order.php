@@ -59,11 +59,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
                     <?php
-                        if(!empty($editorder->pickupfinisheddateORDER)){
+                        if($editorder->pickupfinisheddateORDER != '0000-00-00') {
                     ?>
                     <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $editorder->pickupfinisheddateORDER;?>">
                     <?php } else { ?>
-                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="">
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}">
                     <?php } ?>
                 </div>
                 <div class="uk-width-medium-1-2 uk-margin-top">
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $address = '';
                         if(!empty($editorder->pickupADDRESSORDERBERSIH))$address = $editorder->pickupADDRESSORDERBERSIH;
                     ?>
-                    <textarea cols="30" rows="4" class="md-input" name="pickupADDRESSORDERBERSIH" required><?php echo $address;?></textarea>
+                    <textarea cols="30" rows="4" class="md-input" name="pickupADDRESSORDERBERSIH"><?php echo $address;?></textarea>
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $berat = '';
                         if(!empty($editorder->beratORDER))$berat = $editorder->beratORDER;
                         ?>
-                        <input type="text" class="md-input" name="beratORDER" required placeholder="2 KG, 4 KG, 6 KG" value="<?php echo $berat;?>" >
+                        <input type="text" class="md-input" name="beratORDER" placeholder="2 KG, 4 KG, 6 KG" value="<?php echo $berat;?>" >
                     </div>
                 </div>
                 <div class="uk-width-medium-1-2 uk-margin-top">
