@@ -31,10 +31,10 @@
 	<div class="views">
 		<div class="view view-main">
 		<div class="pages">
-			<div data-page="recover" class="page" id="order-completed">
+			<div data-page="recover" class="page" id="order-completed" style="background: #f7f7f7;">
 
-				<div class="page-content text-center margin-top-30">
-					<div class="text-center back-close-icon"><a href="#" class="back link"><i class="flaticon-close"></i></a></div>
+				<div class="page-content text-center margin-top-30"><!-- 
+					<div class="text-center back-close-icon"><a href="#" class="back link"><i class="flaticon-close"></i></a></div> -->
 					<div class="content-block">
 						<div class="text-center margin-bottom-15 icon-recover">
 							<i class="flaticon-sushi"></i>

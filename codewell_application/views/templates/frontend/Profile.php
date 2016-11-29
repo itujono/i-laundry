@@ -38,7 +38,7 @@
 								<div class="item-inner no-margin">
 									<div class="item-title label">Ubah nama kamu</div>
 								  	<div class="item-input">
-										<input type="text" name="nameCUSTOMER" value="<?php echo $profile->nameCUSTOMER;?>">
+										<input type="text" name="nameCUSTOMER" value="<?php echo $profile->nameCUSTOMER;?>" required>
 								  	</div>
 								</div>
 						  	</div>
@@ -48,7 +48,7 @@
 								<div class="item-inner no-margin">
 									<div class="item-title label">Ubah nomor telepon kamu</div>
 								  	<div class="item-input">
-										<input type="number" name="telephoneCUSTOMER" value="<?php echo $profile->telephoneCUSTOMER;?>" min="0" pattern="[0-9]*">
+										<input type="number" name="telephoneCUSTOMER" value="<?php echo $profile->telephoneCUSTOMER;?>" required min="0" pattern="[0-9]*">
 								  	</div>
 								</div>
 						  	</div>
@@ -68,7 +68,7 @@
 								<div class="item-inner no-margin">
 									<div class="item-title label">Ubah alamat kamu</div>
 								  	<div class="item-input">
-										<textarea rows="6" name="addressCUSTOMER"><?php echo $profile->addressCUSTOMER;?></textarea>
+										<textarea rows="6" name="addressCUSTOMER" required><?php echo $profile->addressCUSTOMER;?></textarea>
 								  	</div>
 								</div>
 						  	</div>

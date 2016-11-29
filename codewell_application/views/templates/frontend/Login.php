@@ -22,7 +22,7 @@
 						<div class="input-icon item-media"><i class="flaticon-email"></i></div>
 						<div class="item-inner no-margin">
 						  <div class="item-input">
-							<input type="email" name="email" class="" placeholder="Ketik e-mail kamu">
+							<input type="email" name="email" class="" placeholder="Ketik e-mail kamu" required>
 						  </div>
 						</div>
 					  </div>
@@ -32,7 +32,7 @@
 						<div class="input-icon item-media"><i class="flaticon-key"></i></div>
 						<div class="item-inner no-margin">
 						  <div class="item-input">
-							<input type="password" name="password" class="" placeholder="Ketik password kamu">
+							<input type="password" name="password" class="" placeholder="Ketik password kamu" required>
 						  </div>
 						</div>
 					  </div>
