@@ -120,4 +120,15 @@ class Order extends Frontend_Controller {
 		        redirect(base_url());
 		}
 	}
+
+	public function load_aroma($id = NULL){
+
+	  $aroma = $this->Region_m->get_aroma_by_region($id)->result();
+	  
+      $data = "<option value='' selected disabled>Pilih aroma kamu</option>";
+      foreach ($aroma as $value) {
+          $data .= "<option value='".$value->idAROMA."'>".$value->nameAROMA."</option>";
+      }
+      echo $data;
+	}
 }

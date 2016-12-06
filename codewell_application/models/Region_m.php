@@ -57,4 +57,12 @@ class Region_m extends MY_Model{
             return $this->db->get();
         }
     }
+
+    public function get_aroma_by_region($id){
+  		$this->db->select('idAROMA, idREGION, nameAROMA');
+  		$this->db->from('Aroma');
+  		$this->db->where('idREGION',$id);
+
+  		return $this->db->get();
+ 	}
 }

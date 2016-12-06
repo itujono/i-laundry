@@ -117,37 +117,54 @@ class User_m extends MY_Model{
     		'passwordUSER' => $this->hash($pass)
     	);
 
+    	$dat2 = array(
+    		'emailCUSTOMER' => $email,
+    		'passwordCUSTOMER' => $this->hash($pass)
+    	);
+
     	$dat4 = array(
     		'emailPARTNER' => $email,
     		'passwordPARTNER' => $this->hash($pass)
     	);
 
-    	$User = $this->db->get_where('codewell_users',$dat1)->row();
+    	$Administrator = $this->db->get_where('codewell_users',$dat1)->row();
+    	$Customer = $this->db->get_where('codewell_customers',$dat2)->row();
     	$Partner = $this->db->get_where('codewell_partner',$dat4)->row();
 
-    	if(count($User)){
-    		if($User->roleUSER == 22){
+    	if(count($Customer)){
+    		if($Customer->statusCUSTOMER == 1){
+	    		$datacustomer = array(
+	    			'Name' => $Customer->nameCUSTOMER,
+	    			'Email' => $Customer->emailCUSTOMER,
+	    			'idCUSTOMER' => $Customer->idCUSTOMER,
+	    			'logged_in' => TRUE,
+	    		);
+	    		$this->session->set_userdata($datacustomer);
+	    		return "CUSTOMER";
+    		}
+    	}
+
+    	if(count($Administrator)){
+    		if($Administrator->roleUSER == 22){
 	    		$data = array(
-	    			'Email' => $User->emailUSER,
-	    			'idUSER' => $User->idUSER,
+	    			'Email' => $Administrator->emailUSER,
+	    			'idUSER' => $Administrator->idUSER,
 	    			'roleUSER' => 22,
 	    			'logged_in' => TRUE,
 	    		);
-	    		
 	    		$this->session->set_userdata($data);
 	    		return "ADMIN";
-
-	    	} elseif ($User->roleUSER == 24) {
-	    		$data = array(
-	    			'Email' => $User->emailUSER,
-	    			'idUSER' => $User->idUSER,
+    		} elseif ($Administrator->roleUSER == 24) {
+    			$data = array(
+	    			'Email' => $Administrator->emailUSER,
+	    			'idUSER' => $Administrator->idUSER,
 	    			'roleUSER' => 24,
 	    			'logged_in' => TRUE,
 	    		);
 	    		$this->session->set_userdata($data);
 	    		return "KARYAWAN";
-	    	}
-	    }
+    		}
+    	}
 
     	if(count($Partner)){
     		$data = array(

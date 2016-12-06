@@ -49,7 +49,7 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-								  		<select name="idREGION" required>
+								  		<select name="idREGION" id="region" required>
 										<?php
                                         if(!empty($listregion)){
                                             foreach ($listregion as $key => $region) {
@@ -108,19 +108,8 @@
 						  	<div class="item-content">
 								<div class="item-inner no-margin">
 								  	<div class="item-input">
-										<select name="idAROMA" required>
-										<?php
-										if(!empty($listaroma)){
-	                                        foreach ($listaroma as $key => $aroma) {
-	                                            if($key == 0){
-	                                                $check = 'checked="checked"';
-	                                            } else {
-	                                                $check = '';
-	                                            }
-										?>
-											<option value="<?php echo $aroma->idAROMA;?>" <?php echo $check;?>><?php echo $aroma->nameAROMA;?></option>
-										<?php } ?>
-										<?php } ?>
+										<select name="idAROMA" id="div_aroma">
+										   <option value=''>Pilih Daerah kamu</option>
 										</select>
 										<!-- <input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma"> -->
 								  	</div>
@@ -168,3 +157,14 @@
 		</div>
 	</div>
 </div>
+<script>
+$(document).ready(function(){
+
+    $("#region").change(function (){
+        var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
+        $('#div_aroma').load(url);
+        return false;
+    })
+
+});
+</script>

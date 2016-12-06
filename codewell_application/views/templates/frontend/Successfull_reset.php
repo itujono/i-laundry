@@ -44,7 +44,7 @@
 							<div class="gray-text text-thiny">
 								Next time, lebih berhati-hati dalam mengelola password. Enjoy! :)
 							</div>
-                            <a href="<?php echo base_url();?>Home" class="button login-btn margin-top-30">Kembali ke Home</a>
+                            <a href="<?php echo base_url();?>" class="button login-btn margin-top-30">Kembali ke Home</a>
 						</div>
 					</div>
 				</div>
