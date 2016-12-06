@@ -10,8 +10,13 @@ class Aroma_m extends MY_Model{
 	public $rules_aroma = array(
 		'nameAROMA' => array(
 			'field' => 'nameAROMA', 
-			'label' => 'nameAROMA', 
+			'label' => 'Nama Aroma', 
 			'rules' => 'trim|required'
+		),
+		'idREGION' => array(
+			'field' => 'idREGION', 
+			'label' => 'Daerah', 
+			'rules' => 'required'
 		)		  
 	);
 
@@ -22,6 +27,7 @@ class Aroma_m extends MY_Model{
 	public function get_new(){
 		$new = new stdClass();
 		$new->idAROMA = '';
+		$new->idREGION = '';
 		$new->nameAROMA = '';
 		$new->statusAROMA = '';
 		return $new;
@@ -29,7 +35,9 @@ class Aroma_m extends MY_Model{
 
 	public function selectall_aroma($id=NULL, $status=NULL){
 		$this->db->select('aroma.*');
+		$this->db->select('regions.idREGION, nameREGION');
 		$this->db->from('aroma');
+		$this->db->join('regions','regions.idREGION = aroma.idREGION');
         if($status != NULL){
         	$this->db->where('statusAROMA',1);
 		}

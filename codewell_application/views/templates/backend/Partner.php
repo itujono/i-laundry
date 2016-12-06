@@ -39,6 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Didaftarkan</th>
                   <th>Status</th>
                   <th>Actions</th>
+                  <th>Reset</th>
               </tr>
             </thead>
 
@@ -51,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Didaftarkan</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Reset</th>
               </tr>
             </tfoot>
             <tbody>
@@ -79,13 +81,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   $url2 = $this->data['folBACKEND'].$controller.'/partnerlist/'.urlencode($id);
                 ?>
                 <?php
-                  if($partner->idREGION != 'ALL' AND $this->session->userdata('roleUSER') == 22){
+                  if($this->session->userdata('roleUSER') == 22){
                 ?>
                 <td class="uk-text-center">
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg2; ?>', function(){ document.location.href='<?php echo site_url($url2);?>'; });"><i class="md-icon material-icons">&#xE254;</i></a>
                 </td>
                 <?php } ?>
+                <td>
+                    <a href="#partnerID" class="md-btn md-btn2" data-id="<?php echo $id; ?>" data-uk-modal="{target:'#partnerID'}"><i class="md-icon material-icons uk-text-danger">&#xE8C6;</i></a>
+                </td>
               </tr>
             <?php } ?>
             </tbody>
@@ -111,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="uk-width-medium-1-3">
                       <label>Email Partner</label>
                       <br>
-                        <input type="email" class="input-count md-input label-fixed" id="input_counter" maxlength="70" name="namePARTNER" required autocomplete value="<?php echo $getpartner->emailPARTNER;?>" />
+                        <input type="email" class="input-count md-input label-fixed" id="input_counter" maxlength="70" name="emailPARTNER" required autocomplete value="<?php echo $getpartner->emailPARTNER;?>" />
                         <p class="text-red"><?php echo form_error('emailPARTNER'); ?></p>
                     </div>
                     <div class="uk-width-medium-1-3">
@@ -121,27 +126,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p class="text-red"><?php echo form_error('telephonePARTNER'); ?></p>
                     </div>
                   </div>
-                  <div class="uk-grid" data-uk-grid-margin>
                   <?php
-                    $width = 'uk-width-medium-1-2';
-                    if(!empty($getpartner->idPARTNER))$width = 'uk-width-medium-1-1';
+                    if(empty($getpartner->idPARTNER)){
                   ?>
-                    <div class="<?php echo $width;?>">
+                  <div class="uk-grid" data-uk-grid-margin>
+                    <div class="uk-width-medium-1-2">
                       <label>Kata sandi Partner</label>
                       <br>
-                        <input type="password" class="md-input label-fixed" name="passwordPARTNER" required pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repasswordPARTNER.pattern = this.value;" id="passwordPARTNER" value="<?php echo $getpartner->passwordPARTNER;?>" />
+                        <input type="password" class="md-input label-fixed" name="passwordPARTNER" required pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : ''); if(this.checkValidity()) form.repasswordPARTNER.pattern = this.value;" id="passwordPARTNER" />
                         <p class="text-red"><?php echo form_error('passwordPARTNER'); ?></p>
                     </div>
-                    <?php
-                      if(empty($getpartner->idPARTNER)){
-                    ?>
                     <div class="uk-width-medium-1-2">
                       <label for="register_password_repeat">Ulangi kata sandi partner</label>
                       <br>
                         <input class="md-input label-fixed" name="repasswordPARTNER" type="password" id="repasswordPARTNER" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Silakan masukkan kata sandi yang sama seperti disamping' : '');" name="repasswordPARTNER" required />
                     </div>
-                    <?php } ?>
                   </div>
+                  <?php } ?>
                   <div class="uk-grid" data-uk-grid-margin>
                     <div class="uk-width-medium-1-2">
                       <label>Alamat Partner</label>
@@ -152,7 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="uk-width-medium-1-2">
                       <label>Daerah</label>
                       <br>
-                      <?php echo form_dropdown('idREGION', $region, $getpartner->idREGION,'data-md-selectize'); ?> 
+                      <?php echo form_dropdown('idREGION', $region, $getpartner->idREGION,'data-md-selectize data-md-selectize-bottom required'); ?> 
                       <p class="text-red"><?php echo form_error('idREGION'); ?></p>
                     </div>
                   </div>

@@ -6,7 +6,8 @@ class Aroma extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('Aroma_m');
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		$this->load->model('Region_m');
+		if(empty($this->session->userdata('idUSER')) OR $this->session->userdata('roleUSER') != 22){redirect('codewelladmin/user/Login/logout');}
 	}
 
 	public function index(){
@@ -19,6 +20,7 @@ class Aroma extends Admin_Controller {
 		$id = decode(urldecode($id));
 
 		$data['listaroma'] = $this->Aroma_m->selectall_aroma()->result();
+		$data['listregion'] = $this->Region_m->select_all_region_drop(NULL, 1);
 
 		foreach ($data['listaroma'] as $key => $value) {
 			if($value->statusAROMA == 1){
@@ -62,7 +64,7 @@ class Aroma extends Admin_Controller {
         $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Aroma_m->array_from_post(array('nameAROMA','statusAROMA'));
+			$data = $this->Aroma_m->array_from_post(array('nameAROMA','idREGION','statusAROMA'));
 			if($data['statusAROMA'] == 'on')$data['statusAROMA']=1;
 			else $data['statusAROMA']=0;
 			$id = decode($this->input->post('idAROMA'));

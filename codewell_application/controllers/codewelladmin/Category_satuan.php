@@ -6,7 +6,7 @@ class Category_satuan extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('Category_satuan_m');
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) OR $this->session->userdata('roleUSER') != 22){redirect('codewelladmin/user/Login/logout');}
 	}
 
 	public function index(){

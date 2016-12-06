@@ -69,6 +69,19 @@ class User_m extends MY_Model{
 		)
 	);
 
+	public $rules_reset = array(
+		'passwordUSER' => array(
+			'field' => 'passwordUSER',
+			'label' => 'Kata sandi',
+			'rules' => 'trim|required'
+		),
+		'repasswordUSER' => array(
+			'field' => 'repasswordUSER',
+			'label' => 'Ulangi kata sandi',
+			'rules' => 'trim|required'
+		)
+	);
+
 	function __construct (){
 		parent::__construct();
 	}
@@ -78,7 +91,6 @@ class User_m extends MY_Model{
 		$new->idUSER = '';
 		$new->emailUSER = '';
 		$new->roleUSER = '';
-		$new->passwordUSER = '';
 		$new->statusUSER = '';
 		return $new;
 	}
@@ -105,60 +117,37 @@ class User_m extends MY_Model{
     		'passwordUSER' => $this->hash($pass)
     	);
 
-    	$dat2 = array(
-    		'emailCUSTOMER' => $email,
-    		'passwordCUSTOMER' => $this->hash($pass)
-    	);
-
-    	$dat3 = array(
-    		'emailUSER' => $email,
-    		'passwordUSER' => $this->hash($pass)
-    	);
-
     	$dat4 = array(
     		'emailPARTNER' => $email,
     		'passwordPARTNER' => $this->hash($pass)
     	);
 
-    	$Administrator = $this->db->get_where('codewell_users',$dat1)->row();
-    	$Customer = $this->db->get_where('codewell_customers',$dat2)->row();
-    	$Karyawan = $this->db->get_where('codewell_users',$dat3)->row();
+    	$User = $this->db->get_where('codewell_users',$dat1)->row();
     	$Partner = $this->db->get_where('codewell_partner',$dat4)->row();
 
-    	if(count($Customer)){
-    		if($Customer->statusCUSTOMER == 1){
-	    		$datacustomer = array(
-	    			'Name' => $Customer->nameCUSTOMER,
-	    			'Email' => $Customer->emailCUSTOMER,
-	    			'idCUSTOMER' => $Customer->idCUSTOMER,
+    	if(count($User)){
+    		if($User->roleUSER == 22){
+	    		$data = array(
+	    			'Email' => $User->emailUSER,
+	    			'idUSER' => $User->idUSER,
+	    			'roleUSER' => 22,
 	    			'logged_in' => TRUE,
 	    		);
-	    		$this->session->set_userdata($datacustomer);
-	    		return "CUSTOMER";
-    		}
-    	}
+	    		
+	    		$this->session->set_userdata($data);
+	    		return "ADMIN";
 
-    	if(count($Administrator)){
-    		$data = array(
-    			'Email' => $Administrator->emailUSER,
-    			'idUSER' => $Administrator->idUSER,
-    			'roleUSER' => 22,
-    			'logged_in' => TRUE,
-    		);
-    		$this->session->set_userdata($data);
-    		return "ADMIN";
-    	}
-
-    	if(count($Karyawan)){
-    		$data = array(
-    			'Email' => $Karyawan->emailUSER,
-    			'idUSER' => $Karyawan->idUSER,
-    			'roleUSER' => 24,
-    			'logged_in' => TRUE,
-    		);
-    		$this->session->set_userdata($data);
-    		return "KARYAWAN";
-    	}
+	    	} elseif ($User->roleUSER == 24) {
+	    		$data = array(
+	    			'Email' => $User->emailUSER,
+	    			'idUSER' => $User->idUSER,
+	    			'roleUSER' => 24,
+	    			'logged_in' => TRUE,
+	    		);
+	    		$this->session->set_userdata($data);
+	    		return "KARYAWAN";
+	    	}
+	    }
 
     	if(count($Partner)){
     		$data = array(

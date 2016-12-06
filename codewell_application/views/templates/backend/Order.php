@@ -62,7 +62,7 @@
                 <th>Tanggal Order</th>
                 <th>Status</th>
                 <?php
-                    if($this->session->userdata('roleUSER') == '22'){
+                    if($this->session->userdata('roleUSER') == '22' OR $this->session->userdata('roleUSER') == '24'){
                 ?>
                 <th>Dibaca oleh</th>
                 <?php } ?>
@@ -78,7 +78,7 @@
                 <th>Tanggal Order</th>
                 <th>Status</th>
                 <?php
-                    if($this->session->userdata('roleUSER') == '22'){
+                     if($this->session->userdata('roleUSER') == '22' OR $this->session->userdata('roleUSER') == '24'){
                 ?>
                 <th>Dibaca oleh</th>
                 <?php } ?>
@@ -96,7 +96,7 @@
                 <td><?php echo dF($order->createdateORDER, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $order->status;?></td>
                 <?php
-                    if($this->session->userdata('roleUSER') == '22'){
+                    if($this->session->userdata('roleUSER') == '22' OR $this->session->userdata('roleUSER') == '24'){
                         if($order->isreadadminORDER == 1 AND $order->isreadORDER == 1){
                             $readby = '<span class="uk-badge uk-badge-notification uk-badge-primary">Read both</span>';
                         } elseif($order->isreadadminORDER == 1 AND $order->isreadORDER == 0){

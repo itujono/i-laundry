@@ -165,6 +165,25 @@
           <span class="menu_title">Order</span>
         </a>
       </li>
+    <?php } elseif($this->session->userdata('roleUSER') == 24) { ?>
+      <li title="Customer">
+        <a href="<?php echo base_url();?>codewelladmin/Customer">
+          <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>
+          <span class="menu_title">Customer</span>
+        </a>
+      </li>
+      <li title="Order">
+        <a href="<?php echo base_url();?>codewelladmin/Order">
+          <span class="menu_icon"><i class="material-icons">&#xE8CC;</i></span>
+          <span class="menu_title">Order</span>
+        </a>
+      </li>
+      <li title="Promo">
+        <a href="<?php echo base_url();?>codewelladmin/Promo">
+          <span class="menu_icon"><i class="material-icons">&#xE8F6;</i></span>
+          <span class="menu_title">Promo</span>
+        </a>
+      </li>
     <?php } ?>
     </ul>
   </div>

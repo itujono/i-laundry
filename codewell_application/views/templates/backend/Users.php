@@ -38,6 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <th>Dibuat</th>
                   <th>Status</th>
                   <th>Actions</th>
+                  <th>Reset</th>
               </tr>
             </thead>
 
@@ -49,12 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th>Dibuat</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Reset</th>
               </tr>
             </tfoot>
             <tbody>
             <?php foreach ($listuser  as $key => $users) { 
               $id = encode($users->idUSER);
               if($users->roleUSER == 22){
+                $role = 'Administrator';
+              } else {
                 $role = 'Karyawan';
               }
               ?>
@@ -82,6 +86,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
                   <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg2; ?>', function(){ document.location.href='<?php echo site_url($url2);?>'; });"><i class="md-icon material-icons">&#xE254;</i></a>
                 </td>
+                <td>
+                    <a href="#userID" class="md-btn md-btn2" data-id="<?php echo $id; ?>" data-uk-modal="{target:'#userID'}"><i class="md-icon material-icons uk-text-danger">&#xE8C6;</i></a>
+                </td>
               </tr>
             <?php } ?>
             </tbody>
@@ -98,28 +105,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="uk-width-medium-1-1">
                 <div class="uk-form-row">
                   <div class="uk-grid" data-uk-grid-margin>
-                    <div class="uk-width-medium-1-4 uk-margin-top">
+                    <div class="uk-width-medium-1-3 uk-margin-top">
                       <label>Email Pengguna</label>
                       <br>
                         <input type="text" class="md-input label-fixed" name="emailUSER" required autocomplete value="<?php echo $getuser->emailUSER;?>" />
                         <p class="text-red"><?php echo form_error('emailUSER'); ?></p>
                     </div>
-                    <div class="uk-width-medium-1-4 uk-margin-top">
-                      <label>Kata sandi Pengguna</label>
-                      <br>
-                        <input type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Must have at least 8 characters' : '');" class="md-input label-fixed" name="passwordUSER" required value="<?php echo $getuser->passwordUSER;?>" placeholder="******" />
-                        <p class="text-red"><?php echo form_error('passwordUSER'); ?></p>
-                    </div>
-                    <div class="uk-width-medium-1-4 uk-margin-top">
+                    <div class="uk-width-medium-1-3 uk-margin-top">
                       <label>ROLE</label>
                       <br>
                         <select name="roleUSER" required data-md-selectize data-md-selectize-bottom required>
                           <option disabled="">Pilih Role</option>
+                          <?php
+                            if($getuser->roleUSER == 22){
+                          ?>
+                              <option selected="" value="<?php echo encode('22'); ?>">Administrator</option>
+                              <option value="<?php echo encode('24'); ?>">Karyawan</option>
+                          <?php } else { ?>
+                              <option value="<?php echo encode('22'); ?>">Administrator</option>
                               <option selected="" value="<?php echo encode('24'); ?>">Karyawan</option>
+                          <?php } ?>
                         </select>
                         <p class="text-red"><?php echo form_error('roleUSER'); ?></p>
                     </div>
-                    <div class="uk-width-medium-1-4 uk-margin-top">
+                    <div class="uk-width-medium-1-3 uk-margin-top">
                       <div class="parsley-row">
                         <?php
                           $checkdis= '';

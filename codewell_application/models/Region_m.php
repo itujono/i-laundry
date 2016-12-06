@@ -45,6 +45,7 @@ class Region_m extends MY_Model{
 	public function select_all_region_drop($id = NULL, $dropdown=NULL){
         $this->db->select('*');
         $this->db->from('regions');
+        $this->db->where('statusREGION',1);
         if($id != NULL)$this->db->where('idREGION', $id);
         if($dropdown != NULL){
             $ddown = array();

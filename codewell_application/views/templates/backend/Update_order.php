@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 ?>
                 <div class="uk-width-medium-1-1 uk-margin-top">
                     <label for="Partner" class="uk-form-label">Partner<span class="req">*</span></label>
-                    <?php echo form_dropdown('idPARTNER', $partner, $editorder->idPARTNER,'data-md-selectize required'); ?> 
+                    <?php echo form_dropdown('idPARTNER', $partner, $editorder->idPARTNER,'required data-md-selectize data-md-selectize-bottom'); ?> 
                 </div>
                 <?php } else { ?>
                     <?php echo form_hidden('idPARTNER', $editorder->idPARTNER,'required'); ?>

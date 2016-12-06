@@ -26,7 +26,12 @@ class Customer extends Admin_Controller {
 			}
 			$data['listcustomer'][$key]->status = $status;
 
-		$data['listcustomer'][$key]->imageSELLER = img_view('profile/'.folderENCRYPT($data['listcustomer'][$key]->idCUSTOMER));
+		$map = directory_map('assets/upload/profile/'.folderENCRYPT($value->idCUSTOMER), FALSE, TRUE);
+			if(!empty($map)){
+				$value->imageSELLER = base_url() . 'assets/upload/profile/'.folderENCRYPT($value->idCUSTOMER).'/'.$map[0];
+			} else {
+				$value->imageSELLER = base_url() . 'assets/frontend/img/photos/user.png';
+			}
 
 		}
 

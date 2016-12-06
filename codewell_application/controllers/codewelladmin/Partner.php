@@ -7,7 +7,7 @@ class Partner extends Admin_Controller {
 		parent::__construct();
 		$this->load->model('Partner_m');
 		$this->load->model('Region_m');
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) OR $this->session->userdata('roleUSER') != 22){redirect('codewelladmin/user/Login/logout');}
 	}
 
 	public function index(){
@@ -15,7 +15,7 @@ class Partner extends Admin_Controller {
 	}
 
 	public function partnerlist($id = NULL){
-		$data['addONS'] = 'plugins_datatables';
+		$data['addONS'] = 'plugins_partners';
 
 		$id = decode(urldecode($id));
 
@@ -63,9 +63,10 @@ class Partner extends Admin_Controller {
 		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->Partner_m->array_from_post(array('namePARTNER','passwordPARTNER','addressPARTNER','telephonePARTNER','idREGION','statusPARTNER'));
+			$data = $this->Partner_m->array_from_post(array('namePARTNER','passwordPARTNER','addressPARTNER','telephonePARTNER','idREGION','statusPARTNER','emailPARTNER'));
 			if($data['statusPARTNER'] == 'on')$data['statusPARTNER']=1;
 			else $data['statusPARTNER']=0;
+			$data['emailPARTNER'] = strtolower($data['emailPARTNER']);
 			$data['passwordPARTNER'] = $this->Partner_m->hash($data['passwordPARTNER']);
 			$id = decode($this->input->post('idPARTNER'));
 			if(empty($id))$id=NULL;
@@ -90,7 +91,7 @@ class Partner extends Admin_Controller {
 		} else {
 				$data = array(
 		            'title' => 'Terjadi Kesalahan',
-		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda dibawah.',
+		            'text' => 'Maaf Sesuatu telah terjadi, mohon ulangi inputan form anda.',
 		            'type' => 'error'
 		        );
 		        $this->session->set_flashdata('message',$data);
@@ -120,6 +121,53 @@ class Partner extends Admin_Controller {
 		        );
 		        $this->session->set_flashdata('message',$data);
 		        redirect('codewelladmin/partner/partnerlist');
+		}
+	}
+
+	public function partnerreset($id = NULL){
+		$ids = decode($this->input->post('idPARTNER'));
+		
+		if(empty($ids)){
+			$this->Logout();
+		}
+
+		$rules = $this->Partner_m->rules_reset;
+		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+        $this->form_validation->set_message('trim', 'Form %s adalah Trim');
+
+	    if($this->form_validation->run() == TRUE) {
+			$password = $this->Partner_m->hash($this->input->post('passwordPARTNER'));
+			$renewpassword = $this->Partner_m->hash($this->input->post('repasswordPARTNER'));
+
+			if($password != $renewpassword){
+				$data = array(
+					'title' => 'Peringatan',
+					'text' => 'Maaf kata sandi kamu tidak sama, silakan ulangi kembali!',
+					'type' => 'warning'
+					);
+				$this->session->set_flashdata('message', $data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+
+				$datas['passwordPARTNER'] = $password;
+				$this->Partner_m->save($datas, $ids);
+				$data = array(
+					'title' => 'Sukses',
+					'text' => 'Perubahan kata sandi telah berhasil dilakukan',
+					'type' => 'success'
+					);
+				$this->session->set_flashdata('message', $data);
+				redirect($_SERVER['HTTP_REFERER']);
+
+		} else {
+			$data = array(
+	            'title' => 'Terjadi Kesalahan',
+	            'text' => 'Maaf, mohon ulangi inputan form anda.',
+	            'type' => 'error'
+	        	);
+	        $this->session->set_flashdata('message',$data);
+	        $this->partnerlist();
 		}
 	}
 }

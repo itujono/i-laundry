@@ -11,7 +11,7 @@
         <div class="md-card-content">
             <div class="uk-grid" data-uk-grid-margin>
                 <div class="uk-width-medium-1-1">
-                    <label for="contact_list_search">Search... (min 3 char.)</label>
+                    <label for="contact_list_search">Cari... (min 3 char.)</label>
                     <input class="md-input" type="text" id="contact_list_search"/>
                 </div>
             </div>

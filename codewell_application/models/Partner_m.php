@@ -18,11 +18,6 @@ class Partner_m extends MY_Model{
 			'label' => 'Email partner', 
 			'rules' => 'required|valid_email'
 		),
-		'passwordPARTNER' => array(
-			'field' => 'passwordPARTNER', 
-			'label' => 'kata sandi partner', 
-			'rules' => 'required'
-		),
 		'addressPARTNER' => array(
 			'field' => 'addressPARTNER', 
 			'label' => 'Alamat partner', 
@@ -40,6 +35,19 @@ class Partner_m extends MY_Model{
 		)	  
 	);
 
+	public $rules_reset = array(
+		'passwordPARTNER' => array(
+			'field' => 'passwordPARTNER',
+			'label' => 'Kata sandi',
+			'rules' => 'trim|required'
+		),
+		'repasswordPARTNER' => array(
+			'field' => 'repasswordPARTNER',
+			'label' => 'Ulangi kata sandi',
+			'rules' => 'trim|required'
+		)
+	);
+
 	function __construct (){
 		parent::__construct();
 	}
@@ -49,7 +57,6 @@ class Partner_m extends MY_Model{
 		$new->idPARTNER = '';
 		$new->namePARTNER = '';
 		$new->emailPARTNER = '';
-		$new->passwordPARTNER = '';
 		$new->addressPARTNER = '';
 		$new->telephonePARTNER = '';
 		$new->idREGION = '';

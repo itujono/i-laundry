@@ -10,12 +10,12 @@ class User extends Admin_Controller {
 	}
 
 	public function index(){
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) OR $this->session->userdata('roleUSER') != 22){redirect('codewelladmin/user/Login/logout');}
 		$this->userlist();
 	}
 
 	public function userlist($id = NULL){
-		$data['addONS'] = 'plugins_datatables';
+		$data['addONS'] = 'plugins_users';
 
 		$id = decode(urldecode($id));
 
@@ -47,6 +47,10 @@ class User extends Admin_Controller {
 
 		}
 
+		if(!empty($this->session->flashdata('message'))) {
+            $data['message'] = $this->session->flashdata('message');
+        }
+
 		$data['subview'] = $this->load->view($this->data['backendDIR'].'Users', $data, TRUE);
 		$this->load->view($this->data['rootDIR'].'_layout_base',$data);
 	}
@@ -59,8 +63,7 @@ class User extends Admin_Controller {
         $this->form_validation->set_message('trim', 'Form %s adalah Trim');
 
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->User_m->array_from_post(array('emailUSER','passwordUSER','roleUSER','statusUSER'));
-			$data['passwordUSER'] = $this->User_m->hash($data['passwordUSER']);
+			$data = $this->User_m->array_from_post(array('emailUSER','roleUSER','statusUSER'));
 			$data['roleUSER'] = decode($data['roleUSER']);
 			if($data['statusUSER'] == 'on')$data['statusUSER']=1;
 			else $data['statusUSER']=0;
@@ -297,6 +300,52 @@ class User extends Admin_Controller {
 	        	);
 	        $this->session->set_flashdata('message',$data);
 	        $this->changepassword();
+		}
+	}
+
+	public function userreset($id = NULL){
+		$ids = decode($this->input->post('idUSER'));
+		
+		if(empty($ids)){
+			$this->Logout();
+		}
+
+		$rules = $this->User_m->rules_reset;
+		$this->form_validation->set_rules($rules);
+		$this->form_validation->set_message('required', 'Form %s tidak boleh dikosongkan');
+        $this->form_validation->set_message('trim', 'Form %s adalah Trim');
+
+	    if($this->form_validation->run() == TRUE) {
+			$password = $this->User_m->hash($this->input->post('passwordUSER'));
+			$renewpassword = $this->User_m->hash($this->input->post('repasswordUSER'));
+
+			if($password != $renewpassword){
+				$data = array(
+					'title' => 'Peringatan',
+					'text' => 'Maaf kata sandi kamu tidak sama, silakan ulangi kembali!',
+					'type' => 'warning'
+					);
+				$this->session->set_flashdata('message', $data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+
+				$datas['passwordUSER'] = $password;
+				$this->User_m->save($datas, $ids);
+				$data = array(
+					'title' => 'Sukses',
+					'text' => 'Perubahan kata sandi telah berhasil dilakukan',
+					'type' => 'success'
+					);
+				$this->session->set_flashdata('message', $data);
+				redirect($_SERVER['HTTP_REFERER']);
+		} else {
+			$data = array(
+	            'title' => 'Terjadi Kesalahan',
+	            'text' => 'Maaf, mohon ulangi inputan form anda.',
+	            'type' => 'error'
+	        	);
+	        $this->session->set_flashdata('message',$data);
+	        $this->userlist();
 		}
 	}
 }

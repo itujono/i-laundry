@@ -37,6 +37,8 @@ function count_notif(){
          $CI->db->where('isreadORDER',0);
     } elseif ($CI->session->userdata('roleUSER') == 22) {
         $CI->db->where('orders.isreadadminORDER', 0);
+    } elseif ($CI->session->userdata('roleUSER') == 24) {
+        $CI->db->where('orders.isreadadminORDER', 0);
     }
 
 	$data = $CI->db->get()->num_rows();
@@ -55,6 +57,8 @@ function selectunreadorders(){
         $CI->db->where('orders.idPARTNER',$partner);
         $CI->db->where('orders.isreadORDER', 0);
     } elseif ($CI->session->userdata('roleUSER') == 22) {
+        $CI->db->where('orders.isreadadminORDER', 0);
+    } elseif ($CI->session->userdata('roleUSER') == 24) {
         $CI->db->where('orders.isreadadminORDER', 0);
     }
 	
@@ -96,17 +100,17 @@ function timeAgo($timestamp){
     }
 }
 
-function img_view($link){
-    $dir = 'assets/upload/'.$link;
-    $map = directory_map($dir, FALSE, TRUE);
-    if(!empty($map[0])){
-        $img = base_url().$dir.'/'.$map[0];
-    }else{
-        $img = base_url().'assets/frontend/images/ava.png';
-    }
+// function img_view($link){
+//     $dir = 'assets/upload/'.$link;
+//     $map = directory_map($dir, FALSE, TRUE);
+//     if(!empty($map[0])){
+//         $img = base_url().$dir.'/'.$map[0];
+//     }else{
+//         $img = base_url().'assets/frontend/images/ava.png';
+//     }
 
-    return $img;
-}
+//     return $img;
+// }
 
 function replacesymbol($string){
     return str_replace([' ','&',',','.','(',')','!','?'], ['','','','','','','',''], $string);

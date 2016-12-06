@@ -91,7 +91,84 @@ if($plugins == 'plugins_datatables'){
 <script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/forms_advanced.min.js"></script>
 <!-- jquery.idle -->
 <script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+<?php
+}elseif($plugins == 'plugins_users'){
+?>
+<?php echo $datatables;?>
+<?php echo $forms_advanced;?>
+<!--  preloaders functions -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/components_preloaders.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+<!-- MODAL RESET PASSWORD USER -->
+<div class="uk-modal" id="userID">
+    <div class="uk-modal-dialog">
+        <form method="POST" action="<?php echo base_url();?>codewelladmin/user/userreset" class="uk-form-stacked" id="form_validation">
+        <div class="uk-modal-header">
+            <h3 class="uk-modal-title">Reset kata sandi kamu</h3>
+        </div>
+       <input type="hidden" id="idUSER" name="idUSER">
+        <div class="uk-form-row uk-margin-top">
+            <label>Sandi Baru</label>
+            <input required type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal kata sandi 8 karakter' : ''); if(this.checkValidity()) form.repasswordUSER.pattern = this.value;" class="md-input label-fixed" id="passwordUSER"  name="passwordUSER">
+        </div>
+        <div class="uk-text uk-text-danger uk-margin-bottom"><h6><i>*Minimal 8 Karakter</i></h6></div>
 
+        <div class="uk-form-row uk-margin-top">
+            <label>Konfirmasi Sandi Baru</label>
+             <input required type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Masukkan kata sandi yang sama seperti diatas' : '');" class="md-input label-fixed" id="repasswordUSER" name="repasswordUSER">
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button type="button" class="md-btn md-btn-flat uk-modal-close">Tutup</button>
+            <?php echo form_submit('submit','Reset', 'class="md-btn md-btn-danger" id="show_preloader_md"'); ?>
+        </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).on("click", ".md-btn2", function () {
+        var userID = $(this).data('id');
+        $(".uk-modal-dialog #idUSER").val(userID);
+    });
+</script>
+<?php
+}elseif($plugins == 'plugins_partners'){
+?>
+<?php echo $datatables;?>
+<?php echo $forms_advanced;?>
+<!--  preloaders functions -->
+<script src="<?php echo base_url(); ?>assets/backend/assets/js/pages/components_preloaders.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/backend/bower_components/jquery-idletimer/dist/idle-timer.min.js"></script>
+<!-- MODAL RESET PASSWORD USER -->
+<div class="uk-modal" id="partnerID">
+    <div class="uk-modal-dialog">
+        <form method="POST" action="<?php echo base_url();?>codewelladmin/partner/partnerreset" class="uk-form-stacked" id="form_validation">
+        <div class="uk-modal-header">
+            <h3 class="uk-modal-title">Reset kata sandi kamu</h3>
+        </div>
+       <input type="hidden" id="idPARTNER" name="idPARTNER">
+        <div class="uk-form-row uk-margin-top">
+            <label>Sandi Baru</label>
+            <input required type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal kata sandi 8 karakter' : ''); if(this.checkValidity()) form.repasswordPARTNER.pattern = this.value;" class="md-input label-fixed" id="passwordPARTNER" name="passwordPARTNER">
+        </div>
+        <div class="uk-text uk-text-danger uk-margin-bottom"><h6><i>*Minimal 8 Karakter</i></h6></div>
+
+        <div class="uk-form-row uk-margin-top">
+            <label>Konfirmasi Sandi Baru</label>
+             <input required type="password" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Masukkan kata sandi yang sama seperti diatas' : '');" class="md-input label-fixed" id="repasswordPARTNER" name="repasswordPARTNER">
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button type="button" class="md-btn md-btn-flat uk-modal-close">Tutup</button>
+            <?php echo form_submit('submit','Reset', 'class="md-btn md-btn-danger" id="show_preloader_md"'); ?>
+        </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).on("click", ".md-btn2", function () {
+        var partnerID = $(this).data('id');
+        $(".uk-modal-dialog #idPARTNER").val(partnerID);
+    });
+</script>
 <?php                   
 }
 ?>

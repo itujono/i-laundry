@@ -60,6 +60,29 @@ class Order extends Admin_Controller {
 	        $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2',$ids);
 	        $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3',$ids);
 	        $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4',$ids);
+
+		} elseif ($this->session->userdata('roleUSER') == 24) {
+
+			$data['orderlist'] = $this->Order_m->selectall_order()->result();
+				foreach ($data['orderlist'] as $key => $value) {
+					if($value->statusORDER == 1){
+						$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
+					} elseif($value->statusORDER == 2) {
+						$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
+					} elseif ($value->statusORDER == 3) {
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
+					} else if ($value->statusORDER == 4){
+						$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+					} elseif($value->statusORDER == 5){
+						$status='<span class="uk-badge uk-badge-warning">Dibatalkan</span>';
+					}
+					$data['orderlist'][$key]->status = $status;
+				}
+
+			$data['process'] = $this->Order_m->counts('codewell_orders','statusORDER = 1');
+	        $data['wash'] = $this->Order_m->counts('codewell_orders','statusORDER = 2');
+	        $data['waitingpayment'] = $this->Order_m->counts('codewell_orders','statusORDER = 3');
+	        $data['done'] = $this->Order_m->counts('codewell_orders','statusORDER = 4');
 		}
 		
 		if(!empty($this->session->flashdata('message'))) {

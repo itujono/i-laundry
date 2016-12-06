@@ -125,22 +125,11 @@ class Promo extends Admin_Controller {
 
 	   		} else {
 
-   				if ($_FILES['imgPROMO']['error'] != 4) {
-				$data['upload_errors'] = $this->upload->display_errors();
-				$data = array(
-					'title' => 'Gagal',
-					'text' => $data['upload_errors'].' '.$msg,
-					'type' => 'success'
-					);
-
-				} else {
-
 				$data = array(
 					'title' => 'Sukses',
                     'text' => 'Penyimpanan Data berhasil dilakukan',
                     'type' => 'success'
-					);
-				}
+				);
       		}
 	    	$this->session->set_flashdata('message', $data);
 	  		redirect('codewelladmin/Promo');

@@ -34,6 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                   <th>No.</th>
                   <th>Nama</th>
+                  <th>Daerah</th>
                   <th>Dibuat</th>
                   <th>Status</th>
                   <th>Actions</th>
@@ -44,6 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <tr>
                 <th>No.</th>
                 <th>Nama</th>
+                <th>Daerah</th>
                 <th>Dibuat</th>
                 <th>Status</th>
                 <th>Actions</th>
@@ -56,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
              <tr>
                 <td><?php echo $key+1; ?></td>
                 <td><?php echo $aroma->nameAROMA;?></td>
+                <td><?php echo $aroma->nameREGION;?></td>
                 <td><?php echo dF($aroma->createdateAROMA, 'd F Y (H:i:s)');?></td>
                 <td><?php echo $aroma->status;?></td>
                 <?php
@@ -92,13 +95,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="uk-width-medium-1-1">
                 <div class="uk-form-row">
                   <div class="uk-grid" data-uk-grid-margin>
-                    <div class="uk-width-medium-1-2">
-                      <label>Nama Aroma</label>
+                    <div class="uk-width-medium-1-3 uk-margin-top">
+                      <label>Nama Aroma <span class="req">*</span></label>
                       <br>
                         <input type="text" class="md-input label-fixed" name="nameAROMA" required autocomplete value="<?php echo $getaroma->nameAROMA;?>" />
                         <p class="text-red"><?php echo form_error('nameAROMA'); ?></p>
                     </div>
-                    <div class="uk-width-medium-1-2 uk-margin-top">
+                    <div class="uk-width-medium-1-3 uk-margin-top">
+                      <label for="Partner" class="uk-form-label">Daerah <span class="req">*</span></label>
+                      <?php echo form_dropdown('idREGION', $listregion, $getaroma->idREGION,'data-md-selectize data-md-selectize-bottom required'); ?> 
+                    </div>
+                    <div class="uk-width-medium-1-3 uk-margin-top">
                       <div class="parsley-row">
                         <?php
                           $checkdis= '';

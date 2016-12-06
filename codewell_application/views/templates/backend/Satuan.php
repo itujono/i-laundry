@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="uk-width-medium-1-2">
                       <label for="Kategori" class="uk-form-label">Kategori Satuan<span class="req">*</span></label>
                       <br>
-                      <?php echo form_dropdown('idCATEGORYSATUAN', $categorysatuan, $getsatuan->idCATEGORYSATUAN,'data-md-selectize required'); ?> 
+                      <?php echo form_dropdown('idCATEGORYSATUAN', $categorysatuan, $getsatuan->idCATEGORYSATUAN,'data-md-selectize data-md-selectize-bottom required'); ?> 
                     </div>
                   </div>
                   <div class="uk-grid" data-uk-grid-margin>
