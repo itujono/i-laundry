@@ -269,18 +269,7 @@
   <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/custom.js"></script>
   <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/hammer.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/hammer-time.min.js"></script>
-  
-<script>
-$(document).ready(function(){
 
-    $("#region").change(function (){
-        var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
-        $('#div_aroma').load(url);
-        return false;
-    })
-
-});
-</script>
 </body>
 
 </html>

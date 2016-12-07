@@ -49,17 +49,13 @@
 								</div>
  -->								<div class="item-inner no-margin">
 								  	<div class="item-input">
-								  		<select name="idREGION" id="region" required>
+								  		<select name="idREGION" id="idREGION" required>
+								  		<option selected="" disabled="">Pilih daerah kamu</option>
 										<?php
                                         if(!empty($listregion)){
                                             foreach ($listregion as $key => $region) {
-                                                if($key == 0){
-                                                    $check = 'checked="checked"';
-                                                } else {
-                                                    $check = '';
-                                                }
                                         ?>
-											<option value="<?php echo $region->idREGION;?>" <?php echo $check;?>><?php echo $region->nameREGION;?></option>
+											<option value="<?php echo $region->idREGION;?>"><?php echo $region->nameREGION;?></option>
 										<?php } ?>
 										<?php } ?>
 										</select>
@@ -160,7 +156,7 @@
 <script>
 $(document).ready(function(){
 
-    $("#region").change(function (){
+    $("#idREGION").change(function (){
         var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
         $('#div_aroma').load(url);
         return false;
