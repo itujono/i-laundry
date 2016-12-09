@@ -153,6 +153,7 @@
 		</div>
 	</div>
 </div>
+ <script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.12.3.min.js"></script>
 <script>
 $(document).ready(function(){
 
