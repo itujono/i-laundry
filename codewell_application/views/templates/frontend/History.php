@@ -3,7 +3,7 @@
 		<div class="navbar navbar-no-color">
 			<div class="navbar-inner">
 				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
-				<div class="center">Pengaturan</div>
+				<div class="center">Histori Pemesanan</div>
 				<div class="right">
 				<!-- Right link contains only icon - additional "icon-only" class-->
 				<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>

@@ -507,6 +507,10 @@
 
 /* wah masuk History cobak! Hahah */
 
+.history > section {
+    background-color: #fafafa;
+}
+
 #history .page-top-cover {
     width: 100%;
     height: 250px;
