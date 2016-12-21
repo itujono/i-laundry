@@ -167,6 +167,18 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="item-content">
+            <div class="item-media">
+              <i class="flaticon-cooker"></i>
+            </div>
+            <div class="item-inner no-margin">
+              <div class="item-title text-small">
+                <a href="<?php echo base_url();?>history" class="close-panel">History</a>
+              </div>
+            </div>
+          </div>
+        </li>
         <?php } ?>
         <li>
           <div class="item-content">
