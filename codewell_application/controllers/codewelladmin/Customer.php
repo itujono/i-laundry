@@ -6,7 +6,9 @@ class Customer extends Admin_Controller {
 	public function __construct (){
 		parent::__construct();
 		$this->load->model('Customer_m');
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) AND $this->session->userdata('roleUSER') != 22 AND $this->session->userdata('roleUSER') != 21){
+			redirect('codewelladmin/user/Login/logout');
+		}
 	}
 
 	public function index(){

@@ -163,6 +163,15 @@ class User_m extends MY_Model{
 	    		);
 	    		$this->session->set_userdata($data);
 	    		return "KARYAWAN";
+    		} elseif($Administrator->roleUSER == 21){
+    			$data = array(
+	    			'Email' => $Administrator->emailUSER,
+	    			'idUSER' => $Administrator->idUSER,
+	    			'roleUSER' => 21,
+	    			'logged_in' => TRUE,
+	    		);
+	    		$this->session->set_userdata($data);
+	    		return "ROOT";
     		}
     	}
 
@@ -192,7 +201,7 @@ class User_m extends MY_Model{
 	}
 
 	public function checkuser($mail){
-		$this->db->select('emailUSER');
+		$this->db->select('idUSER, emailUSER');
 		$this->db->from('users');
 		$this->db->where('emailUSER', $mail);
 

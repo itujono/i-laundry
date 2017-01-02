@@ -91,7 +91,80 @@
 
   <div class="menu_section">
     <ul>
-    <?php if($this->session->userdata('roleUSER') == 22){ ?>
+    <?php if ($this->session->userdata('roleUSER') == 21) { ?>
+      <li title="Bruteforce">
+        <a href="<?php echo base_url();?>codewelladmin/Brute">
+          <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>
+          <span class="menu_title">Brute Force Attack</span>
+        </a>
+      </li>
+      <li title="Customer">
+        <a href="<?php echo base_url();?>codewelladmin/Customer">
+          <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>
+          <span class="menu_title">Customer</span>
+        </a>
+      </li>
+      <li title="Partner">
+        <a href="<?php echo base_url();?>codewelladmin/Partner">
+          <span class="menu_icon"><i class="material-icons">&#xE54A;</i></span>
+          <span class="menu_title">Partner</span>
+        </a>
+      </li>
+      <li title="Order">
+        <a href="<?php echo base_url();?>codewelladmin/Order">
+          <span class="menu_icon"><i class="material-icons">&#xE8CC;</i></span>
+          <span class="menu_title">Order</span>
+        </a>
+      </li>
+      <li title="Daerah">
+        <a href="<?php echo base_url();?>codewelladmin/Region">
+          <span class="menu_icon"><i class="material-icons">&#xE55B;</i></span>
+          <span class="menu_title">Daerah</span>
+        </a>
+      </li>
+      <li title="Promo">
+        <a href="<?php echo base_url();?>codewelladmin/Promo">
+          <span class="menu_icon"><i class="material-icons">&#xE8F6;</i></span>
+          <span class="menu_title">Promo</span>
+        </a>
+      </li>
+      <li title="Aroma">
+        <a href="<?php echo base_url();?>codewelladmin/Aroma">
+          <span class="menu_icon"><i class="material-icons">&#xE545;</i></span>
+          <span class="menu_title">Aroma</span>
+        </a>
+      </li>
+      <li title="Layanan">
+        <a href="<?php echo base_url();?>codewelladmin/Services">
+          <span class="menu_icon"><i class="material-icons">&#xE55B;</i></span>
+          <span class="menu_title">Layanan</span>
+        </a>
+      </li>
+      <li title="Paket">
+        <a href="<?php echo base_url();?>codewelladmin/Package">
+          <span class="menu_icon"><i class="material-icons">&#xE850;</i></span>
+          <span class="menu_title">Paket</span>
+        </a>
+      </li>
+      <li title="Satuan">
+        <a href="<?php echo base_url();?>codewelladmin/Satuan">
+          <span class="menu_icon"><i class="material-icons">&#xE885;</i></span>
+          <span class="menu_title">Satuan</span>
+        </a>
+      </li>
+      <li title="Category Satuan">
+        <a href="<?php echo base_url();?>codewelladmin/Category_satuan">
+          <span class="menu_icon"><i class="material-icons">&#xE83A;</i></span>
+          <span class="menu_title">Category Satuan</span>
+        </a>
+      </li>
+      <li title="Pengguna">
+        <a href="<?php echo base_url();?>codewelladmin/User">
+          <span class="menu_icon"><i class="material-icons">&#xE84E;</i></span>
+          <span class="menu_title">Pengguna</span>
+        </a>
+      </li>
+    <?php } elseif($this->session->userdata('roleUSER') == 22){ ?>
       <li title="Customer">
         <a href="<?php echo base_url();?>codewelladmin/Customer">
           <span class="menu_icon"><i class="material-icons">&#xE8A3;</i></span>

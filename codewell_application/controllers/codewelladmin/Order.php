@@ -8,14 +8,16 @@ class Order extends Admin_Controller {
 		$this->load->model('Order_m');
 		$this->load->model('Partner_m');
 
-		if(empty($this->session->userdata('idUSER'))){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) AND $this->session->userdata('roleUSER') != 22 AND $this->session->userdata('roleUSER') != 21){
+			redirect('codewelladmin/user/Login/logout');
+		}
 	}
 	
 	public function index(){
 		$data['addONS'] = 'plugins_order';
 		$ids = $this->session->userdata('idUSER');
 		
-		if($this->session->userdata('roleUSER') == 22) {
+		if($this->session->userdata('roleUSER') == 21 OR $this->session->userdata('roleUSER') == 22) {
 
 			$data['orderlist'] = $this->Order_m->selectall_order()->result();
 				foreach ($data['orderlist'] as $key => $value) {

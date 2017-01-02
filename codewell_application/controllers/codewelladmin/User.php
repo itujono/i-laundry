@@ -7,10 +7,13 @@ class User extends Admin_Controller {
 		parent::__construct();
 		$this->load->model('User_m');
 		$this->load->model('Partner_m');
+		$this->load->model('Attempts_m');
 	}
 
 	public function index(){
-		if(empty($this->session->userdata('idUSER')) OR $this->session->userdata('roleUSER') != 22){redirect('codewelladmin/user/Login/logout');}
+		if(empty($this->session->userdata('idUSER')) AND $this->session->userdata('roleUSER') != 22 AND $this->session->userdata('roleUSER') != 21){
+			redirect('codewelladmin/user/Login/logout');
+		}
 		$this->userlist();
 	}
 
@@ -123,6 +126,29 @@ class User extends Admin_Controller {
 		}
 	}
 
+	function checkbrute($email) {
+	    $now = time();
+	    $valid_attempts = $now - (2 * 60 * 60);
+	    $idlogin = $this->User_m->checkuser($email)->row();
+
+	    if(empty($idlogin)){
+	    	$data = array(
+	            'title' => 'Oops!',
+	            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
+	            'type' => 'danger'
+	        );
+	        $this->session->set_flashdata('message',$data);
+			redirect('codewelladmin/Login');
+	    }
+
+	    $attempts = $this->Attempts_m->checkingbrute($idlogin->idUSER,$valid_attempts);
+	    if($attempts  > 5){
+	    	return true;
+	    } else {
+	    	return false;
+	    }
+	}
+
 	public function login(){
 		
 		$rules = $this->User_m->rules_login;
@@ -133,11 +159,35 @@ class User extends Admin_Controller {
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
 
+			$attemptslogin = $this->checkbrute($email);
+
+			if($attemptslogin == true){
+
+				$data = array(
+		            'title' => 'Maaf!,',
+		            'text' => 'Untuk sementara akun anda telah terkunci, silakan hubungi programmer anda untuk melaporkan masalah ini. Terima kasih!',
+		            'type' => 'danger'
+		        );
+		        $this->session->set_flashdata('message',$data);
+				redirect('codewelladmin/Login');
+			}
+
 			if ($this->User_m->login($email, $pass) == "ADMIN") {
 
-					$data = array(
+				$data = array(
 		            'title' => 'Welcome!',
 		            'text' => 'Hallo, Selamat datang kembali '. $this->session->userdata('Email').' !',
+		            'type' => 'success'
+		        );
+		        
+		        $this->session->set_flashdata('message',$data);
+				redirect($this->data['folBACKEND'].'Customer');
+				
+			} elseif ($this->User_m->login($email, $pass) == "ROOT") {
+
+				$data = array(
+		            'title' => 'Welcome!',
+		            'text' => 'Hallo, ROOT '. $this->session->userdata('Email').' !',
 		            'type' => 'success'
 		        );
 		        
@@ -167,12 +217,18 @@ class User extends Admin_Controller {
 				redirect($this->data['folBACKEND'].'Order');
 
 			} else {
+				$mailing = $this->input->post('email');
+				$logindata = $this->User_m->checkuser($mailing)->row(); 
+				
+				$data['idUSER'] = $logindata->idUSER;
+				$data['timeATTEMPTS'] = time();
+				$this->Attempts_m->save($data);
 
 				$data = array(
 		            'title' => 'Oops!',
 		            'text' => 'Maaf, email dan kata sandi yang anda masukkan salah',
 		            'type' => 'danger'
-		        	);
+		        );
 		        $this->session->set_flashdata('message',$data);
 				redirect('codewelladmin/Login');
 			}
