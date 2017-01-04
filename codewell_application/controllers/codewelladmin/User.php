@@ -129,24 +129,47 @@ class User extends Admin_Controller {
 	function checkbrute($email) {
 	    $now = time();
 	    $valid_attempts = $now - (2 * 60 * 60);
-	    $idlogin = $this->User_m->checkuser($email)->row();
 
-	    if(empty($idlogin)){
-	    	$data = array(
-	            'title' => 'Oops!',
-	            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
-	            'type' => 'danger'
-	        );
-	        $this->session->set_flashdata('message',$data);
-			redirect('codewelladmin/Login');
-	    }
+	    $idloginadmin = $this->User_m->checkuseradmin($email)->row();
+	   
+	    if($idloginadmin->roleUSER == 22 OR $idloginadmin->roleUSER == 24){
+		    if(empty($idloginadmin)){
+		    	$data = array(
+		            'title' => 'Oops!',
+		            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
+		            'type' => 'danger'
+		        );
+		        $this->session->set_flashdata('message',$data);
+				redirect('codewelladmin/Login');
+		    }
 
-	    $attempts = $this->Attempts_m->checkingbrute($idlogin->idUSER,$valid_attempts);
-	    if($attempts  > 5){
-	    	return true;
-	    } else {
-	    	return false;
-	    }
+		    $attempts = $this->Attempts_m->checkingbruteadmin($idloginadmin->idUSER,$valid_attempts);
+		    if($attempts  > 4){
+		    	return true;
+		    } else {
+		    	return false;
+		    }
+
+		} else {
+
+			$idloginpartner = $this->Partner_m->checkuserpartner($email)->row();
+			if(empty($idloginpartner)){
+		    	$data = array(
+		            'title' => 'Oops!',
+		            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
+		            'type' => 'danger'
+		        );
+		        $this->session->set_flashdata('message',$data);
+				redirect('codewelladmin/Login');
+		    }
+
+		    $attempts_partner = $this->Attempts_m->checkingbrutepartner($idloginpartner->idPARTNER, $valid_attempts);
+		    if($attempts_partner  > 4){
+		    	return true;
+		    } else {
+		    	return false;
+		    }
+		}
 	}
 
 	public function login(){
@@ -158,7 +181,7 @@ class User extends Admin_Controller {
 
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
-
+			
 			$attemptslogin = $this->checkbrute($email);
 
 			if($attemptslogin == true){
@@ -218,11 +241,19 @@ class User extends Admin_Controller {
 
 			} else {
 				$mailing = $this->input->post('email');
-				$logindata = $this->User_m->checkuser($mailing)->row(); 
-				
-				$data['idUSER'] = $logindata->idUSER;
-				$data['timeATTEMPTS'] = time();
-				$this->Attempts_m->save($data);
+
+				$logindataadmin = $this->User_m->checkuseradmin($mailing)->row();
+				$logindatapartner = $this->Partner_m->checkuserpartner($mailing)->row();
+
+				if(!empty($logindataadmin)){
+					$data['idUSER'] = $logindataadmin->idUSER;
+					$data['timeATTEMPTS'] = time();
+					$this->Attempts_m->save($data);
+				} else {
+					$data['idPARTNER'] = $logindatapartner->idPARTNER;
+					$data['timeATTEMPTS'] = time();
+					$this->Attempts_m->insertdatabrute($data);
+				}
 
 				$data = array(
 		            'title' => 'Oops!',

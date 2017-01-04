@@ -115,4 +115,12 @@ class Partner_m extends MY_Model{
             return $this->db->get();
         }
     }
+
+    public function checkuserpartner($mail){
+		$this->db->select('idPARTNER, emailPARTNER');
+		$this->db->from('partner');
+		$this->db->where('emailPARTNER', $mail);
+
+		return $this->db->get();
+	}
 }

@@ -21,6 +21,8 @@ class Brute extends Admin_Controller {
 		$id = decode(urldecode($id));
 
 		$data['listbrute'] = $this->Attempts_m->selectallbrute()->result();
+		$data['listbrutepartner'] = $this->Attempts_m->selectallbrutepartner()->result();
+		$data['listbrutecustomer'] = $this->Attempts_m->selectallbrutepartner()->result();
 
 		if(!empty($this->session->flashdata('message'))) {
             $data['message'] = $this->session->flashdata('message');
@@ -33,6 +35,19 @@ class Brute extends Admin_Controller {
 	public function deletedata($id){
 		$id = decode(urldecode($id));
     	if ($this->Attempts_m->deletedata($id)) {
+			$data = array(
+                'title' => 'Sukses',
+                'text' => 'Hapus Data berhasil dilakukan',
+                'type' => 'success'
+            );
+            $this->session->set_flashdata('message',$data); 
+        }
+        redirect('codewelladmin/brute');
+    }
+
+    public function deletedatapartner($id){
+		$id = decode(urldecode($id));
+    	if ($this->Attempts_m->deletedatapartner($id)) {
 			$data = array(
                 'title' => 'Sukses',
                 'text' => 'Hapus Data berhasil dilakukan',

@@ -41,24 +41,73 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </tr>
             </tfoot>
             <tbody>
-            <?php foreach ($listbrute  as $key => $brute) { 
-              $id = encode($brute->idATTEMPTS);
-              ?>
-             <tr>
-                <td><?php echo $key+1; ?></td>
-                <td><?php echo $brute->emailUSER;?></td>
-                <td><?php echo date('l, d F Y - H:i:s', $brute->timeATTEMPTS);?></td>
-                <?php
-                 $icn = '&#xE872;'; 
-                 $nm = 'Menghapus';
-
-                  $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($brute->emailUSER).'</b> ?';
-                  $url1 = $this->data['folBACKEND'].$controller.'/deletedata/'.urlencode($id);
+            <?php 
+            if(!empty($listbrute)){
+              foreach ($listbrute  as $key => $brute) { 
+                $id = encode($brute->idUSER);
                 ?>
-                <td class="uk-text-center">
-                  <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
-                </td>
-              </tr>
+               <tr>
+                  <td><?php echo $key+1; ?></td>
+                  <td><?php echo $brute->emailUSER;?></td>
+                  <td><?php echo date('l, d F Y - H:i:s', $brute->timeATTEMPTS);?></td>
+                  <?php
+                   $icn = '&#xE872;'; 
+                   $nm = 'Menghapus';
+
+                    $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($brute->emailUSER).'</b> ?';
+                    $url1 = $this->data['folBACKEND'].$controller.'/deletedata/'.urlencode($id);
+                  ?>
+                  <td class="uk-text-center">
+                    <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons"><?php echo $icn; ?></i></a>
+                  </td>
+                </tr>
+              <?php } ?>
+            <?php } ?>
+
+            <?php 
+            if(!empty($listbrutepartner)){
+              foreach ($listbrutepartner  as $key => $brutepartner) { 
+                $id = encode($brutepartner->idPARTNER);
+                ?>
+               <tr>
+                  <td><?php echo $key+1; ?></td>
+                  <td><?php echo $brutepartner->emailPARTNER;?></td>
+                  <td><?php echo date('l, d F Y - H:i:s', $brutepartner->timeATTEMPTS);?></td>
+                  <?php
+                   $icn = '&#xE872;'; 
+                   $nm = 'Menghapus';
+
+                    $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($brutepartner->emailPARTNER).'</b> ?';
+                    $url1 = $this->data['folBACKEND'].$controller.'/deletedatapartner/'.urlencode($id);
+                  ?>
+                  <td class="uk-text-center">
+                    <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons uk-text-danger"><?php echo $icn; ?></i></a>
+                  </td>
+                </tr>
+              <?php } ?>
+            <?php } ?>
+
+             <?php 
+            if(!empty($listbrutecustomer)){
+              foreach ($listbrutecustomer  as $key => $brutecustomer) { 
+                $id = encode($brutecustomer->idCUSTOMER);
+                ?>
+               <tr>
+                  <td><?php echo $key+1; ?></td>
+                  <td><?php echo $brutecustomer->emailCUSTOMER;?></td>
+                  <td><?php echo date('l, d F Y - H:i:s', $brutecustomer->timeATTEMPTS);?></td>
+                  <?php
+                   $icn = '&#xE872;'; 
+                   $nm = 'Menghapus';
+
+                    $msg1 = 'Apakah kamu yakin akan '.$nm.' <b>'.addslashes($brutecustomer->emailCUSTOMER).'</b> ?';
+                    $url1 = $this->data['folBACKEND'].$controller.'/deletedatacustomer/'.urlencode($id);
+                  ?>
+                  <td class="uk-text-center">
+                    <a href="#" onclick="UIkit.modal.confirm('<?php echo $msg1; ?>', function(){ document.location.href='<?php echo site_url($url1);?>'; });"><i class="md-icon material-icons uk-text-primary"><?php echo $icn; ?></i></a>
+                  </td>
+                </tr>
+              <?php } ?>
             <?php } ?>
             </tbody>
           </table>

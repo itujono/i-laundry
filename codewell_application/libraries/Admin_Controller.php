@@ -16,12 +16,12 @@ class Admin_Controller extends MY_Controller{
 
 	function mail_config(){
 		$config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'mail.dunia-otomotif.com';
+        $config['smtp_host'] = 'mail.prowebmedia.org';
         //$config['smtp_host'] = 'smtp.mandrillapp.com';
         $config['smtp_port'] = '587'; 
         $config['smtp_timeout'] = 30;
-        $config['smtp_user'] = 'cs@dunia-otomotif.com';
-        $config['smtp_pass'] = 'duniaotomotif5612';
+        $config['smtp_user'] = 'andhana@prowebmedia.org';
+        $config['smtp_pass'] = 'WT1UCmwnyUPp';
         // $config['smtp_user'] = 'Proweb Media Indonesia';
         // $config['smtp_pass'] = 'tg0eEIlltFAJKngiYKMCiQ';
         $config['mailtype'] = 'html';

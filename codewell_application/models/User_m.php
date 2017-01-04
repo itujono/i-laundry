@@ -200,8 +200,8 @@ class User_m extends MY_Model{
 		return $this->db->get();
 	}
 
-	public function checkuser($mail){
-		$this->db->select('idUSER, emailUSER');
+	public function checkuseradmin($mail){
+		$this->db->select('idUSER, emailUSER, roleUSER');
 		$this->db->from('users');
 		$this->db->where('emailUSER', $mail);
 

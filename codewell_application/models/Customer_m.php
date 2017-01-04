@@ -104,12 +104,14 @@ class Customer_m extends MY_Model{
 		return hash('sha512', $string . config_item('encryption_key'));
 	}
 
-	public function checkuser($idCUSTOMER = NULL)
+	public function checkuser($idCUSTOMER = NULL, $emailCUSTOMER = NULL)
 	{
-		$this->db->select('idCUSTOMER');
+		$this->db->select('idCUSTOMER, emailCUSTOMER');
 		$this->db->from('customers');
 		if (!empty($idCUSTOMER)){
 			$this->db->where('customers.idCUSTOMER', $idCUSTOMER);
+		} else {
+			$this->db->where('customers.emailCUSTOMER', $emailCUSTOMER);
 		}
 		return $this->db->get();
 	}

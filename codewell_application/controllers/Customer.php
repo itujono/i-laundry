@@ -7,6 +7,7 @@ class Customer extends Frontend_Controller {
         parent::__construct();
         $this->load->model('User_m');
         $this->load->model('Customer_m');
+        $this->load->model('Attempts_m');
     }
 
     public function login(){
@@ -16,6 +17,30 @@ class Customer extends Frontend_Controller {
         }
 
 		$this->load->view($this->data['frontendDIR']. 'Login',$data);
+	}
+
+	function checkbrute($email) {
+	    $now = time();
+	    $valid_attempts = $now - (2 * 60 * 60);
+
+	    $idlogincustomer = $this->Customer_m->checkuser(NULL, $email)->row();
+
+	    if(empty($idlogincustomer)){
+	    	$data = array(
+	            'title' => 'Oops!',
+	            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
+	            'type' => 'danger'
+	        );
+	        $this->session->set_flashdata('message',$data);
+			redirect($_SERVER['HTTP_REFERER']);
+	    }
+
+	    $attempts = $this->Attempts_m->checkingbrutecustomer($idlogincustomer->idCUSTOMER,$valid_attempts);
+	    if($attempts  > 4){
+	    	return true;
+	    } else {
+	    	return false;
+	    }
 	}
 
 	public function processlogin(){
@@ -28,6 +53,26 @@ class Customer extends Frontend_Controller {
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
 
+			$attemptslogin = $this->checkbrute($email);
+			$countencrypt = strlen($this->User_m->hash($pass));
+
+			if($attemptslogin == true){
+
+				$data = array(
+		            'text' => 'Maaf!, untuk sementara akun anda telah terkunci, silakan hubungi bagian admin kami untuk melaporkan masalah ini. Terima kasih!'
+		        );
+		        $this->session->set_flashdata('message',$data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+
+			if ($countencrypt > 128 OR $countencrypt < 128) {
+				$data = array(
+		            'text' => 'Akun anda terdeteksi ada kesalahan, anda telah mencoba praktek pembobolan akun, kami telah mencatat IP anda dan lokasi anda!.'
+		        );
+		        $this->session->set_flashdata('message',$data);
+				redirect($_SERVER['HTTP_REFERER']);
+			}
+
 			if ($this->User_m->login($email, $pass) == "CUSTOMER"){
 				
 				$data = array(
@@ -37,6 +82,12 @@ class Customer extends Frontend_Controller {
 		        $this->session->set_flashdata('message',$data);
 				redirect($_SERVER['HTTP_REFERER']);
 			} else {
+				$mailing = $this->input->post('email');
+
+				$logindatacustomer = $this->Customer_m->checkuser(NULL, $mailing)->row();
+				$data['idCUSTOMER'] = $logindatacustomer->idCUSTOMER;
+				$data['timeATTEMPTS'] = time();
+				$this->Attempts_m->insertdatabrutecustomer($data);
 
 				$data = array(
 		            'text' => 'Maaf, email dan kata sandi yang anda masukkan salah'
