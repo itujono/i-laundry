@@ -80,6 +80,17 @@ $$(document).on("pageInit", function (e) {
         ]
     });
 
+    var page = e.detail.page;
+
+    if (page.name === 'order') {
+            // $("#idREGION").change(function (){
+            //     var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
+            //     $('#div_aroma').load(url);
+            //     return false;
+            // });
+        myApp.alert('Here comes Order page');
+    }
+
     // var pickerDaerah = myApp.picker({
     //     input: '#picker-daerah',
     //     rotateEffect: true,

@@ -1,35 +1,4 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="apple-touch-icon" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/apple-touch-icon.png" />
-	<link rel="apple-touch-startup-image" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/apple-touch-startup-image-320x460.png" />
-	<meta name="mobile-web-app-capable" content="yes">
-	<link rel="shortcut icon" sizes="196x196" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/196x196.png">
-	<link rel="shortcut icon" sizes="128x128" href="<?php echo base_url().$this->data['asfront']; ?>img/photos/128x128.png">
-	<!-- Color theme for statusbar -->
-	<meta name="theme-color" content="#3db5e4">
-	<title>i-Laundry - Selamat Datang</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Itim|Roboto:300,400,700,900" rel="stylesheet">
-
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.material.min.css">
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/framework7.material.colors.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().$this->data['asfront']; ?>css/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().$this->data['asfront']; ?>css/slick-theme.css"/>
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>fonts/flaticon.css">
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/base.css">
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/custom.css">
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
-	<link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/my-app.css">
-</head>
-<body class="theme-blue">
-	<div class="views">
-		<div class="view view-main">
 			<div class="pages">
 				<div data-page="order" class="page" id="order">
 					<div class="navbar navbar-no-color">
@@ -52,8 +21,8 @@
 										<div class="item-content">
 		<!-- 								<div class="input-icon item-media">
 											<i class="flaticon-date"></i>
-										</div>
-									-->								<div class="item-inner no-margin">
+										</div> -->
+								<div class="item-inner no-margin">
 									<div class="item-input">
 										<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
 									</div>
@@ -180,23 +149,4 @@
 							</form>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div> <!-- kelar Views utama -->
-		<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.12.3.min.js"></script>
-		<script>
-			$(document).ready(function(){
-
-				$("#idREGION").change(function (){
-					var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
-					$('#div_aroma').load(url);
-					return false;
-				})
-
-			});
-		</script>
-		<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/slick.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.min.js"></script>
-		<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>
-		<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/custom.js"></script>
-	</body>
+				</div> <!-- kelar div Pages -->
