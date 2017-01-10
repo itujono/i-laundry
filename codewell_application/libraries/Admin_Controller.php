@@ -6,7 +6,6 @@ class Admin_Controller extends MY_Controller{
 	function __construct (){
 		parent::__construct();
 		$this->load->helper('codewell');
-		$this->load->library('PdfGenerator');
 
 		$this->data['folBACKEND'] = $this->data['folder_admin'];
 		$this->data['backendDIR'] = 'templates/backend/';

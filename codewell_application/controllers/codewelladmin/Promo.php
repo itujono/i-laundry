@@ -94,10 +94,10 @@ class Promo extends Admin_Controller {
 			$idpromo = $this->Promo_m->save($data, $id);
 			if($idpromo != NULL) $Pic = $idpromo;
 
-			$files = $_FILES['imgPROMO'];
+			//$files = $_FILES['imgPROMO'];
 			$path = 'assets/upload/promo/'.$partner.'/'.folderENCRYPT($Pic);
 			$map = directory_map($path, FALSE, TRUE);
-
+			
 			if(!empty($_FILES['imgPROMO']['name'])){
 				foreach ($map as $value) {
 					unlink($path.'/'.$value);
