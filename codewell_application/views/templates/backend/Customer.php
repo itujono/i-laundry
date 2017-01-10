@@ -22,8 +22,8 @@
     	<?php 
     	if(!empty($listcustomer)){
     	foreach ($listcustomer as $key => $customer) { 
-    		if($customer->genderCUSTOMER == 1)$gender = 'Lelaki';
-    		else $gender = 'Perempuan';
+    		// if($customer->genderCUSTOMER == 1)$gender = 'Lelaki';
+    		// else $gender = 'Perempuan';
     	?>
 	    <div data-uk-filter="<?php echo $customer->nameCUSTOMER;?>,<?php echo $customer->addressCUSTOMER;?>,<?php echo $customer->emailCUSTOMER;?>">
 	        <div class="md-card md-card-hover">
@@ -47,12 +47,12 @@
 	            </div>
 	            <div class="md-card-content">
 	                <ul class="md-list">
-	                	<li>
+	                	<!-- <li>
 	                        <div class="md-list-content">
 	                            <span class="md-list-heading">Jenis Kelamin</span>
 	                            <span class="uk-text-small uk-text-muted"><?php echo $gender;?></span>
 	                        </div>
-	                    </li>
+	                    </li> -->
 	                    <li>
 	                        <div class="md-list-content">
 	                            <span class="md-list-heading">Alamat</span>
