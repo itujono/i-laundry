@@ -22,6 +22,22 @@ var mainView = myApp.addView(".view-main", {
     dynamicNavbar: true
 });
 
+  $$(document).on('pageInit', function (e) {
+  // Get page data from event data
+  var page = e.detail.page;
+  
+  if (page.name === 'order') {
+    // Following code will be executed for page with data-page attribute equal to "about"
+    //myApp.alert('Here comes order page');
+    $("#idREGION").change(function (){
+        var url = "http://localhost/codewell/i-laundry/order/load_aroma/"+$(this).val();
+        $('#div_aroma').load(url);
+        return false;
+    });
+  }
+})
+ 
+
 /*=========================================================*/
 /* SHOW/HIDE PRELOADER FOR REMOTE AJAX LOADED PAGES           */
 /*=========================================================*/
@@ -79,17 +95,6 @@ $$(document).on("pageInit", function (e) {
             }
         ]
     });
-
-    var page = e.detail.page;
-
-    if (page.name === 'order') {
-            // $("#idREGION").change(function (){
-            //     var url = "<?php echo site_url('order/load_aroma');?>/"+$(this).val();
-            //     $('#div_aroma').load(url);
-            //     return false;
-            // });
-        myApp.alert('Here comes Order page');
-    }
 
     // var pickerDaerah = myApp.picker({
     //     input: '#picker-daerah',

@@ -65,4 +65,18 @@ class Region_m extends MY_Model{
 
   		return $this->db->get();
  	}
+
+ 	public function selectall_regionbaseonaroma($status = NULL){
+		$this->db->select('regions.*');
+		$this->db->select('aroma.idAROMA, nameAROMA');
+		$this->db->from('regions');
+		$this->db->join('aroma','aroma.idREGION = regions.idREGION');
+		$this->db->group_by('regions.nameREGION');
+		if($status != NULL){
+        	$this->db->where('statusREGION',1);
+        	$this->db->where('statusAROMA',1);
+		}
+
+		return $this->db->get();
+	}
 }

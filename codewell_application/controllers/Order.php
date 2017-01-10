@@ -27,7 +27,7 @@ class Order extends Frontend_Controller {
 		$data['listaroma'] = $this->Aroma_m->selectall_aroma(NULL, 1)->result();
 		$data['listservices'] = $this->Services_m->selectall_services(NULL, 1)->result();
 		$data['listpackage'] = $this->Package_m->selectall_package(NULL, 1)->result();
-		$data['listregion'] = $this->Region_m->selectall_region(NULL, 1)->result();
+		$data['listregion'] = $this->Region_m->selectall_regionbaseonaroma(1)->result();
 		
 		$this->load->view($this->data['frontendDIR']. 'Order',$data);
 	}
