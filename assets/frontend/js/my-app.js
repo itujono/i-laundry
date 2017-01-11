@@ -27,8 +27,6 @@ var mainView = myApp.addView(".view-main", {
   var page = e.detail.page;
   
   if (page.name === 'order') {
-    // Following code will be executed for page with data-page attribute equal to "about"
-    //myApp.alert('Here comes order page');
     $("#idREGION").change(function (){
         var url = "http://localhost/codewell/i-laundry/order/load_aroma/"+$(this).val();
         $('#div_aroma').load(url);
