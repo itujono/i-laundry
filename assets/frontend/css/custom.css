@@ -577,3 +577,25 @@
 .list-block .item-text.list > li > h5 {
     line-height: 1.2;
 }
+
+#history .status-btn {
+    float: left;
+    margin-top: 15px;
+}
+
+#history .status-btn .button.login-btn {
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+}
+
+#history .status-btn .button.login-btn#paid {
+    background-color: #9de648;
+}
+
+#history .status-btn .button.login-btn#paid:before {
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    margin-right: 5px;
+    margin-left: -5px;
+}

@@ -26,6 +26,7 @@
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/custom.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/animate.css">
   <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/my-app.css">
+  <link rel="stylesheet" href="<?php echo base_url().$this->data['asfront']; ?>css/font-awesome.min.css">
 </head>
 
 <body class="theme-blue">

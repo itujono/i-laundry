@@ -1,6 +1,6 @@
 <div class="pages">
 	<div data-page="history" class="page" id="history">
-		<div class="navbar navbar-no-color">
+		<div class="navbar">
 			<div class="navbar-inner">
 				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
 				<div class="center">Histori Pemesanan</div>
@@ -23,7 +23,7 @@
 					<div class="list-block media-list margin-top-15">
 						<ul class="history-item">
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -38,11 +38,14 @@
 											<li><h5>Aroma</h5><p>Mystic</p></li>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="paid">Lunas</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>	
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -57,8 +60,11 @@
 											<li><h5>Aroma</h5><p>Mystic</p></li>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>						
 						</ul> <!-- kelar ul History Item -->
 					</div>
@@ -72,7 +78,7 @@
 					<div class="list-block media-list margin-top-15">
 						<ul class="history-item">
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -87,11 +93,14 @@
 											<li><h5>Aroma</h5><p>Mystic</p></li>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>	
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -106,11 +115,14 @@
 											<li><h5>Aroma</h5><p>Mystic</p></li>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="paid">Lunas</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>	
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -125,11 +137,14 @@
 											<li><h5>Aroma</h5><p>Mystic</p></li>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>	
 							<li>
-								<a href="#" class="item-link item-content">
+								<div class="item-link item-content">
 									<div class="item-media">
 										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
 									</div>
@@ -144,8 +159,11 @@
 											<li><h5>Aroma</h5><p>Mystic</li</p>
 											<li><h5>Servis</h5><p>Cuci gosok</p></li>
 										</ul>
+										<div class="status-btn">
+											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
+										</div>
 									</div>
-								</a>
+								</div>
 							</li>						
 						</ul> <!-- kelar ul History Item -->
 					</div>
