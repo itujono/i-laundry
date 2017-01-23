@@ -22,13 +22,23 @@ class History extends Frontend_Controller {
 		
 		foreach ($data['order'] as $key => $value) {
 			if($value->statusORDER == 1){
-				$status='<span class="uk-badge uk-badge-primary">Dalam Proses</span>';
+				$status='<a href="#" class="button login-btn" id="unpaid">Dalam proses</a>';
 			} elseif($value->statusORDER == 2) {
-				$status='<span class="uk-badge uk-badge-danger">Proses pencucian</span>';
+				$status='<a href="#" class="button login-btn" id="unpaid">Proses cuci</a>';
 			} elseif ($value->statusORDER == 3) {
-				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
+				$status='<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>';
+			} elseif($value->statusORDER == 4) {
+				$status='<a href="#" class="button login-btn" id="unpaid">Dalam proses pembayaran</a>';
+			} elseif($value->statusORDER == 5) {
+				$status='<a href="#" class="button login-btn" id="paid">Pembayaran berhasil dengan kartu kredit</a>';
+			} elseif($value->statusORDER == 6) {
+				$status='<a href="#" class="button login-btn" id="paid">Pembayaran dibatalkan oleh admin</a>';
+			} elseif($value->statusORDER == 7) {
+				$status='<a href="#" class="button login-btn" id="paid">Pembayaran berhasil</a>';
+			} elseif($value->statusORDER == 8) {
+				$status='<a href="#" class="button login-btn" id="paid">Silakan transfer pembayaran ini</a>';
 			} else{
-				$status='<span class="uk-badge uk-badge-success">Selesai Order</span>';
+				$status='<span class="uk-badge uk-badge-success">Pembayaran anda ditolak</span>';
 			}
 			$data['order'][$key]->status = $status;
 		}

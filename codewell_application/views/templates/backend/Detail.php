@@ -85,7 +85,7 @@
  				</h3>
  				<h3 class="md-card-toolbar-heading-text">
  				<?php
- 					if($detailorder->statusORDER != 4 AND $detailorder->statusORDER != 5){
+ 					if($detailorder->statusORDER != 5 AND $detailorder->statusORDER != 7){
  				?>
  					<a class="md-btn md-btn-success md-btn-block md-btn-wave-light" href="<?php echo base_url();?>codewelladmin/Order/editorder/<?php echo encode($detailorder->idORDER);?>">Update</a>
  				<?php } ?>
@@ -222,20 +222,34 @@
         </div>
  	</div>
  </div>
-<?php if($detailorder->statusORDER != 4 AND $detailorder->statusORDER != 5){ ?>
+<?php if($detailorder->statusORDER != 5 AND $detailorder->statusORDER != 7){ ?>
 <div class="md-fab-wrapper">
 	<div class="md-fab md-fab-accent md-fab-sheet">
-	    <i class="material-icons">&#xE54A;</i>
-	    <div class="md-fab-sheet-actions">
-	    <?php if($detailorder->statusORDER == 1){ ?>
-	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2" class="md-color-white"><i class="material-icons md-color-white">&#xE86A;</i> Proses cuci</a>
-	    <?php } elseif($detailorder->statusORDER == 2) { ?>
-	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3" class="md-color-white"><i class="material-icons md-color-white">&#xE227;</i> Tunggu pembayaran</a>
-	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4" class="md-color-white"><i class="material-icons md-color-white">&#xE877;</i> Selesai</a>
-	    <?php } elseif($detailorder->statusORDER == 3) { ?>
-	        <a href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4" class="md-color-white"><i class="material-icons md-color-white">&#xE877;</i> Selesai</a>
-	    <?php } ?>
-	    </div>
+	   <div class="md-fab-wrapper md-fab-speed-dial-horizontal">
+	   	<?php if($detailorder->statusORDER != 5 AND $detailorder->statusORDER != 7){ ?>
+            <a class="md-fab md-fab-primary" href="javascript:void(0)"><i class="material-icons">&#xE54A;</i></a>
+        <?php } ?>
+            <div class="md-fab-wrapper-small">
+            <?php if($detailorder->statusORDER == 1){ ?>
+                <a data-uk-tooltip title="Dalam Proses" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2"><i class="material-icons">&#xE86A;</i></a>
+            <?php } elseif($detailorder->statusORDER == 2 OR $detailorder->statusORDER == 3 OR $detailorder->statusORDER == 4 OR $detailorder->statusORDER == 5 OR $detailorder->statusORDER == 6 OR $detailorder->statusORDER == 7 OR $detailorder->statusORDER == 8 OR $detailorder->statusORDER == 9) { ?>
+                <a data-uk-tooltip="{cls:'long-text'}" title="Verifikasi pembayaran pelanggan melalui Metode Credit card" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3"><i class="material-icons">&#xE863;</i></a>
+
+                <a data-uk-tooltip title="Pembayaran dalam proses" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4"><i class="material-icons">&#xE86A;</i></a>
+
+                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran berhasil melalui Metode Credit card" class="md-fab md-fab-small md-fab-success" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/5"><i class="material-icons">&#xE877;</i></a>
+
+                <a data-uk-tooltip="{cls:'long-text'}" title="Batalkan pembayaran melalui Metode Credit card" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/6"><i class="material-icons">&#xE5C9;</i></a>
+
+                <a data-uk-tooltip title="Pembayaran berhasil" class="md-fab md-fab-small md-fab-success" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/7"><i class="material-icons">&#xE877;</i></a>
+
+                <a data-uk-tooltip="{cls:'long-text'}" title="Menunggu pembayaran pelanggan" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/8"><i class="material-icons">&#xE863;</i></a>
+
+                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran dibatalkan oleh admin" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/9"><i class="material-icons">&#xE5C9;</i></a>
+
+            <?php } ?>
+            </div>
+        </div>
 	</div>
 </div>
 <?php } ?>

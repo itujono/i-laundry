@@ -17,11 +17,15 @@
 				<section class="recent">
 					<div class="content-block">
 						<div class="content-block-inner content-background">
-							<p>Baru-baru Ini</p>
+							<p>Dalam Proses</p>
 						</div>
 					</div>
 					<div class="list-block media-list margin-top-15">
 						<ul class="history-item">
+						<?php if(!empty($order)){
+							foreach ($order as $key => $value) { 
+								if($value->statusORDER == 1 OR $value->statusORDER == 2 OR $value->statusORDER == 3 OR $value->statusORDER == 4 OR $value->statusORDER == 8){
+						?>
 							<li>
 								<div class="item-link item-content">
 									<div class="item-media">
@@ -43,29 +47,10 @@
 										</div>
 									</div>
 								</div>
-							</li>	
-							<li>
-								<div class="item-link item-content">
-									<div class="item-media">
-										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">11 Jan 2016</div>
-											<div class="item-after link-deepblue">Rp 99.000</div>
-										</div>
-										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</p></li>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
-										</ul>
-										<div class="status-btn">
-											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
-										</div>
-									</div>
-								</div>
-							</li>						
+							</li>
+						<?php } ?>
+						<?php } ?>
+						<?php } ?>
 						</ul> <!-- kelar ul History Item -->
 					</div>
 				</section>
