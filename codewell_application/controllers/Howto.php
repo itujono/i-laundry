@@ -11,6 +11,8 @@ class Howto extends Frontend_Controller {
         
 		if (!is_null($this->session->flashdata('message'))) {
         	$data['message'] = $this->session->flashdata('message');
+        } else {
+        	$data['message'] = '';
         }
 
 		$this->load->view($this->data['frontendDIR']. 'Howto',$data);

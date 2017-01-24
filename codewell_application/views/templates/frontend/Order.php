@@ -1,37 +1,37 @@
 
-			<div class="pages">
-				<div data-page="order" class="page" id="order">
-					<div class="navbar navbar-no-color">
-						<div class="navbar-inner">
-							<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
-							<div class="center">Order</div>
-							<div class="right">
-								<!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
-							</div>
-						</div>
-					</div>
-					<div class="page-content text-center">
+<div class="pages">
+	<div data-page="order" class="page" id="order">
+		<div class="navbar navbar-no-color">
+			<div class="navbar-inner">
+				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
+				<div class="center">Order</div>
+				<div class="right">
+					<!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="page-content text-center">
 
-						<div class="page-top-cover reservation-cover"></div>
-						<div class="text-medium margin-top-15">Mau nyuci sekarang? <br> Isi form di bawah ini ya</div>
-						<form method="POST" action="<?php echo base_url();?>Order/confirmation_order">
-							<div class="list-block margin-bottom-40 booking-form">
-								<ul class="no-border">
-									<li>
-										<div class="item-content">
+			<div class="page-top-cover reservation-cover"></div>
+			<div class="text-medium margin-top-15">Mau nyuci sekarang? <br> Isi form di bawah ini ya</div>
+			<form method="POST" action="<?php echo base_url();?>Order/confirmation_order">
+				<div class="list-block margin-bottom-40 booking-form">
+					<ul class="no-border">
+						<li>
+							<div class="item-content">
 		<!-- 								<div class="input-icon item-media">
 											<i class="flaticon-date"></i>
 										</div> -->
-								<div class="item-inner no-margin">
-									<div class="item-input">
-										<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
-									</div>
-								</div>
+										<div class="item-inner no-margin">
+											<div class="item-input">
+												<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
+											</div>
+										</div>
 
-							</div>
-						</li>
-						<li>
-							<div class="item-content">
+									</div>
+								</li>
+								<li>
+									<div class="item-content">
 		<!-- 								<div class="input-icon item-media">
 											<i class="flaticon-time"></i>
 										</div>

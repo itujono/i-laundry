@@ -1047,7 +1047,7 @@ class Customer extends Frontend_Controller {
 
 	public function successresetpage(){
 
-		$this->load->view($this->data['frontendDIR']. 'Successfull_Reset');
+		$this->load->view($this->data['frontendDIR']. 'Successfull_reset');
 	}
 
 	public function profile() {
@@ -1089,7 +1089,7 @@ class Customer extends Frontend_Controller {
 			}
 
 			$email = decode($this->input->post('emailCUSTOMER'));
-			$filenameemail = str_replace(['@','.com'], ['',''], $email);
+			$filenameemail = str_replace(['@','.com','.','_','-'], ['','','','',''], $email);
 			
 			$saveidCUSTOMER = $this->Customer_m->save($data, $id);
 			
@@ -1129,7 +1129,7 @@ class Customer extends Frontend_Controller {
    				
 					$data['upload_errors'] = $this->upload->display_errors();
 					$data = array(
-						'text' => $data['upload_errors'] . ' '.$msg,
+						'text' => $data['upload_errors']
 						);
 				} else {
 
