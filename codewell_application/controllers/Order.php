@@ -107,8 +107,9 @@ class Order extends Frontend_Controller {
 			$orders = $this->Order_m->selectall_order($idlastorder)->row();
 			
 			if ($idlastorder) {
-				$this->sendemailtemporaryinvoice($orders);
-                $this->load->view($this->data['frontendDIR']. 'Order_completed');
+				if($this->sendemailtemporaryinvoice($orders)){	
+                	$this->load->view($this->data['frontendDIR']. 'Order_completed');
+                }
 			} else {
 				$data = array(
                     'text' => 'Maaf, data order anda tidak dapat kami proses, silakan ulangi beberapa saat kembali.'
@@ -148,7 +149,8 @@ class Order extends Frontend_Controller {
 		$service = $orders->nameSERVICES;
 		$nameCUSTOMER = $orders->nameCUSTOMER;
 		$emailCUSTOMER = $orders->emailCUSTOMER;
-		
+		$notesORDER = $orders->notesORDER;
+
 		$from_email = 'andhana@prowebmedia.org';
         $subject = 'Terimakasih Banyak - i-Laundry';
         $word1 = 'Terima kasih sudah menggunakan jasa kami. Berikut adalah detail order kamu.';
@@ -310,7 +312,15 @@ class Order extends Frontend_Controller {
 		                    i-Laundry
 		                </td>
 		            </tr>
-		            
+		            <tr>
+		                <tr>
+		                    <td style="padding: 20px 40px 0 40px; font-weight: bold; text-align: left; font-family: sans-serif; font-size: 20px; mso-height-rule: exactly; line-height: 20px; color: #555555;">Terima kasih banyak, '.$nameCUSTOMER.'!</td>
+		                </tr>
+		                    <td style="padding: 10px 20px 0px 40px; text-align: left; font-family: sans-serif; font-size: 12px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
+		                        '.$word1.'
+		                        <br>
+		                    </td>
+		            </tr>
 		            <tr>
 		            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
 		            		<h3 style="margin: 0; font-size: .8em; color: #999;">Waktu jemput</h3>
@@ -338,6 +348,12 @@ class Order extends Frontend_Controller {
 		            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
 		            		<h3 style="margin: 0; font-size: .8em; color: #999;">Jenis servis</h3>
 		            		<p style="margin: 0">'.$service.'</p>
+		            	</td>
+		            </tr>
+		            <tr>
+		            	<td style="padding: 10px 40px 0 40px; font-family: sans-serif;">
+		            		<h3 style="margin: 0; font-size: .8em; color: #999;">Catatan order</h3>
+		            		<p style="margin: 0">'.$notesORDER.'</p>
 		            	</td>
 		            </tr>
 

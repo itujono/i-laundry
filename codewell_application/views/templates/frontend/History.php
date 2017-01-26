@@ -17,14 +17,14 @@
 				<section class="recent">
 					<div class="content-block">
 						<div class="content-block-inner content-background">
-							<p>Dalam Proses</p>
+							<p>Belum dibayar / Dalam proses</p>
 						</div>
 					</div>
 					<div class="list-block media-list margin-top-15">
 						<ul class="history-item">
-						<?php if(!empty($order)){
-							foreach ($order as $key => $value) { 
-								if($value->statusORDER == 1 OR $value->statusORDER == 2 OR $value->statusORDER == 3 OR $value->statusORDER == 4 OR $value->statusORDER == 8){
+						<?php if(!empty($orders)){
+							foreach ($orders as $key => $order) { 
+								if($order->statusORDER == 1 OR $order->statusORDER == 2 OR $order->statusORDER == 3 OR $order->statusORDER == 4 OR $order->statusORDER == 8){
 						?>
 							<li>
 								<div class="item-link item-content">
@@ -33,17 +33,31 @@
 									</div>
 									<div class="item-inner">
 										<div class="item-title-row">
-											<div class="item-title">4 Mei 2016</div>
-											<div class="item-after link-deepblue">Rp 75.000</div>
+											<div class="item-title"><?php echo dF($order->createdateORDER,'d F Y');?></div>
+											<?php
+												if(!empty($order->priceORDER)){
+													$price = "Rp.". number_format($order->priceORDER, 0,',','.');
+												} else {
+													$price = 'Rp. 0,-';
+												}
+											?>
+											<div class="item-after link-deepblue"><?php echo $price;?></div>
 										</div>
 										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</p></li>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
+										<?php
+											if(!empty($order->beratORDER)){
+												$berat = $order->beratORDER.' '.'kg';
+											} else {
+												$berat = '0 Kg';
+											}
+										?>
+											<li><h5>Berat</h5><p><?php echo $berat;?></p></li>
+											<li><h5>Paket</h5><p><?php echo $order->namePACKAGE;?></p></li>
+											<li><h5>Aroma</h5><p><?php echo $order->nameAROMA;?></p></li>
+											<li><h5>Servis</h5><p><?php echo $order->nameSERVICES;?></p></li>
 										</ul>
 										<div class="status-btn">
-											<a href="#" class="button login-btn" id="paid">Lunas</a>
+											<?php echo $order->status;?>
 										</div>
 									</div>
 								</div>
@@ -57,11 +71,15 @@
 				<section class="past">
 					<div class="content-block">
 						<div class="content-block-inner content-background">
-							<p>Terdahulu</p>
+							<p>Sudah dibayar / Selesai</p>
 						</div>
 					</div>
 					<div class="list-block media-list margin-top-15">
 						<ul class="history-item">
+							<?php if(!empty($orders)){
+							foreach ($orders as $key => $order) { 
+								if($order->statusORDER == 5 OR $order->statusORDER == 6 OR $order->statusORDER == 7 OR $order->statusORDER == 9){
+						?>
 							<li>
 								<div class="item-link item-content">
 									<div class="item-media">
@@ -69,87 +87,38 @@
 									</div>
 									<div class="item-inner">
 										<div class="item-title-row">
-											<div class="item-title">12 Des 2016</div>
-											<div class="item-after link-deepblue">Rp 15.000</div>
+											<div class="item-title"><?php echo dF($order->createdateORDER,'d F Y');?></div>
+											<?php
+												if(!empty($order->priceORDER)){
+													$price = "Rp.". number_format($order->priceORDER, 0,',','.');
+												} else {
+													$price = 'Rp. 0,-';
+												}
+											?>
+											<div class="item-after link-deepblue"><?php echo $price;?></div>
 										</div>
 										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</p></li>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
+										<?php
+											if(!empty($order->beratORDER)){
+												$berat = $order->beratORDER.' '.'kg';
+											} else {
+												$berat = '0 Kg';
+											}
+										?>
+											<li><h5>Berat</h5><p><?php echo $berat;?></p></li>
+											<li><h5>Paket</h5><p><?php echo $order->namePACKAGE;?></p></li>
+											<li><h5>Aroma</h5><p><?php echo $order->nameAROMA;?></p></li>
+											<li><h5>Servis</h5><p><?php echo $order->nameSERVICES;?></p></li>
 										</ul>
 										<div class="status-btn">
-											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
+											<?php echo $order->status;?>
 										</div>
 									</div>
 								</div>
-							</li>	
-							<li>
-								<div class="item-link item-content">
-									<div class="item-media">
-										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">11 Jan 2016</div>
-											<div class="item-after link-deepblue">Rp 23.000</div>
-										</div>
-										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</p></li>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
-										</ul>
-										<div class="status-btn">
-											<a href="#" class="button login-btn" id="paid">Lunas</a>
-										</div>
-									</div>
-								</div>
-							</li>	
-							<li>
-								<div class="item-link item-content">
-									<div class="item-media">
-										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">4 Mei 2016</div>
-											<div class="item-after link-deepblue">Rp 75.000</div>
-										</div>
-										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</p></li>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
-										</ul>
-										<div class="status-btn">
-											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
-										</div>
-									</div>
-								</div>
-							</li>	
-							<li>
-								<div class="item-link item-content">
-									<div class="item-media">
-										<img src="<?php echo base_url().$this->data['asfront']; ?>img/photos/food.jpg" alt="Ada deh" width="80">
-									</div>
-									<div class="item-inner">
-										<div class="item-title-row">
-											<div class="item-title">11 Jan 2016</div>
-											<div class="item-after link-deepblue">Rp 99.000</div>
-										</div>
-										<ul class="item-text list">
-											<li><h5>Berat</h5><p>8 kg</p></li>
-											<li><h5>Paket</h5><p>Reguler</p></li>
-											<li><h5>Aroma</h5><p>Mystic</li</p>
-											<li><h5>Servis</h5><p>Cuci gosok</p></li>
-										</ul>
-										<div class="status-btn">
-											<a href="#" class="button login-btn" id="unpaid">Bayar sekarang</a>
-										</div>
-									</div>
-								</div>
-							</li>						
+							</li>
+						<?php } ?>
+						<?php } ?>
+						<?php } ?>
 						</ul> <!-- kelar ul History Item -->
 					</div>
 				</section>

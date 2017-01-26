@@ -18,9 +18,9 @@ class History extends Frontend_Controller {
 			redirect(base_url());
 		}
 
-		$data['order'] = $this->Order_m->selectall_order('',$idCUSTOMER,'')->result();
-		
-		foreach ($data['order'] as $key => $value) {
+		$data['orders'] = $this->Order_m->selectall_order('',$idCUSTOMER,'')->result();
+
+		foreach ($data['orders'] as $key => $value) {
 			if($value->statusORDER == 1){
 				$status='<a href="#" class="button login-btn" id="unpaid">Dalam proses</a>';
 			} elseif($value->statusORDER == 2) {
@@ -40,7 +40,7 @@ class History extends Frontend_Controller {
 			} else{
 				$status='<span class="uk-badge uk-badge-success">Pembayaran anda ditolak</span>';
 			}
-			$data['order'][$key]->status = $status;
+			$data['orders'][$key]->status = $status;
 		}
 
 		if (!is_null($this->session->flashdata('message'))) {
