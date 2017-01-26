@@ -57,7 +57,14 @@
 											<li><h5>Servis</h5><p><?php echo $order->nameSERVICES;?></p></li>
 										</ul>
 										<div class="status-btn">
-											<?php echo $order->status;?>
+										<?php if($order->statusORDER == 3){ ?>
+										<form action="<?php echo base_url()?>payment/sendpayment" method="POST" id="payment-form">
+											<?php echo form_hidden('kodeORDER',$order->kodeORDER,'hidden'); ?>
+											<button class="button login-btn" id="unpaid" type="submit">Bayar Sekarang</button>
+										</form>
+										<?php } else {?>
+										<?php echo $order->status;?>
+										<?php } ?>
 										</div>
 									</div>
 								</div>

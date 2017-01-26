@@ -26,19 +26,19 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 2) {
 						$status='<span class="uk-badge uk-badge-primary">Proses pencucian</span>';
 					} elseif ($value->statusORDER == 3) {
-						$status='<span class="uk-badge uk-badge-warning">Verifikasi pembayaran pelanggan (Credit card)</span>';
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 					} else if ($value->statusORDER == 4){
-						$status='<span class="uk-badge uk-badge-warning">Menunggu proses admin</span>';
+						$status='<span class="uk-badge uk-badge-warning">Dalam proses pembayaran</span>';
 					} else if ($value->statusORDER == 5){
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil (Credit card)</span>';
 					} elseif($value->statusORDER == 6){
-						$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin(Credit Card)</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
 					} elseif($value->statusORDER == 7){
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} else {
-						$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
 					$data['orderlist'][$key]->status = $status;
 				}
@@ -57,9 +57,9 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 2) {
 						$status='<span class="uk-badge uk-badge-primary">Proses pencucian</span>';
 					} elseif ($value->statusORDER == 3) {
-						$status='<span class="uk-badge uk-badge-warning">Verifikasi pembayaran pelanggan (Credit card)</span>';
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 					} else if ($value->statusORDER == 4){
-						$status='<span class="uk-badge uk-badge-warning">Menunggu proses admin</span>';
+						$status='<span class="uk-badge uk-badge-warning">Dalam proses pembayaran</span>';
 					} else if ($value->statusORDER == 5){
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil (Credit card)</span>';
 					} elseif($value->statusORDER == 6){
@@ -69,7 +69,7 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} else {
-						$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
 					$data['orderlist'][$key]->status = $status;
 				}
@@ -88,9 +88,9 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 2) {
 						$status='<span class="uk-badge uk-badge-primary">Proses pencucian</span>';
 					} elseif ($value->statusORDER == 3) {
-						$status='<span class="uk-badge uk-badge-warning">Verifikasi pembayaran pelanggan (Credit card)</span>';
+						$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 					} else if ($value->statusORDER == 4){
-						$status='<span class="uk-badge uk-badge-warning">Menunggu proses admin</span>';
+						$status='<span class="uk-badge uk-badge-warning">Dalam proses pembayaran</span>';
 					} else if ($value->statusORDER == 5){
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil (Credit card)</span>';
 					} elseif($value->statusORDER == 6){
@@ -100,7 +100,7 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} else {
-						$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
 					$data['orderlist'][$key]->status = $status;
 				}
@@ -141,9 +141,9 @@ class Order extends Admin_Controller {
 			} elseif($detailorder->statusORDER == 2) {
 				$status='<span class="uk-badge uk-badge-primary">Proses pencucian</span>';
 			} elseif ($detailorder->statusORDER == 3) {
-				$status='<span class="uk-badge uk-badge-warning">Verifikasi pembayaran pelanggan (Credit card)</span>';
+				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 			} else if ($detailorder->statusORDER == 4){
-				$status='<span class="uk-badge uk-badge-warning">Menunggu proses admin</span>';
+				$status='<span class="uk-badge uk-badge-warning">Dalam proses pembayaran</span>';
 			} else if ($detailorder->statusORDER == 5){
 				$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil (Credit card)</span>';
 			} elseif($detailorder->statusORDER == 6){
@@ -153,7 +153,7 @@ class Order extends Admin_Controller {
 			} elseif($detailorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 			} else {
-				$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
+				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
 			$detailorder->status = $status;
 
@@ -207,9 +207,9 @@ class Order extends Admin_Controller {
 			} elseif($editorder->statusORDER == 2) {
 				$status='<span class="uk-badge uk-badge-primary">Proses pencucian</span>';
 			} elseif ($editorder->statusORDER == 3) {
-				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan (Credit card)</span>';
+				$status='<span class="uk-badge uk-badge-warning">Menunggu Pembayaran</span>';
 			} else if ($editorder->statusORDER == 4){
-				$status='<span class="uk-badge uk-badge-warning">Menunggu proses admin</span>';
+				$status='<span class="uk-badge uk-badge-warning">Dalam proses pembayaran</span>';
 			} else if ($editorder->statusORDER == 5){
 				$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil (Credit card)</span>';
 			} elseif($editorder->statusORDER == 6){
@@ -219,7 +219,7 @@ class Order extends Admin_Controller {
 			} elseif($editorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 			} else {
-				$status='<span class="uk-badge uk-badge-danger">Pembayaran dibatalkan oleh admin</span>';
+				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
 			$editorder->status = $status;
 

@@ -233,20 +233,22 @@
             <?php if($detailorder->statusORDER == 1){ ?>
                 <a data-uk-tooltip title="Dalam Proses" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2"><i class="material-icons">&#xE86A;</i></a>
             <?php } elseif($detailorder->statusORDER == 2 OR $detailorder->statusORDER == 3 OR $detailorder->statusORDER == 4 OR $detailorder->statusORDER == 5 OR $detailorder->statusORDER == 6 OR $detailorder->statusORDER == 7 OR $detailorder->statusORDER == 8 OR $detailorder->statusORDER == 9) { ?>
-                <a data-uk-tooltip="{cls:'long-text'}" title="Verifikasi pembayaran pelanggan melalui Metode Credit card" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3"><i class="material-icons">&#xE863;</i></a>
+                <a data-uk-tooltip="{cls:'long-text'}" title="Menunggu Pembayaran" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3"><i class="material-icons">&#xE863;</i></a>
 
-                <a data-uk-tooltip title="Pembayaran dalam proses" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4"><i class="material-icons">&#xE86A;</i></a>
+                <?php if($this->session->userdata('roleUSER') == 22 OR $this->session->userdata('roleUSER') == 24){ ?>
+                
+                <a data-uk-tooltip title="Dalam proses pembayaran" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/4"><i class="material-icons">&#xE86A;</i></a>
 
-                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran berhasil melalui Metode Credit card" class="md-fab md-fab-small md-fab-success" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/5"><i class="material-icons">&#xE877;</i></a>
+                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran berhasil (Credit card)" class="md-fab md-fab-small md-fab-success" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/5"><i class="material-icons">&#xE877;</i></a>
 
-                <a data-uk-tooltip="{cls:'long-text'}" title="Batalkan pembayaran melalui Metode Credit card" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/6"><i class="material-icons">&#xE5C9;</i></a>
+                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran dibatalkan oleh admin" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/6"><i class="material-icons">&#xE5C9;</i></a>
 
                 <a data-uk-tooltip title="Pembayaran berhasil" class="md-fab md-fab-small md-fab-success" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/7"><i class="material-icons">&#xE877;</i></a>
 
                 <a data-uk-tooltip="{cls:'long-text'}" title="Menunggu pembayaran pelanggan" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/8"><i class="material-icons">&#xE863;</i></a>
 
-                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran dibatalkan oleh admin" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/9"><i class="material-icons">&#xE5C9;</i></a>
-
+                <a data-uk-tooltip="{cls:'long-text'}" title="Pembayaran ditolak" class="md-fab md-fab-small md-fab-danger" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/9"><i class="material-icons">&#xE5C9;</i></a>
+                <?php } ?>
             <?php } ?>
             </div>
         </div>

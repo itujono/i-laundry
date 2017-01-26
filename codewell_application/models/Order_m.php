@@ -120,7 +120,7 @@ class Order_m extends MY_Model{
 		parent::__construct();
 	}
 
-	public function selectall_order($id=NULL, $id2= NULL, $status=NULL, $partner=NULL){
+	public function selectall_order($id=NULL, $id2= NULL, $status=NULL, $partner=NULL, $kodeorder=NULL){
 		$this->db->select('orders.*');
 		$this->db->select('customers.nameCUSTOMER, emailCUSTOMER, telephoneCUSTOMER, mobileCUSTOMER, addressCUSTOMER');
 		$this->db->select('aroma.nameAROMA');
@@ -145,6 +145,9 @@ class Order_m extends MY_Model{
 		}
 		if($partner != NULL){
             $this->db->where('orders.idPARTNER',$partner);
+		}
+		if($kodeorder != NULL){
+            $this->db->where('orders.kodeORDER',$kodeorder);
 		}
 		return $this->db->get();
 	}

@@ -30,7 +30,7 @@ class History extends Frontend_Controller {
 			} elseif($value->statusORDER == 4) {
 				$status='<a href="#" class="button login-btn" id="unpaid">Dalam proses pembayaran</a>';
 			} elseif($value->statusORDER == 5) {
-				$status='<a href="#" class="button login-btn" id="paid">Pembayaran berhasil dengan kartu kredit</a>';
+				$status='<a href="#" class="button login-btn" id="paid">Pembayaran berhasil (Credit card)</a>';
 			} elseif($value->statusORDER == 6) {
 				$status='<a href="#" class="button login-btn" id="paid">Pembayaran dibatalkan oleh admin</a>';
 			} elseif($value->statusORDER == 7) {
