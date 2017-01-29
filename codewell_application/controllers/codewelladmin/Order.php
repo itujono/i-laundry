@@ -300,7 +300,7 @@ class Order extends Admin_Controller {
 	}
 
 	private function sendemailassignpartner($data = NULL) {
-		$from_email = 'cs@dunia-otomotif.com';
+		$from_email = 'andhana@prowebmedia.org';
         $subject = 'Pemberitahuan Pesanan Partner - i-Laundry';
         $word1 = 
         'kamu telah mendapatkan notifikasi pesanan terbaru pada <b>'.date("l, d F Y H:i:s").'</b>, berikut data:<br>
