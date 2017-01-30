@@ -37,6 +37,8 @@ class History extends Frontend_Controller {
 				$status='<a href="#" class="button login-btn" id="paid">Pembayaran berhasil</a>';
 			} elseif($value->statusORDER == 8) {
 				$status='<a href="#" class="button login-btn" id="paid">Silakan transfer pembayaran ini</a>';
+			} elseif($value->statusORDER == 9) {
+				$status='<a href="#" class="button login-btn" id="paid">Pesanan dibatalkan</a>';
 			} else{
 				$status='<span class="uk-badge uk-badge-success">Pembayaran anda ditolak</span>';
 			}

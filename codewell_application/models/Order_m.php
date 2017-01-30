@@ -46,6 +46,16 @@ class Order_m extends MY_Model{
 	);
 
 	public $rules_editorder = array(
+		'pickuptimeORDER' => array(
+			'field' => 'pickuptimeORDER', 
+			'label' => 'Waktu jemput', 
+			'rules' => ''
+		),
+		'pickupdateORDER' => array(
+			'field' => 'pickupdateORDER', 
+			'label' => 'Tanggal jemput', 
+			'rules' => ''
+		),
 		'pickupfinishedtimeORDER' => array(
 			'field' => 'pickupfinishedtimeORDER', 
 			'label' => 'Waktu Antar', 
@@ -186,12 +196,17 @@ class Order_m extends MY_Model{
 	}
 
 	public function selectpartnerassignoder($id){
-		$this->db->select('orders.kodeORDER, pickuptimeORDER, pickupdateORDER, pickupADDRESSORDERKOTOR');
+		$this->db->select('orders.kodeORDER, pickuptimeORDER, pickupdateORDER, pickupADDRESSORDERKOTOR, statusORDER');
 		$this->db->select('partner.namePARTNER, emailPARTNER');
 		$this->db->from('orders');
 		$this->db->join('partner', 'partner.idPARTNER = orders.idPARTNER');
 		$this->db->where('orders.idORDER', $id);
 		return $this->db->get();
 	}
+
+	function updatedata($data, $kodeORDER){
+        $this->db->where('kodeORDER', $kodeORDER);
+        $this->db->update('orders', $data); 
+    }
 
 }

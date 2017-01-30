@@ -231,7 +231,7 @@
         <?php } ?>
             <div class="md-fab-wrapper-small">
             <?php if($detailorder->statusORDER == 1){ ?>
-                <a data-uk-tooltip title="Dalam Proses" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2"><i class="material-icons">&#xE86A;</i></a>
+                <a data-uk-tooltip title="Proses pencucian" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/2"><i class="material-icons">&#xE86A;</i></a>
             <?php } elseif($detailorder->statusORDER == 2 OR $detailorder->statusORDER == 3 OR $detailorder->statusORDER == 4 OR $detailorder->statusORDER == 5 OR $detailorder->statusORDER == 6 OR $detailorder->statusORDER == 7 OR $detailorder->statusORDER == 8 OR $detailorder->statusORDER == 9) { ?>
                 <a data-uk-tooltip="{cls:'long-text'}" title="Menunggu Pembayaran" class="md-fab md-fab-small md-fab-primary" href="<?php echo base_url();?>codewelladmin/Order/changestatus/<?php echo encode($detailorder->idORDER);?>/3"><i class="material-icons">&#xE863;</i></a>
 

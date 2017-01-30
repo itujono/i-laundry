@@ -37,6 +37,8 @@ class Order extends Admin_Controller {
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
+					} elseif($value->statusORDER == 9){
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -68,6 +70,8 @@ class Order extends Admin_Controller {
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
+					} elseif($value->statusORDER == 9){
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -99,6 +103,8 @@ class Order extends Admin_Controller {
 						$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
+					} elseif($value->statusORDER == 9){
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -152,6 +158,8 @@ class Order extends Admin_Controller {
 				$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 			} elseif($detailorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
+			} elseif($detailorder->statusORDER == 9){
+				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
 			} else {
 				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
@@ -218,6 +226,8 @@ class Order extends Admin_Controller {
 				$status='<span class="uk-badge uk-badge-success">Pembayaran berhasil</span>';
 			} elseif($editorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
+			} elseif($editorder->statusORDER == 9){
+				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
 			} else {
 				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
@@ -241,11 +251,10 @@ class Order extends Admin_Controller {
 		$data['pickupfinisheddateORDER'] = date("Y-m-d",strtotime($data['pickupfinisheddateORDER']));
 		$data['priceORDER'] = str_replace(['Rp.',' '], ['',''], $data['priceORDER']);
 		if($data['rejectedmessagesORDER'] != NULL){
-			$data['statusORDER'] = 5;
+			$data['statusORDER'] = 9;
 		}
 		$id = decode($this->input->post('idORDER'));
 		if(empty($id))$id=NULL;
-		
 		$saveID = $this->Order_m->save($data, $id);
 		$data = $this->Order_m->selectpartnerassignoder($saveID)->row();
 		
@@ -295,19 +304,21 @@ class Order extends Admin_Controller {
 		}
 	}
 
-	public function autoloaddivorder(){
-		
-	}
-
 	private function sendemailassignpartner($data = NULL) {
+		if($data->statusORDER == 1){
+			$status = 'Dalam Proses';
+		} elseif ($data->statusORDER == 2) {
+			$status = 'Proses Pencucian';
+		}
 		$from_email = 'andhana@prowebmedia.org';
         $subject = 'Pemberitahuan Pesanan Partner - i-Laundry';
         $word1 = 
-        'kamu telah mendapatkan notifikasi pesanan terbaru pada <b>'.date("l, d F Y H:i:s").'</b>, berikut data:<br>
+        'kamu telah mendapatkan notifikasi pesanan/info terbaru pada <b>'.date("l, d F Y H:i:s").'</b>, berikut data:<br>
         Kode Order: <b>'.$data->kodeORDER.'</b><br>
         Tanggal Jemput: '.dF($data->pickupdateORDER,'l, d F Y').'<br>
         Jam Jemput: '.dF($data->pickuptimeORDER,'H:i:s').'<br>
         Alamat: <b>'.$data->pickupADDRESSORDERKOTOR.'</b><br>
+        Status: <b>'.$status.'</b><br>
         <br>
         Silakan cek dengan cara masuk ke aplikasi admin kamu, lalu proses orderan cucian kamu!<br>
         <b>Terima kasih!</b>';

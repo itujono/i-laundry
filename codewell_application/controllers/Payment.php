@@ -107,25 +107,48 @@ class Payment extends Frontend_Controller {
 		    if($fraud == 'challenge'){
 		      // TODO set payment status in merchant's database to 'Challenge by FDS'
 		      // TODO merchant should decide whether this transaction is authorized or not in MAP
-		      echo "Transaction order_id: " . $order_id ." is challenged by FDS";
-		      } 
-		      else {
+
+		      $kodeORDER = $order_id;
+		      $data['statusORDER'] = 4;
+		      $this->Order_m->updatedata($data, $kodeORDER);
+		      $data['message'] = "Transaksi dengan kode order: " . $order_id ." sedang dalam proses pengecekan, mohon menunggu.";
+		      $this->load->view($this->data['frontendDIR']. 'Notification', $data);
+		      } else {
 		      // TODO set payment status in merchant's database to 'Success'
-		      echo "Transaction order_id: " . $order_id ." successfully captured using " . $type;
+
+		      $kodeORDER = $order_id;
+		      $data['statusORDER'] = 5;
+		      $this->Order_m->updatedata($data, $kodeORDER);
+		      $data['message'] = "Transaksi dengan kode order: " . $order_id ." telah berhasil dibayarkan menggunakan kartu kredit.";
+		      $this->load->view($this->data['frontendDIR']. 'Notification', $data);
 		      }
 		    }
-		  }
-		else if ($transaction == 'settlement'){
+		  } else if ($transaction == 'settlement'){
 		  // TODO set payment status in merchant's database to 'Settlement'
-		  echo "Transaction order_id: " . $order_id ." successfully transfered using " . $type;
-		  } 
-		  else if($transaction == 'pending'){
+
+		  $kodeORDER = $order_id;
+	      $data['statusORDER'] = 7;
+	      $this->Order_m->updatedata($data, $kodeORDER);
+	      $data['message'] = "Transaksi dengan kode order: " . $order_id ." telah berhasil dibayarkan menggunakan transfer bank.";
+	      $this->load->view($this->data['frontendDIR']. 'Notification', $data);
+
+		  } else if($transaction == 'pending'){
 		  // TODO set payment status in merchant's database to 'Pending'
-		  echo "Waiting customer to finish transaction order_id: " . $order_id . " using " . $type;
-		  } 
-		  else if ($transaction == 'deny') {
+
+		  $kodeORDER = $order_id;
+	      $data['statusORDER'] = 8;
+	      $this->Order_m->updatedata($data, $kodeORDER);
+	      $data['message'] = "Transaksi dengan kode order: " . $order_id ." sedang menunggu anda untuk dibayarkan.";
+	      $this->load->view($this->data['frontendDIR']. 'Notification', $data);
+
+		  } else if ($transaction == 'deny') {
 		  // TODO set payment status in merchant's database to 'Denied'
-		  echo "Payment using " . $type . " for transaction order_id: " . $order_id . " is denied.";
+		  	
+		  $kodeORDER = $order_id;
+	      $data['statusORDER'] = 10;
+	      $this->Order_m->updatedata($data, $kodeORDER);
+	      $data['message'] = "Transaksi dengan kode order: " . $order_id ." tidak dapat kami proses.";
+	      $this->load->view($this->data['frontendDIR']. 'Notification', $data);
 		}
 
 	}

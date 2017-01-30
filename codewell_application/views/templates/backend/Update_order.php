@@ -21,6 +21,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php } ?>
     <div class="md-card">
         <div class="md-card-content large-padding">
+        <div class="uk-grid" data-uk-grid-margin>
+            <div class="uk-width-medium-1-1 uk-margin-top">
+                <label for="Tanggal Order" class="uk-form-label">Tanggal Order<span class="req">*</span></label>
+                <input class="md-input" type="text" value="<?php echo dF($editorder->createdateORDER, 'l, d F Y (H:i:s)');?>" disabled required>
+            </div>
+        </div>
             <div class="uk-grid" data-uk-grid-margin>
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <div class="parsley-row">
@@ -56,16 +62,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
-                <div class="uk-width-medium-1-2 uk-margin-top">
-                    <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
+               <div class="uk-width-medium-1-2 uk-margin-top">
+                    <label for="Waktu Jemput" class="uk-form-label">Waktu Jemput<span class="req">*</span></label>
                     <?php
-                        if($editorder->pickupfinisheddateORDER != '0000-00-00') {
+                        $pickuptimedelivery = '';
+                        if(!empty($editorder->pickuptimeORDER))$pickuptimedelivery = $editorder->pickuptimeORDER;
                     ?>
-                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $editorder->pickupfinisheddateORDER;?>">
+                    <input class="md-input" disabled="disabled" type="text" name="pickuptimeORDER" id="uk_tp_1" data-uk-timepicker value="<?php echo $pickuptimedelivery;?>">
+                </div>
+                <div class="uk-width-medium-1-2 uk-margin-top">
+                    <label for="Tanggal jemput" class="uk-form-label">Tanggal Jemput<span class="req">*</span></label>
+                    <?php
+                        if($editorder->pickupdateORDER != '0000-00-00') {
+                    ?>
+                    <input class="md-input" disabled="disabled" type="text" id="uk_dp_1" name="pickupdateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $editorder->pickupdateORDER;?>">
                     <?php } else { ?>
-                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}">
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupdateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo date("Y-m-d");?>">
                     <?php } ?>
                 </div>
+            </div>
+            <div class="uk-grid" data-uk-grid-margin>
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Waktu Antar<span class="req">*</span></label>
                     <?php
@@ -73,6 +89,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = $editorder->pickupfinishedtimeORDER;
                     ?>
                     <input class="md-input" type="text" name="pickupfinishedtimeORDER" id="uk_tp_1" data-uk-timepicker value="<?php echo $timedelivery;?>">
+                </div>
+                <div class="uk-width-medium-1-2 uk-margin-top">
+                    <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
+                    <?php
+                        if($editorder->pickupfinisheddateORDER != '0000-00-00') {
+                    ?>
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $editorder->pickupfinisheddateORDER;?>">
+                    <?php } else { ?>
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo date("Y-m-d");?>">
+                    <?php } ?>
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
@@ -92,15 +118,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
-                <div class="uk-width-medium-1-2 uk-margin-top">
+                <div class="uk-width-medium-1-1 uk-margin-top">
                     <div class="parsley-row">
                         <label for="Catatan Order" class="uk-form-label">Catatan Order<span class="req">*</span></label>
                         <textarea cols="30" rows="4" class="md-input" disabled required><?php echo $editorder->notesORDER;?></textarea>
                     </div>
-                </div>
-                <div class="uk-width-medium-1-2 uk-margin-top">
-                    <label for="Tanggal Order" class="uk-form-label">Tanggal Order<span class="req">*</span></label>
-                    <input class="md-input" type="text" value="<?php echo dF($editorder->createdateORDER, 'l, d F Y (H:i:s)');?>" disabled required>
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
