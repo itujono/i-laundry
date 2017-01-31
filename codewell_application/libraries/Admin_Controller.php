@@ -14,15 +14,12 @@ class Admin_Controller extends MY_Controller{
 	}
 
 	function mail_config(){
-		$config['protocol'] = 'smtp';
-        $config['smtp_host'] = 'mail.prowebmedia.org';
-        //$config['smtp_host'] = 'smtp.mandrillapp.com';
+	$config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'mail.codewell.id';
         $config['smtp_port'] = '587'; 
         $config['smtp_timeout'] = 30;
-        $config['smtp_user'] = 'andhana@prowebmedia.org';
-        $config['smtp_pass'] = 'WT1UCmwnyUPp';
-        // $config['smtp_user'] = 'Proweb Media Indonesia';
-        // $config['smtp_pass'] = 'tg0eEIlltFAJKngiYKMCiQ';
+        $config['smtp_user'] = 'no-reply@i-laundry.co.id';
+        $config['smtp_pass'] = '88+;P&IZlh9+';
         $config['mailtype'] = 'html';
         $config['charset'] = 'iso-8859-1';
         $config['wordwrap'] = TRUE;

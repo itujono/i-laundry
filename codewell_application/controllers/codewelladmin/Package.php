@@ -16,7 +16,7 @@ class Package extends Admin_Controller {
 	}
 
 	public function packagelist($id = NULL){
-		$data['addONS'] = 'plugins_payment';
+		$data['addONS'] = 'plugins_datatables';
 
 		$id = decode(urldecode($id));
 
