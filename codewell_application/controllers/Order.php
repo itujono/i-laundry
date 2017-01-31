@@ -151,7 +151,7 @@ class Order extends Frontend_Controller {
 		$emailCUSTOMER = $orders->emailCUSTOMER;
 		$notesORDER = $orders->notesORDER;
 
-		$from_email = 'andhana@prowebmedia.org';
+		$from_email = 'no-reply@i-laundry.co.id';
         $subject = 'Terimakasih Banyak - i-Laundry';
         $word1 = 'Terima kasih sudah menggunakan jasa kami. Berikut adalah detail order kamu.';
         $address = 'Komplek Permata Regency, Baloi, Batam - Indonesia';

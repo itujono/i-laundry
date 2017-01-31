@@ -21,22 +21,11 @@
     <div class="uk-grid-width-small-1-2 uk-grid-width-medium-1-3 uk-grid-width-large-1-4 uk-grid-width-xlarge-1-5 hierarchical_show" id="contact_list">
     	<?php 
     	if(!empty($listcustomer)){
-    	foreach ($listcustomer as $key => $customer) { 
-    		// if($customer->genderCUSTOMER == 1)$gender = 'Lelaki';
-    		// else $gender = 'Perempuan';
+    	foreach ($listcustomer as $key => $customer) {
     	?>
-	    <div data-uk-filter="<?php echo $customer->nameCUSTOMER;?>,<?php echo $customer->addressCUSTOMER;?>,<?php echo $customer->emailCUSTOMER;?>">
+	    <div data-uk-filter="<?php echo strtolower($customer->nameCUSTOMER);?>,<?php echo strtolower($customer->addressCUSTOMER);?>,<?php echo strtolower($customer->emailCUSTOMER);?>">
 	        <div class="md-card md-card-hover">
 	            <div class="md-card-head <?php echo $customer->status;?>">
-	                <!-- <div class="md-card-head-menu" data-uk-dropdown="{pos:'bottom-right'}">
-	                    <i class="md-icon material-icons">&#xE5D4;</i>
-	                    <div class="uk-dropdown uk-dropdown-small">
-	                        <ul class="uk-nav">
-	                            <li><a href="#">Edit</a></li>
-	                            <li><a href="#">Remove</a></li>
-	                        </ul>
-	                    </div>
-	                </div> -->
 	                <div class="uk-text-center">
 	                    <img class="md-card-head-avatar" src="<?php echo $customer->imageSELLER;?>" alt=""/>
 	                </div>
@@ -47,12 +36,6 @@
 	            </div>
 	            <div class="md-card-content">
 	                <ul class="md-list">
-	                	<!-- <li>
-	                        <div class="md-list-content">
-	                            <span class="md-list-heading">Jenis Kelamin</span>
-	                            <span class="uk-text-small uk-text-muted"><?php echo $gender;?></span>
-	                        </div>
-	                    </li> -->
 	                    <li>
 	                        <div class="md-list-content">
 	                            <span class="md-list-heading">Alamat</span>

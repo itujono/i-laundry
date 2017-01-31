@@ -310,7 +310,7 @@ class Order extends Admin_Controller {
 		} elseif ($data->statusORDER == 2) {
 			$status = 'Proses Pencucian';
 		}
-		$from_email = 'andhana@prowebmedia.org';
+		$from_email = 'no-reply@i-laundry.co.id';
         $subject = 'Pemberitahuan Pesanan Partner - i-Laundry';
         $word1 = 
         'kamu telah mendapatkan notifikasi pesanan/info terbaru pada <b>'.date("l, d F Y H:i:s").'</b>, berikut data:<br>

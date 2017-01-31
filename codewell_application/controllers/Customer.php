@@ -176,7 +176,7 @@ class Customer extends Frontend_Controller {
 	private function sendemailconfirmation($idCUSTOMER = NULL, $nameCUSTOMER = NULL, $emailCUSTOMER = NULL)
 	{
 
-		$from_email = 'andhana@prowebmedia.org'; //change this to yours
+		$from_email = 'no-reply@i-laundry.co.id'; //change this to yours
      	$idCODE = encode($idCUSTOMER);
         $subject = 'Konfirmasi Email - i-Laundry';
         $word1 = 'Tinggal sedikit lagi agar kamu bisa bergabung di i-Laundry. Silakan klik tautan di bawah ini dan akhiri perjalanan panjang baju kotormu.';
@@ -505,7 +505,7 @@ class Customer extends Frontend_Controller {
 
 	private function sendemailnotification($nameCUSTOMER = NULL, $emailCUSTOMER = NULL)
 	{
-		$from_email = 'andhana@prowebmedia.org';
+		$from_email = 'no-reply@i-laundry.co.id';
         $subject = 'Pemberitahuan Perubahan Kata sandi - i-Laundry';
         $word1 = 'Kami sangat menjaga dan menghargai privasi kamu oleh karena itu, kamu telah menerima email ini karena kamu baru saja merubah kata sandi kamu pada <b>'.date("l, d F Y H:i:s").'</b> oleh karena itu, apabila itu benar kamu, silahkan acuhkan email ini dan apabila itu bukan kamu, silakan secepatnya hubungi pihak kami di 0778 - 741XXXX Terima Kasih!.' ;
         $address = 'Komplek Permata Regency, Baloi, Batam - Indonesia';
@@ -778,7 +778,7 @@ class Customer extends Frontend_Controller {
 
 	private function sendemailnotificationreset($idCUSTOMER = NULL, $emailCUSTOMER = NULL, $nameCUSTOMER = NULL)
 	{
-		$from_email = 'andhana@prowebmedia.org'; //change this to yours
+		$from_email = 'no-reply@i-laundry.co.id'; //change this to yours
      	$idCODE = encode($idCUSTOMER);
         $subject = 'Konfirmasi Reset Kata sandi - i-Laundry';
         $word1 = 'Kami sangat menjaga dan menghargai privasi akun kamu oleh karena itu, kamu telah menerima email ini karena kamu baru saja mereset kata sandi kamu pada <b>'.date("l, d F Y H:i:s").'</b> Silakan klik link berikut untuk mereset kata sandi anda, Terima Kasih!.';
