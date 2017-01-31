@@ -209,7 +209,7 @@ var modal = UIkit.modal("#modal_idle", {
     }),
     session = {
         //Logout Settings
-        inactiveTimeout: 3000000,      //(ms) The time until we display a warning message
+        inactiveTimeout: 30000,      //(ms) The time until we display a warning message
         warningTimeout: 30000,      //(ms) The time until we log them out
         minWarning: 5000,           //(ms) If they come back to page (on mobile), The minumum amount, before we just log them out
         warningStart: null,         //Date time the warning was started
