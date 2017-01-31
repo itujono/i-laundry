@@ -6,7 +6,7 @@
 				<div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i></a></div>
 				<div class="center">Order</div>
 				<div class="right">
-					<!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+					<a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
 				</div>
 			</div>
 		</div>
@@ -19,28 +19,24 @@
 					<ul class="no-border">
 						<li>
 							<div class="item-content">
-		<!-- 								<div class="input-icon item-media">
-											<i class="flaticon-date"></i>
-										</div> -->
-										<div class="item-inner no-margin">
-											<div class="item-input">
-												<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
-											</div>
-										</div>
-
+<!-- 								<div class="input-icon item-media">
+									<i class="flaticon-date"></i>
+								</div> -->
+								<div class="item-inner no-margin">
+									<div class="item-input">
+										<input type="text" name="pickupdateORDER" placeholder="Kapan mau dijemput?" id="calendar-default" required>
 									</div>
-								</li>
-								<li>
-									<div class="item-content">
-		<!-- 								<div class="input-icon item-media">
-											<i class="flaticon-time"></i>
-										</div>
-									-->								<div class="item-inner no-margin">
+								</div>
+
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner no-margin">
 									<div class="item-input">
 										<input type="text" name="pickuptimeORDER" placeholder="Jam berapa?" id="picker-time" required>
 									</div>
 								</div>
-
 							</div>
 						</li>
 						<li class="align-top">
@@ -53,20 +49,18 @@
 											if(!empty($listregion)){
 												foreach ($listregion as $key => $region) {
 													?>
-													<option value="<?php echo $region->idREGION;?>"><?php echo $region->nameREGION;?></option>
-													<?php } ?>
-													<?php } ?>
-												</select>
-											</div>
-										</div>
+													<option value="<?php echo $region->idREGION;?>"><?php echo $region->nameREGION;?>
+											</option>
+											<?php } ?>
+											<?php } ?>
+										</select>
 									</div>
-								</li>
-								<li class="align-top">
-									<div class="item-content">
-		<!-- 								<div class="input-icon item-media">
-											<i class="flaticon-location-pin"></i>
-										</div>
-									-->								<div class="item-inner no-margin">
+								</div>
+							</div>
+						</li>
+						<li class="align-top">
+							<div class="item-content">
+								<div class="item-inner no-margin">
 									<div class="item-input">
 										<textarea name="pickupADDRESSORDERKOTOR" placeholder="Alamat penjemputan?" required></textarea>
 									</div>
@@ -90,25 +84,23 @@
 													<option value="<?php echo $package->idPACKAGE;?>" <?php echo $check;?>><?php echo $package->namePACKAGE;?></option>
 													<?php } ?>
 													<?php } ?>
-												</select>
-												<!-- <input type="text" placeholder="Mau paket yang mana?" readonly id="picker-paket"> -->
-											</div>
-										</div>
-
+										</select>
 									</div>
-								</li>
-								<li>
-									<div class="item-content">
-										<div class="item-inner no-margin">
-											<div class="item-input">
-												<select name="idAROMA" id="div_aroma">
-													<option value=''>Pilih Daerah kamu</option>
-												</select>
-												<!-- <input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma"> -->
-											</div>
-										</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="item-content">
+								<div class="item-inner no-margin">
+									<div class="item-input">
+										<select name="idAROMA" id="div_aroma">
+											<option value=''>Pilih Daerah kamu</option>
+										</select>
+										<!-- <input type="text" placeholder="Mau aroma apa?" readonly id="picker-aroma"> -->
 									</div>
-								</li>
+								</div>
+							</div>
+						</li>
 								<li>
 									<div class="item-content">
 										<div class="item-inner no-margin">
@@ -126,28 +118,27 @@
 															<option value="<?php echo $services->idSERVICES;?>" <?php echo $check;?>><?php echo $services->nameSERVICES;?></option>
 															<?php } ?>
 															<?php } ?>
-														</select>
-														<!-- <input type="text" placeholder="Mau service apa?" readonly id="picker-service"> -->
-													</div>
-												</div>
+												</select>
 											</div>
-										</li>
-										<li class="align-top">
-											<div class="item-content">
-												<div class="item-inner no-margin">
-													<div class="item-input">
-														<textarea name="notesORDER" placeholder="Ada catatan tambahan? (optional)"></textarea>
-													</div>
-												</div>
+										</div>
+									</div>
+								</li>
+								<li class="align-top">
+									<div class="item-content">
+										<div class="item-inner no-margin">
+											<div class="item-input">
+												<textarea name="notesORDER" placeholder="Ada catatan tambahan? (optional)"></textarea>
 											</div>
-										</li>
-									</ul>
-								</div>
-								<div class="margin-bottom-45 content-block">
-									<input type="submit" name="submit" class="button button-fill" value="Okay, order sekarang" />
-								</div>
-							</form>
+										</div>
+									</div>
+								</li>
+							</ul>
 						</div>
-					</div>
-				</div> <!-- kelar div Pages -->
+						<div class="margin-bottom-45 content-block">
+							<input type="submit" name="submit" class="button button-fill" value="Okay, order sekarang" />
+						</div>
+					</form>
+				</div> <!-- kelar Page-Content -->
+			</div>
+		</div> <!-- kelar div Pages -->
 
