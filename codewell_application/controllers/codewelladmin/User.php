@@ -131,18 +131,8 @@ class User extends Admin_Controller {
 	    $valid_attempts = $now - (2 * 60 * 60);
 
 	    $idloginadmin = $this->User_m->checkuseradmin($email)->row();
-	   
-	    if($idloginadmin->roleUSER == 22 OR $idloginadmin->roleUSER == 24){
-		    if(empty($idloginadmin)){
-		    	$data = array(
-		            'title' => 'Oops!',
-		            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
-		            'type' => 'danger'
-		        );
-		        $this->session->set_flashdata('message',$data);
-				redirect('codewelladmin/Login');
-		    }
-
+	    $idloginpartner = $this->Partner_m->checkuserpartner($email)->row();
+		if(!empty($idloginadmin)){
 		    $attempts = $this->Attempts_m->checkingbruteadmin($idloginadmin->idUSER,$valid_attempts);
 		    if($attempts  > 4){
 		    	return true;
@@ -150,25 +140,21 @@ class User extends Admin_Controller {
 		    	return false;
 		    }
 
-		} else {
-
-			$idloginpartner = $this->Partner_m->checkuserpartner($email)->row();
-			if(empty($idloginpartner)){
-		    	$data = array(
-		            'title' => 'Oops!',
-		            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
-		            'type' => 'danger'
-		        );
-		        $this->session->set_flashdata('message',$data);
-				redirect('codewelladmin/Login');
-		    }
-
+		} elseif(!empty($idloginpartner)) {
 		    $attempts_partner = $this->Attempts_m->checkingbrutepartner($idloginpartner->idPARTNER, $valid_attempts);
 		    if($attempts_partner  > 4){
 		    	return true;
 		    } else {
 		    	return false;
 		    }
+		} else {
+	    	$data = array(
+	            'title' => 'Oops!',
+	            'text' => 'Maaf, akun anda tidak terdaftar di data kami.',
+	            'type' => 'danger'
+	        );
+	        $this->session->set_flashdata('message',$data);
+			redirect('codewelladmin/Login');
 		}
 	}
 
