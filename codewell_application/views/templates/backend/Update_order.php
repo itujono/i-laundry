@@ -85,20 +85,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Waktu Antar<span class="req">*</span></label>
                     <?php
-                        $timedelivery = '';
-                        if(!empty($editorder->pickupfinishedtimeORDER))$timedelivery = $editorder->pickupfinishedtimeORDER;
+                        $disa = '';
+                        if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                     ?>
-                    <input class="md-input" type="text" name="pickupfinishedtimeORDER" id="uk_tp_1" data-uk-timepicker value="<?php echo $timedelivery;?>">
+                    <input class="md-input" type="text" name="pickupfinishedtimeORDER" id="uk_tp_1" data-uk-timepicker value="<?php echo $editorder->pickupfinishedtimeORDER;?>" <?php echo $disa;?>>
                 </div>
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
                     <?php
-                        if($editorder->pickupfinisheddateORDER != '0000-00-00') {
+                        $finish = date("Y-m-d");
+                        if($editorder->pickupfinisheddateORDER != '0000-00-00')$finish = $editorder->pickupfinisheddateORDER;
+                        $disa = '';
+                        if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                     ?>
-                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $editorder->pickupfinisheddateORDER;?>">
-                    <?php } else { ?>
-                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo date("Y-m-d");?>">
-                    <?php } ?>
+                    <input class="md-input" type="text" id="uk_dp_1" name="pickupfinisheddateORDER" data-uk-datepicker="{format:'YYYY-MM-DD'}" value="<?php echo $finish;?>" <?php echo $disa;?>>
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
@@ -113,8 +113,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php
                         $address = '';
                         if(!empty($editorder->pickupADDRESSORDERBERSIH))$address = $editorder->pickupADDRESSORDERBERSIH;
+                        $disa = '';
+                        if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                     ?>
-                    <textarea cols="30" rows="4" class="md-input" name="pickupADDRESSORDERBERSIH"><?php echo $address;?></textarea>
+                    <textarea cols="30" rows="4" class="md-input" name="pickupADDRESSORDERBERSIH" <?php echo $disa;?>><?php echo $address;?></textarea>
                 </div>
             </div>
             <div class="uk-grid" data-uk-grid-margin>
@@ -132,8 +134,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php
                         $berat = '';
                         if(!empty($editorder->beratORDER))$berat = $editorder->beratORDER;
+                        $disa = '';
+                        if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                         ?>
-                        <input type="text" class="md-input" name="beratORDER" placeholder="2 KG, 4 KG, 6 KG" value="<?php echo $berat;?>" >
+                        <input type="text" class="md-input" name="beratORDER" placeholder="2 KG, 4 KG, 6 KG" value="<?php echo $berat;?>" <?php echo $disa;?>>
                     </div>
                 </div>
                 <div class="uk-width-medium-1-2 uk-margin-top">
@@ -141,8 +145,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php
                         $price = '';
                         if(!empty($editorder->priceORDER))$price = $editorder->priceORDER;
+                        $disa = '';
+                        if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                     ?>
-                    <input class="md-input masked_input label-fixed" id="masked_currency" type="text" data-inputmask="'alias': 'currency', 'groupSeparator': '.', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'prefix': 'Rp. ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" name="priceORDER" value="<?php echo $price;?>" />
+                    <input class="md-input masked_input label-fixed" id="masked_currency" type="text" data-inputmask="'alias': 'currency', 'groupSeparator': '.', 'autoGroup': true, 'digits': 0, 'digitsOptional': false, 'prefix': 'Rp. ', 'placeholder': '0'" data-inputmask-showmaskonhover="false" name="priceORDER" value="<?php echo $price;?>" <?php echo $disa;?>>
                 </div>
             </div>
             <?php

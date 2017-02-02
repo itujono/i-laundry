@@ -38,7 +38,7 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} elseif($value->statusORDER == 9){
-						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin/partner</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -71,7 +71,7 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} elseif($value->statusORDER == 9){
-						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin/partner</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -104,7 +104,7 @@ class Order extends Admin_Controller {
 					} elseif($value->statusORDER == 8){
 						$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 					} elseif($value->statusORDER == 9){
-						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
+						$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin/partner</span>';
 					} else {
 						$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 					}
@@ -159,7 +159,7 @@ class Order extends Admin_Controller {
 			} elseif($detailorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 			} elseif($detailorder->statusORDER == 9){
-				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
+				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin/partner</span>';
 			} else {
 				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
@@ -227,7 +227,7 @@ class Order extends Admin_Controller {
 			} elseif($editorder->statusORDER == 8){
 				$status='<span class="uk-badge uk-badge-warning">Menunggu pembayaran pelanggan</span>';
 			} elseif($editorder->statusORDER == 9){
-				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin</span>';
+				$status='<span class="uk-badge uk-badge-danger">Pesanan dibatalkan oleh admin/partner</span>';
 			} else {
 				$status='<span class="uk-badge uk-badge-danger">Pembayaran ditolak</span>';
 			}
