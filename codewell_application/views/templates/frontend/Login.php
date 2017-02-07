@@ -22,7 +22,7 @@
 						<div class="input-icon item-media"><i class="flaticon-email"></i></div>
 						<div class="item-inner no-margin">
 						  <div class="item-input">
-							<input type="email" name="email" placeholder="Ketik e-mail kamu" required="" data-parsley-trigger="change">
+							<input type="email" name="email" placeholder="Ketik e-mail kamu" required="">
 						  </div>
 						</div>
 					  </div>
@@ -43,7 +43,7 @@
 				<div class="row btn-form-group margin-bottom-10">
 					<div class="col-100">
 						<!-- <a href="restaurants.html" class="button login-btn block">Login</a> -->
-						<input type="submit" name="submit" class="button login-btn block" value="Login"/>
+						<input type="submit" id="submit-login" name="submit" class="button login-btn block" value="Login"/>
 					</div>
 				</div>
 				<div class="text-center margin-bottom-15">

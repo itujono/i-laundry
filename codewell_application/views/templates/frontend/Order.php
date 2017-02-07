@@ -14,7 +14,7 @@
 
 			<div class="page-top-cover reservation-cover"></div>
 			<div class="text-medium margin-top-15">Mau nyuci sekarang? <br> Isi form di bawah ini ya</div>
-			<form method="POST" action="<?php echo base_url();?>Order/confirmation_order">
+			<form method="POST" action="<?php echo base_url();?>Order/confirmation_order" class="store-data" id="order-form">
 				<div class="list-block margin-bottom-40 booking-form">
 					<ul class="no-border">
 						<li>
