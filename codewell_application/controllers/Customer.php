@@ -14,6 +14,8 @@ class Customer extends Frontend_Controller {
         if(!empty($this->session->userdata('idCUSTOMER')))redirect('order');
 		if (!is_null($this->session->flashdata('message'))) {
         	$data['message'] = $this->session->flashdata('message');
+        } else {
+        	$data = '';
         }
 
 		$this->load->view($this->data['frontendDIR']. 'Login',$data);

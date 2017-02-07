@@ -22,7 +22,7 @@
 						<div class="input-icon item-media"><i class="flaticon-email"></i></div>
 						<div class="item-inner no-margin">
 						  <div class="item-input">
-							<input type="email" name="email" class="" placeholder="Ketik e-mail kamu" required>
+							<input type="email" name="email" placeholder="Ketik e-mail kamu" required="" data-parsley-trigger="change">
 						  </div>
 						</div>
 					  </div>
@@ -32,7 +32,7 @@
 						<div class="input-icon item-media"><i class="flaticon-key"></i></div>
 						<div class="item-inner no-margin">
 						  <div class="item-input">
-							<input type="password" name="password" class="" placeholder="Ketik password kamu" required>
+							<input type="password" name="password" class="" placeholder="Ketik password kamu" required="" pattern="^\S{8,}$" pattern="^\S{8,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Minimal 8 karakter' : '')">
 						  </div>
 						</div>
 					  </div>
