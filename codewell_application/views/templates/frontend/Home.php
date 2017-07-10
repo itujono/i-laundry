@@ -144,18 +144,6 @@
             </div>
           </div>
         </li>
-        <!-- <li>
-          <div class="item-content">
-            <div class="item-media">
-              <i class="flaticon-star"></i>
-            </div>
-            <div class="item-inner no-margin">
-              <div class="item-title text-small">
-                <a href="pages-list.html"  class="close-panel">Pages</a>
-              </div>
-            </div>
-          </div>
-        </li> -->
         <li>
           <div class="item-content">
             <div class="item-media">

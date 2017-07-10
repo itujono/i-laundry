@@ -65,7 +65,7 @@ class Payment extends Frontend_Controller {
 		$transaction_data = array(
 			'payment_type' 			=> 'vtweb', 
 			'vtweb' 				=> array(
-				'enabled_payments' 		=> ['credit_card','mandiri_clickpay','bank_transfer','cstore','mandiri_ecash','indosat_dompetku','xl_tunai','telkomsel_cash','cimb_clicks']
+				'enabled_payments' 		=> ['credit_card','bank_transfer']
 				//'credit_card_3d_secure' => true
 			),
 			'transaction_details'=> $transaction_details,

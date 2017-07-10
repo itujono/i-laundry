@@ -116,7 +116,7 @@
 	</div>
 </div> <!-- kelar Views utama -->
 
-	<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/slick.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/framework7.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url().$this->data['asfront']; ?>js/my-app.js"></script>

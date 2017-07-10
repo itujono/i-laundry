@@ -93,8 +93,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="uk-width-medium-1-2 uk-margin-top">
                     <label for="Waktu Antar" class="uk-form-label">Tanggal Antar<span class="req">*</span></label>
                     <?php
-                        $finish = date("Y-m-d");
-                        if($editorder->pickupfinisheddateORDER != '0000-00-00')$finish = $editorder->pickupfinisheddateORDER;
+                        $finish = $editorder->pickupfinisheddateORDER;
+                        if($editorder->pickupfinisheddateORDER == '0000-00-00')$finish = date('Y-m-d');
                         $disa = '';
                         if($this->session->userdata('roleUSER') == 22)$disa = 'disabled';
                     ?>

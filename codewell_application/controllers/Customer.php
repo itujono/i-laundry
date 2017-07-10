@@ -752,7 +752,6 @@ class Customer extends Frontend_Controller {
 			redirect(base_url());
 		} else {
 			$checkemail = $this->Customer_m->checkemailcustomer($email)->row();
-
 			if(!empty($checkemail)){
 				$emailnotifreset = $this->sendemailnotificationreset($checkemail->idCUSTOMER, $checkemail->emailCUSTOMER, $checkemail->nameCUSTOMER);
 				if($emailnotifreset){
@@ -770,10 +769,11 @@ class Customer extends Frontend_Controller {
 				}
 			} else {
 				$data = array(
-	                    'text' => 'Maaf, email anda tidak terdaftar pada sistem kami, silakan masukkan kembali alamat email anda dengan benar, Terima kasih!'
-	                );
-	                $this->session->set_flashdata('message',$data);
-	                redirect('Home');
+                    'text' => 'Maaf, email anda tidak terdaftar pada sistem kami, silakan masukkan kembali alamat email anda dengan benar, Terima kasih!'
+                );
+
+                $this->session->set_flashdata('message',$data);
+                redirect('Home');
 			}
 		}
 	}
@@ -1004,7 +1004,6 @@ class Customer extends Frontend_Controller {
 
 	public function confirmresetpassword($id = NULL){
 		$idCUSTOMER = decode($id);
-		
 		if(empty($idCUSTOMER)){
 			redirect(base_url());
 		} else {
@@ -1092,53 +1091,36 @@ class Customer extends Frontend_Controller {
 
 			$email = decode($this->input->post('emailCUSTOMER'));
 			$filenameemail = str_replace(['@','.com','.','_','-'], ['','','','',''], $email);
-			
+
+			$data = $this->security->xss_clean($data);
 			$saveidCUSTOMER = $this->Customer_m->save($data, $id);
 			
 			if($saveidCUSTOMER != NULL) $Pic = $saveidCUSTOMER;
 
-			$files = $_FILES['imgCUSTOMER'];
 			$path = 'assets/upload/profile/'.folderENCRYPT($Pic);
-			$map = directory_map($path, FALSE, TRUE);
-
-			if(!empty($_FILES['imgCUSTOMER']['name'])){
-				foreach ($map as $value) {
-					unlink($path.'/'.$value);
-				}
-			}
 
 			if (!file_exists( $path )){
             	mkdir($path, 0777, true);
         	}
 
 			$config['upload_path']          = $path;
-	      	$config['allowed_types']        = 'gif|jpg|png|jpeg';
-	      	//$config['max_size']             = 2048;
+	      	$config['allowed_types']        = 'jpg|png|jpeg';
 	      	$config['overwrite']             = TRUE;
-	      	$config['file_name']             = 'Profil '.$filenameemail;
+	      	$config['file_name']             = 'Profil '.$this->security->sanitize_filename($filenameemail);
 
 	      	$this->upload->initialize($config);
-
 	      	if ($this->upload->do_upload('imgCUSTOMER')) {
 
 				$data['uploads'] = $this->upload->data();
 	        	$data = array(
-	            'text' => 'Data kamu telah berhasil dirubah.'
-	          );
+	            	'text' => 'Data kamu telah berhasil dirubah.'
+	          	);
 	   		} else {
-
-   			if ($_FILES['imgCUSTOMER']['error'] != 4) {
    				
-					$data['upload_errors'] = $this->upload->display_errors();
-					$data = array(
-						'text' => $data['upload_errors']
-						);
-				} else {
-
-					$data = array(
-						'text' => 'Data kamu telah berhasil dirubah.',
-						);
-				}
+				$data['upload_errors'] = $this->upload->display_errors();
+				$data = array(
+					'text' => $data['upload_errors']
+					);
       		}
 	    	$this->session->set_flashdata('message', $data);
 	  		redirect('Home');

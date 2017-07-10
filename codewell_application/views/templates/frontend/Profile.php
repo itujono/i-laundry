@@ -13,6 +13,7 @@
 			
 			<div class="page-top-cover reservation-cover"></div>
 			<div class="text-medium margin-top-15">Mau edit detail profile kamu? <br> Isi form di bawah ini ya</div>
+			<form enctype="multipart/form-data" method="POST" action="<?php echo base_url();?>customer/updatecustomer">
 			<div class="user-avatar">
 			<?php
 				if(!empty($profile->imageCUSTOMER)){
@@ -24,10 +25,9 @@
 				<img src="<?php echo $img;?>" title="Avatar <?php echo $profile->nameCUSTOMER;?>"/>
 				<label class="img-container" for="imgfile">
 					Ubah avatarmu...
-					<input type="file" name="imgCUSTOMER"/>
+					<input type="file" name="imgCUSTOMER" accept="image/x-png,image/x-jpg,image/jpeg"/>
 				</label>
 			</div>
-			<form enctype="multipart/form-data" method="POST" action="<?php echo base_url();?>customer/updatecustomer">
 				<div class="list-block margin-bottom-40 booking-form">
 				  	<ul class="no-border">
 				  		<input readonly type="hidden" name='idCUSTOMER' value="<?php echo encode($profile->idCUSTOMER);?>"/>

@@ -167,7 +167,7 @@ class User extends Admin_Controller {
 
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
-			
+
 			$attemptslogin = $this->checkbrute($email);
 
 			if($attemptslogin == true){
