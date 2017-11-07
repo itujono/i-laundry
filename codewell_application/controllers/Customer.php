@@ -54,7 +54,7 @@ class Customer extends Frontend_Controller {
 
 			$email = $this->input->post('email');
 			$pass = $this->input->post('password');
-
+			
 			$attemptslogin = $this->checkbrute($email);
 			$countencrypt = strlen($this->User_m->hash($pass));
 
